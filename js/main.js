@@ -287,3 +287,100 @@
 
 })(jQuery);
 
+// home slider start
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    const pagination = document.querySelector('.pagination');
+    
+    let currentIndex = 0;
+    const itemCount = items.length;
+    
+    // Create pagination dots
+    // items.forEach((_, index) => {
+    //     const dot = document.createElement('div');
+    //     dot.classList.add('pagination-dot');
+    //     if (index === currentIndex) dot.classList.add('active');
+    //     dot.addEventListener('click', () => {
+    //         goToSlide(index);
+    //     });
+    //     pagination.appendChild(dot);
+    // });
+    
+    // const dots = document.querySelectorAll('.pagination-dot');
+    
+    // Update carousel position
+    function updateCarousel() {
+        carousel.style.transform = `translateY(-${currentIndex * 100}%)`;
+        
+        // Update active dot
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+    
+    // Next slide
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % itemCount;
+        updateCarousel();
+    }
+    
+    // Previous slide
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+        updateCarousel();
+    }
+    
+    // Event listeners for buttons
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+    
+    // Optional: Auto-advance slides
+    let autoSlideInterval = setInterval(nextSlide, 3000);
+    
+    // Pause auto-slide on hover
+    carousel.parentElement.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+    });
+    
+    carousel.parentElement.addEventListener('mouseleave', () => {
+        autoSlideInterval = setInterval(nextSlide, 3000);
+    });
+    
+    // Optional: Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowUp') {
+            prevSlide();
+        } else if (e.key === 'ArrowDown') {
+            nextSlide();
+        }
+    });
+});
+// home slider end
+
+
+
+// latest update slider start
+
+  $(document).ready(function () {
+      $('.section-carousel').owlCarousel({
+        items: 1,
+        loop: true,
+        margin: 30,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        nav: true,
+        dots: true,
+        animateOut: 'fadeOut'
+      });
+    });
+
+// latest update slider end
