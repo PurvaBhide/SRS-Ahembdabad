@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css/category.css">
     <link rel="stylesheet" href="css/css/slider.css">
   </head>
   <body>
@@ -251,60 +252,118 @@
     	</div>
     </section>
 
-    <section class="ftco-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Latest Donations</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_1.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$300</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_2.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$150</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_3.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$250</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
+   <section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-12 text-center">
+        <div class="category-nav">
+          <a href="#" class="category-link active" data-category="all">
+            <i class="fas fa-layer-group me-2"></i> All
+          </a>
+          <a href="#" class="category-link" data-category="infrastructure">
+            <i class="fas fa-building me-2"></i> Infrastructure
+          </a>
+          <a href="#" class="category-link" data-category="social">
+            <i class="fas fa-hands-helping me-2"></i> Social
+          </a>
+          <a href="#" class="category-link" data-category="communities">
+            <i class="fas fa-users me-2"></i> Communities
+          </a>
+          <a href="#" class="category-link" data-category="resources">
+            <i class="fas fa-cogs me-2"></i> Resources
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="row">
+      <!-- Infrastructure Projects -->
+      <div class="col-md-4 d-flex ftco-animate project-card" data-category="infrastructure">
+        <div class="blog-entry align-self-stretch">
+          <a href="#" class="block-20" style="background-image: url('images/event-1.jpg');"></a>
+          <div class="text p-4 d-block">
+            <h3 class="heading mb-4"><a href="#">School Infrastructure</a></h3>
+            <p>Building better educational facilities for children in rural areas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex ftco-animate project-card" data-category="infrastructure">
+        <div class="blog-entry align-self-stretch">
+          <a href="#" class="block-20" style="background-image: url('images/event-2.jpg');"></a>
+          <div class="text p-4 d-block">
+            <h3 class="heading mb-4"><a href="#">Healthcare Centers</a></h3>
+            <p>Establishing medical facilities in underserved communities.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Projects -->
+      <div class="col-md-4 d-flex ftco-animate project-card" data-category="social">
+        <div class="blog-entry align-self-stretch">
+          <a href="#" class="block-20" style="background-image: url('images/event-3.jpg');"></a>
+          <div class="text p-4 d-block">
+            <h3 class="heading mb-4"><a href="#">Education for All</a></h3>
+            <p>Providing scholarships and learning opportunities for children.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex ftco-animate project-card" data-category="social">
+        <div class="blog-entry align-self-stretch">
+          <a href="#" class="block-20" style="background-image: url('images/event-1.jpg');"></a>
+          <div class="text p-4 d-block">
+            <h3 class="heading mb-4"><a href="#">Food Security Program</a></h3>
+            <p>Ensuring nutrition and food security for vulnerable families.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Communities Projects -->
+      <div class="col-md-4 d-flex ftco-animate project-card" data-category="communities">
+        <div class="blog-entry align-self-stretch">
+          <a href="#" class="block-20" style="background-image: url('images/event-2.jpg');"></a>
+          <div class="text p-4 d-block">
+            <h3 class="heading mb-4"><a href="#">Community Centers</a></h3>
+            <p>Building hubs for social activities and skill development.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex ftco-animate project-card" data-category="communities">
+        <div class="blog-entry align-self-stretch">
+          <a href="#" class="block-20" style="background-image: url('images/event-3.jpg');"></a>
+          <div class="text p-4 d-block">
+            <h3 class="heading mb-4"><a href="#">Environmental Initiatives</a></h3>
+            <p>Green programs including tree plantation and conservation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources Projects -->
+      <div class="col-md-4 d-flex ftco-animate project-card" data-category="resources">
+        <div class="blog-entry align-self-stretch">
+          <a href="#" class="block-20" style="background-image: url('images/event-1.jpg');"></a>
+          <div class="text p-4 d-block">
+            <h3 class="heading mb-4"><a href="#">Digital Literacy</a></h3>
+            <p>Computer training to bridge the digital divide in communities.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex ftco-animate project-card" data-category="resources">
+        <div class="blog-entry align-self-stretch">
+          <a href="#" class="block-20" style="background-image: url('images/event-2.jpg');"></a>
+          <div class="text p-4 d-block">
+            <h3 class="heading mb-4"><a href="#">Skill Development</a></h3>
+            <p>Vocational training for better employment opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="ftco-gallery">
     	<div class="d-md-flex">
@@ -516,6 +575,33 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const categoryLinks = document.querySelectorAll('.category-link');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Remove active class from all and set to clicked one
+      categoryLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+
+      const selectedCategory = this.getAttribute('data-category');
+
+      projectCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        
+        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+});
+</script>
   </body>
 </html>
