@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Welfare - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css/fundwiseidea.css">
+    <link rel="stylesheet" href="css/css/slider.css">
+    <!-- Font Awesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    
+</head>
+<body>
+    <header>
+<div class="top-container">
+<div class="topbar-left">
+Amdavad Municipal Corporation
+</div>
+<div class="topbar-right">  
+ <div class="" style="background: none; border-right: 1px solid #fff; padding-right: 20px;">
+  <select style="background: none; border: none; color: #1d1d1d; font-size: 16px; padding: 5px;" id="language-select" onchange="location = this.value;">
+    <option value="en">English</option>
+    <option value="gu">ગુજરાતી</option>
+    <option value="hi">हिंदी</option>
+  </select>
+ </div>
+
+ <div style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i class="icon-facebook"></i> <i class="icon-twitter"></i><i class="icon-instagram"></i> <i class="icon-youtube"></i></a>
+ </div>
+</div>
+</header>
+<div id="google_translate_element"></div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top custom-navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="./images/amcLogo.png" alt="Logo" style="height: 60px;" class="mr-2">
+    </a>
+    <!-- Toggler for Mobile -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+      aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto text-center">
+        <li class="nav-item active custom-tab">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown custom-tab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            References
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">BMC Documentation for CSR</a>
+            <a class="dropdown-item" href="#section-letestupdate">Latest Updates</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown custom-tab">
+          <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            For Corporates / Individuals
+          </a>
+          <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+            <a class="dropdown-item" href="#section-letestproject">Projects Open For Collaboration</a>
+            <a class="dropdown-item" href="./fundownidea.html">Fund An Idea</a>
+            <a class="dropdown-item" href="#section-completedprojects">Completed Projects</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <!-- END nav -->
+    <div class="container">
+        
+        <div style=" justify-self:center;margin: 10px;">
+            <h2>Corporates to raise their own request</h2>
+            <p>Submit your project proposal in just a few simple steps</p>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-steps">
+                <div class="step active" id="step1">01</div>
+                <div class="step-connector" id="connector1"></div>
+                <div class="step inactive" id="step2">02</div>
+            </div>
+        </div>
+        
+        <div class="form-container" style="background-color: rgb(253, 250, 246); border-radius: 50px; margin-bottom: 5rem;">
+            <!-- Step 1: Project Details -->
+            <div class="form-step active" id="formStep1">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectNature">Nature Of The Project <span class="required">*</span></label>
+                        <select id="projectNature" required>
+                            <option value="">Nature Of The Project</option>
+                            <option value="education">Education</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="environment">Environment</option>
+                            <option value="infrastructure">Infrastructure</option>
+                            <option value="water-sanitation">Water & Sanitation</option>
+                            <option value="skill-development">Skill Development</option>
+                        </select>
+                        <div class="error-message" id="projectNatureError">Please select the nature of the project</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projectName">Name Of The Project <span class="required">*</span></label>
+                        <input type="text" id="projectName" placeholder="Enter the Name Of The Project" required>
+                        <div class="error-message" id="projectNameError">Please enter the project name</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location <span class="required">*</span></label>
+                        <input type="text" id="location" placeholder="Enter the Location of the project" required>
+                        <div class="error-message" id="locationError">Please enter the project location</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ward">Ward <span class="required">*</span></label>
+                        <select id="ward" required>
+                            <option value="">Select The Ward</option>
+                            <option value="ward1">Ward 1</option>
+                            <option value="ward2">Ward 2</option>
+                            <option value="ward3">Ward 3</option>
+                            <option value="ward4">Ward 4</option>
+                            <option value="ward5">Ward 5</option>
+                        </select>
+                        <div class="error-message" id="wardError">Please select a ward</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectDoc">Project Document (Optional Max 500 Words)</label>
+                        <div class="file-input-container">
+                            <input type="file" id="projectDoc" class="file-input" accept=".pdf,.doc,.docx">
+                            <label for="projectDoc" class="file-input-label" id="fileLabel">
+                                📁 Choose File - No file chosen
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="department">Department Name <span class="required">*</span></label>
+                        <input type="text" id="department" placeholder="Enter the Department Name" required>
+                        <div class="error-message" id="departmentError">Please enter the department name</div>
+                    </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="estimatedImpact">Estimated Impact (upto 500 words)</label>
+                    <textarea id="estimatedImpact" placeholder="Describe the estimated impact of your project..."></textarea>
+                </div>
+            </div>
+            
+            <!-- Step 2: Organization Details -->
+            <div class="form-step" id="formStep2">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="orgName">Name Of The Organisation <span class="required">*</span></label>
+                        <input type="text" id="orgName" placeholder="Enter the Name Of The Organisation" required>
+                        <div class="error-message" id="orgNameError">Please enter the organization name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Id <span class="required">*</span></label>
+                        <input type="email" id="email" placeholder="Enter your Email Id" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                        <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactPerson">Contact Person Name <span class="required">*</span></label>
+                        <input type="text" id="contactPerson" placeholder="Enter Contact Person's Name" required>
+                        <div class="error-message" id="contactPersonError">Please enter the contact person's name</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="estimatedAmount">Estimated Amount (Agency) <span class="required">*</span></label>
+                    <input type="number" id="estimatedAmount" placeholder="Enter the Estimated Amount" required>
+                    <div class="error-message" id="estimatedAmountError">Please enter the estimated amount</div>
+                </div>
+            </div>
+            
+            <!-- Success Message -->
+            <div class="form-step" id="successStep">
+                <div class="success-message">
+                    <div class="success-icon">✅</div>
+                    <h2>Request Submitted Successfully!</h2>
+                    <p>Thank you for your submission. We will review your project proposal and get back to you within 3-5 business days.</p>
+                    <button class="btn btn-primary" onclick="resetForm()">Submit Another Request</button>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" class="btn btn-secondary" id="backBtn" onclick="previousStep()" style="display: none;">BACK</button>
+                <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">NEXT</button>
+                <button type="button" class="btn btn-success" id="submitBtn" onclick="submitForm()" style="display: none;">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 2;
+        
+        function updateStepIndicators() {
+            for (let i = 1; i <= totalSteps; i++) {
+                const step = document.getElementById(`step${i}`);
+                const connector = document.getElementById(`connector${i}`);
+                
+                if (i < currentStep) {
+                    step.className = 'step completed';
+                    if (connector) connector.className = 'step-connector completed';
+                } else if (i === currentStep) {
+                    step.className = 'step active';
+                } else {
+                    step.className = 'step inactive';
+                    if (connector) connector.className = 'step-connector';
+                }
+            }
+        }
+        
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+            
+            // Show current step
+            if (step <= totalSteps) {
+                document.getElementById(`formStep${step}`).classList.add('active');
+            } else {
+                document.getElementById('successStep').classList.add('active');
+            }
+            
+            // Update buttons
+            const backBtn = document.getElementById('backBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (step === 1) {
+                backBtn.style.display = 'none';
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            } else if (step === totalSteps) {
+                backBtn.style.display = 'block';
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            } else if (step > totalSteps) {
+                backBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'none';
+            }
+        }
+        
+        function validateStep(step) {
+            let isValid = true;
+            
+            if (step === 1) {
+                const fields = ['projectNature', 'projectName', 'location', 'ward', 'department'];
+                fields.forEach(field => {
+                    const element = document.getElementById(field);
+                    const errorElement = document.getElementById(field + 'Error');
+                    
+                    if (!element.value.trim()) {
+                        errorElement.style.display = 'block';
+                        element.style.borderColor = '#e74c3c';
+                        isValid = false;
+                    } else {
+                        errorElement.style.display = 'none';
+                        element.style.borderColor = '#e9ecef';
+                    }
+                });
+            } else if (step === 2) {
+                const fields = ['orgName', 'email', 'phone', 'contactPerson', 'estimatedAmount'];
+                fields.forEach(field => {
+                    const element = document.getElementById(field);
+                    const errorElement = document.getElementById(field + 'Error');
+                    
+                    if (!element.value.trim()) {
+                        errorElement.style.display = 'block';
+                        element.style.borderColor = '#e74c3c';
+                        isValid = false;
+                    } else {
+                        errorElement.style.display = 'none';
+                        element.style.borderColor = '#e9ecef';
+                    }
+                });
+                
+                // Email validation
+                const email = document.getElementById('email');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (email.value && !emailRegex.test(email.value)) {
+                    document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                    document.getElementById('emailError').style.display = 'block';
+                    email.style.borderColor = '#e74c3c';
+                    isValid = false;
+                }
+                
+                // Phone validation
+                const phone = document.getElementById('phone');
+                const phoneRegex = /^[0-9]{10}$/;
+                if (phone.value && !phoneRegex.test(phone.value.replace(/\D/g, ''))) {
+                    document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number';
+                    document.getElementById('phoneError').style.display = 'block';
+                    phone.style.borderColor = '#e74c3c';
+                    isValid = false;
+                }
+            }
+            
+            return isValid;
+        }
+        
+        function nextStep() {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                showStep(currentStep);
+                updateStepIndicators();
+            }
+        }
+        
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+                updateStepIndicators();
+            }
+        }
+        
+        function submitForm() {
+            if (validateStep(currentStep)) {
+                // Simulate form submission
+                const submitBtn = document.getElementById('submitBtn');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    currentStep = totalSteps + 1;
+                    showStep(currentStep);
+                    updateStepIndicators();
+                }, 2000);
+            }
+        }
+        
+        function resetForm() {
+            currentStep = 1;
+            document.querySelectorAll('input, select, textarea').forEach(field => {
+                field.value = '';
+                field.style.borderColor = '#e9ecef';
+            });
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+            });
+            document.getElementById('fileLabel').textContent = '📁 Choose File - No file chosen';
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('submitBtn').textContent = 'SUBMIT';
+            showStep(currentStep);
+            updateStepIndicators();
+        }
+        
+        // File input handler
+        document.getElementById('projectDoc').addEventListener('change', function() {
+            const label = document.getElementById('fileLabel');
+            if (this.files.length > 0) {
+                label.textContent = `📁 ${this.files[0].name}`;
+                label.classList.add('file-selected');
+            } else {
+                label.textContent = '📁 Choose File - No file chosen';
+                label.classList.remove('file-selected');
+            }
+        });
+        
+        // Initialize
+        updateStepIndicators();
+    </script>
+</body>
+</html>

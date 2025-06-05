@@ -1,0 +1,350 @@
+            
+        .progress-container {
+            background: white;
+            padding: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .step.active {
+            background: #e26b41;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(238, 152, 72, 0.2);
+        }
+        
+        .step.completed {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .step.inactive {
+            background: #ecf0f1;
+            color: #95a5a6;
+        }
+        
+        .step-connector {
+            width: 60px;
+            height: 2px;
+            background: #ecf0f1;
+            transition: all 0.3s ease;
+        }
+        
+        .step-connector.completed {
+            background: #27ae60;
+        }
+        
+        .form-container {
+            padding: 2.5rem;
+        }
+        
+        .form-step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 0.95em;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: #fdfdfd;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #e26b41;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+            background: white;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .file-input-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-input {
+            position: absolute;
+            left: -9999px;
+        }
+        
+        .file-input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #6c757d;
+        }
+        
+        .file-input-label:hover {
+            background: #e9ecef;
+            border-color: #e26b41;
+            color: #e26b41;
+        }
+        
+        .file-selected {
+            background: #e8f5e8;
+            border-color: #27ae60;
+            color: #27ae60;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #e26b41 0%, #e26b41 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(236, 125, 61, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+            box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: #7f8c8d;
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85em;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 2rem;
+            color: #27ae60;
+        }
+        
+        .success-icon {
+            font-size: 4em;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 1.5rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .progress-container {
+                padding: 1.5rem;
+            }
+            
+            .progress-steps {
+                gap: 1rem;
+            }
+            
+            .step {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+            
+            .step-connector {
+                width: 40px;
+            }
+            
+            .form-container {
+                padding: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.3em;
+            }
+            
+            .progress-container {
+                padding: 1rem;
+            }
+            
+            .step {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9em;
+            }
+            
+            .step-connector {
+                width: 30px;
+            }
+            
+            .form-container {
+                padding: 1rem;
+            }
+            
+            input, select, textarea {
+                padding: 0.7rem;
+                font-size: 0.95em;
+            }
+            
+            .button-group {
+                margin-top: 1.5rem;
+                padding-top: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .progress-steps {
+                gap: 0.5rem;
+            }
+            
+            .step {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8em;
+            }
+            
+            .step-connector {
+                width: 25px;
+            }
+            
+            .header h1 {
+                font-size: 1.2em;
+            }
+            
+            .header p {
+                font-size: 0.9em;
+            }
+        }
+   
