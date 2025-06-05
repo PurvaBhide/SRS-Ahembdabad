@@ -9247,11 +9247,32 @@ justify-content: inline-block;
 }
 
 
+/* google trasnlate image */
+.goog-te-gadget img {
+       display: none;
+      
+}
 
+.goog-te-gadget-simple {
+    background-color: #ffffff00 !important;
+    border-left: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-right: none !important;
+    font-size: 10pt;
+    color: #fff !important;
+    display: inline-block;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    cursor: pointer;
+}
 
-
-
-
-
+.goog-te-gadget-simple span{
+  color: #fff !important;
+  /* color: #1d1d1d; */
+    font-size: 16px;
+    padding: 5px;
+    border-left: 1 px solid #fff;
+}
 
 
