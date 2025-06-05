@@ -146,16 +146,9 @@ Amdavad Municipal Corporation
                     </div>
                     
                     <div class="form-group">
-                        <label for="ward">Ward <span class="required">*</span></label>
-                        <select id="ward" required>
-                            <option value="">Select The Ward</option>
-                            <option value="ward1">Ward 1</option>
-                            <option value="ward2">Ward 2</option>
-                            <option value="ward3">Ward 3</option>
-                            <option value="ward4">Ward 4</option>
-                            <option value="ward5">Ward 5</option>
-                        </select>
-                        <div class="error-message" id="wardError">Please select a ward</div>
+                        <label for="department">Concerned Department (If Known) <span class="required">*</span></label>
+                        <input type="text" id="department" placeholder="Enter the Department Name" required>
+                        <div class="error-message" id="departmentError">Please enter the department name</div>
                     </div>
                 </div>
                 
@@ -169,12 +162,7 @@ Amdavad Municipal Corporation
                             </label>
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="department">Department Name <span class="required">*</span></label>
-                        <input type="text" id="department" placeholder="Enter the Department Name" required>
-                        <div class="error-message" id="departmentError">Please enter the department name</div>
-                    </div>
+                                    
                 </div>
                 
                 <div class="form-group full-width">
@@ -294,7 +282,7 @@ Amdavad Municipal Corporation
             let isValid = true;
             
             if (step === 1) {
-                const fields = ['projectNature', 'projectName', 'location', 'ward', 'department'];
+                const fields = ['projectNature', 'projectName', 'location',  'department'];
                 fields.forEach(field => {
                     const element = document.getElementById(field);
                     const errorElement = document.getElementById(field + 'Error');
