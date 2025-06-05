@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clean Water for Urban Area - Donation Details</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css/category.css">
+    <link rel="stylesheet" href="css/css/slider.css">
+    <!-- Font Awesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
     <style>
         * {
             margin: 0;
@@ -41,7 +67,7 @@
         }
         
         .back-btn {
-            background: #e74c3c;
+            background: #d16171;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -52,7 +78,7 @@
         }
         
         .back-btn:hover {
-            background: #c0392b;
+            background: #d16171;
             transform: translateY(-1px);
         }
         
@@ -91,10 +117,10 @@
         .project-hero {
             position: relative;
             height: 300px;
-            border-radius: 12px;
+            /* border-radius: 12px; */
             overflow: hidden;
             margin-bottom: 2rem;
-            background-image: url('https://images.unsplash.com/photo-1578662847394-4b2779b07602?w=800&h=400&fit=crop');
+            background-image: url('https://thecsrjournal.in/wp-content/uploads/2023/03/Water-and-Sanitation.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -133,7 +159,7 @@
         .meta-icon {
             width: 20px;
             height: 20px;
-            background: #e74c3c;
+            background: #d16171;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -159,24 +185,30 @@
             gap: 0;
         }
         
-        .tab-btn {
-            background: none;
-            border: none;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            font-weight: 500;
-            color: #7f8c8d;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
+     .tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: #202022;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    outline: none; /* Removes the black border */
+}
+
+.tab-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
         
         .tab-btn.active {
-            color: #e74c3c;
-            border-bottom-color: #e74c3c;
+            color: #d16171;
+            border-bottom-color: #d16171;
         }
         
         .tab-btn:hover {
-            color: #e74c3c;
+            color: #d16171;
         }
         
         .tab-content {
@@ -195,7 +227,10 @@
         }
         
         .stat-card {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            /* background: linear-gradient(135deg, #d16171 0%, #c0392b 100%); */
+          /* background: linear-gradient(135deg, #d16171 0%, rgb(60 231 120 / 40%) 100%);     */
+          /* background: linear-gradient(135deg, #f1d2e7 0%, #dacef7 0%, #c2daf1 100%); */
+          background-color: #d16171;
             color: white;
             padding: 1.5rem;
             border-radius: 12px;
@@ -238,7 +273,7 @@
         .raised-amount {
             font-size: 1.5em;
             font-weight: 700;
-            color: #e74c3c;
+            color: #d16171;
         }
         
         .target-amount {
@@ -255,7 +290,7 @@
         
         .progress-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+            background: linear-gradient(90deg, #d16171 0%, #d16171 100%);
             width: 50%;
             border-radius: 10px;
             transition: width 0.8s ease;
@@ -306,9 +341,9 @@
         
         .amount-btn:hover,
         .amount-btn.selected {
-            background: #e74c3c;
+            background: #d16171;
             color: white;
-            border-color: #e74c3c;
+            border-color: #d16171;
             transform: translateY(-2px);
         }
         
@@ -316,7 +351,7 @@
             width: 100%;
             padding: 1rem;
             border: 2px solid #e9ecef;
-            border-radius: 8px;
+            /* border-radius: 8px; */
             font-size: 1em;
             margin-bottom: 1.5rem;
             transition: border-color 0.3s ease;
@@ -324,15 +359,17 @@
         
         .custom-amount:focus {
             outline: none;
-            border-color: #e74c3c;
+            border-color: #d16171;
         }
         
         .donate-now-btn {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: white;
+            /* background: linear-gradient(135deg, #d16171 0%, #c0392b 100%); */
+          /* background: linear-gradient(135deg, #d16171 0%, rgb(60 231 120 / 40%) 100%);  */
+                       background-color: #d16171;
+          color: white;
             border: none;
             padding: 1.2rem 2rem;
-            border-radius: 8px;
+            /* border-radius: 8px; */
             font-size: 1.1em;
             font-weight: 600;
             cursor: pointer;
@@ -341,12 +378,12 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 4px 15px rgba(231, 60, 203, 0.3);
         }
         
         .donate-now-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 8px 25px rgba(231, 60, 217, 0.4);
         }
         
         .secure-badge {
@@ -386,8 +423,9 @@
         .donor-avatar {
             width: 35px;
             height: 35px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            border-radius: 50%;
+            background: linear-gradient(135deg, #d16171, #f1d2e7);
+            /* background: linear-gradient(135deg, #3498db, #2980b9); */
+            border-radius: 50%;  
             display: flex;
             align-items: center;
             justify-content: center;
@@ -412,7 +450,7 @@
         
         .donation-amount {
             font-weight: 600;
-            color: #e74c3c;
+            color: #d16171;
         }
         
         /* Responsive Design */
@@ -662,14 +700,80 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="header-content">
-                <button class="back-btn" onclick="goBack()">← Back to Projects</button>
-                <button class="share-btn" onclick="shareProject()">Share Project</button>
-            </div>
-        </div>
+     <header>
+<div class="top-container">
+<div class="topbar-left">
+Amdavad Municipal Corporation
+</div>
+<div class="topbar-right">  
+ <div class="" style="background: none; border-right: 1px solid #fff; padding-right: 20px;">
+  <select style="background: none; border: none; color: #1d1d1d; font-size: 16px; padding: 5px;" id="language-select" onchange="location = this.value;">
+    <option value="en">English</option>
+    <option value="gu">ગુજરાતી</option>
+    <option value="hi">हिंदी</option>
+  </select>
+ </div>
+
+ <div style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i class="icon-facebook"></i> <i class="icon-twitter"></i><i class="icon-instagram"></i> <i class="icon-youtube"></i></a>
+ </div>
+</div>
+</header>
+<div id="google_translate_element"></div>
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top custom-navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="./images/amcLogo.png" alt="Logo" style="height: 60px;" class="mr-2">
+    </a>
+    <!-- Toggler for Mobile -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+      aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto text-center">
+        <li class="nav-item active custom-tab">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown custom-tab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            References
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">BMC Documentation for CSR</a>
+            <a class="dropdown-item" href="#">Latest Updates</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown custom-tab">
+          <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            For Corporates / Individuals
+          </a>
+          <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+            <a class="dropdown-item" href="#">Projects Open For Collaboration</a>
+            <a class="dropdown-item" href="#">Fund An Idea</a>
+            <a class="dropdown-item" href="index.html#section-letestupdate">Completed Projects</a>
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+    <!-- <div class="header"> -->
+        <!-- <div class="container"> -->
+            <div class="header-content" style="margin: 20px;">
+                <button class="back-btn" onclick="goBack()">← Back to Projects</button>
+               
+            </div>
+        <!-- </div> -->
+    <!-- </div> -->
 
     <div class="container">
         <div class="main-content">
@@ -687,10 +791,10 @@
                         <div class="meta-icon">👥</div>
                         <span>5,000+ people impacted</span>
                     </div>
-                    <div class="meta-item">
+                    <!-- <div class="meta-item">
                         <div class="meta-icon">⏰</div>
                         <span>30 days remaining</span>
-                    </div>
+                    </div> -->
                     <div class="meta-item">
                         <div class="meta-icon">✅</div>
                         <span>Verified NGO</span>
@@ -740,10 +844,10 @@
                 
                 <div id="updates" class="tab-content">
                     <h3>Recent Updates</h3>
-                    <div style="border-left: 4px solid #e74c3c; padding-left: 1rem; margin: 1rem 0;">
+                    <div style="border-left: 4px solid #d16171; padding-left: 1rem; margin: 1rem 0;">
                         <strong>Week 2:</strong> Site surveys completed for 8 locations. Community meetings held to discuss placement and accessibility.
                     </div>
-                    <div style="border-left: 4px solid #e74c3c; padding-left: 1rem; margin: 1rem 0;">
+                    <div style="border-left: 4px solid #d16171; padding-left: 1rem; margin: 1rem 0;">
                         <strong>Week 1:</strong> Project officially launched with 45% funding secured. Equipment procurement initiated.
                     </div>
                 </div>
@@ -772,59 +876,22 @@
                     </div>
                     <div class="donation-stats">
                         <span><strong>156</strong> supporters</span>
-                        <span><strong>30</strong> days left</span>
+                        <!-- <span><strong>30</strong> days left</span> -->
                     </div>
                 </div>
                 
                 <div class="donation-amounts">
-                    <button class="amount-btn" onclick="selectAmount(500)">₹500</button>
-                    <button class="amount-btn" onclick="selectAmount(1000)">₹1,000</button>
-                    <button class="amount-btn" onclick="selectAmount(2500)">₹2,500</button>
-                    <button class="amount-btn" onclick="selectAmount(5000)">₹5,000</button>
+                    <button class="amount-btn" onclick="selectAmount(50000)">₹50000</button>
+                    <button class="amount-btn" onclick="selectAmount(100000)">₹1,00000</button>
+                    <button class="amount-btn" onclick="selectAmount(200000)">₹2,00000</button>
+                    <button class="amount-btn" onclick="selectAmount(500000)">₹5,00000</button>
                 </div>
                 
                 <input type="number" class="custom-amount" placeholder="Enter custom amount" id="customAmount">
                 
                 <button class="donate-now-btn" onclick="processDonation()">Donate Now</button>
                 
-                <div class="secure-badge">
-                    <span>🔒</span>
-                    <span>Secure & Verified</span>
-                </div>
-                
-                <div class="recent-donations">
-                    <h4>Recent Donations</h4>
-                    <div class="donation-item">
-                        <div class="donor-info">
-                            <div class="donor-avatar">A</div>
-                            <div class="donor-details">
-                                <div class="donor-name">Anonymous</div>
-                                <div class="donor-time">2 hours ago</div>
-                            </div>
-                        </div>
-                        <div class="donation-amount">₹2,500</div>
-                    </div>
-                    <div class="donation-item">
-                        <div class="donor-info">
-                            <div class="donor-avatar">R</div>
-                            <div class="donor-details">
-                                <div class="donor-name">Ravi S.</div>
-                                <div class="donor-time">5 hours ago</div>
-                            </div>
-                        </div>
-                        <div class="donation-amount">₹1,000</div>
-                    </div>
-                    <div class="donation-item">
-                        <div class="donor-info">
-                            <div class="donor-avatar">M</div>
-                            <div class="donor-details">
-                                <div class="donor-name">Meera K.</div>
-                                <div class="donor-time">1 day ago</div>
-                            </div>
-                        </div>
-                        <div class="donation-amount">₹500</div>
-                    </div>
-                </div>
+              
             </div>
         </div>
     </div>
@@ -885,7 +952,7 @@
                 // Reset button
                 setTimeout(() => {
                     btn.textContent = originalText;
-                    btn.style.background = 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';
+                    btn.style.background = 'linear-gradient(135deg, #d16171 0%, #c0392b 100%)';
                     btn.disabled = false;
                 }, 3000);
             }, 2000);
@@ -895,21 +962,7 @@
             window.history.back();
         }
         
-        function shareProject() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Clean Water for Urban Area',
-                    text: 'Help us provide clean water to families in need!',
-                    url: window.location.href
-                });
-            } else {
-                // Fallback for browsers that don't support Web Share API
-                const url = window.location.href;
-                navigator.clipboard.writeText(url).then(() => {
-                    alert('Project link copied to clipboard!');
-                });
-            }
-        }
+       
         
         // Custom amount input handler
         document.getElementById('customAmount').addEventListener('input', function() {
@@ -926,5 +979,14 @@
             }, 500);
         });
     </script>
+    <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {pageLanguage: 'en', includedLanguages: 'en,gu,mr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
