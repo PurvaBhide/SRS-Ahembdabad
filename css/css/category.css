@@ -9,23 +9,24 @@
 
   .category-link {
     padding: 10px 20px;
-    border: 2px solid #f5953b;
+    border: 2px solid #b8dc92;
     border-radius: 25px;
     text-decoration: none;
-    color: #333;
+    color: #314e12;
     font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
     transition: 0.3s;
   }
 
   .category-link.active,
   .category-link:hover {
-    background-color: #f5953b;
+    background-color: #b8dc92;
     color: white;
   }
 
   .category-link i {
     margin-right: 8px;
-    color: #f5953b;
+    color: #314e12;
   }
 
   .category-link.active i,
