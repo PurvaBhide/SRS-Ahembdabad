@@ -58,39 +58,43 @@ Amdavad Municipal Corporation
 
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-light shadow-sm sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top custom-navbar">
   <div class="container">
     <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center" href="index.html">
       <img src="./images/amcLogo.png" alt="Logo" style="height: 60px;" class="mr-2">
-      
     </a>
-
-    <!-- Toggler -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Toggler for Mobile -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+      aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Nav Links -->
+    <!-- Navigation Links -->
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto text-center">
-        <li class="nav-item active">
-          <a href="index.html" class="nav-link px-3" style="color: #1d1d1d; font-weight: 400;">Home</a>
+        <li class="nav-item active custom-tab">
+          <a class="nav-link" href="index.html">Home</a>
         </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link px-3" style="color: #1d1d1d; font-weight: 400;">About</a>
+        <li class="nav-item dropdown custom-tab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            References
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">BMC Documentation for CSR</a>
+            <a class="dropdown-item" href="#">Latest Updates</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a href="donate.html" class="nav-link px-3" style="color: #1d1d1d; font-weight: 400;">Donate</a>
-        </li>
-        <li class="nav-item">
-          <a href="gallery.html" class="nav-link px-3" style="color: #1d1d1d; font-weight: 400;">Gallery</a>
-        </li>
-        <li class="nav-item">
-          <a href="event.html" class="nav-link px-3" style="color: #1d1d1d; font-weight: 400;">Events</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link px-3" style="color: #1d1d1d; font-weight: 400;">Contact</a>
+        <li class="nav-item dropdown custom-tab">
+          <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            For Corporates / Individuals
+          </a>
+          <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+            <a class="dropdown-item" href="#">Projects Open For Collaboration</a>
+            <a class="dropdown-item" href="#">Fund An Idea</a>
+            <a class="dropdown-item" href="#">Completed Projects</a>
+          </div>
         </li>
       </ul>
     </div>

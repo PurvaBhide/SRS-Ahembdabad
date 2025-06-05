@@ -9214,7 +9214,37 @@ justify-content: inline-block;
       text-decoration: underline;
    }
 
+.custom-navbar .nav-link {
+  font-weight: 600;
+  padding: 10px 20px;
+  border-top: 3px solid transparent;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+}
 
+.custom-navbar .nav-item {
+  border-right: 1px solid #ddd;
+}
+
+.custom-navbar .nav-item:last-child {
+  border-right: none;
+}
+
+.custom-navbar .nav-item:hover .nav-link {
+    background-color: #fff;
+}
+
+
+.custom-navbar .dropdown-menu {
+  background-color: #fff;
+  border-radius: 0;
+  border: 1px solid #eee;
+}
+
+.custom-navbar .dropdown-item {
+  color: #333;
+  font-weight: 500;
+}
 
 
 
