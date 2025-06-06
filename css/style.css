@@ -31,8 +31,9 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "open-sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    /* --font-family-sans-serif: "open-sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
+ }
 
 *,
 *::before,
@@ -8283,7 +8284,16 @@ textarea.form-control {
 .ftco-footer {
   font-size: 16px;
   padding: 7em 0;
-  background: #252525; }
+  background-color: #67676f;
+  /* background-image: url('../images/amcLogo.png'); */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* background-size: contain; use cover if you want full fill */
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
@@ -9181,8 +9191,10 @@ textarea.form-control {
     .topbar-left {
       display: flex;
       align-items: center;
-      font-weight: 500;
-      width: 60%;
+      /* font-weight: 500; */
+      width: 60%; 
+      /* margin-left: 120px; */
+    font-size: 15px;
     }
 
     .topbar-flag {
@@ -9289,12 +9301,52 @@ justify-content: inline-block;
 }
 
 
-.carousel-text-overlay{
-  font-size: 2.5rem;
-    font-weight: 600;
-    color: #ffffff;
-    letter-spacing: 1px;
-    line-height: 1.3;
-        margin-bottom: 200px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+
+
+
+
+
+.carousel-item {
+    position: relative;
+    overflow: hidden;
+}
+.carousel-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Black with 40% opacity */
+    z-index: 5;
+}
+.carousel-text {
+    position: absolute;
+    width: 93%;
+    top: 37%;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 48px; /* Make it big */
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    text-shadow: 11px -1px 13px #a18f9a;
+    /* text-shadow: 10px 5px 10px rgba(0, 0, 0, 0.7); */
+    z-index: 10;
+    /* white-space: nowrap; Prevent text from breaking */
+}
+@media (max-width: 768px) {
+    .carousel-text {
+        font-size: 28px;
+        white-space: normal; /* Allow wrapping on small screens */
+        padding: 0 10px; /* Add some padding */
+    }
+}
+@media (max-width: 480px) {
+    .carousel-text {
+        font-size: 20px;
+    }
 }
