@@ -31,9 +31,9 @@
         select {
             padding: 12px 20px;
             border-radius: 8px;
-            border: 2px solid #f3813e;
+            border: 2px solid #b8dc92;
             background: white;
-            color: #333;
+            color: #28a745;
             font-size: 1em;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -42,12 +42,12 @@
         
         select:focus {
             outline: none;
-            border-color: #e26b41;
+            /* border-color: #e26b41; */
             box-shadow: 0 0 0 3px rgba(243, 129, 62, 0.1);
         }
         
         select:hover {
-            border-color: #e26b41;
+            border-color: #476328;
         }
         
         .projects {
@@ -56,12 +56,14 @@
             gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 20px ;
+            padding-bottom: 20px;
         }
         
         .card {
             background: white;
-            border-radius: 12px;
+            /* border-top-left-radius: 80px; */
+            border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             transition: all 0.3s ease;
@@ -70,6 +72,7 @@
         
         .card:hover {
             transform: translateY(-8px);
+              border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
         
@@ -125,10 +128,13 @@
         
         .card-content {
             padding: 20px;
+             background-color: #f4fcec;
+             border-top-left-radius: 500px;
+           
         }
         
         .tag {
-            background: #f3813e;
+            background: #b8dc92;
             color: white;
             font-size: 12px;
             font-weight: 600;
@@ -165,7 +171,7 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            color: #f3813e;
+            color: #b8dc92;
             font-size: 14px;
             text-decoration: none;
             font-weight: 600;
@@ -227,7 +233,7 @@
         
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #f3813e 0%, #e26b41 100%);
+            background: linear-gradient(90deg, #b1fb9e 0%, #9ff99a 100%);
             border-radius: 10px;
             transition: width 0.8s ease;
         }
@@ -273,6 +279,7 @@
             
             .card-content {
                 padding: 18px;
+                
             }
         }
         
@@ -291,6 +298,7 @@
             
             .card-content {
                 padding: 15px;
+               
             }
             
             .title {
