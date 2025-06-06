@@ -80,3 +80,10 @@
 .carousel-button.next {
     right: 10px;
 }
+
+@media only screen and (max-width:467px){
+    .carousel-container {
+    width: 100%;
+    height: 50vh;
+}
+}
