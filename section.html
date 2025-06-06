@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Projects Carousel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .ftco-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .heading-section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        /* Custom Carousel Styles */
+        .projects-carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 2rem;
+        }
+
+        .project-card {
+            flex: 0 0 350px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-image::before {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .project-title a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .project-title a:hover {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            color: #007bff;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #0056b3;
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+
+        .project-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Navigation Buttons */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .carousel-nav:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: -25px;
+        }
+
+        .carousel-nav.next {
+            right: -25px;
+        }
+
+        /* Pagination Dots */
+        .carousel-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 2rem;
+        }
+
+        .pagination-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination-dot.active {
+            background: #007bff;
+            transform: scale(1.3);
+        }
+
+        .pagination-dot:hover {
+            background: #007bff;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-card {
+                flex: 0 0 280px;
+            }
+            
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .carousel-nav.prev {
+                left: -20px;
+            }
+            
+            .carousel-nav.next {
+                right: -20px;
+            }
+            
+            .project-content {
+                padding: 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-card {
+                flex: 0 0 250px;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+        }
+
+        /* Animation classes */
+        .ftco-animate {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ftco-animate:nth-child(1) { animation-delay: 0.1s; }
+        .ftco-animate:nth-child(2) { animation-delay: 0.2s; }
+        .ftco-animate:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <section class="ftco-section bg-light" id="section-completedprojects">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section ftco-animate text-center">
+                    <h2 class="mb-4">Our Completed Projects</h2>
+                    <p>Discover the impactful projects we've successfully completed in partnership with communities and organizations.</p>
+                </div>
+            </div>
+
+            <div class="projects-carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Project Card 1 -->
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://media.istockphoto.com/id/1323734958/photo/swachh-bharat-mission-poster-on-the-wall-of-indian-government-school.jpg?s=612x612&w=0&k=20&c=GL6fkBmCYWteV9Bl8DcfgYbd_K0YmSM7SfOIv6kDc0g=');"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">
+                                <a href="blog-single.html">Swachh Bharat Mission</a>
+                            </h3>
+                            <p class="project-description">
+                                A comprehensive cleanliness and sanitation project that transformed local communities through education and infrastructure development.
+                            </p>
+                            <a href="blog-single.html" class="project-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://media.istockphoto.com/id/1396081097/photo/an-empty-indian-passenger-train-waiting-at-santragachi-railway-station.jpg?s=612x612&w=0&k=20&c=pzR2DUFWhFvkOvyNiRgm_AkBO2FRfnOb5WDCeyPE3i0=');"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">
+                                <a href="blog-single.html">Railway Infrastructure Enhancement</a>
+                            </h3>
+                            <p class="project-description">
+                                Modernization of railway stations and improved passenger facilities across multiple locations, enhancing connectivity and comfort.
+                            </p>
+                            <a href="blog-single.html" class="project-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://media.istockphoto.com/id/1288143432/photo/the-ancient-ruined-fort-in-jamnagar.jpg?s=612x612&w=0&k=20&c=xjKax-bAAknMJCukq-zyRchNYfNqZrYXOfA5w_eDa-o=');"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">
+                                <a href="blog-single.html">Heritage Conservation Project</a>
+                            </h3>
+                            <p class="project-description">
+                                Restoration and preservation of historical monuments and cultural heritage sites, maintaining their legacy for future generations.
+                            </p>
+                            <a href="blog-single.html" class="project-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&h=300&fit=crop');"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">
+                                <a href="blog-single.html">Education for All Initiative</a>
+                            </h3>
+                            <p class="project-description">
+                                Establishing schools and educational resources in underserved communities, empowering children with quality education opportunities.
+                            </p>
+                            <a href="blog-single.html" class="project-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1584515933487-779824d29309?w=500&h=300&fit=crop');"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">
+                                <a href="blog-single.html">Clean Water Access Program</a>
+                            </h3>
+                            <p class="project-description">
+                                Installation of water purification systems and wells in rural areas, ensuring access to clean and safe drinking water for all.
+                            </p>
+                            <a href="blog-single.html" class="project-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6 -->
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?w=500&h=300&fit=crop');"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">
+                                <a href="blog-single.html">Solar Energy Implementation</a>
+                            </h3>
+                            <p class="project-description">
+                                Deployment of solar panels and renewable energy solutions across communities, promoting sustainable and eco-friendly power generation.
+                            </p>
+                            <a href="blog-single.html" class="project-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button class="carousel-nav prev" onclick="slideCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav next" onclick="slideCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="carousel-pagination" id="carouselPagination">
+                <!-- Dots will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        class ProjectsCarousel {
+            constructor() {
+                this.track = document.getElementById('carouselTrack');
+                this.cards = document.querySelectorAll('.project-card');
+                this.pagination = document.getElementById('carouselPagination');
+                this.currentIndex = 0;
+                this.cardWidth = 350 + 32; // card width + gap
+                this.visibleCards = this.getVisibleCards();
+                this.maxIndex = Math.max(0, this.cards.length - this.visibleCards);
+                
+                this.init();
+            }
+
+            init() {
+                this.createPagination();
+                this.updateCarousel();
+                this.setupAutoSlide();
+                this.setupResize();
+            }
+
+            getVisibleCards() {
+                const containerWidth = this.track.parentElement.offsetWidth;
+                return Math.floor(containerWidth / this.cardWidth);
+            }
+
+            createPagination() {
+                this.pagination.innerHTML = '';
+                const totalDots = this.maxIndex + 1;
+                
+                for (let i = 0; i <= this.maxIndex; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('pagination-dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => this.goToSlide(i));
+                    this.pagination.appendChild(dot);
+                }
+            }
+
+            updateCarousel() {
+                const translateX = -this.currentIndex * this.cardWidth;
+                this.track.style.transform = `translateX(${translateX}px)`;
+                
+                // Update pagination
+                const dots = this.pagination.querySelectorAll('.pagination-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+
+            goToSlide(index) {
+                this.currentIndex = Math.max(0, Math.min(index, this.maxIndex));
+                this.updateCarousel();
+            }
+
+            slide(direction) {
+                if (direction > 0) {
+                    this.currentIndex = this.currentIndex >= this.maxIndex ? 0 : this.currentIndex + 1;
+                } else {
+                    this.currentIndex = this.currentIndex <= 0 ? this.maxIndex : this.currentIndex - 1;
+                }
+                this.updateCarousel();
+            }
+
+            setupAutoSlide() {
+                setInterval(() => {
+                    this.slide(1);
+                }, 5000); // Auto-slide every 5 seconds
+            }
+
+            setupResize() {
+                window.addEventListener('resize', () => {
+                    this.visibleCards = this.getVisibleCards();
+                    this.maxIndex = Math.max(0, this.cards.length - this.visibleCards);
+                    this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
+                    this.createPagination();
+                    this.updateCarousel();
+                });
+            }
+        }
+
+        // Global function for navigation buttons
+        let carousel;
+
+        function slideCarousel(direction) {
+            carousel.slide(direction);
+        }
+
+        // Initialize carousel when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            carousel = new ProjectsCarousel();
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0s';
+                    entry.target.classList.add('ftco-animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsToAnimate = document.querySelectorAll('.heading-section');
+            elementsToAnimate.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
