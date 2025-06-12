@@ -9,10 +9,10 @@
 
   .category-link {
     padding: 10px 20px;
-    border: 2px solid #b8dc92;
+    border: 2px solid #0A1E46;
     border-radius: 25px;
     text-decoration: none;
-    color: #314e12;
+    color: #0A1E46;
     font-weight: 500;
     font-family: 'Open Sans', sans-serif;
     transition: 0.3s;
@@ -20,13 +20,13 @@
 
   .category-link.active,
   .category-link:hover {
-    background-color: #b8dc92;
+    background-color: #0A1E46;
     color: white;
   }
 
   .category-link i {
     margin-right: 8px;
-    color: #314e12;
+    color: #0A1E46;
   }
 
   .category-link.active i,

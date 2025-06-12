@@ -31,9 +31,9 @@
         select {
             padding: 12px 20px;
             border-radius: 8px;
-            border: 2px solid #b8dc92;
+            border: 2px solid #0A1E46;
             background: white;
-            color: #28a745;
+            color: #0A1E46;
             font-size: 1em;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -43,11 +43,11 @@
         select:focus {
             outline: none;
             /* border-color: #e26b41; */
-            box-shadow: 0 0 0 3px rgba(243, 129, 62, 0.1);
+            box-shadow: 0 0 0 3px #88aefa;
         }
         
         select:hover {
-            border-color: #476328;
+            border-color: #0A1E46;
         }
         
         .projects {
@@ -128,13 +128,13 @@
         
         .card-content {
             padding: 20px;
-             background-color: #f4fcec;
+             background-color: #c0d5ff4d;
              border-top-left-radius: 500px;
            
         }
         
         .tag {
-            background: #b8dc92;
+            background: #0A1E46;
             color: white;
             font-size: 12px;
             font-weight: 600;
@@ -171,7 +171,7 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            color: #b8dc92;
+            color: #6a97f2;
             font-size: 14px;
             text-decoration: none;
             font-weight: 600;
@@ -180,7 +180,7 @@
         }
         
         .view-link:hover {
-            color: #e26b41;
+            color: #0055ff;
             transform: translateX(3px);
         }
         
@@ -217,7 +217,7 @@
         
         .raised-amount {
             font-weight: 600;
-            color: #27ae60;
+            color: #113f9d;
         }
         
         .target-amount {
@@ -233,7 +233,7 @@
         
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #b1fb9e 0%, #9ff99a 100%);
+            background: linear-gradient(90deg, #0A1E46 0%, #88aefa 100%);
             border-radius: 10px;
             transition: width 0.8s ease;
         }
