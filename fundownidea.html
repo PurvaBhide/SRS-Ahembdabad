@@ -35,6 +35,7 @@
 </head>
 
 <body>
+
   <header>
     <div class="top-container">
       <div class="topbar-left">
@@ -43,55 +44,144 @@
       <div class="topbar-right">
         <div id="google_translate_element"></div>
 
-        <div style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i
+        <div class="header-social-icons"
+          style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i
             class="icon-facebook"></i> <i class="icon-twitter"></i><i class="icon-instagram"></i> <i
             class="icon-youtube"></i></a>
         </div>
       </div>
-  </header>
 
-  <nav class="navbar navbar-expand-lg navbar-light  shadow  bg-white rounded sticky-top custom-navbar">
-    <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="./images/amcLogo.png" alt="Logo" style="height: 70px;">
-      </a>
-      <!-- Toggler for Mobile -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Navigation Links -->
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto text-center">
-          <li class="nav-item active custom-tab">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
+  </header>
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="./images/amcLogo.png" class="amd-logo" alt="Logo">
+      <img src="./images/amc logo.png" class="amd-name" alt="Logo">
+      <img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo">
+    </a>
+  </div>
+
+   <!-- nav start -->
+ <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar" style="border-radius: 0px !important;">
+  <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav"
+    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
+
+  <li class="nav-item active dropdown custom-tab">
+  <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    onclick="window.location.href='./index.html'; return false;">
+    Home
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li class="dropdown-submenu">
+      <a class="dropdown-item dropdown-toggle" href="#">About AMC CSR</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="overview.html">Overview</a></li>
+        <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+        <li><a class="dropdown-item" href="#">Objectives</a></li>
+        <li><a class="dropdown-item" href="#">Governing Body</a></li>
+        <li><a class="dropdown-item" href="#">Advisory Body</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>
+          <!-- <li class="nav-item active dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">About AMC CSR</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Overview</a></li>
+                  <li><a class="dropdown-item" href="#">Mission</a></li>
+                  <li><a class="dropdown-item" href="#">Objectives</a></li>
+                  <li><a class="dropdown-item" href="#">Governing Body</a></li>
+                  <li><a class="dropdown-item" href="#">Advisory Body</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li> -->
+
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              References
+              Important Links
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Ahmedabad Documentation for CSR</a>
-              <a class="dropdown-item" href="index.html#section-letestupdate">Latest Updates</a>
-            </div>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- download tab -->
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Download</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="#">Final accounts</a></li>
+                  <li><a class="dropdown-item" href="#">Frameworks</a></li>
+                </ul>
+              </li>
+              <!-- download tab end -->
+               <!-- Reference tab -->
+                <li class="dropdown-submenu">
+                <a class="dropdown-item " href="#">Reference</a>
+              </li>
+              <!-- Reference tab end -->
+            </ul>
           </li>
+
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              For Corporates 
+             Projects
             </a>
             <div class="dropdown-menu" aria-labelledby="corporateDropdown">
               <a class="dropdown-item" href="./project.html">Projects Open For Collaboration</a>
               <a class="dropdown-item" href="./fundownidea.html">Fund An Idea</a>
-              <a class="dropdown-item" href="index.html#section-completedprojects">Completed Projects</a>
+              <a class="dropdown-item" href="#section-completedprojects">Completed Projects</a>
             </div>
           </li>
+
+           <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+             Media
+            </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+              <a class="dropdown-item" href="./gallery.html">Image Gallery</a>
+              <a class="dropdown-item" href="#">Video Gallery</a>
+              <a class="dropdown-item" href="#">Publications</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Success Stories</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">News and Events</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Companies</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Implementing Agencies</a>
+          </li>
+
         </ul>
       </div>
     </div>
   </nav>
+  <!-- END nav -->
 
   <div class="container">
 
@@ -108,7 +198,7 @@
       </div>
     </div>
 
-    <div class="form-container" style="background-color: rgb(253, 250, 246); border-radius: 50px; margin-bottom: 5rem;">
+    <div class="form-container" style="background-color: rgb(246, 248, 253); border-radius: 50px; margin-bottom: 5rem;">
       <!-- Step 1: Project Details -->
       <div class="form-step active" id="formStep1">
         <div class="form-row">
@@ -288,7 +378,7 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
       <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
       <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-        stroke="#F96D00" />
+        stroke="#0A1E46" />
     </svg></div>
 
 
@@ -373,7 +463,7 @@
 
           if (!element.value.trim()) {
             errorElement.style.display = 'block';
-            element.style.borderColor = '#e74c3c';
+            element.style.borderColor = '#0A1E46';
             isValid = false;
           } else {
             errorElement.style.display = 'none';
@@ -388,7 +478,7 @@
 
           if (!element.value.trim()) {
             errorElement.style.display = 'block';
-            element.style.borderColor = '#e74c3c';
+            element.style.borderColor = '#0A1E46';
             isValid = false;
           } else {
             errorElement.style.display = 'none';
@@ -402,7 +492,7 @@
         if (email.value && !emailRegex.test(email.value)) {
           document.getElementById('emailError').textContent = 'Please enter a valid email address';
           document.getElementById('emailError').style.display = 'block';
-          email.style.borderColor = '#e74c3c';
+          email.style.borderColor = '#0A1E46';
           isValid = false;
         }
 
@@ -412,7 +502,7 @@
         if (phone.value && !phoneRegex.test(phone.value.replace(/\D/g, ''))) {
           document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number';
           document.getElementById('phoneError').style.display = 'block';
-          phone.style.borderColor = '#e74c3c';
+          phone.style.borderColor = '#0A1E46';
           isValid = false;
         }
       }

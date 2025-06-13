@@ -1,0 +1,236 @@
+/* AMC Contact Section Styles */
+#amc-contact-section {
+  background: #f5f7fa;
+  padding: 50px 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.amc-contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.amc-contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.amc-contact-header h2 {
+  color: #1a3e72;
+  font-size: 32px;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.amc-contact-header h2:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #e63946;
+}
+
+.amc-contact-header p {
+  color: #4a5568;
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.amc-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+}
+
+.amc-contact-info {
+  display: grid;
+  gap: 20px;
+}
+
+.amc-contact-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  border-left: 4px solid #1a3e72;
+}
+
+.amc-contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.amc-contact-icon {
+  background: #f0f4f8;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  color: #1a3e72;
+  font-size: 20px;
+}
+
+.amc-contact-content h3 {
+  color: #1a3e72;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.amc-contact-content p {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.amc-contact-content a {
+  color: #3182ce;
+  text-decoration: none;
+}
+
+.amc-contact-content a:hover {
+  text-decoration: underline;
+}
+
+.amc-contact-form {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.amc-contact-form h3 {
+  color: #1a3e72;
+  font-size: 24px;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.amc-contact-form h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: #e63946;
+}
+
+.amc-form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.amc-form-group input,
+.amc-form-group select,
+.amc-form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s;
+  background: #f8fafc;
+}
+
+.amc-form-group input:focus,
+.amc-form-group select:focus,
+.amc-form-group textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+  background: white;
+}
+
+.amc-form-group label {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  color: #718096;
+  transition: all 0.3s;
+  pointer-events: none;
+  background: #f8fafc;
+  padding: 0 5px;
+}
+
+.amc-form-group input:focus + label,
+.amc-form-group input:not(:placeholder-shown) + label,
+.amc-form-group select:focus + label,
+.amc-form-group select:not([value=""]) + label,
+.amc-form-group textarea:focus + label,
+.amc-form-group textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 14px;
+  color: #4299e1;
+  background: white;
+}
+
+.amc-form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 1em;
+}
+
+.amc-submit-btn {
+  background: #1a3e72;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.amc-submit-btn:hover {
+  background: #0f2a4d;
+  transform: translateY(-2px);
+}
+
+.amc-submit-btn i {
+  transition: transform 0.3s;
+}
+
+.amc-submit-btn:hover i {
+  transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .amc-contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .amc-contact-header h2 {
+    font-size: 28px;
+  }
+  
+  .amc-contact-card {
+    padding: 20px;
+  }
+  
+  .amc-contact-form {
+    padding: 25px;
+  }
+}

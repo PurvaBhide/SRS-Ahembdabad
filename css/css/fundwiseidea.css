@@ -27,9 +27,9 @@
         }
         
         .step.active {
-            background: #e26b41;
+            background: #0A1E46;
             color: white;
-            box-shadow: 0 0 0 4px rgba(238, 152, 72, 0.2);
+            box-shadow: 0 0 0 4px #0A1E46;
         }
         
         .step.completed {
@@ -95,7 +95,7 @@
         }
         
         .required {
-            color: #e74c3c;
+            color: #0A1E46;
         }
         
         input, select, textarea {
@@ -110,7 +110,7 @@
         
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #e26b41;
+            border-color: #0A1E46;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
             background: white;
         }
@@ -148,8 +148,8 @@
         
         .file-input-label:hover {
             background: #e9ecef;
-            border-color: #e26b41;
-            color: #e26b41;
+            border-color: #0A1E46;
+            color: #0A1E46;
         }
         
         .file-selected {
@@ -179,14 +179,14 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #e26b41 0%, #e26b41 100%);
+            background: linear-gradient(135deg, #0A1E46 0%, #0A1E46 100%);
             color: white;
             box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(236, 125, 61, 0.4);
+            box-shadow: 0 6px 20px #0A1E46;
         }
         
         .btn-secondary {
@@ -212,7 +212,7 @@
         }
         
         .error-message {
-            color: #e74c3c;
+            color: #0A1E46;
             font-size: 0.85em;
             margin-top: 0.5rem;
             display: none;
