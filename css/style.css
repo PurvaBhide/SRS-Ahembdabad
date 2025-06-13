@@ -9714,3 +9714,17 @@ justify-content: inline-block;
 {
     color: #fff !important;
 }
+ .btn-details {
+    background-color: #0A1E46;
+    color: white;
+    border: 1px solid #0A1E46;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-details:hover {
+    background-color: #1E3A8A;
+    border-color: #1E3A8A;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(10, 30, 70, 0.2);
+  }

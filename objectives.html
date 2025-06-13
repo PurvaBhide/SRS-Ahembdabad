@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Amdavad Municipal Corporation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet"> -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/ionicons.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/css/category.css">
+  <link rel="stylesheet" href="css/css/slider.css">
+  <link rel="stylesheet" href="css/css/Homepage.css">
+  <link rel="stylesheet" href="css/css/page/overview.css">
+  <!-- Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+
+      <style>
+        .csr-root {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .csr-body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .csr-container {
+            /* max-width: 1000px; */
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .csr-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .csr-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #0A1E46, #3670E4);
+            border-radius: 2px;
+        }
+
+        .csr-main-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .csr-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .csr-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .csr-section-title {
+            color: #0A1E46;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .csr-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #3670E4;
+        }
+
+        .csr-objectives-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .csr-objective-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .csr-objective-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background-color: #3670E4;
+            border-radius: 50%;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .csr-objective-item:hover::before {
+            transform: scale(1.3);
+        }
+
+        .csr-activities-list {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .csr-activity-item {
+            background-color: #f0f2f7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #0A1E46;
+            transition: all 0.3s ease;
+        }
+
+        .csr-activity-item:hover {
+            background-color: #e1e3f0;
+            transform: translateX(5px);
+        }
+
+        .csr-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Animation classes */
+        .csr-fade-in {
+            opacity: 0;
+            animation: csr-fadeIn 1s forwards;
+        }
+
+        @keyframes csr-fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .csr-slide-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: csr-slideUp 0.8s forwards;
+        }
+
+        @keyframes csr-slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .csr-container {
+                padding: 1.5rem;
+            }
+
+            .csr-main-title {
+                font-size: 2rem;
+            }
+
+            .csr-section-title {
+                font-size: 1.5rem;
+            }
+
+            .csr-activities-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .csr-container {
+                padding: 1rem;
+            }
+
+            .csr-main-title {
+                font-size: 1.8rem;
+            }
+
+            .csr-objective-item {
+                font-size: 1rem;
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="top-container">
+      <div class="topbar-left">
+        Amdavad Municipal Corporation
+      </div>
+      <div class="topbar-right">
+        <div id="google_translate_element"></div>
+
+        <div class="header-social-icons"
+          style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i
+            class="icon-facebook"></i> <i class="icon-twitter"></i><i class="icon-instagram"></i> <i
+            class="icon-youtube"></i></a>
+        </div>
+      </div>
+
+  </header>
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="./images/amcLogo.png" class="amd-logo" alt="Logo">
+      <img src="./images/amc logo.png" class="amd-name" alt="Logo">
+      <img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo">
+    </a>
+  </div>
+
+  <!-- nav start -->
+ <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar" style="border-radius: 0px !important;">
+  <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav"
+    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
+
+  <li class="nav-item active dropdown custom-tab">
+  <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    onclick="window.location.href='./index.html'; return false;">
+    Home
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li class="dropdown-submenu">
+      <a class="dropdown-item dropdown-toggle" href="#">About AMC CSR</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Overview</a></li>
+        <li><a class="dropdown-item" href="#">Mission</a></li>
+        <li><a class="dropdown-item" href="#">Objectives</a></li>
+        <li><a class="dropdown-item" href="#">Governing Body</a></li>
+        <li><a class="dropdown-item" href="#">Advisory Body</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>
+         
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Important Links
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- download tab -->
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Download</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="#">Final accounts</a></li>
+                  <li><a class="dropdown-item" href="#">Frameworks</a></li>
+                </ul>
+              </li>
+              <!-- download tab end -->
+               <!-- Reference tab -->
+                <li class="dropdown-submenu">
+                <a class="dropdown-item " href="#">Reference</a>
+              </li>
+              <!-- Reference tab end -->
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+             Projects
+            </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+              <a class="dropdown-item" href="./project.html">Projects Open For Collaboration</a>
+              <a class="dropdown-item" href="./fundownidea.html">Fund An Idea</a>
+              <a class="dropdown-item" href="#section-completedprojects">Completed Projects</a>
+            </div>
+          </li>
+
+           <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+             Media
+            </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+              <a class="dropdown-item" href="./gallery.html">Image Gallery</a>
+              <a class="dropdown-item" href="#">Video Gallery</a>
+              <a class="dropdown-item" href="#">Publications</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Success Stories</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">News and Events</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Companies</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Implementing Agencies</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+    
+
+ <div class="csr-container">
+        <header class="csr-header csr-fade-in">
+            <h1 class="csr-main-title">CSR Objectives</h1>
+        </header>
+
+        <main>
+            <section class="csr-section csr-slide-up" style="animation-delay: 0.2s">
+                <h2 class="csr-section-title">Primary Objectives</h2>
+                <ul class="csr-objectives-list">
+                    <li class="csr-objective-item">To provide a neutral and credible platform to all stakeholders engaged in CSR best practices for capturing relevant issues to foster sustainable growth.</li>
+                    <li class="csr-objective-item">To provide research, training, practice, capacity building, standard setting, advocacy, rating, monitoring, recognition and related support in the field of CSR.</li>
+                    <li class="csr-objective-item">To facilitate exchange of experiences and ideas between various stakeholders for developing a framework for strengthening of CSR indicatives.</li>
+                    <li class="csr-objective-item">To facilitate any other assistance directly or indirectly for activities which seek to promote CSR practices.</li>
+                    <li class="csr-objective-item">To establish and deepen links with the organisations in various parts of the world which promote CSR practices for exchange of ideas and for collaborative actions and programmes.</li>
+                    <li class="csr-objective-item">To collaborate and to support, directly or indirectly, the initiative of any individual, group, organisation or institution in promoting good practices in CSR.</li>
+                    <li class="csr-objective-item">To establish a database of credible implementing outfits with whom the corporate entities as well as the donor organisations can collaborate and work.</li>
+                    <li class="csr-objective-item">To create CSR fund with contribution of Government PSUs and private sector companies and channelize the CSR fund for optimum utilisation through a sustainable mechanism.</li>
+                    <li class="csr-objective-item">To implement various CSR projects of state importance through credible implementing agencies in that area.</li>
+                </ul>
+            </section>
+
+            <section class="csr-section csr-slide-up" style="animation-delay: 0.4s">
+                <h2 class="csr-section-title">Activities</h2>
+                <ul class="csr-activities-list">
+                    <li class="csr-activity-item">Public health in general but preventive health care and sanitation in particular</li>
+                    <li class="csr-activity-item">Promotion of employment enhancing vocation skills especially among youth</li>
+                    <li class="csr-activity-item">Promotion of an ecosystem for enhancement of cognitive growth of Pre-Anganwadi children</li>
+                    <li class="csr-activity-item">Contributions of funds to the technology incubators located within Gujarat</li>
+                </ul>
+                <p style="margin-top: 1.5rem; font-style: italic; color: #666;">
+                    Such other activities relating to CSR as may be prescribed in the Companies Act 2013 or Companies (Corporate Social Responsibility Policy) Rules, 2014 or any other rules which Central Government may make from time to time.
+                </p>
+            </section>
+        </main>
+
+        <footer class="csr-footer csr-fade-in" style="animation-delay: 0.6s">
+            <p>© 2023 CSR Initiatives. All rights reserved.</p>
+        </footer>
+    </div>
+
+
+
+
+
+  <footer class="ftco-footer ftco-section img">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-5">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">About Us</h2>
+            <p>The Ahmedabad Municipal Corporation (AMC) is the governing civic body of Ahmedabad, Gujarat’s largest
+              city. Established in 1950 under the Bombay Provincial Corporation Act, AMC is responsible for the
+              administration and development of the city, ensuring essential services and infrastructure for over 8
+              million citizens.</p>
+            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="ftco-footer-widget mb-4 ml-md-4">
+            <h2 class="ftco-heading-2">Site Links</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-2 d-block">Home</a></li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Have a Questions?</h2>
+            <div class="block-23 mb-3">
+              <ul>
+                <li><span class="icon icon-map-marker"></span><span class="text">Sardar Patel Bhavan,
+                    Danapith, Ahmedabad – 380001,
+                    Gujarat, India</span></li>
+                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91-79-25391811</span></a></li>
+                <li><a href="#"><span class="icon icon-envelope"></span><span
+                      class="text">info@ahmedabadcity.gov.in</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved .
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+
+  dropdownSubmenus.forEach(function (submenuLink) {
+    submenuLink.addEventListener('click', function (e) {
+      // Only prevent default if it's a dropdown with a submenu
+      if (this.parentElement.classList.contains('dropdown-submenu')) {
+        e.preventDefault();
+        let nextDropdown = this.nextElementSibling;
+        if (nextDropdown.style.display === 'block') {
+          nextDropdown.style.display = 'none';
+        } else {
+          nextDropdown.style.display = 'block';
+        }
+      }
+    });
+  });
+});
+</script>
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add intersection observer for scroll animations
+            const sections = document.querySelectorAll('.csr-section');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                // Reset animation for elements that might be hidden initially
+                section.style.animationPlayState = 'paused';
+                observer.observe(section);
+            });
+
+            // Add hover effect to objective items
+            const objectiveItems = document.querySelectorAll('.csr-objective-item');
+            objectiveItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.color = '#2c3e50';
+                    this.style.fontWeight = '500';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.color = '#555';
+                    this.style.fontWeight = 'normal';
+                });
+            });
+        });
+    </script>
+<!-- jQuery (required by Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Popper.js (for Bootstrap tooltips/dropdowns) -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', includedLanguages: 'en,gu,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+        'google_translate_element'
+      );
+    }
+  </script>
+
+
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+  </body>
+</html>
