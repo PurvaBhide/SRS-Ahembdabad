@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Amdavad Municipal Corporation - News & Events</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- News & Events Custom CSS -->
+    <style>
+      :root {
+        --primary-color: #0A1E46;
+        --secondary-color: #1E3A8A;
+        --accent-color: #3B82F6;
+      }
+      
+      .news-hero {
+        background: linear-gradient(rgba(10, 30, 70, 0.8), rgba(10, 30, 70, 0.8)), url('images/news-hero.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+      
+      .news-card {
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+      }
+      
+      .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      }
+      
+      .news-image {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+      }
+      
+      .news-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      
+      .news-date {
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
+      
+      .news-title {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      
+      .news-excerpt {
+        color: #495057;
+        margin-bottom: 1rem;
+      }
+      
+      .read-more-btn {
+        color: var(--accent-color);
+        font-weight: 500;
+        text-decoration: none;
+      }
+      
+      .read-more-btn:hover {
+        text-decoration: underline;
+      }
+      
+      .event-card {
+        border-left: 4px solid var(--accent-color);
+        border-radius: 4px;
+      }
+      
+      .event-date {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 4px 0 0 4px;
+      }
+      
+      .event-day {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+      
+      .event-month {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      
+      .event-details {
+        padding: 15px;
+      }
+      
+      .event-title {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      .event-time {
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
+      
+      .section-title {
+        color: var(--primary-color);
+        position: relative;
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+      }
+      
+      .section-title:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--accent-color);
+      }
+      
+      .filter-btn {
+        border: 1px solid #dee2e6;
+        color: #495057;
+        background: white;
+        margin: 0 5px 10px;
+      }
+      
+      .filter-btn.active, .filter-btn:hover {
+        background: var(--accent-color);
+        color: white;
+        border-color: var(--accent-color);
+      }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body>
+  <header>
+    <div class="top-container">
+      <div class="topbar-left">
+        Amdavad Municipal Corporation
+      </div>
+      <div class="topbar-right">
+        <div id="google_translate_element"></div>
+
+        <div class="header-social-icons"
+          style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i
+            class="icon-facebook"></i> <i class="icon-twitter"></i><i class="icon-instagram"></i> <i
+            class="icon-youtube"></i></a>
+        </div>
+      </div>
+
+  </header>
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="./images/amcLogo.png" class="amd-logo" alt="Logo">
+      <img src="./images/amc logo.png" class="amd-name" alt="Logo">
+      <img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo">
+    </a>
+  </div>
+
+   <!-- nav start -->
+ <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar" style="border-radius: 0px !important;">
+  <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav"
+    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
+
+  <li class="nav-item active dropdown custom-tab">
+  <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    onclick="window.location.href='./index.html'; return false;">
+    Home
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li class="dropdown-submenu">
+      <a class="dropdown-item dropdown-toggle" href="#">About AMC CSR</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="overview.html">Overview</a></li>
+        <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+        <li><a class="dropdown-item" href="objectives.html">Objectives</a></li>
+        <li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li>
+        <li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>
+          <!-- <li class="nav-item active dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">About AMC CSR</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Overview</a></li>
+                  <li><a class="dropdown-item" href="#">Mission</a></li>
+                  <li><a class="dropdown-item" href="#">Objectives</a></li>
+                  <li><a class="dropdown-item" href="#">Governing Body</a></li>
+                  <li><a class="dropdown-item" href="#">Advisory Body</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li> -->
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Important Links
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- download tab -->
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Download</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="#">Final accounts</a></li>
+                  <li><a class="dropdown-item" href="#">Frameworks</a></li>
+                </ul>
+              </li>
+              <!-- download tab end -->
+               <!-- Reference tab -->
+                <li class="dropdown-submenu">
+                <a class="dropdown-item " href="#">Reference</a>
+              </li>
+              <!-- Reference tab end -->
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+             Projects
+            </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+              <a class="dropdown-item" href="./project.html">Projects Open For Collaboration</a>
+              <a class="dropdown-item" href="./fundownidea.html">Fund An Idea</a>
+              <a class="dropdown-item" href="#section-completedprojects">Completed Projects</a>
+            </div>
+          </li>
+
+           <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+             Media
+            </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+              <a class="dropdown-item" href="./gallery.html">Image Gallery</a>
+              <a class="dropdown-item" href="#">Video Gallery</a>
+              <a class="dropdown-item" href="#">Publications</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="sucess-stories.html">Success Stories</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">News and Events</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="companies.html">Companies</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Implementing Agencies</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+    <section class="ftco-section">
+      <div class="container">
+       
+        
+        <div class="row">
+          <!-- News Section -->
+          <div class="col-lg">
+            <h2 class="section-title">Latest News</h2>
+            <div class="row g-4">
+              <!-- News Card 1 -->
+              <div class="col-md-4">
+                <div class="news-card">
+                  <div class="position-relative">
+                    <img src="https://via.placeholder.com/600x400" class="news-image" alt="News Image">
+                    <span class="news-badge">News</span>
+                  </div>
+                  <div class="p-4"><h3 class="news-title">AMC Launches New Waste Management Initiative</h3>
+                    <p class="news-excerpt">The Ahmedabad Municipal Corporation has launched a new waste segregation program across 50 wards to improve recycling rates.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- News Card 2 -->
+              <div class="col-md-4">
+                <div class="news-card">
+                  <div class="position-relative">
+                    <img src="https://via.placeholder.com/600x400" class="news-image" alt="News Image">
+                    <span class="news-badge">Update</span>
+                  </div>
+                  <div class="p-4">
+
+                    <h3 class="news-title">Smart City Projects Reach 75% Completion</h3>
+                    <p class="news-excerpt">Major infrastructure projects under the Smart City Mission are nearing completion, with several already operational.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- News Card 3 -->
+              <div class="col-md-4">
+                <div class="news-card">
+                  <div class="position-relative">
+                    <img src="https://via.placeholder.com/600x400" class="news-image" alt="News Image">
+                    <span class="news-badge">Announcement</span>
+                  </div>
+                  <div class="p-4">
+                   <h3 class="news-title">New Public Parks to Open in Western Ahmedabad</h3>
+                    <p class="news-excerpt">Five new public parks with modern amenities will be inaugurated next month in rapidly growing western areas.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- News Card 4 -->
+              <div class="col-md-4">
+                <div class="news-card">
+                  <div class="position-relative">
+                    <img src="https://via.placeholder.com/600x400" class="news-image" alt="News Image">
+                    <span class="news-badge">News</span>
+                  </div>
+                  <div class="p-4">
+                   <h3 class="news-title">AMC Wins National Award for Urban Innovation</h3>
+                    <p class="news-excerpt">Ahmedabad recognized for its pioneering work in sustainable urban development and citizen engagement.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-5">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <footer class="ftco-footer ftco-section img">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-5">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">About Us</h2>
+            <p>The Ahmedabad Municipal Corporation (AMC) is the governing civic body of Ahmedabad, Gujarat’s largest
+              city. Established in 1950 under the Bombay Provincial Corporation Act, AMC is responsible for the
+              administration and development of the city, ensuring essential services and infrastructure for over 8
+              million citizens.</p>
+            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="ftco-footer-widget mb-4 ml-md-4">
+            <h2 class="ftco-heading-2">Site Links</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-2 d-block">Home</a></li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Have a Questions?</h2>
+            <div class="block-23 mb-3">
+              <ul>
+                <li><span class="icon icon-map-marker"></span><span class="text">Sardar Patel Bhavan,
+                    Danapith, Ahmedabad – 380001,
+                    Gujarat, India</span></li>
+                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91-79-25391811</span></a></li>
+                <li><a href="#"><span class="icon icon-envelope"></span><span
+                      class="text">info@ahmedabadcity.gov.in</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved .
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- News & Events Custom JS -->
+    <script>
+      // Filter functionality
+      $(document).ready(function(){
+        $('.filter-btn').click(function(){
+          $('.filter-btn').removeClass('active');
+          $(this).addClass('active');
+          // Here you would add code to filter the content
+        });
+      });
+    </script>
+  
+  </body>
+</html>
