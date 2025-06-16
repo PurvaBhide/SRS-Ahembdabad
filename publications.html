@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Gujarat CSR Authority</title>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/build/pdf.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c5f2d;
+            --secondary-color: #97bc62;
+            --accent-color: #f8c537;
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .card-image {
+            height: 180px;
+            overflow: hidden;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .card-image canvas {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .pdf-loading {
+            position: absolute;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .pdf-error {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            color: #999;
+            text-align: center;
+        }
+        
+        .pdf-error svg {
+            margin-bottom: 10px;
+            fill: #ccc;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .card-content p {
+            color: var(--light-text);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .faq-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        
+        .faq-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-item a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .faq-item a::before {
+            content: "•";
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .publications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GCSRA Publications</h1>
+            <p>Explore our latest research, reports, and resources on Corporate Social Responsibility</p>
+        </header>
+        
+        <div class="intro-text">
+            <p>The Gujarat CSR Authority publishes a wide range of materials to guide and inform about CSR practices, policies, and impacts in the region. Browse our collection below.</p>
+        </div>
+        
+        <h2 class="section-title">Featured Publications</h2>
+        <div class="publications-grid">
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/SOP_URC.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>Standard Operating Procedures for Urban Retention Complex</h3>
+                    <p>Guidelines for managing urban retention complexes under CSR initiatives.</p>
+                    <a href="https://gcsra.org/pdf/publications/SOP_URC.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+            
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/Aligning_SDGs_with_CSR.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>Aligning SDGs with CSR to Influence Change</h3>
+                    <p>How corporate social responsibility can contribute to Sustainable Development Goals.</p>
+                    <a href="https://gcsra.org/pdf/publications/Aligning_SDGs_with_CSR.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+            
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/Partnering_for_Impact.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>Gujarat CSR Authority - Partnering for Impact</h3>
+                    <p>Overview of GCSRA's initiatives and partnership opportunities.</p>
+                    <a href="https://gcsra.org/pdf/publications/Partnering_for_Impact.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+            
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/Reinventing_CSR.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>Re-inventing CSR for Transformational Impact</h3>
+                    <p>Innovative approaches to maximize CSR outcomes.</p>
+                    <a href="https://gcsra.org/pdf/publications/Reinventing_CSR.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+            
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/GACL_CSR.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>CSR Intervention GACL</h3>
+                    <p>Case study of CSR interventions by Gujarat Alkalies and Chemicals Limited.</p>
+                    <a href="https://gcsra.org/pdf/publications/GACL_CSR.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+            
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/CSR_Awards_Process.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>CSR Awards Process Flows</h3>
+                    <p>Documentation of the CSR awards nomination and selection process.</p>
+                    <a href="https://gcsra.org/pdf/publications/CSR_Awards_Process.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Brochures & Resources</h2>
+        <div class="publications-grid">
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/National_CSR_Corollary.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>National CSR Corollary Brochure</h3>
+                    <p>Comprehensive guide to national CSR policies and their implications.</p>
+                    <a href="https://gcsra.org/pdf/publications/National_CSR_Corollary.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+            
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/CCSSA_Awards.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>CCSSA CSR Awards Brochure</h3>
+                    <p>Information about the annual CSR awards program.</p>
+                    <a href="https://gcsra.org/pdf/publications/CCSSA_Awards.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+            
+            <div class="publication-card">
+                <div class="card-image" data-pdf="https://gcsra.org/pdf/publications/Seven_Ways_to_Give.pdf">
+                    <div class="pdf-loading">Loading preview...</div>
+                </div>
+                <div class="card-content">
+                    <h3>Seven Ways to Give Brochure</h3>
+                    <p>Guide to different approaches for corporate giving and social investment.</p>
+                    <a href="https://gcsra.org/pdf/publications/Seven_Ways_to_Give.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <a href="https://gcsra.org/pdf/publications/FAQ_Brochure.pdf">View Frequently Asked Questions Brochure</a>
+            </div>
+            <div class="faq-item">
+                <a href="https://gcsra.org/pdf/publications/National_CSR_Conclave_2017.pdf">View Proceedings of National CSR Conclave & Awards, 2017</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 Gujarat CSR Authority. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize PDF.js with latest stable worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/build/pdf.worker.min.js';
+        
+        // Enhanced PDF thumbnail renderer with robust error handling
+        async function renderPDFThumbnails() {
+            const containers = document.querySelectorAll('.card-image[data-pdf]');
+            
+            for (const container of containers) {
+                const pdfUrl = container.getAttribute('data-pdf');
+                const loadingEl = container.querySelector('.pdf-loading');
+                
+                try {
+                    // Add cache-busting parameter
+                    const fullUrl = pdfUrl.includes('?') 
+                        ? `${pdfUrl}&t=${Date.now()}`
+                        : `${pdfUrl}?t=${Date.now()}`;
+                    
+                    // Load PDF document
+                    const pdf = await pdfjsLib.getDocument({
+                        url: fullUrl,
+                        disableAutoFetch: true,
+                        disableStream: true
+                    }).promise;
+                    
+                    // Get first page
+                    const page = await pdf.getPage(1);
+                    const viewport = page.getViewport({ scale: 0.5 });
+                    
+                    // Create canvas
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    
+                    // Remove loading indicator
+                    if (loadingEl) loadingEl.remove();
+                    
+                    // Render PDF page
+                    await page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise;
+                    
+                    // Add to DOM
+                    container.appendChild(canvas);
+                    
+                } catch (error) {
+                    console.error(`Failed to load PDF (${pdfUrl}):`, error);
+                    
+                    // Create error display
+                    container.innerHTML = `
+                        <div class="pdf-error">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                            </svg>
+                            <div>Preview unavailable</div>
+                        </div>
+                    `;
+                    
+                    // Optional: Add the title below the error icon
+                    const title = container.closest('.publication-card').querySelector('h3').textContent;
+                    container.querySelector('.pdf-error').innerHTML += `
+                        <small style="margin-top:10px;font-size:0.8em">${title}</small>
+                    `;
+                }
+            }
+        }
+        
+        // Start rendering when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // First try loading from CDN
+            renderPDFThumbnails().catch(e => {
+                console.error("Initial PDF render failed:", e);
+                
+                // Fallback: If CDN fails, try loading from local
+                pdfjsLib.GlobalWorkerOptions.workerSrc = '/js/pdf.worker.min.js';
+                setTimeout(renderPDFThumbnails, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

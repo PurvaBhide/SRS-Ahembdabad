@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Amdavad Municipal Corporation - Implementing Agencies</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Custom CSS for Implementing Agencies Page -->
+    <style>
+      :root {
+        --primary-color: #0A1E46;
+        --secondary-color: #1E3A8A;
+        --accent-color: #3B82F6;
+        --light-color: #F8FAFC;
+        --text-color: #1E293B;
+        --text-light: #64748B;
+      }
+      
+      .agency-sidebar {
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 5px;
+        height: 100%;
+      }
+      
+      .agency-sidebar-header {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .agency-category {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: block;
+        color: white;
+        text-decoration: none;
+      }
+      
+      .agency-category:hover, .agency-category.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-left: 4px solid var(--accent-color);
+      }
+      
+      .agency-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* height: 100%; */
+        margin-bottom: 20px;
+      }
+      
+      .agency-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .agency-type {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      
+      .ngo {
+        background-color: #DBEAFE;
+        color: var(--secondary-color);
+      }
+      
+      .trust {
+        background-color: #D1FAE5;
+        color: #065F46;
+      }
+      
+      .agency-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0.5rem 0;
+        color: var(--primary-color);
+      }
+      
+      .agency-info {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+      }
+      
+      .agency-actions {
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid #E2E8F0;
+      }
+      
+      .agency-btn-outline {
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
+        background-color: transparent;
+      }
+      
+      .agency-btn-outline:hover {
+        background-color: #EFF6FF;
+      }
+      
+      .agency-btn-primary {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+      }
+      
+      .agency-btn-primary:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .agency-logo {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-right: 15px;
+        border-radius: 4px;
+        border: 1px solid #eee;
+      }
+      
+      .agency-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      
+      .agency-details {
+        flex: 1;
+      }
+      
+      .project-count {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      @media (max-width: 767.98px) {
+        .agency-sidebar {
+          margin-bottom: 2rem;
+        }
+        
+        .agency-content-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        
+        .agency-search-bar {
+          width: 100%;
+          margin-top: 1rem;
+        }
+        
+        .agency-header {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .agency-logo {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body>
+  <header>
+    <div class="top-container">
+      <div class="topbar-left">
+        Amdavad Municipal Corporation
+      </div>
+      <div class="topbar-right">
+        <div id="google_translate_element"></div>
+
+        <div class="header-social-icons"
+          style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i
+            class="icon-facebook"></i> <i class="icon-twitter"></i><i class="icon-instagram"></i> <i
+            class="icon-youtube"></i></a>
+        </div>
+      </div>
+
+  </header>
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="./images/amcLogo.png" class="amd-logo" alt="Logo">
+      <img src="./images/amc logo.png" class="amd-name" alt="Logo">
+      <img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo">
+    </a>
+  </div>
+
+   <!-- nav start -->
+ <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar" style="border-radius: 0px !important;">
+  <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav"
+    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
+
+  <li class="nav-item active dropdown custom-tab">
+  <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    onclick="window.location.href='./index.html'; return false;">
+    Home
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li class="dropdown-submenu">
+      <a class="dropdown-item dropdown-toggle" href="#">About AMC CSR</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="overview.html">Overview</a></li>
+        <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+        <li><a class="dropdown-item" href="objectives.html">Objectives</a></li>
+        <li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li>
+        <li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>
+          <!-- <li class="nav-item active dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">About AMC CSR</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Overview</a></li>
+                  <li><a class="dropdown-item" href="#">Mission</a></li>
+                  <li><a class="dropdown-item" href="#">Objectives</a></li>
+                  <li><a class="dropdown-item" href="#">Governing Body</a></li>
+                  <li><a class="dropdown-item" href="#">Advisory Body</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li> -->
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Important Links
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- download tab -->
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Download</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="#">Final accounts</a></li>
+                  <li><a class="dropdown-item" href="#">Frameworks</a></li>
+                </ul>
+              </li>
+              <!-- download tab end -->
+               <!-- Reference tab -->
+                <li class="dropdown-submenu">
+                <a class="dropdown-item " href="#">Reference</a>
+              </li>
+              <!-- Reference tab end -->
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+             Projects
+            </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+              <a class="dropdown-item" href="./project.html">Projects Open For Collaboration</a>
+              <a class="dropdown-item" href="./fundownidea.html">Fund An Idea</a>
+              <a class="dropdown-item" href="#section-completedprojects">Completed Projects</a>
+            </div>
+          </li>
+
+           <li class="nav-item dropdown custom-tab">
+            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+             Media
+            </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
+              <a class="dropdown-item" href="./gallery.html">Image Gallery</a>
+              <a class="dropdown-item" href="#">Video Gallery</a>
+              <a class="dropdown-item" href="#">Publications</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="sucess-stories.html">Success Stories</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">News and Events</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="companies.html">Companies</a>
+          </li>
+
+          <li class="nav-item dropdown custom-tab">
+            <a class="nav-link" href="#">Implementing Agencies</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <!-- Sidebar Column -->
+          <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+            <div class="agency-sidebar p-0">
+              <div class="agency-sidebar-header">
+                <h2 class="h5 mb-0">Categories</h2>
+              </div>
+              <div class="agency-categories">
+                <div class="agency-category active">All Agencies</div>
+                <div class="agency-category">Education</div>
+                <div class="agency-category">Health</div>
+                <div class="agency-category">Environment</div>
+                <div class="agency-category">Rural Development</div>
+                <div class="agency-category">Women Empowerment</div>
+                <div class="agency-category">Child Welfare</div>
+                <div class="agency-category">Disability</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Main Content Column -->
+          <div class="col-lg-9 col-md-8">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+              <h1 class="h3 mb-3 mb-md-0">Implementing Agencies</h1>
+              <div class="input-group agency-search-bar" style="max-width: 300px;">
+                <span class="input-group-text bg-white border-0"><i class="fas fa-search"></i></span>
+                <input type="text" class="form-control border-0 shadow-none" placeholder="Search agencies...">
+              </div>
+            </div>
+            
+            <!-- Agency Card 1 -->
+            <div class="agency-card">
+              <div class="agency-header">
+                <img src="https://via.placeholder.com/80" alt="Agency Logo" class="agency-logo">
+                <div class="agency-details">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="agency-name mb-0">Ahmedabad Education Foundation</h3>
+                    <span class="project-count">24 Projects</span>
+                  </div>
+                  <p class="agency-info mb-1">
+                    <i class="fas fa-map-marker-alt me-2"></i> Navrangpura, Ahmedabad
+                  </p>
+                  <p class="agency-info mb-1">
+                    <i class="fas fa-globe me-2"></i> www.aefindia.org
+                  </p>
+                </div>
+              </div>
+              <p class="agency-info">Registered NGO working to improve quality of education in government schools across Ahmedabad district through teacher training, infrastructure development and community participation.</p>
+              <div class="agency-actions d-flex justify-content-between">
+                <button class="btn btn-sm agency-btn-outline">View Profile</button>
+                <button class="btn btn-sm agency-btn-primary">View Projects</button>
+              </div>
+            </div>
+            
+            <!-- Agency Card 2 -->
+            <div class="agency-card">
+              <div class="agency-header">
+                <img src="https://via.placeholder.com/80" alt="Agency Logo" class="agency-logo">
+                <div class="agency-details">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="agency-name mb-0">Gujarat Environment Trust</h3>
+                    <span class="project-count">18 Projects</span>
+                  </div>
+                  <p class="agency-info mb-1">
+                    <i class="fas fa-map-marker-alt me-2"></i> Satellite, Ahmedabad
+                  </p>
+                  <p class="agency-info mb-1">
+                    <i class="fas fa-globe me-2"></i> www.gujenvironment.org
+                  </p>
+                </div>
+              </div>
+              <p class="agency-info">Working on environmental conservation projects including lake rejuvenation, waste management and tree plantation drives across Ahmedabad city and surrounding areas.</p>
+              <div class="agency-actions d-flex justify-content-between">
+                <button class="btn btn-sm agency-btn-outline">View Profile</button>
+                <button class="btn btn-sm agency-btn-primary">View Projects</button>
+              </div>
+            </div>
+            
+            <!-- Agency Card 3 -->
+            <div class="agency-card">
+              <div class="agency-header">
+                <img src="https://via.placeholder.com/80" alt="Agency Logo" class="agency-logo">
+                <div class="agency-details">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="agency-name mb-0">Rural Health Initiative</h3>
+                    <span class="project-count">32 Projects</span>
+                  </div>
+                  <p class="agency-info mb-1">
+                    <i class="fas fa-map-marker-alt me-2"></i> Bopal, Ahmedabad
+                  </p>
+                  <p class="agency-info mb-1">
+                    <i class="fas fa-globe me-2"></i> www.ruralhealthindia.org
+                  </p>
+                </div>
+              </div>
+              <p class="agency-info">Providing healthcare services to rural communities around Ahmedabad through mobile clinics, health camps and community health worker training programs.</p>
+              <div class="agency-actions d-flex justify-content-between">
+                <button class="btn btn-sm agency-btn-outline">View Profile</button>
+                <button class="btn btn-sm agency-btn-primary">View Projects</button>
+              </div>
+            </div>
+            
+            <!-- Agency Card 4 -->
+            <div class="agency-card">
+              <div class="agency-header">
+                <img src="https://via.placeholder.com/80" alt="Agency Logo" class="agency-logo">
+                <div class="agency-details">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="agency-name mb-0">Women Empowerment Society</h3>
+                    <span class="project-count">15 Projects</span>
+                  </div>
+                  <p class="agency-info mb-1">
+                    <i class="fas fa-map-marker-alt me-2"></i> Maninagar, Ahmedabad
+                  </p>
+                  <p class="agency-info mb-1">
+                    <i class="fas fa-globe me-2"></i> www.wesahmedabad.org
+                  </p>
+                </div>
+              </div>
+              <p class="agency-info">Empowering women through skill development, micro-finance initiatives and legal awareness programs in urban and rural areas of Ahmedabad district.</p>
+              <div class="agency-actions d-flex justify-content-between">
+                <button class="btn btn-sm agency-btn-outline">View Profile</button>
+                <button class="btn btn-sm agency-btn-primary">View Projects</button>
+              </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <footer class="ftco-footer ftco-section img">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-5">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">About Us</h2>
+            <p>The Ahmedabad Municipal Corporation (AMC) is the governing civic body of Ahmedabad, Gujarat’s largest
+              city. Established in 1950 under the Bombay Provincial Corporation Act, AMC is responsible for the
+              administration and development of the city, ensuring essential services and infrastructure for over 8
+              million citizens.</p>
+            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="ftco-footer-widget mb-4 ml-md-4">
+            <h2 class="ftco-heading-2">Site Links</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-2 d-block">Home</a></li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Have a Questions?</h2>
+            <div class="block-23 mb-3">
+              <ul>
+                <li><span class="icon icon-map-marker"></span><span class="text">Sardar Patel Bhavan,
+                    Danapith, Ahmedabad – 380001,
+                    Gujarat, India</span></li>
+                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91-79-25391811</span></a></li>
+                <li><a href="#"><span class="icon icon-envelope"></span><span
+                      class="text">info@ahmedabadcity.gov.in</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved .
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>
