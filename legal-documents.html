@@ -36,11 +36,156 @@
   <link rel="stylesheet" href="css/css/page/overview.css">
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <style>
+       
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-align: center;
+            padding-top: 20px;
+        }
 
+        .header p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            text-align: center;
+
+        }
+
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding-bottom: 40px;
+        }
+
+        .pdf-card {
+            background: #f8f9ff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .pdf-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .pdf-preview {
+            width: 100%;
+            height: 120px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .pdf-preview:hover {
+            background: #e9ecef;
+        }
+
+        .pdf-icon {
+            color: #6c757d;
+            font-size: 2rem;
+        }
+
+        .pdf-info h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .pdf-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            background: white;
+            color: #495057;
+            text-decoration: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 1200px) {
+            .pdf-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .pdf-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .pdf-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 15px;
+            }
+            
+            .pdf-actions {
+                flex-direction: column;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pdf-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
   <header>
     <div class="top-container">
       <div class="topbar-left">
@@ -188,28 +333,72 @@
   </nav>
   <!-- END nav -->
 
+    <div class="container">
+        <div class="header">
+            <h1>Document Library</h1>
+            <p>Browse and download documents</p>
+        </div>
 
+        <div class="pdf-grid">
+            <div class="pdf-card">
+                <div class="pdf-preview" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/80G-5-Certificate.pdf')">
+                    <div class="pdf-icon">📄</div>
+                </div>
+                <div class="pdf-info">
+                    <h3>80G-5 Certificate</h3>
+                    <p class="pdf-description">Tax exemption certificate for charitable donations under Income Tax Act.</p>
+                </div>
+                <div class="pdf-actions">
+                    <button class="btn btn-primary" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/80G-5-Certificate.pdf')">
+                        View
+                    </button>
+                    <a href="https://gcsra.org/writereaddata/images/pdf/80G-5-Certificate.pdf" download class="btn">
+                        Download
+                    </a>
+                </div>
+            </div>
 
-    
+            <div class="pdf-card">
+                <div class="pdf-preview" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/12AA-Certificate.pdf')">
+                    <div class="pdf-icon">📄</div>
+                </div>
+                <div class="pdf-info">
+                    <h3>12AA Certificate</h3>
+                    <p class="pdf-description">Registration certificate for tax exemption under section 12AA of Income Tax Act.</p>
+                </div>
+                <div class="pdf-actions">
+                    <button class="btn btn-primary" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/12AA-Certificate.pdf')">
+                        View
+                    </button>
+                    <a href="https://gcsra.org/writereaddata/images/pdf/12AA-Certificate.pdf" download class="btn">
+                        Download
+                    </a>
+                </div>
+            </div>
 
- <div class="overview-floating-container" id="overviewFloatingElements"></div>
+            <div class="pdf-card">
+                <div class="pdf-preview" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/Gazette-Notification.pdf')">
+                    <div class="pdf-icon">📄</div>
+                </div>
+                <div class="pdf-info">
+                    <h3>Gazette Notification</h3>
+                    <p class="pdf-description">Official government gazette notification with regulatory announcements.</p>
+                </div>
+                <div class="pdf-actions">
+                    <button class="btn btn-primary" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/Gazette-Notification.pdf')">
+                        View
+                    </button>
+                    <a href="https://gcsra.org/writereaddata/images/pdf/Gazette-Notification.pdf" download class="btn">
+                        Download
+                    </a>
+                </div>
+            </div>
 
-    
-    <div class="overview-wrapper">
-        <div class="overview-content-box logo-container" id="overviewContentBox">
-            <h1 class="overview-main-heading">Mission</h1>
-            <p class="overview-description-text">
-                To catalyze sustainable growth by creating an enabling environment for the corporate sector to work in partnership with the Government, Non-Government, and Civil Society Organizations, as well as Community Organizations in the field of Corporate Social Responsibility.
-            </p>
-            
         </div>
     </div>
 
-
-
-
-
-  <footer class="ftco-footer ftco-section img">
+    
+      <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
     <div class="container">
       <div class="row mb-5">
@@ -268,6 +457,15 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    <script>
+        function openPDF(url) {
+            if (url && url !== '') {
+                window.open(url, '_blank');
+            }
+        }
+    </script>
+
 
 
 
@@ -335,4 +533,6 @@
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
   </body>
+</html>
+</body>
 </html>
