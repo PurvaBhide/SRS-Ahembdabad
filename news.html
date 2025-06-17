@@ -203,7 +203,7 @@
     </a>
   </div>
 
-    <!-- nav start -->
+   <!-- nav start -->
  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar" style="border-radius: 0px !important;">
   <div class="container-fluid">
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -474,26 +474,23 @@
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-  var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+ <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
 
-  dropdownSubmenus.forEach(function (submenuLink) {
-    submenuLink.addEventListener('click', function (e) {
-      // Only prevent default if it's a dropdown with a submenu
-      if (this.parentElement.classList.contains('dropdown-submenu')) {
-        e.preventDefault();
-        let nextDropdown = this.nextElementSibling;
-        if (nextDropdown.style.display === 'block') {
-          nextDropdown.style.display = 'none';
-        } else {
-          nextDropdown.style.display = 'block';
-        }
-      }
+      dropdownSubmenus.forEach(function (submenuLink) {
+        submenuLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          let nextDropdown = this.nextElementSibling;
+          if (nextDropdown.style.display === 'block') {
+            nextDropdown.style.display = 'none';
+          } else {
+            nextDropdown.style.display = 'block';
+          }
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
 
 <!-- jQuery (required by Bootstrap) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
