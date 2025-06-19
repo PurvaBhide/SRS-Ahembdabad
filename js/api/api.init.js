@@ -1,4 +1,9 @@
 var Api = {
-  category: CategoryService
-  // Add other services here as you create them
+  category: CategoryService,
+  ngo: NgoService,
+  project: ProjectService,
+  successStory: SuccessStoryService,
+  company: CompanyService,
+  document: DocumentService
+  // Add other services as needed
 };
