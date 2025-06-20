@@ -13,5 +13,17 @@ if (typeof CompanyService !== 'undefined') {
 if (typeof NgoService !== 'undefined') {
   Api.ngo = NgoService;
 }
+// if (typeof fundanideaService !== 'undefined') {
+//   if (typeof Api === 'undefined') {
+//     window.Api = {};
+//   }
+//   window.Api.fundanidea = fundanideaService;
+// }
+if (typeof fundanideaService !== 'undefined') {
+  if (typeof Api === 'undefined') {
+    window.Api = {};
+  }
+  window.Api.fundanidea = fundanideaService;
+}
 // Add other services similarly
 // Api.ngo = typeof NgoService !== 'undefined' ? NgoService : {};
