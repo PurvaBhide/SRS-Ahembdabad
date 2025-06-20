@@ -275,10 +275,22 @@ class CorporateRequestForm {
       const response = await submitData(formData);
       console.log('Form submitted successfully:', response);
 
-      // Show success step
-      this.currentStep = this.totalSteps + 1;
-      this.showStep(this.currentStep);
-      this.updateStepIndicators();
+      // Extract token and phone number for WhatsApp
+      const token = response.data?.fundanideatoken || response.fundanideatoken;
+      const phoneNumber = formData.fundanideaphonenumber;
+      
+      if (token) {
+        // Send WhatsApp message
+        await this.sendWhatsAppToken(phoneNumber, token);
+        
+        // Update success message to include token
+        this.showSuccessWithToken(token);
+      } else {
+        // Show regular success step if no token
+        this.currentStep = this.totalSteps + 1;
+        this.showStep(this.currentStep);
+        this.updateStepIndicators();
+      }
 
     } catch (error) {
       console.error('Form submission failed:', error);
@@ -290,6 +302,86 @@ class CorporateRequestForm {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     }
+  }
+
+  async sendWhatsAppToken(phoneNumber, token) {
+    try {
+      const message = `🎉 Your Fund An Idea application has been submitted successfully!
+
+📋 Application Token: ${token}
+
+⚠️ IMPORTANT: Please save this token number. You will need it to track your application status.
+
+Thank you for your submission. We will review your project proposal and get back to you within 3-5 business days.
+
+- Amdavad Municipal Corporation`;
+
+      // WhatsApp API call (you may need to replace this with your actual WhatsApp API endpoint)
+      const whatsappData = {
+        phone: phoneNumber,
+        message: message,
+        token: token
+      };
+
+      // Example WhatsApp API call - replace with your actual endpoint
+      const whatsappResponse = await $.ajax({
+        url: 'https://mumbailocal.org:8087/send-whatsapp', // Replace with your WhatsApp API endpoint
+        method: 'POST',
+        data: JSON.stringify(whatsappData),
+        contentType: 'application/json',
+        dataType: 'json'
+      });
+
+      console.log('WhatsApp sent successfully:', whatsappResponse);
+    } catch (error) {
+      console.error('Failed to send WhatsApp message:', error);
+      // Don't block the success flow if WhatsApp fails
+    }
+  }
+
+  showSuccessWithToken(token) {
+    // Hide all steps
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    
+    // Show success step
+    document.getElementById('successStep').classList.add('active');
+    
+    // Update success message to include token
+    const successStep = document.getElementById('successStep');
+    successStep.innerHTML = `
+      <div class="success-message">
+        <div class="success-icon">✅</div>
+        <h2>Request Submitted Successfully!</h2>
+        <div class="token-display">
+          <h3 style="color: #28a745; margin: 20px 0 10px 0;">Your Application Token</h3>
+          <div style="background: #f8f9fa; border: 2px dashed #28a745; padding: 20px; border-radius: 10px; margin: 20px 0;">
+            <h2 style="color: #28a745; margin: 0; font-family: monospace; letter-spacing: 2px;">${token}</h2>
+          </div>
+          <p style="color: #dc3545; font-weight: bold; margin: 15px 0;">
+            ⚠️ IMPORTANT: Please save this token number for tracking your application status
+          </p>
+        </div>
+        <p>Thank you for your submission. We will review your project proposal and get back to you within 3-5 business days.</p>
+        <p style="color: #6c757d; font-size: 14px; margin-top: 15px;">
+          📱 A WhatsApp message with your token has been sent to your registered phone number.
+        </p>
+        <div style="margin-top: 30px;">
+          <button class="btn btn-primary" onclick="copyToken('${token}')" style="margin-right: 10px;">
+            📋 Copy Token
+          </button>
+          <button class="btn btn-secondary" onclick="resetForm()">Submit Another Request</button>
+        </div>
+      </div>
+    `;
+    
+    // Update step indicators
+    this.currentStep = this.totalSteps + 1;
+    this.updateStepIndicators();
+    
+    // Hide navigation buttons
+    document.getElementById('backBtn').style.display = 'none';
+    document.getElementById('nextBtn').style.display = 'none';
+    document.getElementById('submitBtn').style.display = 'none';
   }
 
   resetForm() {
@@ -339,6 +431,33 @@ function previousStep() {
 
 function submitForm() {
   if (formHandler) formHandler.submitForm();
+}
+
+// Global function to copy token to clipboard
+function copyToken(token) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(token).then(() => {
+      alert('Token copied to clipboard!');
+    }).catch(() => {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = token;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      alert('Token copied to clipboard!');
+    });
+  } else {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = token;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('Token copied to clipboard!');
+  }
 }
 
 function resetForm() {

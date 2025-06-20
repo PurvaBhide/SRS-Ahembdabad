@@ -10,4 +10,4 @@ var fundanideaService={
     return api.uploadFile('/upload/documents', file, 'files');
   }
 }
-window.fundanideaService = fundanideaService;
+// window.fundanideaService = fundanideaService;
