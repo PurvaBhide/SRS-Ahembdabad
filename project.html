@@ -274,7 +274,98 @@
         stroke="#F96D00" />
     </svg></div>
 
+<!--  -->
+<script src="js/api/api.config.js"></script>
+<script src="js/api/api.core.js"></script>
+<script src="js/api/api.init.js"></script>
+<script src="js/services/project.js"></script>
+<!-- Then your other scripts -->
+<script src="js/services/project.js"></script>
+<!-- Then your other scripts -->    
+ <script>
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   console.log('Fetching projects...');
+  //   ProjectService.listAll()
+  //     .then(projects => {
+  //       console.log('Projects:', projects);
+        
+  //     })
+  //     .catch(err => console.error('Failed to load projects:', err));
+  // });
 
+  document.addEventListener('DOMContentLoaded', () => {
+    const projectList = document.getElementById('projectList');
+
+    /* ---------- helpers from the old demo ---------- */
+    const formatCurrency = amt =>
+      new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0
+      }).format(amt);
+
+    /* ---------- build one card --------------------- */
+    function addProjectCard(p) {
+      // pick the best image we can find
+      const imgSrc =
+        (p.projectMainImage && /^https?:\/\//i.test(p.projectMainImage)
+          ? p.projectMainImage
+          : (p.projectImages && p.projectImages[0])) || '';
+
+      const card        = document.createElement('div');
+      card.className    = 'card';
+      const statusClass = p.projectStatus
+        ? p.projectStatus.toLowerCase().replace(/\s+/g, '-')
+        : '';
+
+      card.innerHTML = `
+        <div class="placeholder">
+          ${imgSrc
+            ? `<img src="${imgSrc}" alt="${p.projectName || p.projectShortDescription || 'Project'}" loading="lazy">`
+            : '<div class="placeholder-text">IMAGE PLACEHOLDER</div>'}
+          ${p.projectStatus ? `<div class="status ${statusClass}">${p.projectStatus}</div>` : ''}
+        </div>
+
+        <div class="card-content">
+          <span class="tag">${p.categoryName || ''}</span>
+
+          <div class="cost">
+            Funding&nbsp;Required:
+            <span class="cost-amount">
+              ${formatCurrency(parseInt(p.projectBudget || 0, 10))}
+            </span>
+          </div>
+
+          <div class="title">
+            ${p.projectName || p.projectShortDescription || 'Untitled Project'}
+          </div>
+
+          <a class="view-link" href="./donatenow.html">View Details</a>
+        </div>`;
+      projectList.appendChild(card);
+    }
+
+    /* ---------- fetch & render --------------------- */
+    projectList.innerHTML = '<div class="loading">Loading projects…</div>';
+
+    ProjectService.listAll()
+      .then(res => {
+        // your API shape: res.data.content -> array
+        const items = res?.data?.content || [];
+        projectList.innerHTML = '';              // clear “Loading…”
+        items.forEach(addProjectCard);           // map to UI
+      })
+      .catch(err => {
+        console.error('Failed to load projects:', err);
+        projectList.innerHTML =
+          '<div class="error">Unable to load projects at the moment.</div>';
+      });
+  });
+</script>
+
+<!--  -->
+
+  
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -293,7 +384,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script>
+  <!-- <script>
     const projects = [
       {
         image: "https://biotechindia.net/wp-content/uploads/2024/02/FES-1.66-1-1000x738.png",
@@ -436,8 +527,10 @@
         });
       });
     });
-  </script>
-  <script type="text/javascript">
+  </script> -->
+ 
+ 
+ <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
         { pageLanguage: 'en', includedLanguages: 'en,gu,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
