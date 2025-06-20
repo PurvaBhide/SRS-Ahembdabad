@@ -158,7 +158,8 @@ class CorporateRequestForm {
     let isValid = true;
 
     if (step === 1) {
-      const fields = ['projectNature', 'projectName', 'location', 'department'];
+      // Only validate mandatory fields: projectNature, projectName
+      const fields = ['projectNature', 'projectName'];
       fields.forEach(field => {
         const element = document.getElementById(field);
         const errorElement = document.getElementById(field + 'Error');
@@ -173,6 +174,7 @@ class CorporateRequestForm {
         }
       });
     } else if (step === 2) {
+      // Only validate mandatory fields: orgName, email, phone, contactPerson, estimatedAmount
       const fields = ['orgName', 'email', 'phone', 'contactPerson', 'estimatedAmount'];
       fields.forEach(field => {
         const element = document.getElementById(field);
@@ -188,7 +190,7 @@ class CorporateRequestForm {
         }
       });
 
-      // Email validation
+      // Email validation (only if field has value)
       const email = document.getElementById('email');
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (email.value && !emailRegex.test(email.value)) {
@@ -198,7 +200,7 @@ class CorporateRequestForm {
         isValid = false;
       }
 
-      // Phone validation
+      // Phone validation (only if field has value)
       const phone = document.getElementById('phone');
       const phoneRegex = /^[0-9]{10}$/;
       if (phone.value && !phoneRegex.test(phone.value.replace(/\D/g, ''))) {
@@ -232,10 +234,10 @@ class CorporateRequestForm {
     return {
       natureofproject: document.getElementById('projectNature').value,
       fundanideaprojectname: document.getElementById('projectName').value,
-      fundanideaprojectlocation: document.getElementById('location').value,
-      fundanideadepartment: document.getElementById('department').value,
-      fundanideadocement: this.uploadedFileUrl || '', // Use uploaded file URL
-      fundanideadescription: document.getElementById('estimatedImpact').value,
+      fundanideaprojectlocation: document.getElementById('location').value || '', // Optional - empty if not filled
+      fundanideadepartment: document.getElementById('department').value || '', // Optional - empty if not filled
+      fundanideadocement: this.uploadedFileUrl || '', // Optional - empty if no file uploaded
+      fundanideadescription: document.getElementById('estimatedImpact').value || '', // Optional - empty if not filled
       fundanideaorganizationname: document.getElementById('orgName').value,
       fundanideaemailid: document.getElementById('email').value,
       fundanideaphonenumber: document.getElementById('phone').value,
