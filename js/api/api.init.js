@@ -14,6 +14,7 @@ if (typeof NgoService !== 'undefined') {
   Api.ngo = NgoService;
 }
 
+
 if (typeof fundanideaService !== 'undefined') {
   if (typeof Api === 'undefined') {
     window.Api = {};
