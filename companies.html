@@ -199,7 +199,7 @@
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
 
-  <li class="nav-item active dropdown custom-tab">
+  <li class="nav-item dropdown custom-tab">
   <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
     onclick="window.location.href='./index.html'; return false;">
@@ -320,7 +320,7 @@
           <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
             <div class="company-sidebar p-0">
               <div class="company-sidebar-header">
-                <h2 class="h5 mb-0">Categories</h2>
+                <h2 class="h5 mb-0 text-white">Categories</h2>
               </div>
               <div class="company-categories">
               <div class="company-category active">All Companies</div>
@@ -499,7 +499,23 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+<!-- Load core files first -->
+<script src="js/api/api.config.js"></script>
+<script src="js/api/api.core.js"></script>
+
+<!-- Then load service definitions -->
+<script src="js/services/company.js"></script>
+<script src="js/services/category.js"></script>
+<!-- <script src="js/services/category-management.js"></script> If you have this -->
+
+<!-- Finally initialize the API -->
+<script src="js/api/api.init.js"></script>
+
+<!-- Then your management scripts -->
+<script src="js/services/company-management.js"></script>
+
   <script>
+    loadCompanies();
     document.addEventListener('DOMContentLoaded', function () {
       var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
 

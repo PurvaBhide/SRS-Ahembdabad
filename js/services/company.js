@@ -3,10 +3,10 @@ var CompanyService = {
     return api.request({ path: '/addCompany', method: 'POST', data: data });
   },
   listAll: function() {
-    return api.request({ path: '/listall', method: 'GET' });
+    return api.request({ path: '/listallcompanies', method: 'GET' });
   },
   getById: function(id) {
-    return api.request({ path: '/companyShowById/' + id, method: 'GET' });
+    return api.request({ path: '/company/' + id, method: 'GET' });
   },
   update: function(id, data) {
     return api.request({ path: '/companyUpdate/' + id, method: 'PUT', data: data });
