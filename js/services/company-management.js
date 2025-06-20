@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
   setupSearch();
 });
 
-// Load and render categories in sidebar
 function loadCategories() {
-  const sidebarCategories = document.querySelector('.company-categories');
+  // This will find the sidebar in either view
+  const sidebarCategories = document.querySelector('#projectsView .company-categories, .company-categories');
+  if (!sidebarCategories) return;
+  
   sidebarCategories.innerHTML = '<div class="text-center py-2"><div class="spinner-border spinner-border-sm"></div></div>';
 
   Api.category.listAll()
@@ -124,9 +126,9 @@ function renderCompanies(companies) {
         <p class="company-info">
           <i class="fas fa-globe me-2"></i> ${company.companyurl}
         </p>
-        <p class="company-info">
-          <i class="fas fa-project-diagram me-2"></i> Projects: ${projectsCount.toLocaleString()}
-        </p>
+
+        
+      
         <div class="company-actions d-flex justify-content-between">
           <button class="btn btn-sm company-btn-outline" data-id="${company.companieId}">View Profile</button>
           <button class="btn btn-sm company-btn-primary" data-id="${company.companieId}">View Projects</button>
@@ -166,6 +168,150 @@ function viewCompanyProfile(companyId) {
 }
 
 function viewCompanyProjects(companyId) {
-  console.log('View projects for company:', companyId);
-  // Implement projects viewing logic
+  // Show loading state
+  const companiesContainer = document.querySelector('.row.g-4');
+  companiesContainer.innerHTML = '<div class="col-12 text-center py-4"><div class="spinner-border text-primary"></div></div>';
+  
+  // Get company details first (to show name in header)
+  Api.company.getById(companyId)
+    .then(companyResponse => {
+      if (!companyResponse.data) throw new Error('Invalid company data');
+      
+      const company = companyResponse.data;
+      
+      // Now get projects for this company
+      return Api.company.getById(companyId)
+        .then(projectsResponse => {
+          if (!projectsResponse.data) throw new Error('Invalid projects data');
+          
+          // Hide companies view and show projects view
+          document.querySelector('section.ftco-section').classList.add('d-none');
+          document.getElementById('projectsView').classList.remove('d-none');
+          
+          // Set company name in header
+          document.getElementById('projectsCompanyName').textContent = company.companyname;
+          
+          // Render projects
+          renderProjects(projectsResponse.data, company);
+          
+          // JUST ADD THIS LINE TO RELOAD CATEGORIES IN SIDEBAR
+          loadCategories();
+        });
+    })
+    .catch(error => {
+      console.error('Error loading company projects:', error);
+      companiesContainer.innerHTML = `
+        <div class="col-12 text-center py-4">
+          <div class="alert alert-danger">Failed to load projects</div>
+        </div>
+      `;
+    });
+}
+
+
+function renderProjects(apiResponse, company) {
+  console.log(apiResponse, "API Response");
+  
+  // Access the projects array from the response
+  const projects = Array.isArray(apiResponse) ? apiResponse : apiResponse.data || [];
+  const tableBody = document.getElementById('projectsTableBody');
+  
+  // Update stats
+  document.getElementById('totalProjects').textContent = projects.length;
+  document.getElementById('activeProjects').textContent = 
+    projects.filter(p => p.projectStatus === 'Active').length;
+  document.getElementById('completedProjects').textContent = 
+    projects.filter(p => p.projectStatus === 'Completed').length;
+  
+  // Clear existing rows
+  tableBody.innerHTML = '';
+  
+  if (projects.length === 0) {
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="7" class="text-center py-4">No projects found for this company</td>
+      </tr>
+    `;
+    return;
+  }
+  
+  projects.forEach(project => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${project.projectName || project.projectShortDescription || 'Unnamed Project'}</td>
+      <td>${project.projectDEpartmentName || 'N/A'}</td>
+      <td>
+        <span class="badge ${getStatusBadgeClass(project.projectStatus)}">
+          ${project.projectStatus || 'UNKNOWN'}
+        </span>
+      </td>
+      <td>${project.projectLocation || 'N/A'}</td>
+      <td>${formatCurrency(project.projectBudget)}</td>
+      <td>${project.impactpeople ? `${project.impactpeople} people` : 'N/A'}</td>
+      <td>
+        <button class="btn btn-sm company-btn-outline view-project-btn" 
+                data-id="${project.projectId}"
+                data-project='${JSON.stringify(project)}'>
+          View Details
+        </button>
+      </td>
+    `;
+    tableBody.appendChild(row);
+  });
+  
+  // Add event listeners to project view buttons
+  document.querySelectorAll('.view-project-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const projectData = JSON.parse(btn.dataset.project);
+      viewProjectDetails(projectData.projectId, projectData);
+    });
+  });
+  
+  // Add back button functionality
+  document.getElementById('backToCompanies').addEventListener('click', () => {
+    // Hide projects view
+    document.getElementById('projectsView').classList.add('d-none');
+    
+    // Show companies view
+    document.querySelector('section.ftco-section').classList.remove('d-none');
+    
+    // Reload companies (optional - only if you need fresh data)
+    loadCompanies();
+  });
+}
+
+// Helper functions
+function getStatusBadgeClass(status) {
+  if (!status) return 'bg-secondary';
+  
+  status = status.toLowerCase();
+  switch (status) {
+    case 'active': return 'bg-success text-white';
+    case 'completed': return 'bg-info text-white';
+    case 'pending': return 'bg-warning text-white';
+    case 'cancelled': return 'bg-danger text-white';
+    default: return 'bg-secondary text-white';
+  }
+}
+
+function formatCurrency(amount) {
+  if (!amount) return 'N/A';
+  
+  // Convert string to number if needed
+  const numericValue = typeof amount === 'string' 
+    ? parseFloat(amount.replace(/[^0-9.-]/g, '')) 
+    : amount;
+  
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 0
+  }).format(numericValue);
+}
+
+// Update viewProjectDetails to use the full project data
+function viewProjectDetails(projectId, projectData) {
+  console.log('Viewing project:', projectId, projectData);
+  // Implement your project details modal or view here
+  // You have access to all project data through projectData parameter
 }

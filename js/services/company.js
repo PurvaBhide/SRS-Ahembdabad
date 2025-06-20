@@ -6,7 +6,7 @@ var CompanyService = {
     return api.request({ path: '/listallcompanies', method: 'GET' });
   },
   getById: function(id) {
-    return api.request({ path: '/company/' + id, method: 'GET' });
+    return api.request({ path: '/projectshowbycompanieId/' + id, method: 'GET' });
   },
   update: function(id, data) {
     return api.request({ path: '/companyUpdate/' + id, method: 'PUT', data: data });

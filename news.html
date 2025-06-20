@@ -233,24 +233,7 @@
     </li>
   </ul>
 </li>
-          <!-- <li class="nav-item active dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Home
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">About AMC CSR</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Overview</a></li>
-                  <li><a class="dropdown-item" href="#">Mission</a></li>
-                  <li><a class="dropdown-item" href="#">Objectives</a></li>
-                  <li><a class="dropdown-item" href="#">Governing Body</a></li>
-                  <li><a class="dropdown-item" href="#">Advisory Body</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li> -->
+        
 
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -335,67 +318,26 @@
           <div class="col-lg">
             <h2 class="section-title">Latest News</h2>
             <div class="row g-4">
-              <!-- News Card 1 -->
-              <div class="col-md-4">
-                <div class="news-card">
-                  <div class="position-relative">
-                    <img src="https://via.placeholder.com/600x400" class="news-image" alt="News Image">
-                    <span class="news-badge">News</span>
-                  </div>
-                  <div class="p-4"><h3 class="news-title">AMC Launches New Waste Management Initiative</h3>
-                    <p class="news-excerpt">The Ahmedabad Municipal Corporation has launched a new waste segregation program across 50 wards to improve recycling rates.</p>
-                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right ms-2"></i></a>
-                  </div>
-                </div>
               </div>
-              
-              <!-- News Card 2 -->
-              <div class="col-md-4">
-                <div class="news-card">
-                  <div class="position-relative">
-                    <img src="https://via.placeholder.com/600x400" class="news-image" alt="News Image">
-                    <span class="news-badge">Update</span>
-                  </div>
-                  <div class="p-4">
-
-                    <h3 class="news-title">Smart City Projects Reach 75% Completion</h3>
-                    <p class="news-excerpt">Major infrastructure projects under the Smart City Mission are nearing completion, with several already operational.</p>
-                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right ms-2"></i></a>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- News Card 3 -->
-              <div class="col-md-4">
-                <div class="news-card">
-                  <div class="position-relative">
-                    <img src="https://via.placeholder.com/600x400" class="news-image" alt="News Image">
-                    <span class="news-badge">Announcement</span>
-                  </div>
-                  <div class="p-4">
-                   <h3 class="news-title">New Public Parks to Open in Western Ahmedabad</h3>
-                    <p class="news-excerpt">Five new public parks with modern amenities will be inaugurated next month in rapidly growing western areas.</p>
-                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right ms-2"></i></a>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- News Card 4 -->
-              <div class="col-md-4">
-                <div class="news-card">
-                  <div class="position-relative">
-                    <img src="https://via.placeholder.com/600x400" class="news-image" alt="News Image">
-                    <span class="news-badge">News</span>
-                  </div>
-                  <div class="p-4">
-                   <h3 class="news-title">AMC Wins National Award for Urban Innovation</h3>
-                    <p class="news-excerpt">Ahmedabad recognized for its pioneering work in sustainable urban development and citizen engagement.</p>
-                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right ms-2"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
+             <!-- News Modal -->
+    <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newsModalLabel">News Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="newsModalBody">
+            <!-- Content will be populated by JavaScript -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
             <!-- Pagination -->
             <nav aria-label="Page navigation" class="mt-5">
               <ul class="pagination justify-content-center">
@@ -529,7 +471,7 @@
     }
   </script>
 
-
+<script src="js/scripts/newaandeventScript.js"></script>
 
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
