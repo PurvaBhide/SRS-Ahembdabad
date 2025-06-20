@@ -13,6 +13,9 @@ if (typeof CompanyService !== 'undefined') {
 if (typeof NgoService !== 'undefined') {
   Api.ngo = NgoService;
 }
+if (typeof ProjectService !== ' undefined') {
+  Api.project = ProjectService;
+}
 // if (typeof fundanideaService !== 'undefined') {
 //   if (typeof Api === 'undefined') {
 //     window.Api = {};
