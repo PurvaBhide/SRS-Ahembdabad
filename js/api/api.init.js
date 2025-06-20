@@ -1,9 +1,17 @@
-var Api = {
-  category: CategoryService,
-//   ngo: NgoService,
-//   project: ProjectService,
-//   successStory: SuccessStoryService,
-//   company: CompanyService,
-//   document: DocumentService
-  // Add other services as needed
-};
+// api.init.js
+var Api = {};
+
+// Initialize services only if they exist
+if (typeof CategoryService !== 'undefined') {
+  Api.category = CategoryService;
+}
+
+if (typeof CompanyService !== 'undefined') {
+  Api.company = CompanyService;
+}
+
+if (typeof NgoService !== 'undefined') {
+  Api.ngo = NgoService;
+}
+// Add other services similarly
+// Api.ngo = typeof NgoService !== 'undefined' ? NgoService : {};
