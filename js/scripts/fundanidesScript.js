@@ -280,10 +280,7 @@ class CorporateRequestForm {
       const phoneNumber = formData.fundanideaphonenumber;
       
       if (token) {
-        // Send WhatsApp message
-        await this.sendWhatsAppToken(phoneNumber, token);
-        
-        // Update success message to include token
+        // Skip WhatsApp for now and just show success with token
         this.showSuccessWithToken(token);
       } else {
         // Show regular success step if no token
@@ -363,7 +360,7 @@ Thank you for your submission. We will review your project proposal and get back
         </div>
         <p>Thank you for your submission. We will review your project proposal and get back to you within 3-5 business days.</p>
         <p style="color: #6c757d; font-size: 14px; margin-top: 15px;">
-          📱 A WhatsApp message with your token has been sent to your registered phone number.
+          💡 Please save your token number for future reference and tracking.
         </p>
         <div style="margin-top: 30px;">
           <button class="btn btn-primary" onclick="copyToken('${token}')" style="margin-right: 10px;">
