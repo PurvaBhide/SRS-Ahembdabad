@@ -6,11 +6,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet"> -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -30,17 +27,15 @@
   <link rel="stylesheet" href="css/flaticon.css">
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/css/category.css">
+  <link rel="stylesheet" href="css/css/project.css">
   <link rel="stylesheet" href="css/css/slider.css">
   <link rel="stylesheet" href="css/css/Homepage.css">
-  <link rel="stylesheet" href="css/css/page/contact.css">
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
 </head>
 
 <body>
-
    <header>
     <div class="top-container">
       <div class="topbar-left">
@@ -65,7 +60,7 @@
     </a>
   </div>
 
-     <!-- nav start -->
+   <!-- nav start -->
  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar" style="border-radius: 0px !important;">
   <div class="container-fluid">
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -158,6 +153,7 @@
             <div class="dropdown-menu" aria-labelledby="corporateDropdown">
               <a class="dropdown-item" href="./gallery.html">Image Gallery</a>
               <a class="dropdown-item" href="videogallery.html">Video Gallery</a>
+              <a class="dropdown-item" href="publications.html">Publications</a>
             </div>
           </li>
 
@@ -186,92 +182,31 @@
     </div>
   </nav>
   <!-- END nav -->
-    
 
-<div id="amc-contact-section">
-  <div class="amc-contact-container">
-    <div class="amc-contact-header">
-      <h2>Contact Ahmedabad Municipal Corporation</h2>
-      <p>We're committed to serving the citizens of Ahmedabad. Reach out to us through any of these channels.</p>
-    </div>
-    
-    <div class="amc-contact-grid">
-      <!-- Contact Information -->
-      <div class="amc-contact-info">
-        <div class="amc-contact-card">
-          <div class="amc-contact-icon">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
-          <div class="amc-contact-content">
-            <h3>Our Headquarters</h3>
-            <p>Sardar Patel Bhavan, Danapith<br>Ahmedabad – 380001<br>Gujarat, India</p>
-          </div>
-        </div>
-        
-        <div class="amc-contact-card">
-          <div class="amc-contact-icon">
-            <i class="fas fa-phone-alt"></i>
-          </div>
-          <div class="amc-contact-content">
-            <h3>Phone Contacts</h3>
-            <p>+91-79-25391811<br>Monday to Friday: 8:30 AM to 5:00 PM</p>
-          </div>
-        </div>
-        
-        <div class="amc-contact-card">
-          <div class="amc-contact-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="amc-contact-content">
-            <h3>Email Us</h3>
-            <p>info@ahmedabadcity.gov.in<br>We aim to respond within 2 working days</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Contact Form -->
-      <div class="amc-contact-form">
-        <h3>Send Your Query</h3>
-        <form>
-          <div class="amc-form-group">
-            <input type="text" id="amc-name" required placeholder=" ">
-            <label for="amc-name">Full Name</label>
-          </div>
-          
-          <div class="amc-form-group">
-            <input type="email" id="amc-email" required placeholder=" ">
-            <label for="amc-email">Email Address</label>
-          </div>
-          
-          <div class="amc-form-group">
-            <input type="tel" id="amc-phone" placeholder=" ">
-            <label for="amc-phone">Mobile Number (Optional)</label>
-          </div>
-          
-          <div class="amc-form-group">
-            <select id="amc-subject" required>
-              <option value="" disabled selected> </option>
-              <option value="general">General Inquiry</option>
-              <!-- <option value="complaint">Complaint</option>
-              <option value="service">Service Request</option> -->
-              <option value="feedback">Feedback/Suggestion</option>
-            </select>
-            <label for="amc-subject">Subject</label>
-          </div>
-          
-          <div class="amc-form-group">
-            <textarea id="amc-message" rows="4" required placeholder=" "></textarea>
-            <label for="amc-message">Your Message</label>
-          </div>
-          
-          <button type="submit" class="amc-submit-btn">
-            Submit Query <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
-    </div>
+
+  <h1>Compeleted Projects </h1>
+
+  <div class="filters">
+    <select id="categoryFilter">
+      <option value="0">All Categories</option>
+      <option value="1">Health</option>
+      <option value="2">Environment</option>
+      <option value="3">Education</option>
+        <option value="4">Social</option>
+      <option value="5">Infrastructure</option>
+    </select>
+
+    <select id="scaleFilter">
+      <option value="all">All Budget Ranges</option>
+      <option value="100000">Below ₹1,00,000</option>
+      <option value="500000">₹1,00,000 - ₹5,00,000</option>
+      <option value="800000">Above ₹5,00,000</option>
+    </select>
   </div>
-</div>
+
+  <div class="projects" id="projectList">
+    <!-- Cards will be generated by JavaScript -->
+  </div>
 
   <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
@@ -296,7 +231,9 @@
             <h2 class="ftco-heading-2">Site Links</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-2 d-block">Home</a></li>
-
+              <!-- <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Donate</a></li>
+                <li><a href="#" class="py-2 d-block">Event</a></li> -->
             </ul>
           </div>
         </div>
@@ -320,51 +257,34 @@
         <div class="col-md-12 text-center">
           <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;
-            <script>document.write(new Date().getFullYear());</script> All rights reserved .
+            <script>document.write(new Date().getFullYear());</script> All rights reserved.
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>
       </div>
     </div>
   </footer>
-    
-  
+
+
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+    </svg></div>
+
+<!--  -->
+<script src="./js/api/api.config.js"></script>
+<script src="./js/api/api.core.js"></script>
+<script src="./js/api/api.init.js"></script>
+<script src="./js/services/project.js"></script>
+<!-- script for api integration -->
+ <script src="./js/services/completed-projects.js"></script>
 
 
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-  var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
-
-  dropdownSubmenus.forEach(function (submenuLink) {
-    submenuLink.addEventListener('click', function (e) {
-      // Only prevent default if it's a dropdown with a submenu
-      if (this.parentElement.classList.contains('dropdown-submenu')) {
-        e.preventDefault();
-        let nextDropdown = this.nextElementSibling;
-        if (nextDropdown.style.display === 'block') {
-          nextDropdown.style.display = 'none';
-        } else {
-          nextDropdown.style.display = 'block';
-        }
-      }
-    });
-  });
-});
-</script>
-
-<!-- jQuery (required by Bootstrap) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Popper.js (for Bootstrap tooltips/dropdowns) -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -383,8 +303,8 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  
-  <script type="text/javascript">
+ 
+ <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
         { pageLanguage: 'en', includedLanguages: 'en,gu,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
@@ -392,11 +312,9 @@
       );
     }
   </script>
-
-
-
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
-  </body>
+
+</body>
+
 </html>
