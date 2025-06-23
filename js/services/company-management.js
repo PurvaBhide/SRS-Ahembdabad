@@ -130,7 +130,6 @@ function renderCompanies(companies) {
         
       
         <div class="company-actions d-flex justify-content-between">
-          <button class="btn btn-sm company-btn-outline" data-id="${company.companieId}">View Profile</button>
           <button class="btn btn-sm company-btn-primary" data-id="${company.companieId}">View Projects</button>
         </div>
       </div>
@@ -216,13 +215,7 @@ function renderProjects(apiResponse, company) {
   const projects = Array.isArray(apiResponse) ? apiResponse : apiResponse.data || [];
   const tableBody = document.getElementById('projectsTableBody');
   
-  // Update stats
-  document.getElementById('totalProjects').textContent = projects.length;
-  document.getElementById('activeProjects').textContent = 
-    projects.filter(p => p.projectStatus === 'Active').length;
-  document.getElementById('completedProjects').textContent = 
-    projects.filter(p => p.projectStatus === 'Completed').length;
-  
+
   // Clear existing rows
   tableBody.innerHTML = '';
   
