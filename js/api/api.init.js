@@ -13,5 +13,8 @@ if (typeof CompanyService !== 'undefined') {
 if (typeof NgoService !== 'undefined') {
   Api.ngo = NgoService;
 }
+if (typeof ProjectService  !== 'undefined') {
+  Api.project = ProjectService ;
+}
 // Add other services similarly
 // Api.ngo = typeof NgoService !== 'undefined' ? NgoService : {};

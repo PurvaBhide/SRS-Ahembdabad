@@ -155,8 +155,7 @@ function renderNGOs(ngos) {
         </p>
         
         <div class="agency-actions d-flex justify-content-between">
-          <button class="btn btn-sm agency-btn-outline" data-id="${ngo.id}">View Profile</button>
-          <button class="btn btn-sm agency-btn-primary" data-id="${ngo.id}">View Projects</button>
+          <button class="btn btn-sm agency-btn-primary view-projects-btn" data-id="${ngo.id}">View Projects</button>
         </div>
       </div>
     `;
@@ -184,4 +183,374 @@ function setupSearch() {
       card.closest('.col-xl-4').style.display = name.includes(term) ? 'block' : 'none';
     });
   });
+}
+
+
+function viewNGOProjects(ngoId) {
+  // Show loading state
+  const ngosContainer = document.querySelector('.row.g-4');
+  if (!ngosContainer) {
+    console.error('NGOs container not found');
+    return;
+  }
+  ngosContainer.innerHTML = '<div class="col-12 text-center py-4"><div class="spinner-border text-primary"></div></div>';
+
+  // First get NGO details
+  Api.ngo.getById(ngoId)
+    .then(ngoResponse => {
+      const ngo = ngoResponse.data || ngoResponse;
+      if (!ngo || !ngo.id) throw new Error('Invalid NGO data');
+      console.log(ngo, "here is ngo resp");
+
+      // Then get projects for this NGO
+      return Api.project.getByNgo(ngo.id)
+        .then(projectResponse => {
+          const projectData = projectResponse.data || projectResponse;
+          
+          if (!projectData) {
+            throw new Error('No project data received');
+          }
+
+          // Safely handle view switching
+          const sectionView = document.querySelector('section.ftco-section');
+          const projectsView = document.getElementById('projectsView');
+          
+          if (sectionView) sectionView.classList.add('d-none');
+          if (projectsView) projectsView.classList.remove('d-none');
+          
+          // Set NGO header
+          const companyNameEl = document.getElementById('projectsCompanyName');
+          if (companyNameEl) {
+            companyNameEl.innerHTML = `
+              ${ngo.organizationName}
+              <small class="text-muted d-block" style="font-size: 0.7em">
+                ${ngo.category?.categoryName || 'No category'} | 
+                Contact: ${ngo.nameOfContactPerson || 'N/A'} (${ngo.contactNumber || 'N/A'})
+              </small>
+            `;
+          }
+
+          // Render the projects
+          const projectsToRender = Array.isArray(projectData) ? projectData : [projectData];
+          renderProjects(projectsToRender, ngo);
+        });
+    })
+    .catch(error => {
+      console.error('Error loading NGO projects:', error);
+      if (ngosContainer) {
+        ngosContainer.innerHTML = `
+          <div class="col-12 text-center py-4">
+            <div class="alert alert-danger">
+              <i class="fas fa-exclamation-triangle me-2"></i>
+              ${error.message || 'Failed to load NGO projects'}
+            </div>
+            <button class="btn btn-sm agency-btn-outline mt-2" onclick="loadNGOs()">
+              <i class="fas fa-arrow-left me-2"></i>Back to Agencies
+            </button>
+          </div>
+        `;
+      }
+    });
+}
+
+function renderProjects(apiResponse, ngo) {
+  console.log("Projects Data:", apiResponse);
+  
+  // Only check for the table body element
+  const tableBody = document.getElementById('projectsTableBody');
+
+  if (!tableBody) {
+    console.error('Table body element not found');
+    return;
+  }
+
+  // Optional: Check for statistics elements only if they exist
+  const totalProjectsEl = document.getElementById('totalProjects');
+  const activeProjectsEl = document.getElementById('activeProjects');
+  const completedProjectsEl = document.getElementById('completedProjects');
+
+  // Access the projects array
+  const projects = Array.isArray(apiResponse) ? apiResponse : apiResponse.data || [];
+  
+  // Update stats only if elements exist
+  if (totalProjectsEl) totalProjectsEl.textContent = projects.length;
+  if (activeProjectsEl) activeProjectsEl.textContent = projects.filter(p => p.projectStatus === 'Active').length;
+  if (completedProjectsEl) completedProjectsEl.textContent = projects.filter(p => p.projectStatus === 'Completed').length;
+  
+  // Clear existing rows
+  tableBody.innerHTML = '';
+  
+  if (projects.length === 0) {
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="7" class="text-center py-4">
+          <div class="alert alert-info">
+            No projects found for ${ngo.organizationName}
+          </div>
+          ${ngo.status === 'Pending' ? `
+          <div class="alert alert-warning mt-2">
+            <i class="fas fa-info-circle me-2"></i>
+            This agency is currently under verification (Status: ${ngo.status})
+          </div>
+          ` : ''}
+          <div class="mt-3">
+            <p class="mb-1"><strong>Contact:</strong> ${ngo.nameOfContactPerson}</p>
+            <p class="mb-1"><strong>Email:</strong> ${ngo.emailId}</p>
+            <p class="mb-1"><strong>Phone:</strong> ${ngo.contactNumber}</p>
+            <p class="mb-1"><strong>Category:</strong> ${ngo.category?.categoryName || 'Not specified'}</p>
+            <p class="mb-1"><strong>Years Active:</strong> ${ngo.ageOfOrganization} years</p>
+          </div>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+  
+  projects.forEach(project => {
+    const row = document.createElement('tr');
+    row.className = 'align-middle'; // Vertical alignment for all cells
+    row.innerHTML = `
+      <td>
+        <div class="d-flex flex-column">
+          <strong class="text-primary">${project.projectName || 'Unnamed Project'}</strong>
+          ${project.projectShortDescription ? `
+            <small class="text-muted">${project.projectShortDescription}</small>
+          ` : ''}
+        </div>
+      </td>
+      <td>
+        <span class="badge bg-light text-dark">
+          <i class="fas fa-tag me-1"></i> ${ngo.category?.categoryName || 'Not categorized'}
+        </span>
+      </td>
+      <td>
+        <span class="badge ${getStatusBadgeClass(project.projectStatus)}">
+          <i class="fas ${getStatusIcon(project.projectStatus)} me-1"></i>
+          ${project.projectStatus || 'Unknown'}
+        </span>
+      </td>
+      <td>
+        <div class="d-flex align-items-center">
+          <i class="fas fa-map-marker-alt text-muted me-2"></i>
+          <span>${project.projectLocation || 'N/A'}</span>
+        </div>
+      </td>
+      <td class="fw-semibold">
+        ${formatCurrency(project.projectBudget)}
+      </td>
+      <td>
+        <div class="d-flex align-items-center">
+          <i class="fas fa-users text-muted me-2"></i>
+          <span>${project.impactpeople || '0'}</span>
+        </div>
+      </td>
+       <td>
+        <div class="d-flex gap-2">
+          <button class="btn btn-sm btn-outline-primary view-project-btn" 
+                  data-id="${project.projectId}"
+                  data-project='${JSON.stringify(project)}'
+                  data-ngo='${JSON.stringify(ngo)}'
+                  title="View project details">
+            <i class="fas fa-eye me-1"></i> View
+          </button>
+      
+        </div>
+      </td>
+    `;
+    tableBody.appendChild(row);
+  });
+
+  // Add event listeners
+  document.querySelectorAll('.view-project-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectData = JSON.parse(btn.dataset.project);
+      const ngoData = JSON.parse(btn.dataset.ngo);
+      viewProjectDetails(projectData.projectId, projectData, ngoData);
+    });
+  });
+
+ document.getElementById('backToCompanies').addEventListener('click', () => {
+    // Hide projects view
+    document.getElementById('projectsView').classList.add('d-none');
+    
+    // Show companies view
+    document.querySelector('section.ftco-section').classList.remove('d-none');
+    
+    // Reload companies (optional - only if you need fresh data)
+    loadNGOs();
+  });
+}
+
+// Helper function for status icons
+function getStatusIcon(status) {
+  if (!status) return 'fa-question-circle';
+  status = status.toLowerCase();
+  switch (status) {
+    case 'active': return 'fa-play-circle';
+    case 'completed': return 'fa-check-circle';
+    case 'pending': return 'fa-hourglass-half';
+    default: return 'fa-question-circle';
+  }
+}
+
+// Enhanced project details modal for NGOs
+function viewProjectDetails(projectId, projectData, ngo) {
+  console.log('Viewing project:', { projectId, projectData, ngo });
+  
+  // Format documents list if they exist
+  const formatDocuments = (docs) => {
+    if (!docs) return '<li>No documents available</li>';
+    return Object.entries(docs)
+      .filter(([key, value]) => value && !key.includes('document') && !key.includes('Upload'))
+      .map(([key, value]) => `
+        <li>
+          <strong>${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:</strong>
+          ${value}
+        </li>
+      `).join('');
+  };
+
+  const modalContent = `
+    <div class="modal fade" id="projectDetailsModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-light">
+            <h5 class="modal-title">
+              <i class="fas fa-project-diagram me-2"></i>
+              ${projectData.projectName || 'Project Details'}
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="fas fa-info-circle me-2"></i>Project Information</h6>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-unstyled">
+                      <li class="mb-2">
+                        <strong>Status:</strong> 
+                        <span class="badge ${getStatusBadgeClass(projectData.projectStatus)}">
+                          ${projectData.projectStatus || 'Unknown'}
+                        </span>
+                      </li>
+                      <li class="mb-2"><strong>Location:</strong> ${projectData.projectLocation || 'Not specified'}</li>
+                      <li class="mb-2"><strong>Budget:</strong> ${formatCurrency(projectData.projectBudget)}</li>
+                      <li class="mb-2"><strong>People Impacted:</strong> ${projectData.impactpeople || '0'}</li>
+                      ${projectData.startDate ? `
+                        <li class="mb-2"><strong>Start Date:</strong> ${new Date(projectData.startDate).toLocaleDateString()}</li>
+                      ` : ''}
+                      ${projectData.endDate ? `
+                        <li class="mb-2"><strong>End Date:</strong> ${new Date(projectData.endDate).toLocaleDateString()}</li>
+                      ` : ''}
+                    </ul>
+                    ${projectData.projectDescription ? `
+                      <div class="mt-3">
+                        <h6 class="border-bottom pb-2">Description</h6>
+                        <p>${projectData.projectDescription}</p>
+                      </div>
+                    ` : ''}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="fas fa-building me-2"></i>Implementing Agency</h6>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="h6">${ngo.organizationName}</h5>
+                    <ul class="list-unstyled">
+                      <li class="mb-2"><strong>Contact:</strong> ${ngo.nameOfContactPerson}</li>
+                      <li class="mb-2"><strong>Email:</strong> ${ngo.emailId}</li>
+                      <li class="mb-2"><strong>Phone:</strong> ${ngo.contactNumber}</li>
+                      <li class="mb-2"><strong>Category:</strong> ${ngo.category?.categoryName || 'Not specified'}</li>
+                      <li class="mb-2"><strong>Years Active:</strong> ${ngo.ageOfOrganization} years</li>
+                      <li class="mb-2"><strong>Annual Turnover:</strong> ${formatCurrency(ngo.annualTurnover)}</li>
+                    </ul>
+                    
+                    <div class="mt-3">
+                      <h6 class="border-bottom pb-2">Registration Details</h6>
+                      <ul class="list-unstyled small">
+                        ${formatDocuments({
+                          '80G Registration': ngo.ngo80GregistrationNumber,
+                          '12A Registration': ngo.ngo12AregistrationNumber,
+                          'CSR1 Registration': ngo.csr1RegistartionNumber
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            ${projectData.projectImages?.length > 0 ? `
+              <div class="card">
+                <div class="card-header bg-light">
+                  <h6 class="mb-0"><i class="fas fa-images me-2"></i>Project Gallery</h6>
+                </div>
+                <div class="card-body">
+                  <div class="row g-2">
+                    ${projectData.projectImages.map(img => `
+                      <div class="col-4 col-md-3">
+                        <img src="${img}" class="img-thumbnail w-100" style="height: 100px; object-fit: cover;">
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Add modal to DOM
+  const existingModal = document.getElementById('projectDetailsModal');
+  if (existingModal) {
+    existingModal.outerHTML = modalContent;
+  } else {
+    document.body.insertAdjacentHTML('beforeend', modalContent);
+  }
+  
+  // Show modal
+  const modal = new bootstrap.Modal(document.getElementById('projectDetailsModal'));
+  modal.show();
+}
+
+// Helper functions (reuse from company-management.js or define here)
+function getStatusBadgeClass(status) {
+  if (!status) return 'bg-secondary text-white';
+  
+  status = status.toLowerCase();
+  switch (status) {
+    case 'active': return 'bg-success text-white';
+    case 'completed': return 'bg-info text-white';
+    case 'pending': return 'bg-warning text-white';
+    case 'cancelled': return 'bg-danger text-white';
+    default: return 'bg-secondary text-white';
+  }
+}
+
+function formatCurrency(amount) {
+  if (!amount) return 'N/A';
+  
+  // Convert string to number if needed
+  const numericValue = typeof amount === 'string' 
+    ? parseFloat(amount.replace(/[^0-9.-]/g, '')) 
+    : amount;
+  
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 0
+  }).format(numericValue);
 }

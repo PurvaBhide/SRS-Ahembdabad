@@ -11,8 +11,8 @@ var ProjectService = {
   getById: function(id) {
     return api.request({ path: '/projectshowbyid/' + id, method: 'GET' });
   },
-  getByCompany: function(companyId) {
-    return api.request({ path: '/projectshowbycompanieId/' + companyId, method: 'GET' });
+  getByNgo: function(id) {
+    return api.request({ path: '/projectshowbyngoid/' + id, method: 'GET' });
   },
   filter: function(params) {
     var query = Object.keys(params).map(function(key) {
