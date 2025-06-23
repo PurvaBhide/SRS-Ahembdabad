@@ -15,6 +15,18 @@ if (typeof NgoService !== 'undefined') {
 }
 if (typeof ProjectService  !== 'undefined') {
   Api.project = ProjectService ;
+
+
+if (typeof fundanideaService !== 'undefined') {
+  if (typeof Api === 'undefined') {
+    window.Api = {};
+  }
+  window.Api.fundanidea = fundanideaService;
+}
+
+if (typeof newsandeventServices !== 'undefined') {
+  Api.newsandevent = newsandeventServices;
+
 }
 // Add other services similarly
 // Api.ngo = typeof NgoService !== 'undefined' ? NgoService : {};

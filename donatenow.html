@@ -816,7 +816,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="corporateDropdown">
               <a class="dropdown-item" href="project.html">Projects Open For Collaboration</a>
-              <a class="dropdown-item" href="fundownidea.html">Fund An Idea</a>
+              <a class="dropdown-item" href="fundanidea.html">Fund An Idea</a>
               <a class="dropdown-item" href="#section-completedprojects">Completed Projects</a>
             </div>
           </li>
@@ -873,7 +873,7 @@
 
                 <h1 class="project-title"> 4 Channel Functional Electrical Stimulation (FES) System</h1>
 
-                <div class="project-meta">
+                <!-- <div class="project-meta">
                     <div class="meta-item">
                         <div class="meta-icon">📍</div>
                         <span>Gujarat</span>
@@ -882,15 +882,15 @@
                         <div class="meta-icon">👥</div>
                         <span>5,000+ people impacted</span>
                     </div>
-                    <!-- <div class="meta-item">
+                    <div class="meta-item">
                         <div class="meta-icon">⏰</div>
                         <span>30 days remaining</span>
-                    </div> -->
+                    </div> 
                     <div class="meta-item">
                         <div class="meta-icon">✅</div>
                         <span>Verified NGO</span>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="project-description">
                    <p> <strong>Project Name: </strong> 4 Channel Functional Electrical Stimulation (FES) System</p>
@@ -899,7 +899,7 @@
                     This functional electrical system device is used to train functional movements of upper and lower limbs (UL/LL) which are affected due to stroke/hemiparesis and aid in neural plasticity.
                 </div>
 
-                <div class="impact-stats">
+                <!-- <div class="impact-stats">
                     <div class="stat-card">
                         <div class="stat-number">5,000+</div>
                         <div class="stat-label">People Served</div>
@@ -912,7 +912,7 @@
                         <div class="stat-number">50,000L</div>
                         <div class="stat-label">Daily Capacity</div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="project-tabs">
                     <div class="tab-nav">
@@ -925,22 +925,11 @@
 
                 <div id="about" class="tab-content active">
                     <h3>Project Details</h3>
-                    <p>The 4 Channel Functional Electrical Stimulation (FES) System is a specialized therapeutic device
+                    <p id="project-description">The 4 Channel Functional Electrical Stimulation (FES) System is a specialized therapeutic device
                         designed to support patients undergoing neuro-physiotherapy, particularly those suffering from
                         conditions such as stroke or hemiparesis. Stroke often leads to partial paralysis or significant
                         weakness in one side of the body, affecting the ability to perform everyday tasks.</p>
-                    <P>This advanced system uses electrical impulses to stimulate paralyzed or weakened muscles, helping
-                        retrain the brain and muscles for improved motor function. By delivering controlled electrical
-                        currents to targeted muscles in the upper limbs (UL) and lower limbs (LL), the device
-                        facilitates repetitive, goal-oriented movement patterns essential for recovery.</P>
-                    <p>The implementation of this technology in neuro-physiotherapy enhances neural plasticity — the
-                        brain’s ability to reorganize and form new neural connections — thereby accelerating the
-                        rehabilitation process. It not only improves voluntary muscle control and strength but also
-                        enhances the quality of life for patients by increasing their independence in performing daily
-                        activities.</p>
-                    <p>This project aligns with AMC's commitment to supporting inclusive health initiatives and advanced
-                        rehabilitation technologies under its CSR efforts, promoting equitable healthcare access for
-                        patients with neurological disabilities.</p>
+                    
                 </div>
 
                 <!-- <div id="updates" class="tab-content">
@@ -957,13 +946,12 @@
 
                 <div id="gallery" class="tab-content">
                     <h3>Photo Gallery</h3>
-                    <p>Visual progress and community engagement photos will be updated regularly as the project
-                        progresses.</p>
+                    <div class="galleryTab"></div>
                 </div>
 
                 <div id="team" class="tab-content">
                     <h3>Department</h3>
-                    <p><strong>Neuro PT</strong> </p>
+                    <p id="projectDepartmentName"><strong>Neuro PT</strong> </p>
 
                 </div>
             </div>
@@ -1060,7 +1048,13 @@
                 stroke="#F96D00" />
         </svg></div>
 
-
+<!-- scripts for api integration -->
+ <script src="./js/api/api.config.js"></script>
+<script src="./js/api/api.core.js"></script>
+<script src="./js/api/api.init.js"></script>
+<script src="./js/services/project.js"></script>
+<script src="./js/services/project-detail.js"></script>
+ <!-- scripts for api integration end -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -1156,11 +1150,11 @@
         });
 
         // Animate progress bar on load
-        document.addEventListener('DOMContentLoaded', function () {
-            setTimeout(() => {
-                document.querySelector('.progress-bar-fill').style.width = '50%';
-            }, 500);
-        });
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     setTimeout(() => {
+        //         document.querySelector('.progress-bar-fill').style.width = '50%';
+        //     }, 500);
+        // });
     </script>
     <script type="text/javascript">
         function googleTranslateElementInit() {

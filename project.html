@@ -140,7 +140,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="corporateDropdown">
               <a class="dropdown-item" href="project.html">Projects Open For Collaboration</a>
-              <a class="dropdown-item" href="fundownidea.html">Fund An Idea</a>
+              <a class="dropdown-item" href="fundanidea.html">Fund An Idea</a>
               <a class="dropdown-item" href="#section-completedprojects">Completed Projects</a>
             </div>
           </li>
@@ -188,19 +188,19 @@
 
   <div class="filters">
     <select id="categoryFilter">
-      <option value="all">All Categories</option>
-      <option value="Social">Social</option>
-      <option value="Health">Health</option>
-      <option value="Education">Education</option>
-      <option value="Environment">Environment</option>
-      <option value="Infrastructure">Infrastructure</option>
+      <option value="0">All Categories</option>
+      <option value="1">Health</option>
+      <option value="2">Environment</option>
+      <option value="3">Education</option>
+        <option value="4">Social</option>
+      <option value="5">Infrastructure</option>
     </select>
 
     <select id="scaleFilter">
       <option value="all">All Budget Ranges</option>
-      <option value="low">Below ₹1,00,000</option>
-      <option value="mid">₹1,00,000 - ₹5,00,000</option>
-      <option value="high">Above ₹5,00,000</option>
+      <option value="100000">Below ₹1,00,000</option>
+      <option value="500000">₹1,00,000 - ₹5,00,000</option>
+      <option value="800000">Above ₹5,00,000</option>
     </select>
   </div>
 
@@ -274,7 +274,152 @@
         stroke="#F96D00" />
     </svg></div>
 
+<!--  -->
+<script src="./js/api/api.config.js"></script>
+<script src="./js/api/api.core.js"></script>
+<script src="./js/api/api.init.js"></script>
+<script src="./js/services/project.js"></script>
+ <script src="./js/services/projectList.js"></script>
+ <script src="./js/services/project-detail.js"></script>
 
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const projectList = document.getElementById('projectList');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const BudgetFilter = document.getElementById('scaleFilter');
+
+    // Currency formatter
+    const formatCurrency = amt => 
+        new Intl.NumberFormat('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+            maximumFractionDigits: 0
+        }).format(amt);
+
+   // Consistent card rendering function
+    function renderProjectCard(project) {
+        // Handle image source - use projectMainImage if it's a full URL, otherwise use first projectImages
+        const imgSrc = project.projectMainImage?.startsWith('http') 
+            ? project.projectMainImage 
+            : (project.projectImages && project.projectImages.length > 0)
+                ? project.projectImages[0]
+                : '';
+        
+        const statusClass = project.projectStatus 
+            ? project.projectStatus.toLowerCase().replace(/\s+/g, '-') 
+            : '';
+
+        return `
+            <div class="card">
+                <div class="placeholder">
+                    ${imgSrc 
+                        ? `<img src="${imgSrc}" alt="${project.projectName || project.projectShortDescription || 'Project'}" loading="lazy">` 
+                        : '<div class="placeholder-text">IMAGE PLACEHOLDER</div>'}
+                    ${project.projectStatus 
+                        ? `<div class="status ${statusClass}">${project.projectStatus}</div>` 
+                        : ''}
+                </div>
+
+                <div class="card-content">
+                    <span class="tag">${project.categoryName || ''}</span>
+                    <div class="cost">
+                        Funding Required:
+                        <span class="cost-amount">
+                            ${formatCurrency(parseInt(project.projectBudget || 0))}
+                        </span>
+                    </div>
+                    <div class="title">
+                        ${project.projectName || project.projectShortDescription || 'Untitled Project'}
+                    </div>
+                    <a class="view-link" href="./donatenow.html?id=${project.projectId || ''}">View Details</a>
+                </div>
+            </div>`;
+    }
+
+    // Unified data fetcher
+    async function fetchProjects(categoryId = 0) {
+        try {
+            projectList.innerHTML = '<div class="loading">Loading projects...</div>';
+            
+            let response;
+            if (categoryId && categoryId !== '0') {
+                const res = await fetch(`https://mumbailocal.org:8087/projects/filter?categoryId=${categoryId}`);
+                response = await res.json();
+                // Handle filtered API response format
+                const projects = response.data || [];
+                if (projects.length === 0) {
+                    projectList.innerHTML = '<div class="no-results">No projects found for this category</div>';
+                    return;
+                }
+                projectList.innerHTML = projects.map(renderProjectCard).join('');
+            } else {
+                // Original ProjectService call
+                response = await ProjectService.listAll();
+                // Handle original API response format
+                const projects = response?.data?.content || [];
+                if (projects.length === 0) {
+                    projectList.innerHTML = '<div class="no-results">No projects found</div>';
+                    return;
+                }
+                projectList.innerHTML = projects.map(renderProjectCard).join('');
+            }
+            
+        } catch (error) {
+            console.error('Failed to load projects:', error);
+            projectList.innerHTML = '<div class="error">Unable to load projects</div>';
+        }
+    }
+  
+    // Event listeners
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', (e) => fetchProjects(e.target.value));
+    }
+
+     async function fetchProjectsbyBudget(projectBudget = 0) {
+        try {
+            projectList.innerHTML = '<div class="loading">Loading projects...</div>';
+            
+            let response;
+            if (projectBudget && projectBudget !== '0') {
+                const res = await fetch(`https://mumbailocal.org:8087/projects/filter?projectBudget=${projectBudget}`);
+                response = await res.json();
+                // Handle filtered API response format
+                const projects = response.data || [];
+                if (projects.length === 0) {
+                    projectList.innerHTML = '<div class="no-results">No projects found for this budget</div>';
+                    return;
+                }
+                projectList.innerHTML = projects.map(renderProjectCard).join('');
+            } else {
+                // Original ProjectService call
+                response = await ProjectService.listAll();
+                // Handle original API response format
+                const projects = response?.data?.content || [];
+                if (projects.length === 0) {
+                    projectList.innerHTML = '<div class="no-results">No projects found</div>';
+                    return;
+                }
+                projectList.innerHTML = projects.map(renderProjectCard).join('');
+            }
+            
+        } catch (error) {
+            console.error('Failed to load projects:', error);
+            projectList.innerHTML = '<div class="error">Unable to load projects</div>';
+        }
+    }
+    if (BudgetFilter) {
+        BudgetFilter.addEventListener('change', (e) => fetchProjectsbyBudget(e.target.value));
+    }
+   
+    // Initial load
+    fetchProjects();
+});
+</script> -->
+
+
+<!--  -->
+
+  
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -293,7 +438,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script>
+  <!-- <script>
     const projects = [
       {
         image: "https://biotechindia.net/wp-content/uploads/2024/02/FES-1.66-1-1000x738.png",
@@ -436,8 +581,10 @@
         });
       });
     });
-  </script>
-  <script type="text/javascript">
+  </script> -->
+ 
+ 
+ <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
         { pageLanguage: 'en', includedLanguages: 'en,gu,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },

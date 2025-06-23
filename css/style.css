@@ -7737,6 +7737,7 @@ h1, h2, h3, h4, h5,
     display: block;
     width: 100%;
     padding: 30px;
+    height: 100%;
     color: rgba(0, 0, 0, 0.7); }
     .ftco-intro .block-18.color-1 {
       background: #0A1E46; }
