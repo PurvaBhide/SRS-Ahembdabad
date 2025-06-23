@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/css/trackapplication.css">
   <link rel="stylesheet" href="css/css/slider.css">
-  
+  <link rel="stylesheet" href="css/css/Homepage.css">
   <link rel="stylesheet" href="css/css/page/contact.css">
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
@@ -319,6 +319,24 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+
+      dropdownSubmenus.forEach(function (submenuLink) {
+        submenuLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          let nextDropdown = this.nextElementSibling;
+          if (nextDropdown.style.display === 'block') {
+            nextDropdown.style.display = 'none';
+          } else {
+            nextDropdown.style.display = 'block';
+          }
+        });
+      });
+    });
+  </script>
+
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
