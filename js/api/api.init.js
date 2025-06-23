@@ -16,7 +16,7 @@ if (typeof NgoService !== 'undefined') {
 if (typeof ProjectService  !== 'undefined') {
   Api.project = ProjectService ;
 
-
+ }
 if (typeof fundanideaService !== 'undefined') {
   if (typeof Api === 'undefined') {
     window.Api = {};
