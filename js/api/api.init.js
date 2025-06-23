@@ -25,5 +25,9 @@ if (typeof fundanideaService !== 'undefined') {
 if (typeof newsandeventServices !== 'undefined') {
   Api.newsandevent = newsandeventServices;
 }
+if(typeof trackApplicationServices !=='undefined'){
+  Api.trackApplication = trackApplicationServices;
+}
+
 // Add other services similarly
 // Api.ngo = typeof NgoService !== 'undefined' ? NgoService : {};
