@@ -31,6 +31,8 @@ if (typeof newsandeventServices !== 'undefined') {
 if(typeof trackApplicationServices !=='undefined'){
   Api.trackApplication = trackApplicationServices;
 }
-
+if(typeof participantNowServices !=='undefined'){
+  Api.participantNow = participantNowServices;
+}
 // Add other services similarly
 // Api.ngo = typeof NgoService !== 'undefined' ? NgoService : {};

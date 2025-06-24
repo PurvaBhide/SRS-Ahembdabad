@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/css/slider.css">
     <link rel="stylesheet" href="css/css/Homepage.css">
     <link rel="stylesheet" href="css/css/project.css">
+    <link rel="stylesheet" href="css/css/partcipantModal.css">
 
     <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
@@ -953,22 +954,69 @@
                     </div>
 
 
-                    <input type="text" class="custom-amount" placeholder="Enter Participants name"
-                        id="participantsname">
-                    <input type="text" class="custom-amount" placeholder="Enter organization name"
-                        id="organizationname">
-                    <input type="email" class="custom-amount" placeholder="Enter email id" id="email">
-                    <input type="number" class="custom-amount" placeholder="Enter mobile number" id="mobilenumber">
+                    <input type="text" class="custom-amount" placeholder="Enter Participants name" id="participantsname"
+                        required>
+                    <input type="text" class="custom-amount" placeholder="Enter organization name" id="organizationname"
+                        required>
+                    <input type="email" class="custom-amount" placeholder="Enter email id" id="email" required>
+                    <input type="number" class="custom-amount" placeholder="Enter mobile number" id="mobilenumber"
+                        required>
 
-                    <!-- <input type="number" class="custom-amount" placeholder="Enter custom amount" id="customAmount"> -->
+                    <input type="number" class="custom-amount" placeholder="Enter custom amount" id="customAmount"
+                        readonly>
 
-                    <button type="button" class="donate-now-btn" onclick="processDonation()">Partner Now</button>
-
+                    <!-- <button type="submit" class="donate-now-btn" id="openmodal">Partner Now </button> -->
+                    <button type="button" class="donate-now-btn" id="openmodal">
+                        <span class="btn-text">Partner Now</span>
+                        <span class="loading-spinner"></span>
+                    </button>
 
                 </div>
             </form>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h2 class="modal-title">🎉 Partnership application successful!</h2>
+                        <button class="close" id="closeModal">&times;</button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <div class="thank-you-icon">✅</div>
+                        <h3 class="thank-you-title">Thank You!</h3>
+                        <p class="thank-you-message">
+                            Your partnership application has been submitted successfully.
+
+                        </p>
+
+                        <!-- Tracking Information -->
+                        <div class="tracking-info">
+                            <div class="tracking-label">📋 Your Application Tracking Token:</div>
+                            <div class="tracking-token" id="trackingToken"></div>
+                            <button class="copy-btn" id="copyTokenBtn" onclick="copyTrackingToken()">
+                                Copy Token
+                            </button>
+                        </div>
+                        <p>Please save your token number for tracking your application status</p>
+
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button class="copy-btn" onclick="copyTrackingToken()" style="margin-right: 10px;">
+                            Copy Token Again
+                        </button>
+                        <button class="btn-close-modal" id="closeModalBtn">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
 
 
 
@@ -1062,91 +1110,10 @@
     <script src="js/scrollax.min.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        let selectedAmount = 0;
 
-        function selectAmount(amount) {
-            selectedAmount = amount;
-            document.getElementById('customAmount').value = amount;
-
-            // Update button styles
-            document.querySelectorAll('.amount-btn').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            event.target.classList.add('selected');
-        }
-
-        function showTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            // Remove active class from all buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        function processDonation() {
-            const amount = document.getElementById('customAmount').value || selectedAmount;
-
-            if (!amount || amount <= 0) {
-                alert('Please select or enter a valid donation amount');
-                return;
-            }
-
-            const btn = document.querySelector('.donate-now-btn');
-            const originalText = btn.textContent;
-
-            btn.textContent = 'Processing...';
-            btn.disabled = true;
-            btn.style.background = '#95a5a6';
-
-            // Simulate payment processing
-            setTimeout(() => {
-                btn.textContent = 'Thank You! 🙏';
-                btn.style.background = 'linear-gradient(135deg, #27ae60 0%, #229954 100%)';
-
-                // Show success message
-                alert(`Thank you for your donation of ₹${amount}! Your contribution will help provide clean water to families in need.`);
-
-                // Reset button
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = 'linear-gradient(135deg, #0A1E46 0%, #c0392b 100%)';
-                    btn.disabled = false;
-                }, 3000);
-            }, 2000);
-        }
-
-        function goBack() {
-            window.history.back();
-        }
-
-
-
-        // Custom amount input handler
-        document.getElementById('customAmount').addEventListener('input', function () {
-            selectedAmount = this.value;
-            document.querySelectorAll('.amount-btn').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-        });
-
-        // Animate progress bar on load
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     setTimeout(() => {
-        //         document.querySelector('.progress-bar-fill').style.width = '50%';
-        //     }, 500);
-        // });
-    </script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement(
@@ -1158,7 +1125,8 @@
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        <script src="js/scripts/participantScript.js"></script>
+    <script src="js/services/participantNow.js"></script>
+    <script src="js/scripts/participantScript.js"></script>
 </body>
 
 </html>

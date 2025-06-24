@@ -95,10 +95,13 @@ function updateProjectDetails(project) {
 
   // Update funding target
   document.querySelector('.raised-amount').textContent = `${formatCurrency(parseInt(project.projectBudget || 0))}`;
+  document.querySelector('#customAmount').value = parseInt(project.projectBudget || 0);
 }
 
 
-  
+  function getCurrentProjectId() {
+  return currentProjectId || new URLSearchParams(window.location.search).get('projectId');
+}
 
 // Helper function to format currency
 function formatCurrency(amount) {
