@@ -32,5 +32,9 @@ if(typeof trackApplicationServices !=='undefined'){
   Api.trackApplication = trackApplicationServices;
 }
 
+if(typeof DocumentService !=='undefined'){
+  Api.document = DocumentService;
+}
+
 // Add other services similarly
 // Api.ngo = typeof NgoService !== 'undefined' ? NgoService : {};

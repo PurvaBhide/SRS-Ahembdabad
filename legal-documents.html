@@ -443,18 +443,25 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<!-- Load core files first -->
+<script src="js/api/api.config.js"></script>
+<script src="js/api/api.core.js"></script>
 
-    <script>
+<!-- Then load service definitions -->
+<script src="js/services/document.js"></script>
+<script src="js/services/document-management.js"></script>
+<!-- Finally initialize the API -->
+<script src="js/api/api.init.js"></script>
+
+<!-- Then your management scripts -->
+<!-- <script src="js/services/company-management.js"></script> -->
+    <!-- <script>
         function openPDF(url) {
             if (url && url !== '') {
                 window.open(url, '_blank');
             }
         }
-    </script>
-
-
-
-
+    </script> -->
   <script>
   document.addEventListener('DOMContentLoaded', function () {
   var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
