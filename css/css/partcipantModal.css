@@ -1,144 +1,529 @@
-/* Modal backdrop */
-#myModal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 9999;
-  padding-top: 80px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
+/* Exact Modal Styles - Matching Your Screenshot with Scroll Fix */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+    /* Allow scrolling on the backdrop */
 }
 
-/* Modal content */
 .modal-content {
-  background-color: #fff;
-  margin: auto;
-  padding: 30px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  font-family: 'Segoe UI', sans-serif;
+    background-color: white;
+    margin: 2% auto;
+    padding: 0;
+    border-radius: 15px !important;
+    width: 60%;
+    max-height: 90vh;
+    /* Use max-height instead of fixed height */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Prevent content overflow */
 }
 
-/* Header */
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background: #fff !important;
+    color: #0A1E46 !important;
+    padding: 15px 20px;
+    position: relative;
+    text-align: center;
+    flex-shrink: 0;
+    /* Prevent header from shrinking */
+    display: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    font-weight: normal;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    opacity: 1;
+    outline: none;
 }
 
 .modal-title {
-  font-size: 22px;
-  font-weight: bold;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: white;
 }
 
-.close {
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #000;
-  cursor: pointer;
-}
-
-/* Body */
 .modal-body {
-  margin-top: 20px;
+    padding: 20px;
+    background: white;
+    overflow-y: auto;
+    /* Make body scrollable */
+    flex-grow: 1;
+    /* Allow body to grow and shrink */
 }
 
+/* Custom scrollbar for webkit browsers */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.token-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.token-label {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+.token-value {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.warning-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: #666;
+}
+
+.warning-icon {
+    color: #ffa500;
+    font-size: 14px;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+.warning-text {
+    line-height: 1.4;
+}
+
+.thank-you-text {
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.save-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.location-icon {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+.save-text {
+    line-height: 1.4;
+}
+
+.details-section {
+    background: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+
+.details-title {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 15px;
+    font-size: 14px;
+}
+
+.detail-label {
+    color: #333;
+    font-weight: normal;
+    text-align: left;
+}
+
+.detail-value {
+    color: #333;
+    font-weight: normal;
+    text-align: left;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.copy-token-btn {
+    background: white;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.copy-token-btn:hover {
+    background: #f5f5f5;
+}
+
+.copy-token-btn.copied {
+    background: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.submit-another-btn {
+    background: white;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-another-btn:hover {
+    background: #f5f5f5;
+}
+
+/* Loading Spinner for Form Button */
+.loading-spinner {
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Button improvements for form */
+.donate-now-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.donate-now-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.donate-now-btn:disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 15px #88aefa;
+}
+
+/* Your additional styles */
 .thank-you-icon {
-  font-size: 50px;
-  text-align: center;
-  color: #28a745;
+    font-size: 50px;
+    text-align: center;
+    color: #28a745;
+    display: none;
 }
 
 .thank-you-title {
-  text-align: center;
-  font-size: 26px;
-  margin-top: 10px;
+    text-align: center;
+    font-size: 26px;
+    margin-top: 10px;
 }
 
 .thank-you-message {
-  text-align: center;
-  margin-top: 10px;
-  color: #555;
+    text-align: center;
+    margin-top: 10px;
+    color: #555;
 }
 
-/* Token section */
 .tracking-info {
-  background: #eafaf1;
-  border: 2px dashed #28a745;
-  padding: 20px;
-  margin: 20px 0;
-  text-align: center;
-  border-radius: 10px;
+    background: #eafaf1;
+    border: 2px dashed #28a745;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    border-radius: 10px;
 }
 
 .tracking-label {
-  font-weight: bold;
-  font-size: 16px;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .tracking-token {
-  font-size: 24px;
-  font-weight: bold;
-  color: #28a745;
-  margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 10px;
 }
 
 .copy-btn {
-  background-color: #004085;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 12px;
+    background-color: #0A1E46;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
 }
 
 .copy-btn:hover {
-  background-color: #002752;
+    background-color: #0A1E46;
 }
 
-/* What's Next list */
-.next-steps h4 {
-  margin-top: 30px;
-  font-size: 18px;
+.application-details {
+    padding: 10px;
+    background-color: #d7e4fd;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.next-steps ul {
-  padding-left: 20px;
-  margin-top: 10px;
-  color: #333;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 1% auto;
+        max-height: 95vh;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .copy-token-btn,
+    .submit-another-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .detail-label {
+        font-weight: 600;
+    }
 }
 
-.next-steps ul li {
-  margin-bottom: 8px;
+@media (max-width: 480px) {
+    .modal-content {
+        width: 98%;
+        margin: 1% auto;
+        max-height: 98vh;
+    }
+
+    .modal-header {
+        padding: 12px 15px;
+    }
+
+    .modal-title {
+        font-size: 16px;
+    }
+
+    .modal-body {
+        padding: 12px;
+    }
 }
 
-/* Modal footer */
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 30px;
+/* Ensure modal doesn't interfere with page scroll when closed */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Additional scroll improvement for very small screens */
+@media (max-height: 600px) {
+    .modal-content {
+        margin: 1% auto;
+        max-height: 98vh;
+    }
+
+    .modal-header {
+        padding: 10px 15px;
+    }
+
+    .modal-body {
+        padding: 10px;
+    }
 }
 
 .btn-close-modal {
-  background-color: #ff6f00;
-  color: white;
-  border: none;
-  padding: 9px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
+    background-color: #0A1E46;
+    color: white;
+    border: none;
+    padding: 10px 16px !important;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
 }
 
-.btn-close-modal:hover {
-  background-color: #e65100;
+/* Bootstrap-Style Application Details Layout */
+.application-details {
+    padding: 15px;
+    background-color: #d7e4fd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.details-title {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Bootstrap-style row and columns */
+.details-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0 -5px;
+}
+
+.details-col-left {
+    flex: 0 0 60%;
+    /* Left column takes 60% width */
+    padding: 0 5px;
+}
+
+.details-col-right {
+    flex: 0 0 35%;
+    /* Right column takes 35% width */
+    padding: 0 5px;
+}
+
+.detail-item {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.detail-label {
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline;
+    margin-right: 5px;
+}
+
+.detail-value {
+    color: #34495e;
+    font-weight: normal;
+    font-size: 14px;
+    display: inline;
+    word-break: break-word;
+}
+
+/* Tablet View (768px and below) - Stack columns */
+@media (max-width: 768px) {
+    .details-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .details-col-left,
+    .details-col-right {
+        flex: 1;
+        width: 100%;
+    }
+
+    .detail-item {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        margin-bottom: 0;
+    }
+
+    .detail-item:last-child {
+        border-bottom: none;
+    }
 }

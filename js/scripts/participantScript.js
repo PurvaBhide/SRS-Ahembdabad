@@ -1,315 +1,352 @@
 // Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Modal elements
-    const modal = document.getElementById('myModal');
-    const form = document.getElementById('paricipantform'); // Note: your form ID has a typo
-    const closeBtn = document.getElementById('closeModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const submitBtn = document.getElementById('openmodal');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const spinner = submitBtn.querySelector('.loading-spinner');
+document.addEventListener("DOMContentLoaded", function () {
+  // Modal elements
+  const modal = document.getElementById("myModal");
+  const form = document.getElementById("paricipantform"); // Note: keeping your original form ID with typo
+  const closeBtn = document.getElementById("closeModal");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+  const submitBtn = document.getElementById("openmodal");
+  const btnText = submitBtn.querySelector(".btn-text");
+  const spinner = submitBtn.querySelector(".loading-spinner");
 
-    // Add click event to button
-    submitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-            processDonation();
-    });
+  // Check if all elements exist
+  if (!modal || !form || !submitBtn) {
+    console.error("Required elements not found. Check your HTML structure.");
+    return;
+  }
 
-    // Updated processDonation function to work with modal
-    async function processDonation() {
-      // Show loading state
-        submitBtn.disabled = true;
-        btnText.textContent = 'Processing...';
-        spinner.style.display = 'inline-block';
+  // Add click event to button
+  submitBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    processDonation();
+  });
 
-        try {
-            const participantName = document.getElementById("participantsname").value;
-            const organizationName = document.getElementById("organizationname").value;
-            const participantEmail = document.getElementById("email").value;
-            const participantMobileNumber = document.getElementById("mobilenumber").value;
-            const amount = document.getElementById("customAmount").value;
+  // Updated processDonation function to work with modal
+  async function processDonation() {
+    // Validate form first
+    const participantName = document.getElementById("participantsname");
+    const organizationName = document.getElementById("organizationname");
+    const participantEmail = document.getElementById("email");
+    const participantMobileNumber = document.getElementById("mobilenumber");
+    const amount = document.getElementById("customAmount");
 
-         
-            let projectId = null;
+    // Check if all required fields are filled
+    if (
+      !participantName.value.trim() ||
+      !organizationName.value.trim() ||
+      !participantEmail.value.trim() ||
+      !participantMobileNumber.value.trim() ||
+      !amount.value.trim()
+    ) {
+      showErrorMessage("Please fill in all required fields.");
+      return;
+    }
 
-            if (typeof currentProjectId !== "undefined" && currentProjectId) {
-                projectId = currentProjectId;
-            } else if (document.body.getAttribute("data-project-id")) {
-                projectId = document.body.getAttribute("data-project-id");
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(participantEmail.value)) {
+      showErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    // Basic mobile number validation (assuming 10 digits)
+    const mobileRegex = /^[0-9]{10}$/;
+    if (!mobileRegex.test(participantMobileNumber.value)) {
+      showErrorMessage("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    // Show loading state
+    submitBtn.disabled = true;
+    btnText.textContent = "Processing...";
+    spinner.style.display = "inline-block";
+
+    try {
+      // Get project ID from various sources
+      let projectId = null;
+
+      if (typeof currentProjectId !== "undefined" && currentProjectId) {
+        projectId = currentProjectId;
+      } else if (document.body.getAttribute("data-project-id")) {
+        projectId = document.body.getAttribute("data-project-id");
+      } else {
+        const urlParams = new URLSearchParams(window.location.search);
+        projectId = urlParams.get("id") || 11; // Default to 11 if no ID found
+      }
+
+      const formData = {
+        projetcId: projectId,
+        participantName: participantName.value.trim(),
+        organizationName: organizationName.value.trim(),
+        participantEmail: participantEmail.value.trim(),
+        participantMobileNumber: participantMobileNumber.value.trim(),
+        amount: parseInt(amount.value) || 0,
+      };
+
+      // Handle API call with Promise
+      try {
+        const apiPromise = participantNowServices.createParticipant(formData);
+
+        // Handle the promise response
+        apiPromise
+          .then(function (response) {
+            // Check if response exists and has valid structure
+            if (
+              response &&
+              response.data &&
+              response.status &&
+              (response.status === 200 || response.status === 201)
+            ) {
+              showSuccessModal(response);
             } else {
-                const urlParams = new URLSearchParams(window.location.search);
-                projectId = urlParams.get("id");
+              showErrorMessage("Invalid response from server");
+              resetButtonState();
             }
-
-            const formData = {
-                projetcId: projectId,
-                participantName,
-                organizationName,
-                participantEmail,
-                participantMobileNumber,
-                amount,
-            };
-
-              setTimeout(() => {
-                const mockResponse = {
-                    status: 201,
-                    data: {
-                        participantID: 123,
-                        token: 'PA' + Math.random().toString(36).substr(2, 9).toUpperCase(),
-                        participantName: participantName,
-                        organizationName: organizationName,
-                        participantEmail: participantEmail,
-                        participantMobileNumber: participantMobileNumber,
-                        amount: parseInt(amount),
-                        projetcId: projectId
-                    }
-                };
-                   showSuccessModal(mockResponse);
-            }, 1500);
-
-           
-
-        } catch (error) {
-            console.error("Error submitting application:", error);
-            showErrorMessage(error.message || 'Failed to submit application. Please try again.');
-            
-        } finally {
-            // Reset button state
+          })
+          .catch(function (error) {
+            showErrorMessage("Failed to submit application. Please try again.");
             resetButtonState();
-        }
+          });
+      } catch (error) {
+        showErrorMessage("Failed to submit application. Please try again.");
+        resetButtonState();
+      }
+    } catch (error) {
+      showErrorMessage(
+        error.message || "Failed to submit application. Please try again."
+      );
+      resetButtonState();
+    }
+  }
+
+  // Function to show success modal with API response
+  function showSuccessModal(response) {
+    if (!response || !response.data) {
+      showErrorMessage("Invalid response from server");
+      resetButtonState();
+      return;
     }
 
-    // Function to show success modal with API response
-    function showSuccessModal(response) {
-         
-        const data = response.data;
-        
-        // Display token from backend API response
-        document.getElementById('trackingToken').textContent = data.token;
-        // document.getElementById('tokenDisplay').textContent = data.token;
-        
-        // Update participant details in modal
-        updateModalWithParticipantDetails(data);
-        
-        // Show modal
-          modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        
-        // Reset form
-        form.reset();
-        if (document.getElementById('customAmount')) {
-            document.getElementById('customAmount').value = '400000';
-        }
+    const data = response.data;
+
+    // Display token from backend API response
+    const tokenElement = document.getElementById("trackingToken");
+    if (tokenElement && data.token) {
+      tokenElement.textContent = data.token;
+    } else {
+      console.error("Token element not found or token missing");
     }
 
-    // Function to update modal with participant details
-    function updateModalWithParticipantDetails(data) {
-        const modalBody = document.querySelector('.modal-body');
-        
-        let detailsSection = document.getElementById('applicationDetails');
-        if (!detailsSection) {
-            detailsSection = document.createElement('div');
-            detailsSection.id = 'applicationDetails';
-            detailsSection.className = 'application-details';
-            detailsSection.style.cssText = `
-                background: #f8f9fa;
-                border-radius: 8px;
-                padding: 15px;
-                margin: 15px 0;
-                text-align: left;
-            `;
-            
-            const trackingInfo = document.querySelector('.tracking-info');
-            if (trackingInfo) {
-                trackingInfo.parentNode.insertBefore(detailsSection, trackingInfo.nextSibling);
-            }
-        }
-        
-        detailsSection.innerHTML = `
-            <h4 style="color: #0A1E46; margin-bottom: 10px;">Application Details:</h4>
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 8px; font-size: 0.9em;">
-              
-                <strong>Participant:</strong> <span style="color:#34495e">${data.participantName || 'N/A'}</span>
-                <strong>Organization:</strong> <span style="color:#34495e">${data.organizationName || 'N/A'}</span>
-                <strong>Email:</strong> <span style="color:#34495e">${data.participantEmail || 'N/A'}</span>
-                <strong>Mobile:</strong> <span style="color:#34495e">${data.participantMobileNumber || 'N/A'}</span>
-                <strong>Amount:</strong> <span style="color:#34495e">₹${data.amount ? data.amount.toLocaleString('en-IN') : 'N/A'}</span>
-             
+    // Update participant details in modal
+    updateModalWithParticipantDetails(data);
+
+    // Show modal
+    if (modal) {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    } else {
+      console.error("Modal element not found");
+    }
+
+    // Reset form
+    form.reset();
+    if (document.getElementById("customAmount")) {
+      document.getElementById("customAmount").value = "400000";
+    }
+
+    // Reset button state
+    resetButtonState();
+  }
+
+  // Function to update modal with participant details
+  function updateModalWithParticipantDetails(data) {
+    const modalBody = document.querySelector(".modal-body");
+
+    if (!modalBody) {
+      console.error("Modal body not found");
+      return;
+    }
+
+    let detailsSection = document.getElementById("applicationDetails");
+    if (!detailsSection) {
+      detailsSection = document.createElement("div");
+      detailsSection.id = "applicationDetails";
+      detailsSection.className = "application-details";
+
+      const trackingInfo = document.querySelector(".tracking-info");
+      if (trackingInfo) {
+        trackingInfo.parentNode.insertBefore(
+          detailsSection,
+          trackingInfo.nextSibling
+        );
+      } else {
+        modalBody.appendChild(detailsSection);
+      }
+    }
+
+    detailsSection.innerHTML = `
+            <h4>Application Details:</h4>
+            <div class="details-row">
+            <div class="details-col-left">
+                <div class="detail-item">
+                    <strong class="detail-label">Participant:</strong> 
+                    <span class="detail-value">${
+                      data.participantName || "N/A"
+                    }</span>
+                </div>
+                <div class="detail-item">
+                    <strong class="detail-label">Organization:</strong> 
+                    <span class="detail-value">${
+                      data.organizationName || "N/A"
+                    }</span>
+                </div>
+                <div class="detail-item">
+                    <strong class="detail-label">Email:</strong> 
+                    <span class="detail-value">${
+                      data.participantEmail || "N/A"
+                    }</span>
+                </div>
             </div>
+            <div class="details-col-right">
+                <div class="detail-item">
+                    <strong class="detail-label">Mobile:</strong> 
+                    <span class="detail-value">${
+                      data.participantMobileNumber || "N/A"
+                    }</span>
+                </div>
+                <div class="detail-item">
+                    <strong class="detail-label">Amount:</strong> 
+                    <span class="detail-value">₹${
+                      data.amount ? data.amount.toLocaleString("en-IN") : "N/A"
+                    }</span>
+                </div>
+            </div>
+        </div>
         `;
+  }
+
+  // Function to show error message
+  function showErrorMessage(message) {
+    // You can replace this with a more sophisticated error display
+    alert("Error: " + message);
+  }
+
+  // Function to reset button state
+  function resetButtonState() {
+    if (submitBtn && btnText && spinner) {
+      submitBtn.disabled = false;
+      btnText.textContent = "Partner Now";
+      spinner.style.display = "none";
     }
+  }
 
-    // Function to show error message
-    function showErrorMessage(message) {
-        alert('Error: ' + message);
+  // Close modal when clicking X
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+
+  // Close modal when clicking "Close"
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", closeModal);
+  }
+
+  // Close modal when clicking outside of it
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModal();
     }
+  });
 
-    // Function to reset button state
-    function resetButtonState() {
-        submitBtn.disabled = false;
-        btnText.textContent = 'Partner Now';
-        spinner.style.display = 'none';
+  // Close modal function
+  function closeModal() {
+    if (modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
     }
+  }
 
-    // Close modal when clicking X
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
+  // Close modal with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal && modal.style.display === "block") {
+      closeModal();
     }
+  });
 
-    // Close modal when clicking "Got it, Thanks!"
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeModal);
-    }
-
-    // Close modal when clicking outside of it
-    window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    // Close modal function
-    function closeModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    // Copy tracking token function
-    window.copyTrackingToken = function() {
-        const token = document.getElementById('trackingToken').textContent;
-        const copyBtn = document.getElementById('copyTokenBtn');
-        
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(token).then(() => {
-                showCopySuccess(copyBtn);
-            }).catch(() => {
-                fallbackCopyTextToClipboard(token, copyBtn);
-            });
-        } else {
-            fallbackCopyTextToClipboard(token, copyBtn);
-        }
-    }
-
-    // Fallback copy function for older browsers
-    function fallbackCopyTextToClipboard(text, button) {
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
-        textArea.style.position = "fixed";
-        textArea.style.left = "-999999px";
-        textArea.style.top = "-999999px";
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        
-        try {
-            document.execCommand('copy');
-            showCopySuccess(button);
-        } catch (err) {
-            alert('Please copy the token manually: ' + text);
-        }
-        
-        document.body.removeChild(textArea);
-    }
-
-    // Show copy success feedback
-    function showCopySuccess(button) {
-        const originalText = button.textContent;
-        button.textContent = '✅ Copied!';
-        button.classList.add('copied');
-        
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.classList.remove('copied');
-        }, 2000);
-    }
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            closeModal();
-        }
-    });
-
+  // Make closeModal available globally if needed
+  window.closeModal = closeModal;
 });
 
+// Copy tracking token function (global scope)
+window.copyTrackingToken = function () {
+  const tokenElement = document.getElementById("trackingToken");
+  const copyBtn = document.getElementById("copyTokenBtn");
 
+  if (!tokenElement || !copyBtn) {
+    console.error("Token or copy button element not found");
+    return;
+  }
 
+  const token = tokenElement.textContent;
 
+  if (!token || token === "Loading...") {
+    showErrorMessage("No token available to copy");
+    return;
+  }
 
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard
+      .writeText(token)
+      .then(() => {
+        showCopySuccess(copyBtn);
+      })
+      .catch((err) => {
+        fallbackCopyTextToClipboard(token, copyBtn);
+      });
+  } else {
+    fallbackCopyTextToClipboard(token, copyBtn);
+  }
+};
 
+// Fallback copy function for older browsers
+function fallbackCopyTextToClipboard(text, button) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.left = "-999999px";
+  textArea.style.top = "-999999px";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
 
+  try {
+    const successful = document.execCommand("copy");
+    if (successful) {
+      showCopySuccess(button);
+    } else {
+      throw new Error("Copy command failed");
+    }
+  } catch (err) {
+    alert("Please copy the token manually: " + text);
+  }
 
+  document.body.removeChild(textArea);
+}
 
+// Show copy success feedback
+function showCopySuccess(button) {
+  if (!button) return;
 
+  const originalText = button.textContent;
+  button.textContent = "✅ Copied!";
+  button.classList.add("copied");
 
+  setTimeout(() => {
+    button.textContent = originalText;
+    button.classList.remove("copied");
+  }, 2000);
+}
 
-
-
-
-
-
-
-
-
-
-// function processDonation() {
-//   const participantName = document.getElementById("participantsname").value;
-//   const organizationName = document.getElementById("organizationname").value;
-//   const participantEmail = document.getElementById("email").value;
-//   const participantMobileNumber = document.getElementById("mobilenumber").value;
-//   const amount = document.getElementById("customAmount").value;
-
-//   let projetcId = null;
-
-//   if (typeof currentProjectId !== "undefined" && currentProjectId) {
-//     projetcId = currentProjectId;
-//   } else if (document.body.getAttribute("data-project-id")) {
-//     projetcId = document.body.getAttribute("data-project-id");
-//   } else {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     projetcId = urlParams.get("id");
-//   }
-
-//   const formData = {
-//     projetcId,
-//     participantName,
-//     organizationName,
-//     participantEmail,
-//     participantMobileNumber,
-//     amount,
-//   };
-
-//   var response = participantNowServices.createParticipant(formData);
-//   if (response.status === 200 || response.status === 201) {
-
-//     console.log(response.data);
-   
-//   modal.show();
-//   }
- 
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Error message function for global use
+function showErrorMessage(message) {
+  alert("Error: " + message);
+}
