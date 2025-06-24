@@ -303,8 +303,13 @@ function formatCurrency(amount) {
 }
 
 // Update viewProjectDetails to use the full project data
+// function viewProjectDetails(projectId, projectData) {
+//   console.log('Viewing project:', projectId, projectData);
+//   // Implement your project details modal or view here
+//   // You have access to all project data through projectData parameter
+// }
+
 function viewProjectDetails(projectId, projectData) {
-  console.log('Viewing project:', projectId, projectData);
-  // Implement your project details modal or view here
-  // You have access to all project data through projectData parameter
+  // Redirect to donatenow.html with the project ID as a query parameter
+  window.location.href = `donatenow.html?id=${projectId}`;
 }
