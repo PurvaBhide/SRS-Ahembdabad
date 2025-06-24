@@ -70,7 +70,7 @@ function loadCompanies(categoryId = null) {
 
   // Use different endpoints based on whether categoryId is provided
   const apiCall = categoryId 
-    ? Api.company.getById(categoryId)  // Use specific endpoint for category
+    ? Api.company.getByCategogyId(categoryId)  // Use specific endpoint for category
     : Api.company.listAll();                 // Use general endpoint for all companies
 
   apiCall
