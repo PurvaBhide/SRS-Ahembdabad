@@ -95,10 +95,13 @@ function updateProjectDetails(project) {
 
   // Update funding target
   document.querySelector('.raised-amount').textContent = `${formatCurrency(parseInt(project.projectBudget || 0))}`;
+  document.querySelector('#customAmount').value = parseInt(project.projectBudget || 0);
 }
 
 
-  
+  function getCurrentProjectId() {
+  return currentProjectId || new URLSearchParams(window.location.search).get('projectId');
+}
 
 // Helper function to format currency
 function formatCurrency(amount) {
@@ -107,4 +110,34 @@ function formatCurrency(amount) {
     currency: 'INR',
     maximumFractionDigits: 0
   }).format(amount);
+}
+
+
+
+// Add this to participantScript.js or your main JS file
+function showTab(tabName) {
+    // Hide all tab contents
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(function(content) {
+        content.classList.remove('active');
+        content.style.display = 'none';
+    });
+    
+    // Remove active class from all tab buttons
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(function(button) {
+        button.classList.remove('active');
+    });
+    
+    // Show the selected tab content
+    const selectedTab = document.getElementById(tabName);
+    if (selectedTab) {
+        selectedTab.classList.add('active');
+        selectedTab.style.display = 'block';
+    }
+    
+    // Add active class to the clicked button
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
 }

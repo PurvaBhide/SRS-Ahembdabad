@@ -32,6 +32,11 @@ if(typeof trackApplicationServices !=='undefined'){
   Api.trackApplication = trackApplicationServices;
 }
 
+if(typeof participantNowServices !=='undefined'){
+  Api.participantNow = participantNowServices;
+}
+
+
 if(typeof DocumentService !=='undefined'){
   Api.document = DocumentService;
 }
