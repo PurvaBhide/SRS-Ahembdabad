@@ -14,3 +14,26 @@
   display: block;
 }
 
+  .project-card {
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+  .project-card img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  .swiper {
+    padding: 20px 0;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #007bff;
+  }
