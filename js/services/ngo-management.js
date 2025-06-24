@@ -395,137 +395,140 @@ function getStatusIcon(status) {
 }
 
 // Enhanced project details modal for NGOs
-function viewProjectDetails(projectId, projectData, ngo) {
-  console.log('Viewing project:', { projectId, projectData, ngo });
-  
-  // Format documents list if they exist
-  const formatDocuments = (docs) => {
-    if (!docs) return '<li>No documents available</li>';
-    return Object.entries(docs)
-      .filter(([key, value]) => value && !key.includes('document') && !key.includes('Upload'))
-      .map(([key, value]) => `
-        <li>
-          <strong>${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:</strong>
-          ${value}
-        </li>
-      `).join('');
-  };
+// function viewProjectDetails(projectId, projectData, ngo) {
+//   console.log('Viewing project:', { projectId, projectData, ngo });
+//    window.location.href = `donatenow.html?id=${projectId}`;
+//   // Format documents list if they exist
+//   const formatDocuments = (docs) => {
+//     if (!docs) return '<li>No documents available</li>';
+//     return Object.entries(docs)
+//       .filter(([key, value]) => value && !key.includes('document') && !key.includes('Upload'))
+//       .map(([key, value]) => `
+//         <li>
+//           <strong>${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:</strong>
+//           ${value}
+//         </li>
+//       `).join('');
+//   };
 
-  const modalContent = `
-    <div class="modal fade" id="projectDetailsModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header bg-light">
-            <h5 class="modal-title">
-              <i class="fas fa-project-diagram me-2"></i>
-              ${projectData.projectName || 'Project Details'}
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card mb-4">
-                  <div class="card-header bg-light">
-                    <h6 class="mb-0"><i class="fas fa-info-circle me-2"></i>Project Information</h6>
-                  </div>
-                  <div class="card-body">
-                    <ul class="list-unstyled">
-                      <li class="mb-2">
-                        <strong>Status:</strong> 
-                        <span class="badge ${getStatusBadgeClass(projectData.projectStatus)}">
-                          ${projectData.projectStatus || 'Unknown'}
-                        </span>
-                      </li>
-                      <li class="mb-2"><strong>Location:</strong> ${projectData.projectLocation || 'Not specified'}</li>
-                      <li class="mb-2"><strong>Budget:</strong> ${formatCurrency(projectData.projectBudget)}</li>
-                      <li class="mb-2"><strong>People Impacted:</strong> ${projectData.impactpeople || '0'}</li>
-                      ${projectData.startDate ? `
-                        <li class="mb-2"><strong>Start Date:</strong> ${new Date(projectData.startDate).toLocaleDateString()}</li>
-                      ` : ''}
-                      ${projectData.endDate ? `
-                        <li class="mb-2"><strong>End Date:</strong> ${new Date(projectData.endDate).toLocaleDateString()}</li>
-                      ` : ''}
-                    </ul>
-                    ${projectData.projectDescription ? `
-                      <div class="mt-3">
-                        <h6 class="border-bottom pb-2">Description</h6>
-                        <p>${projectData.projectDescription}</p>
-                      </div>
-                    ` : ''}
-                  </div>
-                </div>
-              </div>
+//   const modalContent = `
+//     <div class="modal fade" id="projectDetailsModal" tabindex="-1" aria-hidden="true">
+//       <div class="modal-dialog modal-lg">
+//         <div class="modal-content">
+//           <div class="modal-header bg-light">
+//             <h5 class="modal-title">
+//               <i class="fas fa-project-diagram me-2"></i>
+//               ${projectData.projectName || 'Project Details'}
+//             </h5>
+//             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+//           </div>
+//           <div class="modal-body">
+//             <div class="row">
+//               <div class="col-md-6">
+//                 <div class="card mb-4">
+//                   <div class="card-header bg-light">
+//                     <h6 class="mb-0"><i class="fas fa-info-circle me-2"></i>Project Information</h6>
+//                   </div>
+//                   <div class="card-body">
+//                     <ul class="list-unstyled">
+//                       <li class="mb-2">
+//                         <strong>Status:</strong> 
+//                         <span class="badge ${getStatusBadgeClass(projectData.projectStatus)}">
+//                           ${projectData.projectStatus || 'Unknown'}
+//                         </span>
+//                       </li>
+//                       <li class="mb-2"><strong>Location:</strong> ${projectData.projectLocation || 'Not specified'}</li>
+//                       <li class="mb-2"><strong>Budget:</strong> ${formatCurrency(projectData.projectBudget)}</li>
+//                       <li class="mb-2"><strong>People Impacted:</strong> ${projectData.impactpeople || '0'}</li>
+//                       ${projectData.startDate ? `
+//                         <li class="mb-2"><strong>Start Date:</strong> ${new Date(projectData.startDate).toLocaleDateString()}</li>
+//                       ` : ''}
+//                       ${projectData.endDate ? `
+//                         <li class="mb-2"><strong>End Date:</strong> ${new Date(projectData.endDate).toLocaleDateString()}</li>
+//                       ` : ''}
+//                     </ul>
+//                     ${projectData.projectDescription ? `
+//                       <div class="mt-3">
+//                         <h6 class="border-bottom pb-2">Description</h6>
+//                         <p>${projectData.projectDescription}</p>
+//                       </div>
+//                     ` : ''}
+//                   </div>
+//                 </div>
+//               </div>
               
-              <div class="col-md-6">
-                <div class="card mb-4">
-                  <div class="card-header bg-light">
-                    <h6 class="mb-0"><i class="fas fa-building me-2"></i>Implementing Agency</h6>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="h6">${ngo.organizationName}</h5>
-                    <ul class="list-unstyled">
-                      <li class="mb-2"><strong>Contact:</strong> ${ngo.nameOfContactPerson}</li>
-                      <li class="mb-2"><strong>Email:</strong> ${ngo.emailId}</li>
-                      <li class="mb-2"><strong>Phone:</strong> ${ngo.contactNumber}</li>
-                      <li class="mb-2"><strong>Category:</strong> ${ngo.category?.categoryName || 'Not specified'}</li>
-                      <li class="mb-2"><strong>Years Active:</strong> ${ngo.ageOfOrganization} years</li>
-                      <li class="mb-2"><strong>Annual Turnover:</strong> ${formatCurrency(ngo.annualTurnover)}</li>
-                    </ul>
+//               <div class="col-md-6">
+//                 <div class="card mb-4">
+//                   <div class="card-header bg-light">
+//                     <h6 class="mb-0"><i class="fas fa-building me-2"></i>Implementing Agency</h6>
+//                   </div>
+//                   <div class="card-body">
+//                     <h5 class="h6">${ngo.organizationName}</h5>
+//                     <ul class="list-unstyled">
+//                       <li class="mb-2"><strong>Contact:</strong> ${ngo.nameOfContactPerson}</li>
+//                       <li class="mb-2"><strong>Email:</strong> ${ngo.emailId}</li>
+//                       <li class="mb-2"><strong>Phone:</strong> ${ngo.contactNumber}</li>
+//                       <li class="mb-2"><strong>Category:</strong> ${ngo.category?.categoryName || 'Not specified'}</li>
+//                       <li class="mb-2"><strong>Years Active:</strong> ${ngo.ageOfOrganization} years</li>
+//                       <li class="mb-2"><strong>Annual Turnover:</strong> ${formatCurrency(ngo.annualTurnover)}</li>
+//                     </ul>
                     
-                    <div class="mt-3">
-                      <h6 class="border-bottom pb-2">Registration Details</h6>
-                      <ul class="list-unstyled small">
-                        ${formatDocuments({
-                          '80G Registration': ngo.ngo80GregistrationNumber,
-                          '12A Registration': ngo.ngo12AregistrationNumber,
-                          'CSR1 Registration': ngo.csr1RegistartionNumber
-                        })}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+//                     <div class="mt-3">
+//                       <h6 class="border-bottom pb-2">Registration Details</h6>
+//                       <ul class="list-unstyled small">
+//                         ${formatDocuments({
+//                           '80G Registration': ngo.ngo80GregistrationNumber,
+//                           '12A Registration': ngo.ngo12AregistrationNumber,
+//                           'CSR1 Registration': ngo.csr1RegistartionNumber
+//                         })}
+//                       </ul>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
             
-            ${projectData.projectImages?.length > 0 ? `
-              <div class="card">
-                <div class="card-header bg-light">
-                  <h6 class="mb-0"><i class="fas fa-images me-2"></i>Project Gallery</h6>
-                </div>
-                <div class="card-body">
-                  <div class="row g-2">
-                    ${projectData.projectImages.map(img => `
-                      <div class="col-4 col-md-3">
-                        <img src="${img}" class="img-thumbnail w-100" style="height: 100px; object-fit: cover;">
-                      </div>
-                    `).join('')}
-                  </div>
-                </div>
-              </div>
-            ` : ''}
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+//             ${projectData.projectImages?.length > 0 ? `
+//               <div class="card">
+//                 <div class="card-header bg-light">
+//                   <h6 class="mb-0"><i class="fas fa-images me-2"></i>Project Gallery</h6>
+//                 </div>
+//                 <div class="card-body">
+//                   <div class="row g-2">
+//                     ${projectData.projectImages.map(img => `
+//                       <div class="col-4 col-md-3">
+//                         <img src="${img}" class="img-thumbnail w-100" style="height: 100px; object-fit: cover;">
+//                       </div>
+//                     `).join('')}
+//                   </div>
+//                 </div>
+//               </div>
+//             ` : ''}
+//           </div>
+//           <div class="modal-footer">
+//             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   `;
   
-  // Add modal to DOM
-  const existingModal = document.getElementById('projectDetailsModal');
-  if (existingModal) {
-    existingModal.outerHTML = modalContent;
-  } else {
-    document.body.insertAdjacentHTML('beforeend', modalContent);
-  }
+//   // Add modal to DOM
+//   const existingModal = document.getElementById('projectDetailsModal');
+//   if (existingModal) {
+//     existingModal.outerHTML = modalContent;
+//   } else {
+//     document.body.insertAdjacentHTML('beforeend', modalContent);
+//   }
   
-  // Show modal
-  const modal = new bootstrap.Modal(document.getElementById('projectDetailsModal'));
-  modal.show();
+//   // Show modal
+//   const modal = new bootstrap.Modal(document.getElementById('projectDetailsModal'));
+//   modal.show();
+// }
+function viewProjectDetails(projectId, projectData, ngo) {
+  console.log('Redirecting to project details:', projectId);
+  window.location.href = `donatenow.html?id=${projectId}`;
 }
-
 // Helper functions (reuse from company-management.js or define here)
 function getStatusBadgeClass(status) {
   if (!status) return 'bg-secondary text-white';
