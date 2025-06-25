@@ -326,60 +326,6 @@
         </div>
 
         <div class="pdf-grid">
-            <div class="pdf-card">
-                <div class="pdf-preview" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/80G-5-Certificate.pdf')">
-                    <div class="pdf-icon">📄</div>
-                </div>
-                <div class="pdf-info">
-                    <h3>80G-5 Certificate</h3>
-                    <p class="pdf-description">Tax exemption certificate for charitable donations under Income Tax Act.</p>
-                </div>
-                <div class="pdf-actions">
-                    <button class="btn btn-primary" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/80G-5-Certificate.pdf')">
-                        View
-                    </button>
-                    <a href="https://gcsra.org/writereaddata/images/pdf/80G-5-Certificate.pdf" download class="btn">
-                        Download
-                    </a>
-                </div>
-            </div>
-
-            <div class="pdf-card">
-                <div class="pdf-preview" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/12AA-Certificate.pdf')">
-                    <div class="pdf-icon">📄</div>
-                </div>
-                <div class="pdf-info">
-                    <h3>12AA Certificate</h3>
-                    <p class="pdf-description">Registration certificate for tax exemption under section 12AA of Income Tax Act.</p>
-                </div>
-                <div class="pdf-actions">
-                    <button class="btn btn-primary" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/12AA-Certificate.pdf')">
-                        View
-                    </button>
-                    <a href="https://gcsra.org/writereaddata/images/pdf/12AA-Certificate.pdf" download class="btn">
-                        Download
-                    </a>
-                </div>
-            </div>
-
-            <div class="pdf-card">
-                <div class="pdf-preview" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/Gazette-Notification.pdf')">
-                    <div class="pdf-icon">📄</div>
-                </div>
-                <div class="pdf-info">
-                    <h3>Gazette Notification</h3>
-                    <p class="pdf-description">Official government gazette notification with regulatory announcements.</p>
-                </div>
-                <div class="pdf-actions">
-                    <button class="btn btn-primary" onclick="openPDF('https://gcsra.org/writereaddata/images/pdf/Gazette-Notification.pdf')">
-                        View
-                    </button>
-                    <a href="https://gcsra.org/writereaddata/images/pdf/Gazette-Notification.pdf" download class="btn">
-                        Download
-                    </a>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -454,34 +400,6 @@
 <script src="js/api/api.init.js"></script>
 
 <!-- Then your management scripts -->
-<!-- <script src="js/services/company-management.js"></script> -->
-    <!-- <script>
-        function openPDF(url) {
-            if (url && url !== '') {
-                window.open(url, '_blank');
-            }
-        }
-    </script> -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-  var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
-
-  dropdownSubmenus.forEach(function (submenuLink) {
-    submenuLink.addEventListener('click', function (e) {
-      // Only prevent default if it's a dropdown with a submenu
-      if (this.parentElement.classList.contains('dropdown-submenu')) {
-        e.preventDefault();
-        let nextDropdown = this.nextElementSibling;
-        if (nextDropdown.style.display === 'block') {
-          nextDropdown.style.display = 'none';
-        } else {
-          nextDropdown.style.display = 'block';
-        }
-      }
-    });
-  });
-});
-</script>
 
 <!-- jQuery (required by Bootstrap) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
