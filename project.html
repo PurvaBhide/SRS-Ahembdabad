@@ -195,6 +195,8 @@
       <option value="400000">₹4,00,000 </option>
       <option value="450000">₹4,50,000 </option>
       <option value="500000">₹5,00,000</option>
+      <option value="700000">₹7,00,000</option>
+      <option value="1300000">₹13,00,000</option>
     </select>
   </div>
 
@@ -225,9 +227,7 @@
             <h2 class="ftco-heading-2">Site Links</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-2 d-block">Home</a></li>
-              <!-- <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Donate</a></li>
-                <li><a href="#" class="py-2 d-block">Event</a></li> -->
+          
             </ul>
           </div>
         </div>
@@ -273,145 +273,9 @@
 <script src="./js/api/api.core.js"></script>
 <script src="./js/api/api.init.js"></script>
 <script src="./js/services/project.js"></script>
- <script src="./js/services/projectList.js"></script>
+<script src="js/scripts/ongoingProjectScript.js"></script>
+ <!-- <script src="./js/services/projectList.js"></script> -->
  <script src="./js/services/project-detail.js"></script>
-
-<!-- <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const projectList = document.getElementById('projectList');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const BudgetFilter = document.getElementById('scaleFilter');
-
-    // Currency formatter
-    const formatCurrency = amt => 
-        new Intl.NumberFormat('en-IN', {
-            style: 'currency',
-            currency: 'INR',
-            maximumFractionDigits: 0
-        }).format(amt);
-
-   // Consistent card rendering function
-    function renderProjectCard(project) {
-        // Handle image source - use projectMainImage if it's a full URL, otherwise use first projectImages
-        const imgSrc = project.projectMainImage?.startsWith('http') 
-            ? project.projectMainImage 
-            : (project.projectImages && project.projectImages.length > 0)
-                ? project.projectImages[0]
-                : '';
-        
-        const statusClass = project.projectStatus 
-            ? project.projectStatus.toLowerCase().replace(/\s+/g, '-') 
-            : '';
-
-        return `
-            <div class="card">
-                <div class="placeholder">
-                    ${imgSrc 
-                        ? `<img src="${imgSrc}" alt="${project.projectName || project.projectShortDescription || 'Project'}" loading="lazy">` 
-                        : '<div class="placeholder-text">IMAGE PLACEHOLDER</div>'}
-                    ${project.projectStatus 
-                        ? `<div class="status ${statusClass}">${project.projectStatus}</div>` 
-                        : ''}
-                </div>
-
-                <div class="card-content">
-                    <span class="tag">${project.categoryName || ''}</span>
-                    <div class="cost">
-                        Funding Required:
-                        <span class="cost-amount">
-                            ${formatCurrency(parseInt(project.projectBudget || 0))}
-                        </span>
-                    </div>
-                    <div class="title">
-                        ${project.projectName || project.projectShortDescription || 'Untitled Project'}
-                    </div>
-                    <a class="view-link" href="./donatenow.html?id=${project.projectId || ''}">View Details</a>
-                </div>
-            </div>`;
-    }
-
-    // Unified data fetcher
-    async function fetchProjects(categoryId = 0) {
-        try {
-            projectList.innerHTML = '<div class="loading">Loading projects...</div>';
-            
-            let response;
-            if (categoryId && categoryId !== '0') {
-                const res = await fetch(`https://mumbailocal.org:8087/projects/filter?categoryId=${categoryId}`);
-                response = await res.json();
-                // Handle filtered API response format
-                const projects = response.data || [];
-                if (projects.length === 0) {
-                    projectList.innerHTML = '<div class="no-results">No projects found for this category</div>';
-                    return;
-                }
-                projectList.innerHTML = projects.map(renderProjectCard).join('');
-            } else {
-                // Original ProjectService call
-                response = await ProjectService.listAll();
-                // Handle original API response format
-                const projects = response?.data?.content || [];
-                if (projects.length === 0) {
-                    projectList.innerHTML = '<div class="no-results">No projects found</div>';
-                    return;
-                }
-                projectList.innerHTML = projects.map(renderProjectCard).join('');
-            }
-            
-        } catch (error) {
-            console.error('Failed to load projects:', error);
-            projectList.innerHTML = '<div class="error">Unable to load projects</div>';
-        }
-    }
-  
-    // Event listeners
-    if (categoryFilter) {
-        categoryFilter.addEventListener('change', (e) => fetchProjects(e.target.value));
-    }
-
-     async function fetchProjectsbyBudget(projectBudget = 0) {
-        try {
-            projectList.innerHTML = '<div class="loading">Loading projects...</div>';
-            
-            let response;
-            if (projectBudget && projectBudget !== '0') {
-                const res = await fetch(`https://mumbailocal.org:8087/projects/filter?projectBudget=${projectBudget}`);
-                response = await res.json();
-                // Handle filtered API response format
-                const projects = response.data || [];
-                if (projects.length === 0) {
-                    projectList.innerHTML = '<div class="no-results">No projects found for this budget</div>';
-                    return;
-                }
-                projectList.innerHTML = projects.map(renderProjectCard).join('');
-            } else {
-                // Original ProjectService call
-                response = await ProjectService.listAll();
-                // Handle original API response format
-                const projects = response?.data?.content || [];
-                if (projects.length === 0) {
-                    projectList.innerHTML = '<div class="no-results">No projects found</div>';
-                    return;
-                }
-                projectList.innerHTML = projects.map(renderProjectCard).join('');
-            }
-            
-        } catch (error) {
-            console.error('Failed to load projects:', error);
-            projectList.innerHTML = '<div class="error">Unable to load projects</div>';
-        }
-    }
-    if (BudgetFilter) {
-        BudgetFilter.addEventListener('change', (e) => fetchProjectsbyBudget(e.target.value));
-    }
-   
-    // Initial load
-    fetchProjects();
-});
-</script> -->
-
-
-<!--  -->
 
   
   <script src="js/jquery.min.js"></script>
@@ -432,152 +296,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <!-- <script>
-    const projects = [
-      {
-        image: "https://biotechindia.net/wp-content/uploads/2024/02/FES-1.66-1-1000x738.png",
-        category: "Health",
-        cost: 50000,
-        title: "4-Channel FES System",
-        status: null,
-        raised: 35000,
-        fundingRequirerd: 400000
-      },
-      {
-        image: "https://image.made-in-china.com/202f0j00opIbqLwWLJkH/Balance-Trainer-and-Evaluation-System-Physiotherapy-for-Rehabilitation-Centre.webp",
-        category: "Health",
-        cost: 246000,
-        title: "Balance Evaluation and Training System",
-        status: null,
-        raised: 120000,
-        fundingRequirerd: 1300000
-      },
-      {
-        image: "https://www.chardermedical.com/upload-files/product/body-composition-analysis/ma801/MA801-1.jpg",
-        category: "Health",
-        cost: 246000,
-        title: "Body Composition Analyzer",
-        status: "Ongoing",
-        raised: 0,
-        fundingRequirerd: 700000
-      },
-      {
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhzwqmS7kc1s3kGj4RSbAyyBfQnENmiXZE8w&s",
-        category: "Health",
-        cost: 246000,
-        title: "Two Channel EMG Biofeedback System",
-        status: null,
-        raised: 180000,
-        fundingRequirerd: 400000
-      },
-      
-      {
-        image: "https://5.imimg.com/data5/ANDROID/Default/2021/3/ND/PD/CO/16733331/product-jpeg-1000x1000.jpg",
-        category: "Health",
-        cost: 90000,
-        title: "TECAR Therapy Device",
-        status: null,
-        raised: 45000,
-        fundingRequirerd: 500000
-      },
-      
-    ];
-
-    const projectList = document.getElementById('projectList');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const scaleFilter = document.getElementById('scaleFilter');
-
-    function getScaleRange(value) {
-      if (value < 100000) return 'low';
-      if (value <= 500000) return 'mid';
-      return 'high';
-    }
-
-    function formatCurrency(amount) {
-      return new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
-        maximumFractionDigits: 0
-      }).format(amount);
-    }
-
-    function calculateProgress(raised, fundingRequirerd) {
-      return Math.min((raised / fundingRequirerd) * 100, 100);
-    }
-
-    function renderProjects() {
-      const selectedCategory = categoryFilter.value;
-      const selectedScale = scaleFilter.value;
-
-      projectList.innerHTML = '';
-
-      const filtered = projects.filter(p => {
-        const scale = getScaleRange(p.cost);
-        const matchCategory = selectedCategory === 'all' || p.category === selectedCategory;
-        const matchScale = selectedScale === 'all' || scale === selectedScale;
-        return matchCategory && matchScale;
-      });
-
-      if (filtered.length === 0) {
-        projectList.innerHTML = '<div class="no-results">No projects found matching your criteria.</div>';
-        return;
-      }
-
-      filtered.forEach(project => {
-        const card = document.createElement('div');
-        card.className = 'card';
-
-        const progress = calculateProgress(project.raised, project.fundingRequirerd);
-        const statusClass = project.status ? project.status.toLowerCase().replace(' ', '-') : '';
-
-        card.innerHTML = `
-                    <div class="placeholder">
-                        ${project.image ?
-            `<img src="${project.image}" alt="${project.title}" loading="lazy">` :
-            '<div class="placeholder-text">IMAGE PLACEHOLDER</div>'
-          }
-                        ${project.status ?
-            `<div class="status ${statusClass}">${project.status}</div>` :
-            ''
-          }
-                    </div>
-                    <div class="card-content">
-                        <span class="tag">${project.category}</span>
-                        
-
-                        <div class="cost">
-                            Funding Requirerd: <span class="cost-amount">${formatCurrency(project.cost)}</span>
-                        </div>
-                        <div class="title">${project.title}</div>
-                        
-                       
-                        <a class="view-link" href="./donatenow.html">View Details</a>
-                    </div>
-                `;
-
-        projectList.appendChild(card);
-      });
-
-        }
-
-    categoryFilter.addEventListener('change', renderProjects);
-    scaleFilter.addEventListener('change', renderProjects);
-
-    // Initial render
-    renderProjects();
-
-    // Add loading animation for images
-    document.addEventListener('DOMContentLoaded', function () {
-      const images = document.querySelectorAll('.placeholder img');
-      images.forEach(img => {
-        img.addEventListener('load', function () {
-          this.style.opacity = '1';
-        });
-      });
-    });
-  </script> -->
- 
- 
+  
  <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
