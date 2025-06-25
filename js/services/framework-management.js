@@ -87,7 +87,7 @@ async function initDocumentLibrary() {
         pdfGrid.innerHTML = '<div class="loading">Loading documents...</div>';
         
         // Fetch documents from API (gets full response)
-        const apiResponse = await Api.document.listLegaldocs();
+        const apiResponse = await Api.document.listFramework();
         
         // Render the documents
         renderPDFCards(apiResponse);

@@ -2,8 +2,11 @@ var DocumentService = {
   add: function(data) {
     return api.request({ path: '/addDocuments', method: 'POST', data: data });
   },
-  listAll: function() {
-    return api.request({ path: '/listalldocuments', method: 'GET' });
+  listLegaldocs: function() {
+    return api.request({ path: '/documents/legal%20document', method: 'GET' });
+  },
+  listFramework: function() {
+    return api.request({ path: '/documents/framework', method: 'GET' });
   },
   getById: function(id) {
     return api.request({ path: '/documentShowById/' + id, method: 'GET' });
