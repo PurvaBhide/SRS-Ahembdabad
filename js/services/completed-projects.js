@@ -89,31 +89,40 @@
       }
     }
 
-    async function fetchProjectsByBudget (projectBudget = 0) {
+   async function fetchProjectsByBudget(projectBudget = 0) {
       try {
         projectList.innerHTML = '<div class="loading">Loading projects...</div>';
 
-        let response;
         if (projectBudget && projectBudget !== '0') {
-          // Filter by budget via public endpoint
-          const res = await fetch(`https://mumbailocal.org:8087/projects/filter?projectBudget=${projectBudget}`);
-          response  = await res.json();
+          // First try the API endpoint
+          try {
+            const res = await fetch(`https://mumbailocal.org:8087/projects/filter?projectBudget=${projectBudget}`);
+            const response = await res.json();
+            const projects = filterOngoingProjects(response.data || []);
+            
+            if (projects.length) {
+              projectList.innerHTML = projects.map(renderProjectCard).join('');
+              return;
+            }
+          } catch (e) {
+            console.log('Budget filter endpoint failed, falling back to client-side filtering');
+          }
 
-          const projects = response.data || [];
-          if (!projects.length) {
-            projectList.innerHTML = '<div class="no-results">No projects found for this budget</div>';
+          // Fallback: client-side filtering
+          const response = await ProjectService.listAll();
+          const allProjects = filterOngoingProjects(response?.data?.content || []);
+          const filteredProjects = allProjects.filter(project => {
+            const budget = parseInt(project.projectBudget || 0, 10);
+            return budget <= parseInt(projectBudget, 10);
+          });
+          
+          if (!filteredProjects.length) {
+            projectList.innerHTML = '<div class="no-results">No ongoing projects found within this budget</div>';
             return;
           }
-          projectList.innerHTML = projects.map(renderProjectCard).join('');
+          projectList.innerHTML = filteredProjects.map(renderProjectCard).join('');
         } else {
-          response = await ProjectService.listAll();
-          const projects = response?.data?.content || [];
-
-          if (!projects.length) {
-            projectList.innerHTML = '<div class="no-results">No projects found</div>';
-            return;
-          }
-          projectList.innerHTML = projects.map(renderProjectCard).join('');
+          await fetchProjects();
         }
       } catch (err) {
         console.error('Failed to load projects:', err);
