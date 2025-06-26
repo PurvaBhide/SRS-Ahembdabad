@@ -53,6 +53,13 @@ function updateProjectDetails(project) {
   document.querySelector('#project-description').textContent = project.projectShortDescription || 'No description available';
   document.querySelector('#projectDepartmentName').textContent = project.projectDEpartmentName || 'Not specified';
 
+   if(project.projectStatus === 'Completed' || project.projectStatus === 'completed' || project.projectStatus === 'COMPLETED') {
+    document.getElementById('paricipantform').style.display= 'none';
+  } else {
+    document.getElementById('paricipantform').style.display= 'block';
+  }
+
+
   // Update description
   const descriptionHTML = `
     <p><strong>Project Name:</strong> ${project.projectName || 'Not specified'}</p>
