@@ -38,94 +38,96 @@
   <link rel="stylesheet" href="css/css/page/overview.css">
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    
-    <!-- Success Stories Custom CSS -->
-    <style>
-      :root {
-        --primary-color: #0A1E46;
-        --secondary-color: #1E3A8A;
-        --accent-color: #3B82F6;
-      }
-      
-      .success-story-card {
-        border: none;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        height: 100%;
-      }
-      
-      .success-story-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-      }
-      
-      .story-image {
-        height: 200px;
-        object-fit: cover;
-      }
-      
-      .story-category {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background-color: #0A1E46;
-        color: white;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
-      }
-      
-      .story-date {
-        color: #6c757d;
-        font-size: 0.9rem;
-      }
-      
-      .story-title {
-        color: var(--primary-color);
-        font-weight: 600;
-        margin-bottom: 0.75rem;
-      }
-      
-      .story-excerpt {
-        color: #495057;
-        margin-bottom: 1rem;
-      }
-      
-      .read-more-btn {
-        color: var(--accent-color);
-        font-weight: 500;
-        text-decoration: none;
-      }
-      
-      .read-more-btn:hover {
-        text-decoration: underline;
-      }
-      
-      .success-hero {
-        background: linear-gradient(rgba(10, 30, 70, 0.8), rgba(10, 30, 70, 0.8)), url('images/success-hero.jpg');
-        background-size: cover;
-        background-position: center;
-      }
-      
-      .filter-btn {
-        border: 1px solid #dee2e6;
-        color: #495057;
-        background: white;
-        margin: 0 5px 10px;
-      }
-      
-      .filter-btn.active, .filter-btn:hover {
-        background-color: #0A1E46;
-        color: white;
-      }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
-  <body>
-   <header>
+
+  <!-- Success Stories Custom CSS -->
+  <style>
+    :root {
+      --primary-color: #0A1E46;
+      --secondary-color: #1E3A8A;
+      --accent-color: #3B82F6;
+    }
+
+    .success-story-card {
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .success-story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .story-image {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .story-category {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: #0A1E46;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .story-date {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    .story-title {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .story-excerpt {
+      color: #495057;
+      margin-bottom: 1rem;
+    }
+
+    .read-more-btn {
+      color: var(--accent-color);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .read-more-btn:hover {
+      text-decoration: underline;
+    }
+
+    .success-hero {
+      background: linear-gradient(rgba(10, 30, 70, 0.8), rgba(10, 30, 70, 0.8)), url('images/success-hero.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .filter-btn {
+      border: 1px solid #dee2e6;
+      color: #495057;
+      background: white;
+      margin: 0 5px 10px;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background-color: #0A1E46;
+      color: white;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <header>
     <div class="top-container">
       <div class="topbar-left">
         Amdavad Municipal Corporation
@@ -149,7 +151,7 @@
     </a>
   </div>
 
-   <!-- nav start -->
+  <!-- nav start -->
   <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar"
     style="border-radius: 0px !important;">
     <div class="container-fluid">
@@ -211,7 +213,7 @@
               </li>
               <!-- download tab end -->
               <!-- Reference tab -->
-              <li >
+              <li>
                 <a class="dropdown-item " href="reference.html">Reference</a>
               </li>
               <!-- Reference tab end -->
@@ -259,10 +261,10 @@
   <!-- END nav -->
 
 
-    <section class="ftco-section">
-      <div class="container">
-        <!-- Filter Buttons -->
-        <!-- <div class="row mb-5">
+  <section class="ftco-section">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <!-- <div class="row mb-5">
           <div class="col-12 text-center">
             <div class="btn-group flex-wrap justify-content-center">
               <button type="button" class="btn filter-btn active">All Stories</button>
@@ -274,36 +276,71 @@
             </div>
           </div>
         </div> -->
-        
-        <!-- Success Stories Grid -->
-        <div class="row g-4">
-         
-          
-          <!-- Story 1 -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card success-story-card">
-              <div class="position-relative">
-                <img src="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" class="card-img-top story-image" alt="Health Camp">
-                <span class="story-category">Health</span>
+
+      <!-- Success Stories Grid -->
+      <div class="row g-4">
+
+
+        <!-- Story 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card success-story-card">
+            <div class="position-relative">
+              <img src="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255"
+                class="card-img-top story-image" alt="Health Camp">
+              <span class="story-category">Health</span>
+            </div>
+            <div class="card-body">
+              <p class="story-date mb-2"><i class="far fa-calendar-alt me-2"></i>19 June 2025</p>
+              <h5 class="card-title story-title">Cleft Care Project at AMC Dental College</h5>
+              <p class="card-text story-excerpt">Gujarat's first center offers integrated cleft care, dental treatment,
+                and plastic surgery holistic care under one roof.</p>
+
+              <a href="#" class="read-more-btn" data-bs-toggle="modal" data-bs-target="#storyModal"
+                style="background-color: #0A1E46; color: aliceblue; padding: 10px; border-radius: 5px;">
+                Read Full Story <i class="fas fa-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="storyModal" tabindex="-1" aria-labelledby="storyModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header" style="background-color: #0A1E46; color: white;">
+                <h5 class="modal-title" id="storyModalLabel">Cleft Care Project at AMC Dental College</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                  style="background-color: white;"></button>
               </div>
-              <div class="card-body">
-                <p class="story-date mb-2"><i class="far fa-calendar-alt me-2"></i>19 June 2025</p>
-                <h5 class="card-title story-title">Cleft Care Project at AMC Dental College</h5>
-                <p class="card-text story-excerpt">Gujarat's first center offers integrated cleft care, dental treatment, and plastic surgery holistic care under one roof.</p>
-                <a href="https://drive.google.com/file/d/1TC__RtKW1vHe8c65t9zX_48fOs2EI3XC/view" class="read-more-btn" target="_blank" style="background-color: #0A1E46; color: aliceblue;padding: 10px; border-radius: 5px;">Read Full Story <i class="fas fa-arrow-right ms-2"></i></a>
+              <div class="modal-body">
+                <img src="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255"
+                  alt="Story Image" class="img-fluid mb-3">
+                <p><strong>Date:</strong> 19 June 2025</p>
+                <p><strong>Category:</strong> Health</p>
+                <p><strong>Description:</strong> Gujarat's first center offers integrated cleft care, dental treatment,
+                  and plastic surgery holistic care under one roof.</p>
+                <hr>
+                <h6>Download Full Document</h6>
+                <a href="https://drive.google.com/file/d/1TC__RtKW1vHe8c65t9zX_48fOs2EI3XC/view" target="_blank"
+                  class="btn btn-primary">
+                  <i class="fas fa-file-pdf"></i> View PDF
+                </a>
               </div>
             </div>
           </div>
-          
-
-          
-         
         </div>
-        
-      </div>
-    </section>
 
-     <footer class="ftco-footer ftco-section img">
+
+   
+        <!-- end Modal -->
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
     <div class="container">
       <div class="row mb-5">
@@ -359,39 +396,51 @@
       </div>
     </div>
   </footer>
-    
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/jquery.timepicker.min.js"></script>
-    <script src="js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="js/google-map.js"></script>
-    <script src="js/main.js"></script>
-    
-    <!-- Success Stories Custom JS -->
-    <script>
-      // Filter functionality
-      $(document).ready(function(){
-        $('.filter-btn').click(function(){
-          $('.filter-btn').removeClass('active');
-          $(this).addClass('active');
-          // Here you would add code to filter the stories
-        });
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+    </svg></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Success Stories Custom JS -->
+  <script>
+    // Filter functionality
+    $(document).ready(function () {
+      $('.filter-btn').click(function () {
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+        // Here you would add code to filter the stories
       });
-    </script>
-  </body>
+    });
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap JS (Modal functionality) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>
