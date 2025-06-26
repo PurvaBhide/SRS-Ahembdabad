@@ -660,94 +660,121 @@
     }
   </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Video data
-      const videos = [
-        {
-          id: 'iwDr4jI20wE',
-          title: 'CSR For Reforming Education | STEM CSR in Gujarat | STEM Learning',
-          description: 'CSR implementing partner of different Corporate for CSR in India ',
-          category: 'social'
-        },
-        {
-          id: '9zwlJaoAKrg',
-          title: 'Creating Local Impact in Gujarat | CSR for Reforming Education | STEM Learning',
-          description: 'CSR programs are developed and implemented with a central focus on the teachers. '
-        },
-        {
-          id: 'y_SfMHUf8GY',
-          title: 'Bridging Educational Barriers In Gujarat | CSR For Reformation In Education | STEM Learning',
-          description: 'The transformation that includes the capacity building of teachers through our Teacher Training Programs.',
-          category: 'educational'
-        }
-      ];
 
-      const videoGallery = document.getElementById('videoGallery');
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const searchInput = document.getElementById('searchInput');
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Video data
+            const videos = [
+                {
+                    id: 'X48PNrh1jC4',
+                    title: 'CSR For Reforming Education | STEM CSR in Gujarat | STEM Learning',
+                    description: 'CSR implementing partner of different Corporate for CSR in India ',
+                    category: 'social'
+                },
+                // {
+                //     id: '9zwlJaoAKrg',
+                //     title: 'Creating Local Impact in Gujarat | CSR for Reforming Education | STEM Learning',
+                //     description: 'CSR programs are developed and implemented with a central focus on the teachers. '
+                // },
+                // {
+                //     id: 'y_SfMHUf8GY',
+                //     title: 'Bridging Educational Barriers In Gujarat | CSR For Reformation In Education | STEM Learning',
+                //     description: 'The transformation that includes the capacity building of teachers through our Teacher Training Programs.',
+                //     category: 'educational'
+                // }
+            ];
+            
+            const videoGallery = document.getElementById('videoGallery');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('searchInput');
+            
+            // Display all videos initially
+            displayVideos(videos);
+            
+            // Filter videos by category
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    let filteredVideos = videos;
+                    
+                    if (filter !== 'all') {
+                        filteredVideos = videos.filter(video => video.category === filter);
+                    }
+                    
+                    displayVideos(filteredVideos);
+                });
+            });
+            
+            // Search functionality
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filteredVideos = videos.filter(video => 
+                    video.title.toLowerCase().includes(searchTerm) || 
+                    video.description.toLowerCase().includes(searchTerm)
+                );
+                
+                displayVideos(filteredVideos);
+            });
+            
+            // Function to display videos
+           function displayVideos(videosToDisplay) {
+    videoGallery.innerHTML = '';
+    
+    if (videosToDisplay.length === 0) {
+        videoGallery.innerHTML = '<p style="text-align: center; color: #7f8c8d;">No videos found</p>';
+        return;
+    }
+    
+    // Toggle few-videos class based on count
+    videoGallery.classList.toggle('few-videos', videosToDisplay.length < 3);
+    
+    videosToDisplay.forEach(video => {
+        const videoCard = document.createElement('div');
+        videoCard.className = 'video-card';
+        
+        videoCard.innerHTML = `
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/${video.id}" 
+                    frameborder="0" 
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3>${video.title}</h3>
+                <p>${video.description}</p>
+            </div>
+        `;
+        
+        videoGallery.appendChild(videoCard);
+    });
+}
+            
+            // Add animation to cards when they come into view
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.video-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
 
-      // Display all videos initially
-      displayVideos(videos);
-
-      // Filter videos by category
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          // Remove active class from all buttons
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          // Add active class to clicked button
-          button.classList.add('active');
-
-          const filter = button.getAttribute('data-filter');
-          let filteredVideos = videos;
-
-          if (filter !== 'all') {
-            filteredVideos = videos.filter(video => video.category === filter);
-          }
-
-          displayVideos(filteredVideos);
-        });
-      });
-
-      // Search functionality
-      searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value.toLowerCase();
-        const filteredVideos = videos.filter(video =>
-          video.title.toLowerCase().includes(searchTerm) ||
-          video.description.toLowerCase().includes(searchTerm)
-        );
-
-        displayVideos(filteredVideos);
-      });
-
-      // Function to display videos
-      function displayVideos(videosToDisplay) {
-        videoGallery.innerHTML = '';
-
-        if (videosToDisplay.length === 0) {
-          videoGallery.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #7f8c8d;">No videos found</p>';
-          return;
-        }
-
-        videosToDisplay.forEach(video => {
-          const videoCard = document.createElement('div');
-          videoCard.className = 'video-card';
-          videoCard.setAttribute('data-category', video.category);
-
-          videoCard.innerHTML = `
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/${video.id}" 
-                            title="YouTube video player" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                        </div>
-                        <div class="video-info">
-                            <h3>${video.title}</h3>
-                            <p>${video.description}</p>
-                        </div>
-                    `;
-
-          videoGallery.appendChild(videoCard);
         });
       }
 

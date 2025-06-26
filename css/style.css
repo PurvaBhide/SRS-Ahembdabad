@@ -9573,57 +9573,67 @@ justify-content: inline-block;
             }
         }
         .video-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
 
-        .video-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
+/* New class for when there are fewer than 3 videos */
+.video-gallery.few-videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        .video-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
+.video-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: 100%; /* Ensure consistent width */
+    max-width: 400px; /* Optional: Set a max-width for better appearance */
+}
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-        }
+/* Rest of your existing CSS remains the same */
+.video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
 
-        .video-info {
-            padding: 15px;
-        }
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 
-        .video-info h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-size: 1.2rem;
-        }
+.video-info {
+    padding: 15px;
+}
 
-        .video-info p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
+.video-info h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.video-info p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
 
         .filter-buttons {
             display: flex;
