@@ -55,8 +55,10 @@ function updateProjectDetails(project) {
 
    if(project.projectStatus === 'Completed' || project.projectStatus === 'completed' || project.projectStatus === 'COMPLETED') {
     document.getElementById('paricipantform').style.display= 'none';
+     document.querySelector('.project-details').style.width = '155%';
   } else {
     document.getElementById('paricipantform').style.display= 'block';
+     document.querySelector('.project-details').style.width = '';
   }
 
 
