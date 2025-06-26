@@ -176,117 +176,9 @@
 
 
 
-
-  <div class="container-fluid" style="    padding-right: 0px;
-    padding-left: 0px;">
-    <!-- Video Gallery Section -->
-    <div class="gallery-container mt-5 pt-3 pb-5 mb-5" style="background-color: #88aefa45;">
-      <h1 style="font-weight: 600; color: #0A1E46; padding-left: 20px;">Video Gallery</h1>
-
-
-
-      <div class="video-gallery p-3" id="videoGallery">
-        <!-- Video Cards -->
-        <div class="video-card" data-category="social">
-          <div class="video-thumbnail">
-            <img src="https://via.placeholder.com/300x169?text=Social+Video+1" alt="Video Thumbnail">
-            <div class="play-icon"></div>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">Community Outreach Program</h3>
-            <span class="video-category">Social</span>
-            <p class="video-date">Posted on: June 15, 2023</p>
-          </div>
-        </div>
-
-        <div class="video-card" data-category="educational">
-          <div class="video-thumbnail">
-            <img src="https://via.placeholder.com/300x169?text=Educational+Video+1" alt="Video Thumbnail">
-            <div class="play-icon"></div>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">Financial Literacy Workshop</h3>
-            <span class="video-category">Educational</span>
-            <p class="video-date">Posted on: May 28, 2023</p>
-          </div>
-        </div>
-
-        <div class="video-card" data-category="infrastructure">
-          <div class="video-thumbnail">
-            <img src="https://via.placeholder.com/300x169?text=Infrastructure+Video+1" alt="Video Thumbnail">
-            <div class="play-icon"></div>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">New School Construction</h3>
-            <span class="video-category">Infrastructure</span>
-            <p class="video-date">Posted on: April 10, 2023</p>
-          </div>
-        </div>
-
-        <div class="video-card" data-category="social">
-          <div class="video-thumbnail">
-            <img src="https://via.placeholder.com/300x169?text=Social+Video+2" alt="Video Thumbnail">
-            <div class="play-icon"></div>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">Annual Charity Event</h3>
-            <span class="video-category">Social</span>
-            <p class="video-date">Posted on: March 22, 2023</p>
-          </div>
-        </div>
-
-        <div class="video-card" data-category="educational">
-          <div class="video-thumbnail">
-            <img src="https://via.placeholder.com/300x169?text=Educational+Video+2" alt="Video Thumbnail">
-            <div class="play-icon"></div>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">Health and Wellness Seminar</h3>
-            <span class="video-category">Educational</span>
-            <p class="video-date">Posted on: February 15, 2023</p>
-          </div>
-        </div>
-
-        <div class="video-card" data-category="infrastructure">
-          <div class="video-thumbnail">
-            <img src="https://via.placeholder.com/300x169?text=Infrastructure+Video+2" alt="Video Thumbnail">
-            <div class="play-icon"></div>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">Road Development Project</h3>
-            <span class="video-category">Infrastructure</span>
-            <p class="video-date">Posted on: January 30, 2023</p>
-          </div>
-        </div>
-
-        <div class="video-card" data-category="social">
-          <div class="video-thumbnail">
-            <img src="https://via.placeholder.com/300x169?text=Social+Video+3" alt="Video Thumbnail">
-            <div class="play-icon"></div>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">Volunteer Appreciation Day</h3>
-            <span class="video-category">Social</span>
-            <p class="video-date">Posted on: December 18, 2022</p>
-          </div>
-        </div>
-
-        <div class="video-card" data-category="educational">
-          <div class="video-thumbnail">
-            <img src="https://via.placeholder.com/300x169?text=Educational+Video+3" alt="Video Thumbnail">
-            <div class="play-icon"></div>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">Digital Skills Training</h3>
-            <span class="video-category">Educational</span>
-            <p class="video-date">Posted on: November 5, 2022</p>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
+ <div class="video-gallery p-2 mt-5 mb-5" id="videoGallery">
+            <!-- Videos will be added dynamically -->
+</div>
 
 
 
@@ -377,6 +269,122 @@
     });
   </script>
 
+
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Video data
+            const videos = [
+                {
+                    id: 'X48PNrh1jC4',
+                    title: 'CSR For Reforming Education | STEM CSR in Gujarat | STEM Learning',
+                    description: 'CSR implementing partner of different Corporate for CSR in India ',
+                    category: 'social'
+                },
+                // {
+                //     id: '9zwlJaoAKrg',
+                //     title: 'Creating Local Impact in Gujarat | CSR for Reforming Education | STEM Learning',
+                //     description: 'CSR programs are developed and implemented with a central focus on the teachers. '
+                // },
+                // {
+                //     id: 'y_SfMHUf8GY',
+                //     title: 'Bridging Educational Barriers In Gujarat | CSR For Reformation In Education | STEM Learning',
+                //     description: 'The transformation that includes the capacity building of teachers through our Teacher Training Programs.',
+                //     category: 'educational'
+                // }
+            ];
+            
+            const videoGallery = document.getElementById('videoGallery');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('searchInput');
+            
+            // Display all videos initially
+            displayVideos(videos);
+            
+            // Filter videos by category
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    let filteredVideos = videos;
+                    
+                    if (filter !== 'all') {
+                        filteredVideos = videos.filter(video => video.category === filter);
+                    }
+                    
+                    displayVideos(filteredVideos);
+                });
+            });
+            
+            // Search functionality
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filteredVideos = videos.filter(video => 
+                    video.title.toLowerCase().includes(searchTerm) || 
+                    video.description.toLowerCase().includes(searchTerm)
+                );
+                
+                displayVideos(filteredVideos);
+            });
+            
+            // Function to display videos
+           function displayVideos(videosToDisplay) {
+    videoGallery.innerHTML = '';
+    
+    if (videosToDisplay.length === 0) {
+        videoGallery.innerHTML = '<p style="text-align: center; color: #7f8c8d;">No videos found</p>';
+        return;
+    }
+    
+    // Toggle few-videos class based on count
+    videoGallery.classList.toggle('few-videos', videosToDisplay.length < 3);
+    
+    videosToDisplay.forEach(video => {
+        const videoCard = document.createElement('div');
+        videoCard.className = 'video-card';
+        
+        videoCard.innerHTML = `
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/${video.id}" 
+                    frameborder="0" 
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3>${video.title}</h3>
+                <p>${video.description}</p>
+            </div>
+        `;
+        
+        videoGallery.appendChild(videoCard);
+    });
+}
+            
+            // Add animation to cards when they come into view
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.video-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
   <!-- jQuery (required by Bootstrap) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
