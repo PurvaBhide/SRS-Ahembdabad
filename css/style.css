@@ -3355,7 +3355,7 @@ input[type="button"].btn-block {
   .navbar-toggler:hover, .navbar-toggler:focus {
     text-decoration: none; }
   .navbar-toggler:not(:disabled):not(.disabled) {
-    cursor: pointer; }
+    cursor: pointer;  background-color: #ffffff;}
 
 .navbar-toggler-icon {
   display: inline-block;

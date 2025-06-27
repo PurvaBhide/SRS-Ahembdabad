@@ -40,6 +40,8 @@ if(typeof participantNowServices !=='undefined'){
 if(typeof DocumentService !=='undefined'){
   Api.document = DocumentService;
 }
-
+if(typeof SuccessStoryService !== 'undefined'){
+  Api.successstory = SuccessStoryService;
+}
 // Add other services similarly
 // Api.ngo = typeof NgoService !== 'undefined' ? NgoService : {};

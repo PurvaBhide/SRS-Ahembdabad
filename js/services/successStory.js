@@ -1,20 +1,23 @@
 var SuccessStoryService = {
-  create: function(data) {
-    return api.request({ path: '/createsuccessstory', method: 'POST', data: data });
+  create: function (data) {
+    return api.post("/createsuccessstory", data);
   },
-  listAll: function() {
-    return api.request({ path: '/listallSuccessStory', method: 'GET' });
+  listAll: function () {
+    return api.get("/listallSuccessStory");
   },
-  getById: function(id) {
-    return api.request({ path: '/successStoryshowbyid/' + id, method: 'GET' });
+  getById: function (id) {
+    return api.get("/successStoryshowbyid/" + id);
   },
-  getByCategory: function(categoryId) {
-    return api.request({ path: '/SuccessStoryshowbycategoryid/' + categoryId, method: 'GET' });
+  getByCategory: function (categoryId) {
+    return api.get("/SuccessStoryshowbycategoryid/" + categoryId);
   },
-  update: function(id, data) {
-    return api.request({ path: '/updateSuccessStory/' + id, method: 'PUT', data: data });
+  update: function (id, data) {
+    return api.put("/updateSuccessStory/" + id, data);
   },
-  delete: function(id) {
-    return api.request({ path: '/deleteSuccessStory/' + id, method: 'DELETE' });
+  delete: function (id) {
+    return api.delete("/deleteSuccessStory/" + id);
+  },
+  listAllpage: function (page, size) {
+    return api.get(`/listallSuccessStory?page=${page || 0}&size=${size || 10}`);
   }
 };
