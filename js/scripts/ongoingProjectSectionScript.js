@@ -754,7 +754,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             /* CAROUSEL CONTAINER */
-            .carousel-container {
+            .projectcarousel-container {
                 position: relative !important;
                 max-width: 1200px !important;
                 margin: 0 auto !important;
@@ -1154,7 +1154,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             updateIndicators();
             
-            const carouselContainer = document.querySelector('.carousel-container');
+            const carouselContainer = document.querySelector('.projectcarousel-container');
             if (carouselContainer) {
                 carouselContainer.setAttribute('tabindex', '0');
                 carouselContainer.style.outline = 'none';
@@ -1212,7 +1212,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const showControls = totalSlides > 1;
         
         return `
-            <div class="carousel-container" role="region" aria-label="Project Carousel" tabindex="0">
+            <div class="projectcarousel-container" role="region" aria-label="Project Carousel" tabindex="0">
                 <div class="carousel-wrapper">
                     ${showControls ? `
                         <button class="carousel-controls carousel-prev" id="prevBtn" aria-label="Previous project">
@@ -1789,7 +1789,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Keyboard navigation support
     function handleKeyboardNavigation(e) {
-        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselContainer = document.querySelector('.projectcarousel-container');
         if (!carouselContainer) return;
         
         if (!carouselContainer.contains(document.activeElement)) return;
@@ -1822,7 +1822,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Accessibility improvements
     function addAccessibilityFeatures() {
-        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselContainer = document.querySelector('.projectcarousel-container');
         if (!carouselContainer) return;
         
         carouselContainer.setAttribute('role', 'region');
@@ -1900,7 +1900,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize accessibility and lazy loading after carousel creation
     setTimeout(function() {
-        if (document.querySelector('.carousel-container')) {
+        if (document.querySelector('.projectcarousel-container')) {
             addAccessibilityFeatures();
             initializeLazyLoading();
         }
