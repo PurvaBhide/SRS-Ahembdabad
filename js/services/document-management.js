@@ -93,7 +93,8 @@ async function initDocumentLibrary() {
         renderPDFCards(apiResponse);
     } catch (error) {
         console.error('Error initializing document library:', error);
-        pdfGrid.innerHTML = `<p class="error">Error loading documents: ${error.message}</p>`;
+         pdfGrid.innerHTML = `<p class="error">
+        <span style="color:#0b1e46;">The document has not been released yet. We appreciate your patience.<span> </p>`;
     }
 }
 

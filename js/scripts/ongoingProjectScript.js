@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Handle the specific response structure from your API
                 if (response && response.status === 200 && response.data && response.data.content && Array.isArray(response.data.content)) {
                     console.log('Total projects received:', response.data.content.length);
-                    const ongoingProjects = filterOngoingProjects(response.data.content);
-                    console.log('Ongoing projects after filter:', ongoingProjects.length);
+                    const ongoingProjects = filterProposedProjects(response.data.content);
+                    console.log('Proposed projects after filter:', ongoingProjects.length);
                     displayProjects(ongoingProjects);
                 } else {
                     console.log('No valid data found in response');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     
                     if (projectsArray.length > 0) {
-                        const ongoingProjects = filterOngoingProjects(projectsArray);
+                        const ongoingProjects = filterProposedProjects(projectsArray);
                         displayProjects(ongoingProjects);
                     } else {
                         displayNoProjects();
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     
                     if (projectsArray.length > 0) {
-                        const ongoingProjects = filterOngoingProjects(projectsArray);
+                        const ongoingProjects = filterProposedProjects(projectsArray);
                         displayProjects(ongoingProjects);
                     } else {
                         displayNoProjects();
@@ -142,12 +142,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (projectsArray.length > 0) {
                     // Filter by budget and ongoing status
                     const filteredProjects = projectsArray.filter(function(project) {
-                        const isOngoing = project.projectStatus === 'Ongoing';
+                        const isProposed = project.projectStatus === 'Proposed';
                         const matchesBudget = project.projectBudget == budget;
                         
-                        console.log(`${project.projectName} - Status: ${project.projectStatus}, Budget: ${project.projectBudget}, Matches: ${isOngoing && matchesBudget}`);
+                        console.log(`${project.projectName} - Status: ${project.projectStatus}, Budget: ${project.projectBudget}, Matches: ${isProposed && matchesBudget}`);
                         
-                        return isOngoing && matchesBudget;
+                        return isProposed && matchesBudget;
                     });
                     
                     console.log('Final filtered projects (ongoing + budget match):', filteredProjects.length);
@@ -164,8 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Filter projects to show only ongoing ones
-    function filterOngoingProjects(projects) {
-        console.log('Input to filterOngoingProjects:', projects);
+    function filterProposedProjects(projects) {
+        console.log('Input to filterProposedProjects:', projects);
         console.log('Is input an array?', Array.isArray(projects));
         
         if (!Array.isArray(projects)) {
@@ -183,13 +183,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         const ongoingProjects = projects.filter(function(project) {
-            const isOngoing = project.projectStatus === 'Ongoing';
-            console.log(`${project.projectName} - Status: "${project.projectStatus}" - Is Ongoing: ${isOngoing}`);
-            return isOngoing;
+            const isProposed = project.projectStatus === 'Proposed';
+            console.log(`${project.projectName} - Status: "${project.projectStatus}" - Is Proposed: ${isProposed}`);
+            return isProposed;
         });
         
         console.log('Filtered ongoing projects:', ongoingProjects.length, 'out of', projects.length);
-        console.log('Ongoing projects:', ongoingProjects);
+        console.log('Proposed projects:', ongoingProjects);
         return ongoingProjects;
     }
     
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         return `
             <div class="card" data-project-id="${projectId}" style="position: relative;">
-                <div class="status ${project.projectStatus === 'Ongoing' ? 'ongoing' : 'scrutiny'}" style="position: absolute; top: 0; right: 0; background: #e74c3c; color: white; padding: 6px 12px; font-size: 12px; font-weight: 500; border-radius: 0 0 0 12px; text-transform: uppercase; letter-spacing: 0.5px; z-index: 10;">
+                <div class="status ${project.projectStatus === 'Proposed' ? 'ongoing' : 'scrutiny'}" style="position: absolute; top: 0; right: 0; background: #e74c3c; color: white; padding: 6px 12px; font-size: 12px; font-weight: 500; border-radius: 0 0 0 12px; text-transform: uppercase; letter-spacing: 0.5px; z-index: 10;">
                     ${project.projectStatus || 'Unknown'}
                 </div>
                 <div class="placeholder">
