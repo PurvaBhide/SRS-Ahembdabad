@@ -91,11 +91,16 @@ async function initDocumentLibrary() {
         
         // Render the documents
         renderPDFCards(apiResponse);
+        console.log(apiResponse,"apiResponseapiResponseapiResponseapiResponseapiResponse");
     } catch (error) {
-        console.error('Error initializing document library:', error);
-        pdfGrid.innerHTML = `<p class="error">Error loading documents: ${error.message}</p>`;
+        console.error('Error initializing document library:', error.status);
+      
+        pdfGrid.innerHTML = `<p class="error">
+        <span style="color:#0b1e46;">The document has not been released yet. We appreciate your patience.<span> </p>`;
     }
 }
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initDocumentLibrary);
+
+
