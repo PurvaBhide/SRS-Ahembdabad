@@ -161,6 +161,7 @@
         
         .title {
              margin-bottom: 15px;
+              text-transform: capitalize;
     font-weight: 600;
     font-size: 1.1em;
     color: #2c3e50;
