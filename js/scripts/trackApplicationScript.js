@@ -105,10 +105,11 @@ document.addEventListener("DOMContentLoaded", function () {
       "📊 Response Type:",
       isFundAnIdea ? "FundAnIdea" : "Participant"
     );
-    console.log("📦 Data:", data);
+   
 
     // Extract actual data based on response type
     const actualData = isParticipant ? data.participant : data;
+    const projectdata= isParticipant?data.project:data;
 
     // Get status from appropriate field using ternary operators
     const status = isFundAnIdea
@@ -269,9 +270,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     : isParticipant
                     ? `
                 <div class="info-item">
-                    <div class="info-label">Project ID</div>
+                    <div class="info-label">Project name</div>
                     <div class="info-value">${
-                      actualData.projetcId || "N/A"
+                      projectdata.projectName || "N/A"
                     }</div>
                 </div>
 
@@ -307,7 +308,12 @@ document.addEventListener("DOMContentLoaded", function () {
                       actualData.amount
                     )}</div>
                 </div>
-
+<div class="info-item contact-item">
+                    <div class="info-label"> note</div>
+                    <div class="info-value">${
+                      actualData.note || "No notes available"
+                    }</div>
+                </div>
                 ${
                   actualData.note
                     ? `
