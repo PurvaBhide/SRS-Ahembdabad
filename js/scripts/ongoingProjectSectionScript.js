@@ -1055,8 +1055,8 @@ document.addEventListener('DOMContentLoaded', function() {
             { id: '1', name: 'Health', icon: 'fas fa-heartbeat' },
             { id: '2', name: 'Environment', icon: 'fas fa-leaf' },
             { id: '3', name: 'Education', icon: 'fas fa-graduation-cap' },
-            { id: '5', name: 'Infrastructure', icon: 'fas fa-city' },
-            { id: '4', name: 'Social', icon: 'fas fa-users' }
+            { id: '4', name: 'Infrastructure', icon: 'fas fa-city' },
+            { id: '5', name: 'Social', icon: 'fas fa-users' }
         ];
         
         let buttonsHTML = '';
@@ -1642,8 +1642,8 @@ document.addEventListener('DOMContentLoaded', function() {
             1: 'Health',
             2: 'Environment',
             3: 'Education',
-            4: 'Social',
-            5: 'Infrastructure'
+            5: 'Social',
+            4: 'Infrastructure'
         };
         return categories[categoryId] || 'Uncategorized';
     }

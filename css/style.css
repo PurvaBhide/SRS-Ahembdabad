@@ -525,7 +525,8 @@ pre {
 
 .no-gutters {
   margin-right: 0;
-  margin-left: 0; }
+  margin-left: 0;
+overflow-y: auto; }
   .no-gutters > .col,
   .no-gutters > [class*="col-"] {
     padding-right: 0;
@@ -7569,7 +7570,7 @@ h1, h2, h3, h4, h5,
   .owl-carousel .owl-item {
     opacity: .4; }
     .owl-carousel .owl-item.active {
-      opacity: 1; }
+      opacity: 1; overflow: visible; }
   .owl-carousel .owl-nav {
     position: absolute;
     top: 50%;
