@@ -50,7 +50,7 @@ function updateProjectDetails(project) {
 
   // Update title
   document.querySelector('.project-title').textContent = project.projectName || 'Untitled Project';
-  document.querySelector('#project-description').textContent = project.projectShortDescription || 'No description available';
+  document.querySelector('#project-description').textContent = project.projectDescription?project.projectDescription :project.projectShortDescription  || 'No description available';
   document.querySelector('#projectDepartmentName').textContent = project.projectDEpartmentName || 'Not specified';
 
    if(project.projectStatus === 'Completed' || project.projectStatus === 'completed' || project.projectStatus === 'COMPLETED') {
@@ -76,6 +76,7 @@ function updateProjectDetails(project) {
     document.querySelector('#about .tab-content').innerHTML = `
       <h3>Project Details</h3>
       <p>${project.projectDetails}</p>
+      <p>${project.projectDescription}</p>
     `;
   }
 
