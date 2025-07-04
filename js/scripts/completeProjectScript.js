@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load all projects (default)
     function loadProjects() {
         console.log('Loading all projects...');
-        ProjectService.listAll(0, 100)
+        ProjectService.listAll(0, 1000)
             .then(function(response) {
                 console.log('List All API Response:', response);
                 
@@ -90,79 +90,158 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Load projects by budget
-    function loadProjectsByBudget(budget) {
-        ProjectService.projectbybudget(budget)
-            .then(function(response) {
-                console.log('Budget API Response:', response);
+    // function loadProjectsByBudget(budget) {
+    //     ProjectService.projectbybudget(budget)
+    //         .then(function(response) {
+    //             console.log('Budget API Response:', response);
                 
-                if (response && response.status === 200 && response.data) {
-                    let projectsArray = [];
-                    if (response.data.content && Array.isArray(response.data.content)) {
-                        projectsArray = response.data.content;
-                    } else if (Array.isArray(response.data)) {
-                        projectsArray = response.data;
-                    }
+    //             if (response && response.status === 200 && response.data) {
+    //                 let projectsArray = [];
+    //                 if (response.data.content && Array.isArray(response.data.content)) {
+    //                     projectsArray = response.data.content;
+    //                 } else if (Array.isArray(response.data)) {
+    //                     projectsArray = response.data;
+    //                 }
                     
-                    if (projectsArray.length > 0) {
-                        const CompletedProjects = filterCompletedProjects(projectsArray);
-                        displayProjects(CompletedProjects);
-                    } else {
-                        displayNoProjects();
-                    }
-                } else {
-                    displayNoProjects();
-                }
-            })
-            .catch(function(error) {
-                console.error('Error loading projects by budget:', error);
-                displayNoProjects();
-            });
-    }
+    //                 if (projectsArray.length > 0) {
+    //                     const CompletedProjects = filterCompletedProjects(projectsArray);
+    //                     displayProjects(CompletedProjects);
+    //                 } else {
+    //                     displayNoProjects();
+    //                 }
+    //             } else {
+    //                 displayNoProjects();
+    //             }
+    //         })
+    //         .catch(function(error) {
+    //             console.error('Error loading projects by budget:', error);
+    //             displayNoProjects();
+    //         });
+    // }
     
-    // Load projects by both category and budget
-    function loadProjectsByCategoryAndBudget(categoryId, budget) {
-        console.log('Loading projects with both filters - Category:', categoryId, 'Budget:', budget);
+    // // Load projects by both category and budget
+    // function loadProjectsByCategoryAndBudget(categoryId, budget) {
+    //     console.log('Loading projects with both filters - Category:', categoryId, 'Budget:', budget);
         
-        // Strategy: First filter by category (usually fewer results), then filter by budget locally
-        ProjectService.projectbycategry(categoryId)
-            .then(function(response) {
-                console.log('Category API Response for combined filter:', response);
+    //     // Strategy: First filter by category (usually fewer results), then filter by budget locally
+    //     ProjectService.projectbycategry(categoryId)
+    //         .then(function(response) {
+    //             console.log('Category API Response for combined filter:', response);
                 
+    //             let projectsArray = [];
+    //             if (response && response.status === 200 && response.data) {
+    //                 if (response.data.content && Array.isArray(response.data.content)) {
+    //                     projectsArray = response.data.content;
+    //                 } else if (Array.isArray(response.data)) {
+    //                     projectsArray = response.data;
+    //                 }
+    //             }
+                
+    //             console.log('Projects from category API:', projectsArray.length);
+                
+    //             if (projectsArray.length > 0) {
+    //                 // Filter by budget and Completed status
+    //                 const filteredProjects = projectsArray.filter(function(project) {
+    //                     const isCompleted = project.projectStatus === 'Completed';
+    //                     const matchesBudget = project.projectBudget == budget;
+                        
+    //                     console.log(`${project.projectName} - Status: ${project.projectStatus}, Budget: ${project.projectBudget}, Matches: ${isCompleted && matchesBudget}`);
+                        
+    //                     return isCompleted && matchesBudget;
+    //                 });
+                    
+    //                 console.log('Final filtered projects (Completed + budget match):', filteredProjects.length);
+    //                 displayProjects(filteredProjects);
+    //             } else {
+    //                 console.log('No projects found for category, showing no projects');
+    //                 displayNoProjects();
+    //             }
+    //         })
+    //         .catch(function(error) {
+    //             console.error('Error loading projects with combined filters:', error);
+    //             displayNoProjects();
+    //         });
+    // }
+    // Updated loadProjectsByBudget function for completed projects
+function loadProjectsByBudget(budget) {
+    // Get all projects and filter by budget on client side
+    ProjectService.listAll(0, 1000) // Get more data to ensure we have all results
+        .then(function(response) {
+            console.log('Budget API Response:', response);
+            
+            if (response && response.status === 200) {
                 let projectsArray = [];
-                if (response && response.status === 200 && response.data) {
-                    if (response.data.content && Array.isArray(response.data.content)) {
-                        projectsArray = response.data.content;
-                    } else if (Array.isArray(response.data)) {
-                        projectsArray = response.data;
-                    }
+                if (response.data && response.data.content && Array.isArray(response.data.content)) {
+                    projectsArray = response.data.content;
+                } else if (Array.isArray(response.data)) {
+                    projectsArray = response.data;
                 }
-                
-                console.log('Projects from category API:', projectsArray.length);
                 
                 if (projectsArray.length > 0) {
-                    // Filter by budget and Completed status
+                    // Filter by budget (less than or equal to selected budget) and completed status
                     const filteredProjects = projectsArray.filter(function(project) {
                         const isCompleted = project.projectStatus === 'Completed';
-                        const matchesBudget = project.projectBudget == budget;
-                        
-                        console.log(`${project.projectName} - Status: ${project.projectStatus}, Budget: ${project.projectBudget}, Matches: ${isCompleted && matchesBudget}`);
-                        
+                        const matchesBudget = project.projectBudget <= parseInt(budget);
                         return isCompleted && matchesBudget;
                     });
                     
-                    console.log('Final filtered projects (Completed + budget match):', filteredProjects.length);
                     displayProjects(filteredProjects);
                 } else {
-                    console.log('No projects found for category, showing no projects');
                     displayNoProjects();
                 }
-            })
-            .catch(function(error) {
-                console.error('Error loading projects with combined filters:', error);
+            } else {
                 displayNoProjects();
-            });
-    }
+            }
+        })
+        .catch(function(error) {
+            console.error('Error loading projects by budget:', error);
+            displayNoProjects();
+        });
+}
+
+// Updated loadProjectsByCategoryAndBudget function for completed projects
+function loadProjectsByCategoryAndBudget(categoryId, budget) {
+    console.log('Loading projects with both filters - Category:', categoryId, 'Budget:', budget);
     
+    // Strategy: First filter by category (usually fewer results), then filter by budget locally
+    ProjectService.projectbycategry(categoryId)
+        .then(function(response) {
+            console.log('Category API Response for combined filter:', response);
+            
+            let projectsArray = [];
+            if (response && response.status === 200 && response.data) {
+                if (response.data.content && Array.isArray(response.data.content)) {
+                    projectsArray = response.data.content;
+                } else if (Array.isArray(response.data)) {
+                    projectsArray = response.data;
+                }
+            }
+            
+            console.log('Projects from category API:', projectsArray.length);
+            
+            if (projectsArray.length > 0) {
+                // Filter by budget (less than or equal to selected budget) and Completed status
+                const filteredProjects = projectsArray.filter(function(project) {
+                    const isCompleted = project.projectStatus === 'Completed';
+                    const matchesBudget = project.projectBudget <= parseInt(budget);
+                    
+                    console.log(`${project.projectName} - Status: ${project.projectStatus}, Budget: ${project.projectBudget}, Matches: ${isCompleted && matchesBudget}`);
+                    
+                    return isCompleted && matchesBudget;
+                });
+                
+                console.log('Final filtered projects (Completed + budget match):', filteredProjects.length);
+                displayProjects(filteredProjects);
+            } else {
+                console.log('No projects found for category, showing no projects');
+                displayNoProjects();
+            }
+        })
+        .catch(function(error) {
+            console.error('Error loading projects with combined filters:', error);
+            displayNoProjects();
+        });
+}
     // Filter projects to show only Completed ones
     function filterCompletedProjects(projects) {
         console.log('Input to filterCompletedProjects:', projects);

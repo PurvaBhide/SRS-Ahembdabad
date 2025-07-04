@@ -294,7 +294,7 @@
           <span class="icon-search"></span>
         </div>
       </a>
-       <a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003"
+      <a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003"
         class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
         style="background-image: url(https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003);">
         <div class="icon d-flex justify-content-center align-items-center">
@@ -416,9 +416,34 @@
       </div>
 
 
-      <div class="row" id="completeProjectsContainer">
+      <div class="row" style="border-radius: 20px;" id="completeProjectsContainer">
 
       </div>
+      <a href="completed-project.html">
+        <button class="fund-raised d-block" style="
+    background: #0A1E46;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    width: 40%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    align-self: center;
+    display: block;
+    margin: 0 auto; "
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, ##88aefa 100%)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, #0e45b3 100%)';">
+          View More
+        </button>
+      </a>
+
     </div>
   </section>
 
@@ -678,83 +703,83 @@
   </script>
 
 
-   <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Video data
-            const videos = [
-                {
-                    id: 'X48PNrh1jC4',
-                    title: 'CSR For Reforming Education | STEM CSR in Gujarat | STEM Learning',
-                    description: 'CSR implementing partner of different Corporate for CSR in India ',
-                    category: 'social'
-                },
-                // {
-                //     id: '9zwlJaoAKrg',
-                //     title: 'Creating Local Impact in Gujarat | CSR for Reforming Education | STEM Learning',
-                //     description: 'CSR programs are developed and implemented with a central focus on the teachers. '
-                // },
-                // {
-                //     id: 'y_SfMHUf8GY',
-                //     title: 'Bridging Educational Barriers In Gujarat | CSR For Reformation In Education | STEM Learning',
-                //     description: 'The transformation that includes the capacity building of teachers through our Teacher Training Programs.',
-                //     category: 'educational'
-                // }
-            ];
-            
-            const videoGallery = document.getElementById('videoGallery');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const searchInput = document.getElementById('searchInput');
-            
-            // Display all videos initially
-            displayVideos(videos);
-            
-            // Filter videos by category
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    const filter = button.getAttribute('data-filter');
-                    let filteredVideos = videos;
-                    
-                    if (filter !== 'all') {
-                        filteredVideos = videos.filter(video => video.category === filter);
-                    }
-                    
-                    displayVideos(filteredVideos);
-                });
-            });
-            
-            // Search functionality
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase();
-                const filteredVideos = videos.filter(video => 
-                    video.title.toLowerCase().includes(searchTerm) || 
-                    video.description.toLowerCase().includes(searchTerm)
-                );
-                
-                displayVideos(filteredVideos);
-            });
-            
-            // Function to display videos
-           function displayVideos(videosToDisplay) {
-    videoGallery.innerHTML = '';
-    
-    if (videosToDisplay.length === 0) {
-        videoGallery.innerHTML = '<p style="text-align: center; color: #7f8c8d;">No videos found</p>';
-        return;
-    }
-    
-    // Toggle few-videos class based on count
-    videoGallery.classList.toggle('few-videos', videosToDisplay.length < 3);
-    
-    videosToDisplay.forEach(video => {
-        const videoCard = document.createElement('div');
-        videoCard.className = 'video-card';
-        
-        videoCard.innerHTML = `
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Video data
+      const videos = [
+        {
+          id: 'X48PNrh1jC4',
+          title: 'CSR For Reforming Education | STEM CSR in Gujarat | STEM Learning',
+          description: 'CSR implementing partner of different Corporate for CSR in India ',
+          category: 'social'
+        },
+        // {
+        //     id: '9zwlJaoAKrg',
+        //     title: 'Creating Local Impact in Gujarat | CSR for Reforming Education | STEM Learning',
+        //     description: 'CSR programs are developed and implemented with a central focus on the teachers. '
+        // },
+        // {
+        //     id: 'y_SfMHUf8GY',
+        //     title: 'Bridging Educational Barriers In Gujarat | CSR For Reformation In Education | STEM Learning',
+        //     description: 'The transformation that includes the capacity building of teachers through our Teacher Training Programs.',
+        //     category: 'educational'
+        // }
+      ];
+
+      const videoGallery = document.getElementById('videoGallery');
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const searchInput = document.getElementById('searchInput');
+
+      // Display all videos initially
+      displayVideos(videos);
+
+      // Filter videos by category
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          // Add active class to clicked button
+          button.classList.add('active');
+
+          const filter = button.getAttribute('data-filter');
+          let filteredVideos = videos;
+
+          if (filter !== 'all') {
+            filteredVideos = videos.filter(video => video.category === filter);
+          }
+
+          displayVideos(filteredVideos);
+        });
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredVideos = videos.filter(video =>
+          video.title.toLowerCase().includes(searchTerm) ||
+          video.description.toLowerCase().includes(searchTerm)
+        );
+
+        displayVideos(filteredVideos);
+      });
+
+      // Function to display videos
+      function displayVideos(videosToDisplay) {
+        videoGallery.innerHTML = '';
+
+        if (videosToDisplay.length === 0) {
+          videoGallery.innerHTML = '<p style="text-align: center; color: #7f8c8d;">No videos found</p>';
+          return;
+        }
+
+        // Toggle few-videos class based on count
+        videoGallery.classList.toggle('few-videos', videosToDisplay.length < 3);
+
+        videosToDisplay.forEach(video => {
+          const videoCard = document.createElement('div');
+          videoCard.className = 'video-card';
+
+          videoCard.innerHTML = `
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/${video.id}" 
                     frameborder="0" 
@@ -765,34 +790,34 @@
                 <p>${video.description}</p>
             </div>
         `;
-        
-        videoGallery.appendChild(videoCard);
-    });
-}
-            
-            // Add animation to cards when they come into view
-            const observerOptions = {
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.video-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
+
+          videoGallery.appendChild(videoCard);
         });
-    </script>
+      }
+
+      // Add animation to cards when they come into view
+      const observerOptions = {
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.video-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
