@@ -9332,6 +9332,26 @@ justify-content: inline-block;
     font-size: 8px;
   }
 }
+#faqAccordion .card {
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+}
+
+#faqAccordion .card-header {
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+#faqAccordion a {
+  color: #0a1e46;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#faqAccordion a:hover {
+  color: #0c265a;
+}
 
 
 
