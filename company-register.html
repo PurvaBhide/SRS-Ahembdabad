@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <title>Amdavad Municipal Corporation</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
+  <head>
+    <title>Amdavad Municipal Corporation CSR Portal- Companies</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -15,9 +15,7 @@
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
-
   <link rel="stylesheet" href="css/aos.css">
-
   <link rel="stylesheet" href="css/ionicons.min.css">
 
   <link rel="stylesheet" href="css/bootstrap-datepicker.css">
@@ -27,15 +25,19 @@
   <link rel="stylesheet" href="css/flaticon.css">
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/css/project.css">
+  <link rel="stylesheet" href="css/css/category.css">
   <link rel="stylesheet" href="css/css/slider.css">
   <link rel="stylesheet" href="css/css/Homepage.css">
+  <link rel="stylesheet" href="css/css/project.css">
+
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    
+    <!-- Custom CSS for Companies Page -->
 
-</head>
-
-<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body>
     <header>
     <div class="top-container">
       <div class="topbar-left">
@@ -72,7 +74,7 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
 
-          <li class="nav-item  dropdown custom-tab">
+          <li class="nav-item dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
               onclick="window.location.href='./index.html'; return false;">
@@ -93,7 +95,7 @@
           </li>
 
 
-          <li class="nav-item active dropdown custom-tab">
+          <li class="nav-item  dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Projects
@@ -133,8 +135,8 @@
             <a class="nav-link" href="implimenting-agencies.html">Implementing Agencies</a>
           </li>
 
-                   <!-- Companies Dropdown Menu -->
-<li class="nav-item dropdown custom-tab">
+         <!-- Companies Dropdown Menu -->
+<li class="nav-item dropdown custom-tab active">
   <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button" data-toggle="dropdown"
     aria-haspopup="true" aria-expanded="false">
     Companies
@@ -144,7 +146,7 @@
     <li><a class="dropdown-item" href="company-register.html">Company Register</a></li>
   </ul>
 </li>
-
+  
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link" href="sucess-stories.html">Success Stories</a>
           </li>
@@ -176,52 +178,44 @@
     </div>
   </nav>
   <!-- END nav -->
+<div class="container my-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0 text-white">Register Company</h4>
+        </div>
+        <div class="card-body">
+            <form id="companyForm" class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="companyname">Company Name</label>
+                    <input type="text" class="form-control" id="companyname" name="companyname" required>
+                </div>
 
+                <div class="form-group col-md-6">
+                    <label for="companyurl">Company URL</label>
+                    <input type="url" class="form-control" id="companyurl" name="companyurl" required>
+                </div>
 
-  <h1>Compeleted Projects </h1>
+                <div class="form-group col-md-6">
+                    <label for="categoryId">Category</label>
+                    <select class="form-control" id="categoryId" name="categoryId" required>
+                        <option value="">Select a Category</option>
+                        <!-- Options populated by JavaScript -->
+                    </select>
+                </div>
 
-  <div class="filters">
-    <select id="categoryFilter">
-      <option value="0">All Categories</option>
-      <option value="1">Health</option>
-      <option value="2">Environment</option>
-      <option value="3">Education</option>
-        <option value="4">Social</option>
-      <option value="5">Infrastructure</option>
-    </select>
+                <div class="form-group col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-success px-4">Register Company</button>
+                </div>
 
-    <select id="scaleFilter">
-          <option value="all">All Budget Ranges</option>
-                        <option value="0-50000">₹0 - ₹50,000</option>
-                        <option value="50001-100000">₹50,001 - ₹1,00,000</option>
-                        <option value="100001-200000">₹1,00,001 - ₹2,00,000</option>
-                        <option value="200001-300000">₹2,00,001 - ₹3,00,000</option>
-                        <option value="300001-400000">₹3,00,001 - ₹4,00,000</option>
-                        <option value="400001-500000">₹4,00,001 - ₹5,00,000</option>
-                        <option value="500001-750000">₹5,00,001 - ₹7,50,000</option>
-                        <option value="750001-1000000">₹7,50,001 - ₹10,00,000</option>
-                        <option value="1000001-1500000">₹10,00,001 - ₹15,00,000</option>
-                        <option value="1500001-2000000">₹15,00,001 - ₹20,00,000</option>
-                        <option value="2000001-2500000">₹20,00,001 - ₹25,00,000</option>
-                        <option value="2500001-3000000">₹25,00,001 - ₹30,00,000</option>
-                        <option value="3000001-4000000">₹30,00,001 - ₹40,00,000</option>
-                        <option value="4000001-5000000">₹40,00,001 - ₹50,00,000</option>
-                        <option value="5000001-7500000">₹50,00,001 - ₹75,00,000</option>
-                        <option value="7500001-10000000">₹75,00,001 - ₹1 Crore</option>
-                        <option value="10000001-50000000">₹1 Crore - ₹5 Crore</option>
-                        <option value="50000001-100000000">₹5 Crore - ₹10 Crore</option>
-                        <option value="100000001-200000000">₹10 Crore - ₹20 Crore</option>
-                        <option value="200000001-300000000">₹20 Crore - ₹30 Crore</option>
-                        <option value="300000001-999999999">₹30 Crore+</option>
-              
-    </select>
-  </div>
+                <div class="form-group col-12 text-center">
+                    <div id="responseMessage" class="font-weight-medium mt-3"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-  <div class="projects" id="projectList">
-    <!-- Cards will be generated by JavaScript -->
-  </div>
-
-  <footer class="ftco-footer ftco-section img">
+    <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
     <div class="container">
       <div class="row mb-5">
@@ -244,9 +238,7 @@
             <h2 class="ftco-heading-2">Site Links</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-2 d-block">Home</a></li>
-              <!-- <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Donate</a></li>
-                <li><a href="#" class="py-2 d-block">Event</a></li> -->
+
             </ul>
           </div>
         </div>
@@ -270,37 +262,17 @@
         <div class="col-md-12 text-center">
           <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;
-            <script>document.write(new Date().getFullYear());</script> All rights reserved.
+            <script>document.write(new Date().getFullYear());</script> All rights reserved .
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>
       </div>
     </div>
   </footer>
+    
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-        stroke="#F96D00" />
-    </svg></div>
-
-<!--  -->
-<script src="./js/api/api.config.js"></script>
-<script src="./js/api/api.core.js"></script>
-<script src="./js/api/api.init.js"></script>
-<script src="./js/services/project.js"></script>
-<!-- script for api integration -->
- <!-- <script src="./js/services/completed-projects.js"></script> -->
-  <script src="js/scripts/completeProjectScript.js"></script>
-  <script src="./js/services/project-detail.js"></script>
-
-
-
-
-  
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -319,8 +291,73 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
- 
- <script type="text/javascript">
+<!-- Load core files first -->
+<script src="js/api/api.config.js"></script>
+<script src="js/api/api.core.js"></script>
+
+<!-- Then load service definitions -->
+<script src="js/services/company.js"></script>
+<script src="js/services/category.js"></script>
+<script src="js/services/project.js"></script>
+<script src="js/api/api.init.js"></script>
+
+<!-- Then your management scripts -->
+<!-- <script src="js/services/company-management.js"></script> -->
+
+<script>
+async function loadCategories() {
+    try {
+        const res = await Api.category.listAll();
+        const categories = res.data;
+        const dropdown = document.getElementById('categoryId');
+
+        // Clear existing options (except the first "Select..." one)
+        dropdown.innerHTML = '<option value="">Select a Category</option>';
+
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category.id;
+            option.textContent = category.categoryName;
+            dropdown.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Failed to load categories:', error);
+    }
+}
+
+
+    const form = document.getElementById('companyForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const payload = {
+            companyname: document.getElementById('companyname').value,
+            companyurl: document.getElementById('companyurl').value,
+            categoryId: parseInt(document.getElementById('categoryId').value),
+            status: "Pending"
+        };
+
+        try {
+            await Api.company.add(payload);
+            responseMessage.textContent = "✅ Company registered successfully!";
+            responseMessage.className = "text-success";
+
+             alert("Company registered successfully!");
+        } catch (error) {
+            responseMessage.textContent = "❌ Failed to register company.";
+            responseMessage.className = "text-danger";
+            console.error(error);
+        }
+    });
+
+    // Load categories when the page loads
+    loadCategories();
+</script>
+
+
+  <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
         { pageLanguage: 'en', includedLanguages: 'en,gu,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
@@ -328,9 +365,8 @@
       );
     }
   </script>
-  <script type="text/javascript"
+     <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-</body>
-
+  </body>
 </html>
