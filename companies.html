@@ -91,6 +91,7 @@
         display: inline-block;
         padding: 0.25rem 0.5rem;
         border-radius: 4px;
+        
         font-size: 0.8rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
@@ -110,13 +111,21 @@
         font-size: 1.3rem;
         font-weight: 600;
         margin: 0.5rem 0;
+        height: 50px;
         color: var(--primary-color);
       }
       
       .company-info {
-        color: var(--text-light);
-        font-size: 0.9rem;
-        margin: 0.5rem 0;
+    color: var(--text-light);
+  font-size: 0.9rem;
+    margin: 0.5rem 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
       }
       
       .company-actions {
@@ -304,10 +313,8 @@
         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
-
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -327,8 +334,6 @@
               </li>
             </ul>
           </li>
-
-
           <li class="nav-item  dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -341,7 +346,6 @@
               <a class="dropdown-item" href="trackApplication.html">Track Application</a>
             </div>
           </li>
-
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -364,19 +368,24 @@
               <!-- Reference tab end -->
             </ul>
           </li>
-
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link" href="implimenting-agencies.html">Implementing Agencies</a>
           </li>
-
-          <li class="nav-item active dropdown custom-tab">
-            <a class="nav-link" href="companies.html">Companies</a>
-          </li>
-
+                          <!-- Companies Dropdown Menu -->
+<li class="nav-item dropdown custom-tab">
+  <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    Companies
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+    <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+    <li><a class="dropdown-item" href="company-register.html">Register Company
+/ Organization</a></li>
+  </ul>
+</li>
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link" href="sucess-stories.html">Success Stories</a>
           </li>
-
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -387,18 +396,12 @@
               <a class="dropdown-item" href="videogallery.html">Video Gallery</a>
             </div>
           </li>
-
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link" href="news.html">News and Events</a>
           </li>
-
           <li class="nav-item dropdown custom-tab">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
-
-
-
-
         </ul>
       </div>
     </div>
