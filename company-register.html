@@ -388,6 +388,7 @@ async function loadCategories() {
             responseMessage.className = "text-success";
 
              alert("Company registered successfully!");
+             window.location.reload();
         } catch (error) {
           let errorMsg = "❌ Failed to register company.";
 
