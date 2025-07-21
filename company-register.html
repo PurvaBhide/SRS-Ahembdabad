@@ -230,7 +230,10 @@
                     <label for="password">Password *</label>
                      <div class="input-group"> 
                        <input type="password" class="form-control" id="password" name="password" required >
-                      <span class="input-group-text" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                       <button class="btn" type="button" id="togglePassword"  >
+              <i class="fa fa-eye"></i>
+            </button>
+                      <!-- <span class="input-group-text" onclick="togglePassword()" style="cursor: pointer;">👁️</span> -->
                      </div>
            
                 </div>
@@ -337,11 +340,20 @@
 <!-- Then your management scripts -->
 <!-- <script src="js/services/company-management.js"></script> -->
 <script>
-
- function togglePassword() {
-    const passwordInput = document.getElementById('password');
-    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
-}
+document.getElementById('togglePassword').addEventListener('click', function() {
+  const passwordInput = document.getElementById('password');
+  const icon = this.querySelector('i');
+  
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    icon.classList.remove('fa-eye');
+    icon.classList.add('fa-eye-slash');
+  } else {
+    passwordInput.type = 'password';
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  }
+});
 </script>
 <script>
 async function loadCategories() {
@@ -388,6 +400,7 @@ async function loadCategories() {
             responseMessage.className = "text-success";
 
              alert("Company registered successfully!");
+             window.location.reload();
         } catch (error) {
           let errorMsg = "❌ Failed to register company.";
 
