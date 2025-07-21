@@ -185,6 +185,13 @@
     </div>
   </nav>
   <!-- END nav -->
+  <div style="text-align: center;">
+  <img 
+    src="https://lakhpatididi.in/SRS-documents/images/CSR Application Lifecycle.jpg_20250721114918" 
+    alt="CSR Application Lifecycle"
+    style="max-width: 100%; height: auto; display: inline-block;padding: 20px"
+  >
+</div>
 <div class="container my-5">
     <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">
@@ -194,34 +201,43 @@
             <form id="companyForm" class="form-row">
 
               <div class="form-group col-md-6">
-                    <label for="authcomprepresentativename">Company Representative Name</label>
+                    <label for="authcomprepresentativename">Company Representative Name *</label>
                     <input type="text" class="form-control" id="authcomprepresentativename" name="authcomprepresentativename" required placeholder="Enter Representative Name">
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="authcomprepresentativeemail">Representative Email</label>
+                    <label for="authcomprepresentativeemail">Representative Email* </label>
                     <input type="email" class="form-control" id="authcomprepresentativeemail" name="authcomprepresentativeemail" required placeholder="abc@gmail.com">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="companyname">Company Name</label>
+                    <label for="companyname">Company Name* </label>
                     <input type="text" class="form-control" id="companyname" name="companyname" required placeholder="company name">
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="companyurl">Company URL</label>
-                    <input type="url" class="form-control" id="companyurl" name="companyurl" required placeholder="www.companyname.com">
+                    <label for="companyurl">Company URL* </label>
+                    <input type="url" class="form-control" id="companyurl" name="companyurl" required placeholder="https://companyname.com">
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="categoryId">Category</label>
+                    <label for="categoryId">Category *</label>
                     <select class="form-control" id="categoryId" name="categoryId" required>
                         <option value="">Select a Category</option>
                         <!-- Options populated by JavaScript -->
                     </select>
+                     </div>
+                     <div class="form-group col-md-6">
+                    <label for="password">Password *</label>
+                     <div class="input-group"> 
+                       <input type="password" class="form-control" id="password" name="password" required >
+                      <span class="input-group-text" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                     </div>
+           
                 </div>
+               
 
                 <div class="form-group col-12 text-center mt-4">
-                    <button type="submit" class="btn btn-success px-4" style="border-radius: 19px; padding: 10px;">Register Company</button>
+                    <button type="submit" class="btn  px-4" style="border-radius: 19px; padding: 10px;background-color: #0b1e46; color: #ffffff;">Register Company</button>
                 </div>
 
                 <div class="form-group col-12 text-center">
@@ -320,7 +336,13 @@
 
 <!-- Then your management scripts -->
 <!-- <script src="js/services/company-management.js"></script> -->
+<script>
 
+ function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+}
+</script>
 <script>
 async function loadCategories() {
     try {
@@ -355,6 +377,8 @@ async function loadCategories() {
             categoryId: parseInt(document.getElementById('categoryId').value),
             authcomprepresentativename: document.getElementById('authcomprepresentativename').value,
             authcomprepresentativeemail: document.getElementById('authcomprepresentativeemail').value,
+            password:document.getElementById('password').value,
+            role:"CORPORATION",
             status: "Pending"
         };
 
@@ -365,10 +389,19 @@ async function loadCategories() {
 
              alert("Company registered successfully!");
         } catch (error) {
-            responseMessage.textContent = "❌ Failed to register company.";
-            responseMessage.className = "text-danger";
-            console.error(error);
-        }
+          let errorMsg = "❌ Failed to register company.";
+
+    // Check if the error response contains a message
+    if (error.response && error.response.data && error.response.data.message) {
+        errorMsg = "❌ " + error.response.data.message;
+    }
+
+    responseMessage.textContent = errorMsg;
+    responseMessage.className = "text-danger";
+    console.error(error);
+    console.log(error?.message)
+    alert(error?.message)
+}
     });
 
     // Load categories when the page loads
