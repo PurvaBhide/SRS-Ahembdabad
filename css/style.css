@@ -9760,3 +9760,21 @@ justify-content: inline-block;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(10, 30, 70, 0.2);
   }
+  .login-tab{
+    color: #ffffff; 
+    text-decoration: none; 
+    font-weight: 400; 
+    border-right: 1px solid #fff; 
+    /* font-size: 10px; */
+    padding-right: 5px;
+  }
+  @media only screen and (max-width:467px){
+      .login-tab{
+    font-size: 8px;
+    padding-right: 3px;
+  }
+  .topbar-right a {
+    font-size: 8px;
+    margin-left: -6px;
+  }
+  }
