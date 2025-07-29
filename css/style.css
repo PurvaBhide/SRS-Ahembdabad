@@ -4521,8 +4521,13 @@ button.close {
     max-width: 300px; } }
 
 @media (min-width: 992px) {
-  .modal-lg {
-    max-width: 800px; } }
+  .custom-modal-desktop {
+    max-width: 90% !important;
+    width: 90% !important;
+  }
+}
+
+
 
 .tooltip {
   position: absolute;
