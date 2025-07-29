@@ -86,11 +86,19 @@
       color: var(--primary-color);
       font-weight: 600;
       margin-bottom: 0.75rem;
+        display: -webkit-box;
+  -webkit-line-clamp: 2; /* Truncate after 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
     }
 
     .story-excerpt {
       color: #495057;
       margin-bottom: 1rem;
+        display: -webkit-box;
+  -webkit-line-clamp: 3; /* Truncate after 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
     }
 
     .read-more-btn {

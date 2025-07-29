@@ -38,6 +38,29 @@
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
+  <!-- <style>
+    .video-card {
+    max-width: 350px;
+    margin: 10px;
+}
+.video-container video {
+    width: 100%;
+    border-radius: 8px;
+}
+.video-date {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}
+#videoGallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+  </style> -->
 </head>
 
 <body>
@@ -281,8 +304,129 @@
     });
   </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const videoGallery = document.getElementById('videoGallery');
+        let allVideos = [];
 
- <script>
+        // Fetch videos
+        async function fetchVideos() {
+            try {
+                const response = await fetch('https://mumbailocal.org:8087/listallgallery');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                const data = await response.json();
+                // Only use video type
+                allVideos = data
+                    .filter(item => item.fileType === 'video')
+                    .map(video => ({
+                        fileUrl: video.fileUrl,
+                        createdAt: formatDate(video.createdAt)
+                    }));
+
+                displayVideos(allVideos);
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+                videoGallery.innerHTML = '<p style="text-align: center; color: #e74c3c;">Failed to load videos. Please try again later.</p>';
+            }
+        }
+
+        // Format ISO date to readable
+        function formatDate(isoDate) {
+            const date = new Date(isoDate);
+            return date.toLocaleDateString('en-IN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Check if URL is a YouTube link
+        function isYouTubeUrl(url) {
+            return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//.test(url);
+        }
+
+        // Extract YouTube embed URL
+        function getYouTubeEmbedUrl(url) {
+            const regex = /(?:youtube\.com\/.*v=|youtu\.be\/)([^&\n?#]+)/;
+            const match = url.match(regex);
+            return match ? `https://www.youtube.com/embed/${match[1]}?controls=1&autoplay=0` : null;
+        }
+
+        // Display videos
+        function displayVideos(videos) {
+            videoGallery.innerHTML = '';
+
+            if (videos.length === 0) {
+                videoGallery.innerHTML = '<p style="text-align: center; color: #7f8c8d;">No videos found</p>';
+                return;
+            }
+
+            videoGallery.classList.toggle('few-videos', videos.length < 3);
+
+            videos.forEach(video => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+
+                let videoContent = '';
+
+                if (isYouTubeUrl(video.fileUrl)) {
+                    const embedUrl = getYouTubeEmbedUrl(video.fileUrl);
+                    if (embedUrl) {
+                        videoContent = `
+                            <div class="video-container">
+                                <iframe
+                                    src="${embedUrl}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                                <p class="video-date">${video.createdAt}</p>
+                            </div>
+                        `;
+                    }
+                } else {
+                    videoContent = `
+                        <div class="video-container">
+                            <video controls>
+                                <source src="${video.fileUrl}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class="video-date">${video.createdAt}</p>
+                        </div>
+                    `;
+                }
+
+                videoCard.innerHTML = videoContent;
+                videoGallery.appendChild(videoCard);
+                animateCard(videoCard);
+            });
+        }
+
+        // Animate cards on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        function animateCard(card) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        }
+
+        fetchVideos();
+    });
+</script>
+
+
+ <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Video data
            const videos = [
@@ -397,7 +541,7 @@
                 observer.observe(card);
             });
         });
-    </script>
+    </script> -->
   <!-- jQuery (required by Bootstrap) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

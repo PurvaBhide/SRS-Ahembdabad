@@ -7,20 +7,24 @@ function loadAllStories() {
     console.log("Calling API directly...");
 
     fetch("https://mumbailocal.org:8087/listallSuccessStory")
-        .then(response => response.json())
-        .then(response => {
-            console.log("API Response Received:", response);
-
-            if (response.status === 200 && response.data && response.data.content) {
-                const stories = response.data.content;
-                console.log("Total stories received:", stories.length);
-
-                const container = document.querySelector(".row.g-4");
-                container.innerHTML = ""; // Clear existing content
-
-                stories.forEach((story, index) => {
-                    const storyCard = `
-                        <div class="col-lg-4 col-md-6">
+  .then(response => response.json())
+  .then(response => {
+    console.log("API Response Received:", response);
+    if (response.status === 200 && response.data && response.data.content) {
+      let stories = response.data.content;
+      // Move the story with the specific title to the top
+      const targetTitle = "Cleft Care Project at AMC Dental College";
+      const targetIndex = stories.findIndex(story => story.successstoryTitle === targetTitle);
+      if (targetIndex !== -1) {
+        const [targetStory] = stories.splice(targetIndex, 1);
+        stories.unshift(targetStory); // Add it to the beginning
+      }
+      console.log("Total stories after prioritizing:", stories.length);
+      const container = document.querySelector(".row.g-4");
+      container.innerHTML = ""; // Clear existing content
+      stories.forEach((story, index) => {
+        const storyCard = `
+          <div class="col-lg-4 col-md-6">
                           <div class="card success-story-card">
                             <div class="position-relative">
                               <img src="${story.successstoryImage}" class="card-img-top story-image" alt="${story.successstoryTitle}">
@@ -41,7 +45,7 @@ function loadAllStories() {
                         <!-- Modal -->
                        <!-- Modal -->
 <div class="modal fade" id="storyModal${index}" tabindex="-1" aria-labelledby="storyModalLabel${index}" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
+  <div class="modal-dialog modal-lg custom-modal-desktop">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #0A1E46; color: white;">
         <h5 class="modal-title" id="storyModalLabel${index}">${story.successstoryTitle}</h5>
@@ -50,20 +54,15 @@ function loadAllStories() {
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-5 mb-3">
+            <div class="col-md-12 mb-3">
               <img src="${story.successstoryImage}" alt="Story Image" class="img-fluid rounded shadow-sm">
             </div>
-            <div class="col-md-7 d-flex flex-column justify-content-start">
+            <div class="col-md-12 d-flex flex-column justify-content-start">
               <p><strong>Date:</strong> ${formatDate(story.successstoryDate)}</p>
               <p><strong>Category:</strong> ${getCategoryName(story.categoryId)}</p>
               <p><strong>Description:</strong> ${story.successstoryDescription}</p>
               <div class="mt-auto pt-3">
-                <h6>Download Full Document</h6>
-                <a href="https://drive.google.com/file/d/1TC__RtKW1vHe8c65t9zX_48fOs2EI3XC/view" target="_blank"
-                  class="btn btn-primary">
-                  <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-              </div>
+             
             </div>
           </div>
         </div>
