@@ -8324,12 +8324,12 @@ textarea.form-control {
 .ftco-footer {
   font-size: 16px;
   padding: 5em 0;
-  /* background-color: #27282C; */
-background-image: linear-gradient(to bottom, rgba(39, 40,44, 0.9), rgba(39, 40, 44, 0.9)), 
-                    url('../images/istockphoto-1682148808-612x612.jpg'); /* replace with your image path */
+  background-color: #27282C;
+/* background-image: linear-gradient(to top,rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.79), rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 1)), 
+                    url('../images/amc-footer.cms');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   padding-bottom: 1rem;
   /* background-image: url('../images/amcLogo.png'); */
   /* background-repeat: no-repeat; */
@@ -9491,7 +9491,7 @@ color: #0A1E46;
             
         }
         .map-background{
-background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1)), 
+background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1),rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)), 
                     url('../images/Amdavad CSR Project Map.png'); /* replace with your image path */
   background-size: cover;
   background-position: center;
@@ -9567,8 +9567,8 @@ background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 2
         .location-pin::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             background: rgba(229, 62, 62, 0.3);
             border-radius: 50%;
             top: 50%;
