@@ -8324,7 +8324,12 @@ textarea.form-control {
 .ftco-footer {
   font-size: 16px;
   padding: 5em 0;
-  background-color: #27282C;
+  /* background-color: #27282C; */
+background-image: linear-gradient(to bottom, rgba(39, 40,44, 0.9), rgba(39, 40, 44, 0.9)), 
+                    url('../images/istockphoto-1682148808-612x612.jpg'); /* replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding-bottom: 1rem;
   /* background-image: url('../images/amcLogo.png'); */
   /* background-repeat: no-repeat; */
@@ -9479,18 +9484,24 @@ color: #0A1E46;
             /* max-width: 1200px; */
             margin: 2rem auto;
             display: flex;
-
             flex-wrap: wrap;
             /* box-shadow: 0 5px 15px rgba(0,0,0,0.1); */
             border-radius: 10px;
             overflow: hidden;
+            
         }
-
+        .map-background{
+background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1)), 
+                    url('../images/Amdavad CSR Project Map.png'); /* replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+        }
         .content-area {
             flex: 1 1 60%;
             min-width: 300px;
             padding: 2rem;
-            background: #fff;
+            /* background: #fff; */
             position: relative;
         }
 
@@ -9538,7 +9549,7 @@ color: #0A1E46;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255,255,255,0.3);
+            /* background: rgba(255,255,255,0.3); */
         }
 
         .location-pin {
