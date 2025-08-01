@@ -7314,7 +7314,7 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: "Overpass", Arial, sans-serif;
   background: #fff;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   font-weight: 300;
   color: gray; }
@@ -8220,7 +8220,7 @@ h1, h2, h3, h4, h5,
   height: 58px !important;
   background: #fff !important;
   color: #000 !important;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 0px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important; }
