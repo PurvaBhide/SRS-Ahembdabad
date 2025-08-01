@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
             align-items: center !important;
             gap: 8px !important;
             padding: 12px 20px !important;
-            border: 2px solid #0A1E46 !important;
+            border: 2px solid #114CC2FF !important;
             border-radius: 25px !important;
             background: transparent !important;
-            color: #0A1E46 !important;
+            color: #114CC2FF !important;
             font-size: 17px !important;
             font-weight: 500 !important;
             cursor: pointer !important;
@@ -84,19 +84,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         
         .category-btn.active {
-            background: #0A1E46 !important;
+            background: #114CC2FF !important;
+            border:none !important;
             color: white !important;
         }
         
         .budget-select {
             padding: 12px 20px !important;
-            border: 2px solid #0A1E46 !important;
+            border: 2px solid #114CC2FF !important;
             border-radius: 25px !important;
-            background: white !important;
-            color: #0A1E46 !important;
+            background: rgba(255,255,255,0) !important;
+            color: #114CC2FF !important;
             font-size: 17px !important;
             font-weight: 500 !important;
             cursor: pointer !important;
+            padding:15px !important;
             outline: none !important;
             min-width: 180px !important;
         }
@@ -952,10 +954,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="tag" style="background: #e5f3ff; color: #0066cc; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; display: inline-block; margin-bottom: 10px;">${escapeHtml(
                       category
                     )}</div>
-                    <h3 class="title" style="font-size: 18px; font-weight: 600; color: #1f2937; margin: 10px 0; line-height: 1.4;">${escapeHtml(
+                    <h3 class="title" style="font-size: 18px; font-weight: 600; color: #1f2937; margin: 10px 0; line-height: 1.4;  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;">${escapeHtml(
                       title
                     )}</h3>
-                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 15px; line-height: 1.5;">${escapeHtml(
+                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 15px; line-height: 1.5;    height: 55px;
+">${escapeHtml(
                       description.substring(0, 100)
                     )}${description.length > 100 ? "..." : ""}</p>
                     <div class="cost" style="color: #059669; font-weight: 600; margin-bottom: 15px;">
@@ -981,7 +987,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     `
                         : ""
                     }
-                    <a class="view-link" href="./donatenow.html?id=${projectId}" style="display: inline-block; background: #0A1E46; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 500; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.background='#1e40af'" onmouseout="this.style.background='#0A1E46'">View Details</a>
+                    <a class="view-link view-more-btn" href="./donatenow.html?id=${projectId}" style="display: inline-block;  background: linear-gradient(135deg, #3b82f6 0%, #1059b0 100%); border-radius: 8px; text-decoration: none; font-weight: 500; text-align: center; transition: all 0.3s ease;" ">View Details</a>
                 </div>
             </div>
         `;
