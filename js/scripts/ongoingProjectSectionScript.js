@@ -116,8 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
             position: relative !important;
             overflow: hidden !important;
             border-radius: 15px !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
-            background: white !important;
+            // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+            background: rgba(255,255,255 0) !important;
             min-height: 400px !important;
         }
         
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
             background: white !important;
             border-radius: 15px !important;
             overflow: hidden !important;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+            // box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
             transition: all 0.3s ease !important;
             border: 1px solid #e1e5e9 !important;
             position: relative !important;
