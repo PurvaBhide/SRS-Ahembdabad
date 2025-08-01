@@ -11,6 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;800&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -32,175 +33,156 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/css/category.css">
   <link rel="stylesheet" href="css/css/slider.css">
+  <!-- <link rel="stylesheet" href="css/css/Homepage.css"> -->
+  <link rel="stylesheet" href="css//css/page/floating-form.css">
+    <link rel="stylesheet" href="css/css/main.css">
+  <!-- <link rel="stylesheet" href="css/css/project.css"> -->
+   <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/slider.sass">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Bootstrap Icons CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 
 </head>
 
 <body>
 
-  <header>
-    <div class="top-container">
-      <div class="topbar-left">
-        Amdavad Municipal Corporation CSR Portal
-      </div>
-      <div class="topbar-right">
-        <div id="google_translate_element"></div>
-
-        <div class="header-social-icons"
+<div class="amc-topbar d-flex justify-content-between align-items-center px-3 py-1">
+  <div class="text-white fw-bold">
+    Amdavad Municipal Corporation CSR Portal
+  </div>
+  <div class="d-flex align-items-center gap-3">
+    <a href="https://lakhpatididi.in/AMC-CSR-Admin/html/login.html" target="_blank" class="text-white text-decoration-none">Login</a>
+    <div id="google_translate_element"></div>
+    <div class="header-social-icons"
           style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i
             class="icon-facebook"></i> <i class="icon-twitter"></i><i class="icon-instagram"></i> <i
             class="icon-youtube"></i></a>
         </div>
-      </div>
+  </div>
+</div>
 
-  </header>
-  <div class="container">
-         <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="./images/amcLogo.png" class="amd-logo" alt="Logo" >
-        <img src="./images/amc logo.png" class="amd-name" alt="Logo" >
-         <img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo"alt="GovLogo" >
-      </a>
-      </div>
+<!-- AMC Logo Bar -->
+<div class="amc-logobar d-flex justify-content-between align-items-center px-3 py-2 bg-white border-bottom">
+  <div class="d-flex align-items-center gap-3">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Amdavad_Municipal_Corporation_logo.png/250px-Amdavad_Municipal_Corporation_logo.png" alt="AMC Logo" style="height: 60px;">
+    <div>
+      <img src="./images/amc logo.png" height="45px" alt="">
+      <!-- <h5 class="mb-0 fw-bold">AMDAVAD MUNICIPAL CORPORATION CSR PORTAL</h5>
+      <p class="mb-0 text-primary" style="font-size: 14px;">અમદાવાદ મ્યુનિસિપલ કોર્પોરેશન સીએસઆર પોર્ટલ</p> -->
+    </div>
+  </div>
+  <img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" alt="Gov Logo" style="height: 60px;">
+</div>
 
-  <!-- nav start -->
-  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar"
-    style="border-radius: 0px !important;">
-    <div class="container-fluid">
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav"
-        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <header id="header" class="header d-flex align-items-center sticky-top">
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
-
-          <li class="nav-item active dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              onclick="window.location.href='./index.html'; return false;">
-              Home
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal Corporation CSR</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="overview.html">Overview</a></li>
-                  <li><a class="dropdown-item" href="mission.html">Mission</a></li>
-                  <li><a class="dropdown-item" href="objectives.html">Objectives</a></li>
-                  <li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li>
-                  <li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Projects
-            </a>
-            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
-              <a class="dropdown-item" href="project.html">Projects Open For Collaboration</a>
-              <a class="dropdown-item" href="fundanidea.html">Fund An Idea</a>
-              <a class="dropdown-item" href="completed-project.html">Completed Projects</a>
-              <a class="dropdown-item" href="trackApplication.html">Track Application</a>
-            </div>
-          </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Important Links
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <!-- download tab -->
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Download</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
-                  <li><a class="dropdown-item" href="framework.html">Frameworks</a></li>
-                </ul>
-              </li>
-              <!-- download tab end -->
-              <!-- Reference tab -->
-              <li class="dropdown-submenu">
-                <a class="dropdown-item " href="reference.html">Reference</a>
-              </li>
-              <!-- Reference tab end -->
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link" href="implimenting-agencies.html">Implementing Agencies</a>
-          </li>
-
-                   <!-- Companies Dropdown Menu -->
-<li class="nav-item dropdown custom-tab">
-  <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false">
-    Companies
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
-    <li><a class="dropdown-item" href="companies.html">Companies</a></li>
-    <li><a class="dropdown-item" href="company-register.html">Register Company 
-/ Organization</a></li>
+      <nav id="navmenu" class="navmenu">
+  <ul>
+   <li class="dropdown">
+  <a href="index.html"><span>Home</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+  <ul>
+    <li><a href="overview.html">Overview</a></li>
+    <li><a href="mission.html">Mission</a></li>
+    <li><a href="objectives.html">Objectives</a></li>
+    <li><a href="governing-body.html">Governing Body</a></li>
+    <li><a href="advisory-body.html">Advisory Body</a></li>
   </ul>
 </li>
 
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link" href="sucess-stories.html">Success Stories</a>
-          </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Media
-            </a>
-            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
-              <a class="dropdown-item" href="./gallery.html">Image Gallery</a>
-              <a class="dropdown-item" href="videogallery.html">Video Gallery</a>
-            </div>
-          </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link" href="news.html">News and Events</a>
-          </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
 
 
+    <li class="dropdown">
+      <a href="#"><span>Projects</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="project.html">Projects Open For Collaboration</a></li>
+        <li><a href="fundanidea.html">Fund An Idea</a></li>
+        <li><a href="completed-project.html">Completed Projects</a></li>
+        <li><a href="trackApplication.html">Track Application</a></li>
+      </ul>
+    </li>
 
+    <li class="dropdown">
+      <a href="#"><span>Important Links</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li class="dropdown">
+          <a href="#"><span>Download</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="legal-documents.html">Legal Documents</a></li>
+            <li><a href="framework.html">Frameworks</a></li>
+          </ul>
+        </li>
+        <li><a href="reference.html">Reference</a></li>
+      </ul>
+    </li>
 
-        </ul>
-      </div>
+    <li><a href="implimenting-agencies.html">Implementing Agencies</a></li>
+
+    <li class="dropdown">
+      <a href="#"><span>Companies</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="company-register.html">Register Company / Organization</a></li>
+      </ul>
+    </li>
+
+    <li><a href="sucess-stories.html">Success Stories</a></li>
+
+    <li class="dropdown">
+      <a href="#"><span>Media</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="gallery.html">Image Gallery</a></li>
+        <li><a href="videogallery.html">Video Gallery</a></li>
+      </ul>
+    </li>
+
+    <li><a href="news.html">News and Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
+
     </div>
-  </nav>
-  <!-- END nav -->
+  </header>
 
 
-  <div class="carousel-container">
+  <div class="carousel-container" style="position: relative;">
     <div class="carousel">
-      <div class="carousel-item active">
-        <img src="./images/home-slider-1" alt="Slide 1" style="height: 100%; width: 100%;">
-        <div class="overlay"></div>
-        <div class="carousel-text">Discover impactful projects and be a part of building a better future
-          together</div>
+      <!-- <div class="carousel-item active">
+        <img src="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" alt="Slide 1"
+          style="height: 100%; width: 100%;">
+      </div> -->
+      <div class="carousel-item">
+        <img src="./images/2.png" alt="Slide 2" style="height: 100%; width: 100%;">
       </div>
       <div class="carousel-item">
-        <img src="./images/a1.webp" alt="Slide 2" style="height: 100%; width: 100%;">
-        <div class="overlay"></div>
-        <div class="carousel-text">Ahmedabad – a city of Innovation, Heritage, and Inclusive growth</div>
+        <img src="./images/1.png" alt="Slide 2" style="height: 100%; width: 100%;">
       </div>
       <div class="carousel-item">
-        <img src="./images/a2.webp" alt="Slide 3" style="height: 100%; width: 100%;">
-        <div class="overlay"></div>
-        <div class="carousel-text">Collaborate on projects that empower communities in Ahmedabad</div>
+        <img src="./images/a3.jpg" alt="Slide 3" style="height: 100%; width: 100%;">
+      </div>
+      <div class="carousel-item">
+        <img src="./images/a4.jpg" alt="Slide 3" style="height: 100%; width: 100%;">
       </div>
     </div>
+
     <div class="pagination">
       <!-- Pagination dots will be added by JavaScript -->
     </div>
@@ -212,68 +194,148 @@
 
 
 
-
-
-
   <section class="ftco-counter ftco-intro" id="section-letestupdate">
     <div class="container">
-      <div class="owl-carousel section-carousel">
-        <!-- ITEM 1 -->
-        <div class="item">
-          <div class="row no-gutters">
-            <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
-              <div class="block-18 color-1 align-items-stretch">
-                <div class="text">
-                  <img
-                    src="https://media.istockphoto.com/id/182697803/photo/group-of-cheerful-rural-indian-children.jpg?s=612x612&w=0&k=20&c=5RtOpGq3ZpubxWP7Y9WFcmbEd9cwYJjjhcQhE85vajE="
-                    class="img-fluid w-100 h-100 object-fit-cover" alt="Recent Update Image" />
-                </div>
-              </div>
-            </div>
-            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-              <div class="block-18 color-2 align-items-stretch">
-                <div class="text">
-                  <h3 class="mb-4" style="color: #b92b5d;">Women Entrepreneurship</h3>
-                  <p style="color: #b92b5d;">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae veniam quos aut delectus adipisci
-                    eligendi soluta dignissimos...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="updates-container">
+        <div class="loading-container" id="updates-loading">
+          <div class="loading-spinner"></div>
+          <h4 style="color: #0A1E46; margin-bottom: 10px;">Loading Latest Updates</h4>
+          <p style="color: #666;">Fetching the most recent information...</p>
         </div>
-        <!-- ITEM 2 -->
-        <div class="item">
-          <div class="row no-gutters">
-            <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
-              <div class="block-18 color-1 align-items-stretch">
-                <div class="text">
-                  <img
-                    src="https://media.istockphoto.com/id/1324689212/photo/indian-rural-school-girls-holding-books-standing-in-school.jpg?s=612x612&w=0&k=20&c=vZBaocUWxCeI7Q_fejcOkGChxChIVwQXaaAh6n8HRlI="
-                    class="img-fluid w-100 h-100 object-fit-cover" alt="Update 2" />
-                </div>
-              </div>
-            </div>
-            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-              <div class="block-18 color-2 align-items-stretch">
-                <div class="text">
-                  <h3 class="mb-4" style="color: #b92b5d;">Skill Development</h3>
-                  <p style="color: #b92b5d;">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, incidunt! Maiores ullam commodi at
-                    unde accusamus, suscipit...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Add more items as needed -->
-         
       </div>
     </div>
-    <div style="display: flex; justify-content: center; padding: 20px;">
-       <button class="fund-raised d-block" style="
+  </section>
+
+
+
+
+  <div class="content-map-wrapper">
+    <div class="content-area">
+      <h2 class="content-title">About Us</h2>
+      <p class="content-text"><strong style="font-weight: bold;">Welcome to Amdavad Municipal Corporation’s CSR Connect
+          Portal </strong>, a one-stop gateway where purpose-driven funding meets on-ground impact.
+        In today’s world, CSR isn’t just about ticking a compliance box it is about creating real, visible change. At
+        AMC, we believe that every rupee spent on Corporate Social Responsibility has the power to transform lives,
+        uplift communities, and build a city that thrives together.</p>
+      <p class="content-text"><strong style="font-weight: bold;">But how do we make that happen?</strong><br>
+        This platform is our answer.
+        A digital bridge built for corporates who want their CSR funds to matter, and government departments who know
+        where that support is needed most.
+        Through this portal, Amdavad Municipal Corporation brings together a curated ecosystem of ready-to-implement,
+        high-impact projects from across departments in areas like health, education, skill development, sanitation,
+        environment, heritage, and more. These are not abstract ideas; they are ground-level initiatives that need the
+        right partners to bring them to life.</p>
+
+    <a href="about.html" target="_blank"> <button style="display: inline-block;
+    background: rgb(10, 30, 70);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.3s;">Read More</button></a> 
+    </div>
+    <div class="map-display">
+      <img src="./images/ahmedabad-map-slide1.png" alt="Ahmedabad Map" class="map-image">
+      <div class="map-interactive"></div>
+
+      <a href="project.html">
+        <div class="location-pin" style="top: 20%; left: 40%;">
+          <div class="pin-tooltip">Social</div>
+        </div>
+      </a>
+      <a href="project.html">
+        <div class="location-pin" style="top: 32%; left: 43%;">
+          <div class="pin-tooltip">Environment</div>
+        </div>
+      </a>
+      <a href="project.html">
+        <div class="location-pin" style="top: 40%; left: 55%;">
+          <div class="pin-tooltip">Education</div>
+        </div>
+      </a>
+      <a href="project.html">
+        <div class="location-pin" style="top: 50%; left: 50%;">
+          <div class="pin-tooltip">Infrastructure</div>
+        </div>
+      </a>
+      <a href="project.html">
+        <div class="location-pin" style="top: 60%; left: 55%;">
+          <div class="pin-tooltip">Health</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+  </div>
+
+  <section class="ftco-section " style="background-color: #88aefa; border-top-left-radius: 400%; margin-top: 30px;">
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-5 heading-section ftco-animate text-center">
+        <h2 class="mb-4" style="color: #0c265a; font-weight: 600;">Ongoing Projects </h2>
+      </div>
+
+      <div class="projects" id="projectList">
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="ftco-gallery mt-5 pt-3">
+    <h1 class="mb-4" style="color: #0c265a; font-weight: 600; text-align: center;">GALLERY</h1>
+
+    <div class="d-md-flex">
+      <a href="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111"
+        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111);">
+        <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search"></span>
+        </div>
+      </a>
+      <a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003"
+        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003);">
+        <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search"></span>
+        </div>
+      </a>
+      <a href="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112"
+        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112);">
+        <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search"></span>
+        </div>
+      </a>
+      <a href="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255"
+        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255);">
+        <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search"></span>
+        </div>
+      </a>
+      <a href="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112"
+        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112);">
+        <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search"></span>
+        </div>
+      </a>
+      <a href="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113"
+        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113);">
+        <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search"></span>
+        </div>
+      </a>
+    </div>
+
+    <a href="gallery.html">
+      <div style="display: flex; justify-content: center; padding: 20px;">
+
+        <button class="fund-raised d-block" style="
                 background: #0A1E46;
                 color: white;                border: none;
                 padding: 14px 28px;
@@ -290,439 +352,46 @@
                 
                 box-shadow: 0 4px 15px #ec7026(231, 76, 60, 0.3);
                 display: block;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, ##88aefa 100%)';"
-                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, #0e45b3 100%)';">Collaborate</button>
-    </div>
-  </section>
- 
-
-
-  <!-- <section class="ftco-section bg-light" id="section-letestproject">
-    <div class="container-fluid">
-      <div class="row justify-content-center mb-5 pb-3">
-        <div class="col-md-5 heading-section ftco-animate text-center">
-          <h2 class="mb-4">Our Latest Projects</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, iure id laborum voluptas aut neque fugit
-            quo. Quasi, harum eos?</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 ftco-animate">
-          <div class="carousel-cause owl-carousel">
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/1376137449/photo/close-up-shot-of-girl-kid-on-classroom-writing-notes-on-book-at-school-conept-of-education.jpg?s=612x612&w=0&k=20&c=Ax_cybmLQ1lZIWG03C2sRNBUxZmA2dtm89TD_dCDLa4=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-                  <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                  <div class="progress custom-progress-success">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <span class="fund-raised d-block">₹50,000 raised of ₹100,000</span>
-                  <a href="./donatenow.html">
-                    <button class="fund-raised d-block" style="
-                background: linear-gradient(135deg, #ec7026 0%, #d16074 100%);
-                color: white;                border: none;
-                padding: 14px 28px;
-                border-radius: 8px;
-                font-size: 1em;
-                font-weight: 600;
-                cursor: pointer;
-                width: 100%;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 4px 15px #ec7026(231, 76, 60, 0.3);
-                display: block;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(231, 76, 60, 0.4)'; this.style.background='linear-gradient(135deg, #d63031 0%, #a83e3e 100%)';"
-                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(231, 76, 60, 0.3)'; this.style.background='linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';">Partner
-                      now</button>
-                  </a>
-
-
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/1396081097/photo/an-empty-indian-passenger-train-waiting-at-santragachi-railway-station.jpg?s=612x612&w=0&k=20&c=pzR2DUFWhFvkOvyNiRgm_AkBO2FRfnOb5WDCeyPE3i0=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-                  <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                  <div class="progress custom-progress-success">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <span class="fund-raised d-block">₹50,000 raised of ₹100,000</span>
-                  <a href="./donatenow.html">
-                    <button class="fund-raised d-block" style="
-                background: linear-gradient(135deg, #ec7026 0%, #d16074 100%);
-                color: white;                border: none;
-                padding: 14px 28px;
-                border-radius: 8px;
-                font-size: 1em;
-                font-weight: 600;
-                cursor: pointer;
-                width: 100%;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 4px 15px #ec7026(231, 76, 60, 0.3);
-                display: block;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(231, 76, 60, 0.4)'; this.style.background='linear-gradient(135deg, #d63031 0%, #a83e3e 100%)';"
-                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(231, 76, 60, 0.3)'; this.style.background='linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';">Partner
-                      now </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/2191384819/photo/sri-lankan-young-girls-nearby-sigiriya-rock.jpg?s=612x612&w=0&k=20&c=5kqly7yzDYVmYZ_g9AUIjVkP1lO4ygtP7GXN8qrEdFc=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-                  <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                  <div class="progress custom-progress-success">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <span class="fund-raised d-block">₹50,000 raised of ₹100,000</span>
-                  <a href="./donatenow.html">
-                    <button class="fund-raised d-block" style="
-                background: linear-gradient(135deg, #ec7026 0%, #d16074 100%);
-                color: white;                border: none;
-                padding: 14px 28px;
-                border-radius: 8px;
-                font-size: 1em;
-                font-weight: 600;
-                cursor: pointer;
-                width: 100%;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 4px 15px #ec7026(231, 76, 60, 0.3);
-                display: block;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(231, 76, 60, 0.4)'; this.style.background='linear-gradient(135deg, #d63031 0%, #a83e3e 100%)';"
-                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(231, 76, 60, 0.3)'; this.style.background='linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';">Partner
-                      now </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/1323734958/photo/swachh-bharat-mission-poster-on-the-wall-of-indian-government-school.jpg?s=612x612&w=0&k=20&c=GL6fkBmCYWteV9Bl8DcfgYbd_K0YmSM7SfOIv6kDc0g=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-                  <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                  <div class="progress custom-progress-success">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <span class="fund-raised d-block">₹50,000 raised of ₹100,000</span>
-                  <a href="./donatenow.html">
-                    <button class="fund-raised d-block" style="
-                background: linear-gradient(135deg, #ec7026 0%, #d16074 100%);
-                color: white;                border: none;
-                padding: 14px 28px;
-                border-radius: 8px;
-                font-size: 1em;
-                font-weight: 600;
-                cursor: pointer;
-                width: 100%;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 4px 15px #ec7026(231, 76, 60, 0.3);
-                display: block;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(231, 76, 60, 0.4)'; this.style.background='linear-gradient(135deg, #d63031 0%, #a83e3e 100%)';"
-                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(231, 76, 60, 0.3)'; this.style.background='linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';">Partner
-                      now </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img" style="background-image: url(images/cause-5.jpg);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-                  <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                  <div class="progress custom-progress-success">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <span class="fund-raised d-block">₹50,000 raised of ₹100,000</span>
-                  <a href="./donatenow.html">
-                    <button class="fund-raised d-block" style="
-                background: linear-gradient(135deg, #ec7026 0%, #d16074 100%);
-                color: white;                border: none;
-                padding: 14px 28px;
-                border-radius: 8px;
-                font-size: 1em;
-                font-weight: 600;
-                cursor: pointer;
-                width: 100%;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 4px 15px #ec7026(231, 76, 60, 0.3);
-                display: block;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(231, 76, 60, 0.4)'; this.style.background='linear-gradient(135deg, #d63031 0%, #a83e3e 100%)';"
-                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(231, 76, 60, 0.3)'; this.style.background='linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';">Partner
-                      now </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/1272192375/photo/people-cross-an-overflowing-lake-in-katakshapur-village-caused-by-incessant-rains-mulugu.jpg?s=612x612&w=0&k=20&c=cHmIj2QL8-Cblc066isqd9H38Uy6-gLQGQc4YRXJItA=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-                  <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                  <div class="progress custom-progress-success">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <span class="fund-raised d-block">₹50,000 raised of ₹100,000</span>
-                  <a href="./donatenow.html">
-                    <button class="fund-raised d-block" style="
-                background: linear-gradient(135deg, #ec7026 0%, #d16074 100%);
-                color: white;                border: none;
-                padding: 14px 28px;
-                border-radius: 8px;
-                font-size: 1em;
-                font-weight: 600;
-                cursor: pointer;
-                width: 100%;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 4px 15px #ec7026(231, 76, 60, 0.3);
-                display: block;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(231, 76, 60, 0.4)'; this.style.background='linear-gradient(135deg, #d63031 0%, #a83e3e 100%)';"
-                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(231, 76, 60, 0.3)'; this.style.background='linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';">Partner
-                      now </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <section class="ftco-section " style="background-color: #88aefa; border-top-left-radius: 400%; margin-top: 30px;">
-  <!-- <section class="ftco-section " style="background-color: #cae9a6; border-top-left-radius: 400%; margin-top: 30px;"></section> -->
-    <div class="container">
-      <div class="row justify-content-center mb-4">
-        <!-- <div class="row justify-content-center mb-5 pb-3"> -->
-        <div class="col-md-5 heading-section ftco-animate text-center">
-          <h2 class="mb-4" style="color: #0c265a; font-weight: 600;">Our Categories</h2>
-
-        </div>
-        <!-- </div> -->
-        <div class="col-md-12 text-center">
-          <div class="category-nav">
-            <a href="#" class="category-link active" data-category="all">
-              <i class="fas fa-layer-group me-2"></i> All
-            </a>
-            <a href="#" class="category-link" data-category="social">
-              <i class="fas fa-hands-helping me-2"></i> Social
-            </a>
-            <a href="#" class="category-link" data-category="environment">
-              <i class="fa-solid fa-seedling"></i> Environment
-            </a>
-            <a href="#" class="category-link" data-category="education">
-              <i class="fa-solid fa-school"></i> Education
-            </a>
-            <a href="#" class="category-link" data-category="infrastructure">
-              <i class="fas fa-building me-2"></i> Infrastructure
-            </a>
-
-
-            <a href="#" class="category-link" data-category="health">
-            <i class="fa-solid fa-suitcase-medical"></i> Health
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project Cards -->
-      <div class="row">
-        <!-- Infrastructure Projects -->
-        <div class="col-md-4 d-flex ftco-animate project-card" data-category="infrastructure">
-          <div class="blog-entry align-self-stretch">
-            <a href="#" class="block-20"
-              style="background-image: url('https://media.istockphoto.com/id/653777560/photo/group-of-happy-nepalese-children-in-bhaktapur-kathmandu-valley.jpg?s=612x612&w=0&k=20&c=m-yUbFrzby0tgejUTWsObxP3BExMrzAItRwBHGL89do=');"></a>
-            <div class="text p-4 d-block">
-              <h3 class="heading mb-4"><a href="#">School Infrastructure</a></h3>
-              <p>Building better educational facilities for children in rural areas.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 d-flex ftco-animate project-card" data-category="infrastructure">
-          <div class="blog-entry align-self-stretch">
-            <a href="#" class="block-20"
-              style="background-image: url('https://media.istockphoto.com/id/842464030/photo/parliament-house-in-new-delhi-india.jpg?s=612x612&w=0&k=20&c=-0-9txGoPFBr5jutcHSpT-Ktj0koqB2mPC4CHnAe1go=');"></a>
-            <div class="text p-4 d-block">
-              <h3 class="heading mb-4"><a href="#">Healthcare Centers</a></h3>
-              <p>Establishing medical facilities in underserved communities.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Social Projects -->
-        <div class="col-md-4 d-flex ftco-animate project-card" data-category="social">
-          <div class="blog-entry align-self-stretch">
-            <a href="#" class="block-20"
-              style="background-image: url('https://media.istockphoto.com/id/1288143432/photo/the-ancient-ruined-fort-in-jamnagar.jpg?s=612x612&w=0&k=20&c=xjKax-bAAknMJCukq-zyRchNYfNqZrYXOfA5w_eDa-o=');"></a>
-            <div class="text p-4 d-block">
-              <h3 class="heading mb-4"><a href="#">Education for All</a></h3>
-              <p>Providing scholarships and learning opportunities for children.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 d-flex ftco-animate project-card" data-category="social">
-          <div class="blog-entry align-self-stretch">
-            <a href="#" class="block-20"
-              style="background-image: url('https://media.istockphoto.com/id/1272192375/photo/people-cross-an-overflowing-lake-in-katakshapur-village-caused-by-incessant-rains-mulugu.jpg?s=612x612&w=0&k=20&c=cHmIj2QL8-Cblc066isqd9H38Uy6-gLQGQc4YRXJItA=');"></a>
-            <div class="text p-4 d-block">
-              <h3 class="heading mb-4"><a href="#">Food Security Program</a></h3>
-              <p>Ensuring nutrition and food security for vulnerable families.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- environment Projects -->
-        <div class="col-md-4 d-flex ftco-animate project-card" data-category="environment">
-          <div class="blog-entry align-self-stretch">
-            <a href="#" class="block-20"
-              style="background-image: url('https://media.istockphoto.com/id/842464030/photo/parliament-house-in-new-delhi-india.jpg?s=612x612&w=0&k=20&c=-0-9txGoPFBr5jutcHSpT-Ktj0koqB2mPC4CHnAe1go=');"></a>
-            <div class="text p-4 d-block">
-              <h3 class="heading mb-4"><a href="#">Community Centers</a></h3>
-              <p>Building hubs for social activities and skill development.</p>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- health Projects -->
-        <div class="col-md-4 d-flex ftco-animate project-card" data-category="health">
-          <div class="blog-entry align-self-stretch">
-            <a href="#" class="block-20"
-              style="background-image: url('https://media.istockphoto.com/id/1396081097/photo/an-empty-indian-passenger-train-waiting-at-santragachi-railway-station.jpg?s=612x612&w=0&k=20&c=pzR2DUFWhFvkOvyNiRgm_AkBO2FRfnOb5WDCeyPE3i0=');"></a>
-            <div class="text p-4 d-block">
-              <h3 class="heading mb-4"><a href="#">Digital Literacy</a></h3>
-              <p>Computer training to bridge the digital divide in communities.</p>
-            </div>
-          </div>
-        </div>
+            "
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, ##88aefa 100%)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, #0e45b3 100%)';">View
+          More</button>
 
 
       </div>
-    </div>
+    </a>
+
   </section>
 
-  <section class="ftco-gallery">
-    <div class="d-md-flex">
-      <a href="https://media.istockphoto.com/id/1396081097/photo/an-empty-indian-passenger-train-waiting-at-santragachi-railway-station.jpg?s=612x612&w=0&k=20&c=pzR2DUFWhFvkOvyNiRgm_AkBO2FRfnOb5WDCeyPE3i0="
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://media.istockphoto.com/id/1396081097/photo/an-empty-indian-passenger-train-waiting-at-santragachi-railway-station.jpg?s=612x612&w=0&k=20&c=pzR2DUFWhFvkOvyNiRgm_AkBO2FRfnOb5WDCeyPE3i0=);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://media.istockphoto.com/id/2191384819/photo/sri-lankan-young-girls-nearby-sigiriya-rock.jpg?s=612x612&w=0&k=20&c=5kqly7yzDYVmYZ_g9AUIjVkP1lO4ygtP7GXN8qrEdFc="
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://media.istockphoto.com/id/2191384819/photo/sri-lankan-young-girls-nearby-sigiriya-rock.jpg?s=612x612&w=0&k=20&c=5kqly7yzDYVmYZ_g9AUIjVkP1lO4ygtP7GXN8qrEdFc=);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://media.istockphoto.com/id/1323734958/photo/swachh-bharat-mission-poster-on-the-wall-of-indian-government-school.jpg?s=612x612&w=0&k=20&c=GL6fkBmCYWteV9Bl8DcfgYbd_K0YmSM7SfOIv6kDc0g="
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://media.istockphoto.com/id/1323734958/photo/swachh-bharat-mission-poster-on-the-wall-of-indian-government-school.jpg?s=612x612&w=0&k=20&c=GL6fkBmCYWteV9Bl8DcfgYbd_K0YmSM7SfOIv6kDc0g=);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="images/cause-5.jpg"
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(images/cause-5.jpg);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
+  <div class="gallery-container mt-5 pt-3 pb-5 mb-5" style="background-color: #88aefa45;">
+    <!-- <h1 style="font-weight: 600; color: #0A1E46;">Video Gallery</h1> -->
+    <h1 class="mb-4" style="color: #0c265a; font-weight: 600; text-align: center;">VIDEO GALLERY</h1>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="health">Health</button>
+      <button class="filter-btn" data-filter="social">Social</button>
+      <button class="filter-btn" data-filter="educational">Educational</button>
+      <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
     </div>
-    <div class="d-md-flex">
-      <a href="https://media.istockphoto.com/id/1272192375/photo/people-cross-an-overflowing-lake-in-katakshapur-village-caused-by-incessant-rains-mulugu.jpg?s=612x612&w=0&k=20&c=cHmIj2QL8-Cblc066isqd9H38Uy6-gLQGQc4YRXJItA="
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://media.istockphoto.com/id/1272192375/photo/people-cross-an-overflowing-lake-in-katakshapur-village-caused-by-incessant-rains-mulugu.jpg?s=612x612&w=0&k=20&c=cHmIj2QL8-Cblc066isqd9H38Uy6-gLQGQc4YRXJItA=);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://media.istockphoto.com/id/1392742688/photo/back-view-shot-of-group-of-teenager-kids-in-unifrom-going-home-from-school-after-classes.jpg?s=612x612&w=0&k=20&c=whX20fiwkY9qsjh7_fbCylf86fCwD-pYTs2T91imNks="
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://media.istockphoto.com/id/1392742688/photo/back-view-shot-of-group-of-teenager-kids-in-unifrom-going-home-from-school-after-classes.jpg?s=612x612&w=0&k=20&c=whX20fiwkY9qsjh7_fbCylf86fCwD-pYTs2T91imNks=);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://media.istockphoto.com/id/1011283798/photo/farmer-plowing-field.jpg?s=612x612&w=0&k=20&c=Eh4SP9j7G6q0687Rh7OveBfPwBWetVRv2aVlhwrvoOk="
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://media.istockphoto.com/id/1011283798/photo/farmer-plowing-field.jpg?s=612x612&w=0&k=20&c=Eh4SP9j7G6q0687Rh7OveBfPwBWetVRv2aVlhwrvoOk=);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://media.istockphoto.com/id/2216076316/photo/women-harvesting-wheat-crops-in-farm.jpg?s=612x612&w=0&k=20&c=u8EWxrs0k-I0K1I_Vjx_Sr2uUNrsXbiuxbTX5s7CK88="
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://media.istockphoto.com/id/2216076316/photo/women-harvesting-wheat-crops-in-farm.jpg?s=612x612&w=0&k=20&c=u8EWxrs0k-I0K1I_Vjx_Sr2uUNrsXbiuxbTX5s7CK88=);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
+
+    <div class="video-gallery p-2" id="videoGallery">
+      <!-- Videos will be added dynamically -->
     </div>
-  </section>
+
+    <a href="videogallery.html">
+      <div style="display: flex; justify-content: center; padding: 20px;">
+
+        <button class="fund-raised d-block" style="background: #0A1E46; color: white; border: none; padding: 14px 28px; border-radius: 8px; font-size: 1em; font-weight: 600;
+                cursor: pointer;width: 40%;transition: all 0.3s ease;text-transform: uppercase;
+                letter-spacing: 0.5px;position: relative;overflow: hidden;box-shadow: 0 4px 15px #ec7026(231, 76, 60, 0.3);display: block;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, ##88aefa 100%)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, #0e45b3 100%)';">View More</button>
 
 
-
+      </div>
+    </a>
+  </div>
+  <!-- video gallery section end -->
   <section class="ftco-section bg-light" id="section-completedprojects">
     <div class="container-fluid">
       <div class="row justify-content-center mb-5 pb-3">
@@ -731,124 +400,212 @@
 
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 ftco-animate">
-          <div class="carousel-cause owl-carousel">
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/1376137449/photo/close-up-shot-of-girl-kid-on-classroom-writing-notes-on-book-at-school-conept-of-education.jpg?s=612x612&w=0&k=20&c=Ax_cybmLQ1lZIWG03C2sRNBUxZmA2dtm89TD_dCDLa4=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/1396081097/photo/an-empty-indian-passenger-train-waiting-at-santragachi-railway-station.jpg?s=612x612&w=0&k=20&c=pzR2DUFWhFvkOvyNiRgm_AkBO2FRfnOb5WDCeyPE3i0=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
 
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/2191384819/photo/sri-lankan-young-girls-nearby-sigiriya-rock.jpg?s=612x612&w=0&k=20&c=5kqly7yzDYVmYZ_g9AUIjVkP1lO4ygtP7GXN8qrEdFc=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
 
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/1323734958/photo/swachh-bharat-mission-poster-on-the-wall-of-indian-government-school.jpg?s=612x612&w=0&k=20&c=GL6fkBmCYWteV9Bl8DcfgYbd_K0YmSM7SfOIv6kDc0g=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
+      <div class="row" style="border-radius: 20px;" id="completeProjectsContainer">
 
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img" style="background-image: url(images/cause-5.jpg);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="cause-entry">
-                <a href="#" class="img"
-                  style="background-image: url(https://media.istockphoto.com/id/1272192375/photo/people-cross-an-overflowing-lake-in-katakshapur-village-caused-by-incessant-rains-mulugu.jpg?s=612x612&w=0&k=20&c=cHmIj2QL8-Cblc066isqd9H38Uy6-gLQGQc4YRXJItA=);"></a>
-                <div class="text p-3 p-md-4">
-                  <h3><a href="#">Clean water for the urban area</a></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life</p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+      <a href="completed-project.html">
+        <button class="fund-raised d-block" style="
+    background: #0A1E46;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    width: 40%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    align-self: center;
+    display: block;
+    margin: 0 auto; "
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, ##88aefa 100%)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px #88aefa'; this.style.background='linear-gradient(135deg, ##3b79f5 0%, #0e45b3 100%)';">
+          View More
+        </button>
+      </a>
+
     </div>
   </section>
+  <!-- FAQ -->
+  <section class="ftco-section bg-white" id="section-faqs">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 heading-section text-center ftco-animate">
+          <h2 class="mb-3" style="color: #0c265a; font-weight: 600;">Frequently Asked Questions</h2>
+        </div>
+      </div>
+
+     <div id="faqAccordion" role="tablist" aria-multiselectable="true">
+
+  <!-- FAQ 1 -->
+  <div class="card">
+    <div class="card-header" role="tab" id="faqHeading1">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" href="#faq1" aria-expanded="true" aria-controls="faq1">
+          What is the AMC CSR Portal?
+        </a>
+      </h5>
+    </div>
+    <div id="faq1" class="collapse show" role="tabpanel" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+      <div class="card-body">
+        The AMC CSR Portal is an initiative by the Ahmedabad Municipal Corporation to facilitate Corporate Social Responsibility (CSR) projects in partnership with businesses, NGOs, and individuals for the city's development.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 2 -->
+  <div class="card">
+    <div class="card-header" role="tab" id="faqHeading2">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#faq2" aria-expanded="false" aria-controls="faq2">
+          Who can contribute through this portal?
+        </a>
+      </h5>
+    </div>
+    <div id="faq2" class="collapse" role="tabpanel" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+      <div class="card-body">
+        <ul>
+          <li><strong>Companies</strong> (fulfilling CSR obligations under the Companies Act, 2013)</li>
+          <li><strong>NGOs & Trusts</strong> (registered and compliant with CSR norms)</li>
+          <li><strong>Individuals & Philanthropists</strong> (willing to donate to civic projects)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 3 -->
+  <div class="card">
+    <div class="card-header" role="tab" id="faqHeading3">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#faq3" aria-expanded="false" aria-controls="faq3">
+          What kind of projects are covered under AMC's CSR?
+        </a>
+      </h5>
+    </div>
+    <div id="faq3" class="collapse" role="tabpanel" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+      <div class="card-body">
+        <ul>
+          <li><strong>Social Welfare</strong> (Women Empowerment, Child Welfare, Elderly Care)</li>
+          <li>Education & Skill Development</li>
+          <li>Healthcare & Sanitation</li>
+          <li>Urban Infrastructure (Parks, Roads, Water Supply)</li>
+          <li>Environment & Sustainability Projects</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 4 -->
+  <div class="card">
+    <div class="card-header" role="tab" id="faqHeading4">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#faq4" aria-expanded="false" aria-controls="faq4">
+          How can a company/NGO partner with AMC for CSR?
+        </a>
+      </h5>
+    </div>
+    <div id="faq4" class="collapse" role="tabpanel" aria-labelledby="faqHeading4" data-parent="#faqAccordion">
+      <div class="card-body">
+        <ol>
+          <li>Register on the <a href="https://lakhpatididi.in/SRS-Ahembdabad/index.html">AMC CSR Portal</a></li>
+          <li>Submit a proposal for a project</li>
+          <li>Get approval from AMC and implement the project</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 5 -->
+  <div class="card">
+    <div class="card-header" role="tab" id="faqHeading5">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#faq5" aria-expanded="false" aria-controls="faq5">
+          How does AMC ensure transparency in CSR fund usage?
+        </a>
+      </h5>
+    </div>
+    <div id="faq5" class="collapse" role="tabpanel" aria-labelledby="faqHeading5" data-parent="#faqAccordion">
+      <div class="card-body">
+        <ul>
+          <li>All projects are <strong>monitored by AMC officials</strong></li>
+          <li>Regular <strong>progress reports & audits</strong> are published</li>
+          <li>Donors receive <strong>tax exemptions (80G/CSR compliance certificates)</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 6 -->
+  <div class="card">
+    <div class="card-header" role="tab" id="faqHeading6">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#faq6" aria-expanded="false" aria-controls="faq6">
+          Are CSR contributions tax-deductible?
+        </a>
+      </h5>
+    </div>
+    <div id="faq6" class="collapse" role="tabpanel" aria-labelledby="faqHeading6" data-parent="#faqAccordion">
+      <div class="card-body">
+        <ul>
+          <li><strong>For Companies:</strong> Eligible under <strong>Section 135 of Companies Act</strong></li>
+          <li><strong>For Individuals/NGOs:</strong> Tax benefits under <strong>Section 80G of IT Act</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+    </div>
+
+  </div>
+</section>
 
   <div class="custom-footer-slider" id="customFooterSlider">
     <div class="custom-footer-slider-track" id="customFooterSliderTrack">
-        <div class="custom-footer-slider-item">
-            <a href="https://www.mygov.in/" target="_blank" title="My Government">
-                <img src="https://ahmedabadcity.gov.in/IMAGES/2017053017.png" alt="mygov">
-            </a>
-        </div>
-        <div class="custom-footer-slider-item">
-            <a href="https://www.pmnrf.gov.in/" target="_blank" title="Prime Minister’s National Relief Fund">
-                <img src="https://ahmedabadcity.gov.in/IMAGES/2017053039.png" alt="PMNRF">
-            </a>
-        </div>
-        <div class="custom-footer-slider-item">
-            <a href="http://www.pmindia.gov.in/en/" target="_blank" title="Prime Minister of India">
-                <img src="https://ahmedabadcity.gov.in/IMAGES/2017110781.png" alt="pmindia">
-            </a>
-        </div>
-        <div class="custom-footer-slider-item">
-            <a href="https://www.india.gov.in/" target="_blank" title="The National Portal of India">
-                <img src="https://ahmedabadcity.gov.in/IMAGES/2019052293.png" alt="india.gov.in">
-            </a>
-        </div>
-        <div class="custom-footer-slider-item">
-            <a href="http://www.digitalindia.gov.in/" target="_blank" title="Digital India">
-                <img src="https://ahmedabadcity.gov.in/IMAGES/2017072418.png" alt="digital-india">
-            </a>
-        </div>
-        <div class="custom-footer-slider-item">
-            <a href="https://data.gov.in/" target="_blank" title="Open Government Data (OGD) Platform India">
-                <img src="https://ahmedabadcity.gov.in/IMAGES/2017053014.png" alt="data.gov.in">
-            </a>
-        </div>
-        <div class="custom-footer-slider-item">
-            <a href="https://www.incredibleindia.org/" target="_blank" title="Incredible India">
-                <img src="https://ahmedabadcity.gov.in/IMAGES/2017053094.png" alt="Incredible India Site">
-            </a>
-        </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://www.mygov.in/" target="_blank" title="My Government">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017053017.png" alt="mygov">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://www.pmnrf.gov.in/" target="_blank" title="Prime Minister’s National Relief Fund">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017053039.png" alt="PMNRF">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="http://www.pmindia.gov.in/en/" target="_blank" title="Prime Minister of India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017110781.png" alt="pmindia">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://www.india.gov.in/" target="_blank" title="The National Portal of India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2019052293.png" alt="india.gov.in">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="http://www.digitalindia.gov.in/" target="_blank" title="Digital India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017072418.png" alt="digital-india">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://data.gov.in/" target="_blank" title="Open Government Data (OGD) Platform India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017053014.png" alt="data.gov.in">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://www.incredibleindia.org/" target="_blank" title="Incredible India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017053094.png" alt="Incredible India Site">
+        </a>
+      </div>
     </div>
-</div>
+  </div>
+
 
   <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
@@ -895,7 +652,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <p>
             Copyright &copy;
             <script>document.write(new Date().getFullYear());</script> All rights reserved .
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -905,7 +662,81 @@
     </div>
   </footer>
 
+<!-- Floating Button -->
+<button id="floatingBtn" class="floating-button" onclick="openPopup()" title="Register Your Company">
+<!-- <i class="fas fa-building mr-2"></i> Are You a Corporate? <br> Register Here -->
+ <img src="./images/AMC CSR register Button.png" height="100px" alt="">
+</button>
 
+
+<!-- Company Registration Modal -->
+<div id="companyPopup" class="modal-overlay pt-5 " style="display: none; padding-top: 25px;">
+  <div class="modal-content" style="display: flex; flex-direction: row;">
+    <!-- Left side - Image -->
+    <div class="image-container" style="padding: 20px; display: flex; align-items: center; justify-content: center; width: 40%;">
+      <img src="./images/CSR Application Lifecycle.png" alt="Company Registration" class="img-fluid" style="max-height: 100%; max-width: 100%;"> 
+    </div>
+
+    <!-- Right side - Form -->
+    <div class="form-container" style=" padding: 20px; width: 60%;">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2 class="modal-title pl-2 pb-2 pt-2">
+        <i class="fas fa-building mr-2"></i> Company Registration
+      </h2>
+
+      <form id="companyForm" class="form-row">
+        <div class="form-group col-md-6">
+          <label for="authcomprepresentativename">Company Representative Name</label>
+          <input type="text" class="form-control" id="authcomprepresentativename" name="authcomprepresentativename" required placeholder="Enter Representative Name">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="authcomprepresentativeemail">Representative Email</label>
+          <input type="email" class="form-control" id="authcomprepresentativeemail" name="authcomprepresentativeemail" required placeholder="abc@gmail.com">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="companyname">Company Name</label>
+          <input type="text" class="form-control" id="companyname" name="companyname" required placeholder="company name">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="companyurl">Company URL</label>
+          <input type="url" class="form-control" id="companyurl" name="companyurl" required placeholder="www.companyname.com">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="categoryId">Category</label>
+          <select class="form-control" id="categoryId" name="categoryId" required>
+            <option value="">Select a Category</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="password" name="password" placeholder="**********" required>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                <i class="fa fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-12 text-center mt-4">
+          <button type="submit" class="btn btn-success px-4" style="border-radius: 19px; padding: 10px; background-color: #0a1e46; border:0px">
+            <i class="fa fa-building mr-2"></i> Register Company
+          </button>
+        </div>
+
+        <div class="form-group col-12 text-center">
+          <div id="responseMessage" class="font-weight-medium mt-3"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
@@ -914,22 +745,164 @@
         stroke="#F96D00" />
     </svg></div>
 
-<script>
-    const track = document.getElementById('customFooterSliderTrack');
-    const items = document.querySelectorAll('.custom-footer-slider-item');
-    const itemWidth = items[0].offsetWidth + 20; // width + margin
-    let position = 0;
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const track = document.getElementById('customFooterSliderTrack');
+      const items = document.querySelectorAll('.custom-footer-slider-item');
+      const itemWidth = items[0].offsetWidth;
+      let currentPosition = 0;
 
-    function autoSlide() {
-        position -= itemWidth;
-        if (Math.abs(position) >= track.scrollWidth - track.parentElement.offsetWidth) {
-            position = 0;
+      function slide() {
+        currentPosition -= itemWidth;
+        track.style.transform = `translateX(${currentPosition}px)`;
+
+        // When we reach the end, reset to first item
+        if (currentPosition <= -itemWidth * (items.length - 3)) {
+          setTimeout(() => {
+            currentPosition = 0;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(${currentPosition}px)`;
+            setTimeout(() => {
+              track.style.transition = 'transform 0.5s ease';
+            }, 50);
+          }, 500);
         }
-        track.style.transform = `translateX(${position}px)`;
-    }
+      }
 
-    setInterval(autoSlide, 3000); // change slide every 3 seconds
+      // Slide every 3 seconds
+      setInterval(slide, 3000);
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+
+      dropdownSubmenus.forEach(function (submenuLink) {
+        submenuLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          let nextDropdown = this.nextElementSibling;
+          if (nextDropdown.style.display === 'block') {
+            nextDropdown.style.display = 'none';
+          } else {
+            nextDropdown.style.display = 'block';
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const contentArea = document.querySelector('.content-area');
+      const mapVisual = document.querySelector('.map-visual');
+
+      // Add hover effect to content area
+      contentArea.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-3px)';
+        this.style.transition = 'transform 0.2s ease';
+      });
+
+      contentArea.addEventListener('mouseleave', function () {
+        this.style.transform = 'translateY(0)';
+      });
+
+      // Add click effect to map
+      mapVisual.addEventListener('click', function () {
+        this.style.backgroundColor = '#e2e8f0';
+        setTimeout(() => {
+          this.style.backgroundColor = '#edf2f7';
+        }, 200);
+
+        // Here you would typically initialize your map
+        console.log('Map interaction - would load real map here');
+      });
+
+      // Simple scroll effect
+      window.addEventListener('scroll', function () {
+        const scrollY = window.scrollY;
+        const mapDisplay = document.querySelector('.map-display');
+        mapDisplay.style.transform = `translateY(${scrollY * 0.05}px)`;
+      });
+    });
+  </script>
+
+ <script>
+function openPopup() {
+  document.getElementById('companyPopup').style.display = 'flex';
+}
+
+function closePopup() {
+  document.getElementById('companyPopup').style.display = 'none';
+}
+
+async function loadCategories() {
+  try {
+    const res = await Api.category.listAll();
+    const categories = res.data;
+    const dropdown = document.getElementById('categoryId');
+    dropdown.innerHTML = '<option value="">Select a Category</option>';
+
+    categories.forEach(category => {
+      const option = document.createElement('option');
+      option.value = category.id;
+      option.textContent = category.categoryName;
+      dropdown.appendChild(option);
+    });
+  } catch (error) {
+    console.error('Failed to load categories:', error);
+  }
+}
+
+const form = document.getElementById('companyForm');
+const responseMessage = document.getElementById('responseMessage');
+
+// Toggle password visibility
+document.getElementById('togglePassword').addEventListener('click', function() {
+  const passwordInput = document.getElementById('password');
+  const icon = this.querySelector('i');
+  
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    icon.classList.remove('fa-eye');
+    icon.classList.add('fa-eye-slash');
+  } else {
+    passwordInput.type = 'password';
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  }
+});
+
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const payload = {
+    companyname: document.getElementById('companyname').value,
+    companyurl: document.getElementById('companyurl').value,
+    categoryId: parseInt(document.getElementById('categoryId').value),
+    authcomprepresentativename: document.getElementById('authcomprepresentativename').value,
+    authcomprepresentativeemail: document.getElementById('authcomprepresentativeemail').value,
+    role:"CORPORATION",
+    password: document.getElementById('password').value,
+    status: "Pending"
+  };
+
+  try {
+    await Api.company.add(payload);
+    responseMessage.textContent = "✅ Company registered successfully!";
+    responseMessage.className = "text-success";
+    alert("Company registered successfully!");
+    closePopup(); // optionally close modal
+  } catch (error) {
+    responseMessage.textContent = "❌ Failed to register company.";
+    responseMessage.className = "text-danger";
+    console.error(error);
+  }
+});
+
+window.onload = loadCategories;
 </script>
+
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -944,11 +917,24 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
+  <script src="js/api/api.config.js"></script>
+  <script src="js/api/api.core.js"></script>
+  <script src="js/services/category.js"></script>
+  <script src="js/services/company.js"></script>
+  <script src="js/api/api.init.js"></script>
+  <script src="js/services/category-management.js"></script>
+  <script src="js/services/project.js"></script>
+  <script src="js/services/ongoing-project.js"></script>
+  <script src="js/services/homepage-completed-project.js"></script>
+  <script src="js/services/project-detail.js"></script>
+  <script src="js/scripts/ongoingProjectSectionScript.js"></script>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script>
+  <!-- <script>
+
+    loadCategories();
     document.addEventListener('DOMContentLoaded', function () {
       const categoryLinks = document.querySelectorAll('.category-link');
       const projectCards = document.querySelectorAll('.project-card');
@@ -975,8 +961,8 @@
         });
       });
     });
-  </script>
-  <script type="text/javascript">
+  </script> -->
+ <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
         { pageLanguage: 'en', includedLanguages: 'en,gu,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
@@ -984,8 +970,160 @@
       );
     }
   </script>
+
+
+
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const videoGallery = document.getElementById('videoGallery');
+        let allVideos = [];
+
+        // Fetch videos
+        async function fetchVideos() {
+            try {
+                const response = await fetch('https://mumbailocal.org:8087/listallgallery');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                const data = await response.json();
+
+                // Filter and sort videos by orderId descending
+                allVideos = data
+                    .filter(item => item.fileType === 'video')
+                    .sort((a, b) => b.orderId - a.orderId) // Descending by orderId
+                    .map(video => ({
+                        fileUrl: video.fileUrl,
+                        createdAt: formatDate(video.createdAt),
+                        orderId: video.orderId
+                    }));
+
+                const topThree = allVideos.slice(0, 3);
+                displayVideos(topThree);
+
+                // Show View More if more than 3 videos
+                if (allVideos.length > 3) {
+                    showViewMoreButton();
+                }
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+                videoGallery.innerHTML = '<p style="text-align: center; color: #e74c3c;">Failed to load videos. Please try again later.</p>';
+            }
+        }
+
+        function formatDate(isoDate) {
+            const date = new Date(isoDate);
+            return date.toLocaleDateString('en-IN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        function isYouTubeUrl(url) {
+            return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//.test(url);
+        }
+
+        function getYouTubeEmbedUrl(url) {
+            const regex = /(?:youtube\.com\/.*v=|youtu\.be\/)([^&\n?#]+)/;
+            const match = url.match(regex);
+            return match ? `https://www.youtube.com/embed/${match[1]}?controls=1&autoplay=0` : null;
+        }
+
+        function displayVideos(videos) {
+            videoGallery.innerHTML = '';
+
+            if (videos.length === 0) {
+                videoGallery.innerHTML = '<p style="text-align: center; color: #7f8c8d;">No videos found</p>';
+                return;
+            }
+
+            videoGallery.classList.toggle('few-videos', videos.length < 3);
+
+            videos.forEach(video => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+
+                let videoContent = '';
+
+                if (isYouTubeUrl(video.fileUrl)) {
+                    const embedUrl = getYouTubeEmbedUrl(video.fileUrl);
+                    if (embedUrl) {
+                        videoContent = `
+                            <div class="video-container">
+                                <iframe
+                                    src="${embedUrl}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                                <p class="video-date">${video.createdAt}</p>
+                            </div>
+                        `;
+                    }
+                } else {
+                    videoContent = `
+                        <div class="video-container">
+                            <video controls>
+                                <source src="${video.fileUrl}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class="video-date">${video.createdAt}</p>
+                        </div>
+                    `;
+                }
+
+                videoCard.innerHTML = videoContent;
+                videoGallery.appendChild(videoCard);
+                animateCard(videoCard);
+            });
+        }
+
+        function showViewMoreButton() {
+            const button = document.createElement('div');
+            button.className = 'view-more-container';
+            // button.innerHTML = `
+            //     <a href="videogallery.html" class="view-more-button">View More Videos</a>
+            // `;
+            videoGallery.appendChild(button);
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        function animateCard(card) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        }
+
+        fetchVideos();
+    });
+</script>
+
+
+
+  <script src="js/services/newsandevent.js"></script>
+  <script src="js/scripts/letestupdateSectionScript.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
 </body>
 
