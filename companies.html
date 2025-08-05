@@ -79,7 +79,8 @@
         padding: 1.5rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        height: 100%;
+        /* height: 100%; */
+        margin-bottom: 20px;
       }
       
       .company-card:hover {
@@ -91,7 +92,6 @@
         display: inline-block;
         padding: 0.25rem 0.5rem;
         border-radius: 4px;
-        
         font-size: 0.8rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
@@ -416,17 +416,19 @@
       <div class="container-fluid">
         <div class="row">
           <!-- Sidebar Column -->
-          <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
-            <div class="company-sidebar p-0">
-              <div class="company-sidebar-header">
-                <h2 class="h5 mb-0 text-white">Categories</h2>
-              </div>
-              <div class="company-categories">
-              <div class="company-category active">All Companies</div>
-             
-            </div>
-            </div>
-          </div>
+          <!-- Sidebar Column -->
+<div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+  <div class="company-sidebar p-0">
+    <div class="company-sidebar-header">
+      <h2 class="h5 mb-0 text-white">Categories</h2>
+    </div>
+    <div class="company-categories" >
+      <!-- <div class="company-category active">All Companies</div> -->
+      <!-- Dynamic categories will be appended here -->
+    </div>
+  </div>
+</div>
+
           
           <!-- Main Content Column -->
           <div class="col-lg-9 col-md-8">
