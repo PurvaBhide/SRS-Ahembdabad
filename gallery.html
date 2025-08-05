@@ -35,7 +35,338 @@
   <link rel="stylesheet" href="css/css/Homepage.css">
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <!-- Your existing CSS links -->
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/css/category.css">
+  <link rel="stylesheet" href="css/css/slider.css">
+  <link rel="stylesheet" href="css/css/Homepage.css">
+
+  
+  <style>
+    /* Modern Gallery Section */
+    .ftco-gallery {
+      padding: 4rem 0;
+      background: #f8f9fa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #0A1E46;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .gallery-header h1:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #0A1E46, #0E45B3);
+      border-radius: 2px;
+    }
+
+    /* Masonry Grid Layout */
+    .image-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 0 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Grid Item with Subtle Effects */
+    .grid-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      aspect-ratio: 4/3;
+      background: #fff;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    .grid-item.loaded {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .grid-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .grid-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Minimal Overlay Effect */
+    .grid-item:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 30, 70, 0.3);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .grid-item:hover:after {
+      opacity: 1;
+    }
+
+    /* View More Button */
+    .view-more-btn {
+      background: #0A1E46;
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      max-width: 250px;
+      transition: all 0.4s ease;
+      display: block;
+      margin: 40px auto 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .view-more-btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: #0E45B3;
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+
+    .view-more-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(10, 30, 70, 0.3);
+    }
+
+    .view-more-btn:hover:before {
+      left: 0;
+    }
+
+    /* Lightbox Modal - Minimalist Version */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      opacity: 1;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+      background: none;
+      border: none;
+      padding: 20px;
+    }
+
+    .lightbox-nav-btn:hover {
+      opacity: 1;
+    }
+
+    #prevBtn {
+      left: 30px;
+    }
+
+    #nextBtn {
+      right: 30px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #0A1E46;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    #scrollToTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #scrollToTopBtn:hover {
+      background: #0E45B3;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .image-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .image-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .gallery-header h1 {
+        font-size: 2rem;
+      }
+      
+      .image-grid-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 15px;
+      }
+      
+      .view-more-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      
+      #scrollToTopBtn {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+      }
+      
+      .lightbox-close {
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+      }
+      
+      .lightbox-nav-btn {
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -185,7 +516,7 @@
   <!-- END nav -->
 
     
-    <div class="hero-wrap" style="background-image: url('https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255');" data-stellar-background-ratio="0.5">
+    <!-- <div class="hero-wrap" style="background-image: url('https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -195,79 +526,69 @@
           </div>
         </div>
       </div>
+    </div> -->
+
+    <section class="ftco-gallery">
+    <!-- <div class="gallery-header">
+      <h1>IMAGE GALLERY</h1>
+    </div> -->
+
+    <div class="image-grid-container">
+      <!-- Gallery Items - No titles or descriptions -->
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" class="grid-link">
+          <img src="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" alt="">
+        </a>
+      </div>
+      
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" class="grid-link">
+          <img src="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" alt="">
+        </a>
+      </div>
+      
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" class="grid-link">
+          <img src="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" alt="">
+        </a>
+      </div>
+      
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" class="grid-link">
+          <img src="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" alt="">
+        </a>
+      </div>
+      
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" class="grid-link">
+          <img src="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" alt="">
+        </a>
+      </div>
+      
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" class="grid-link">
+          <img src="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" alt="">
+        </a>
+      </div>
     </div>
 
-    <section class="ftco-section ftco-gallery">
-    	<div class="container">
-	    	<div class="d-md-flex">
-		    	<a href="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-	    	</div>
-	    	<div class="d-md-flex">
-		    	<a href="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<!-- <a href="images/image_1.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/image_1.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/image_2.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/image_2.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a> -->
-		    </div>
-		    <!-- <div class="d-md-flex">
-		    	<a href="images/event-1.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/event-1.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/event-2.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/event-2.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/image_1.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/image_4.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/image_2.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/event-4.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    </div> -->
-	    </div>
-    </section>
+    <!-- <button class="view-more-btn">VIEW MORE</button> -->
 
+    <!-- Minimal Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="">
+      </div>
+      <button class="lightbox-nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+      <button class="lightbox-nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Go to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </section>
 
 
 
@@ -369,6 +690,226 @@
   });
 });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Lightbox functionality
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const galleryLinks = document.querySelectorAll('.grid-link');
+      
+      let currentImageIndex = 0;
+      const images = Array.from(galleryLinks).map(link => link.getAttribute('href'));
+      
+      // Open lightbox when image is clicked
+      galleryLinks.forEach((link, index) => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          currentImageIndex = index;
+          lightboxImage.src = this.getAttribute('href');
+          lightboxModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      
+      // Close lightbox
+      closeBtn.addEventListener('click', function() {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+      
+      // Close when clicking outside image
+      lightboxModal.addEventListener('click', function(e) {
+        if (e.target === lightboxModal) {
+          lightboxModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+      
+      // Navigation between images
+      prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        lightboxImage.src = images[currentImageIndex];
+      });
+      
+      nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        lightboxImage.src = images[currentImageIndex];
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (lightboxModal.classList.contains('active')) {
+          if (e.key === 'Escape') {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          } else if (e.key === 'ArrowLeft') {
+            prevBtn.click();
+          } else if (e.key === 'ArrowRight') {
+            nextBtn.click();
+          }
+        }
+      });
+      
+      // Scroll to top button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      });
+      
+      scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Animate grid items on load
+      const gridItems = document.querySelectorAll('.grid-item');
+      
+      function animateGridItems() {
+        gridItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('loaded');
+          }, index * 100);
+        });
+      }
+      
+      // Wait for images to load before animating
+      window.addEventListener('load', animateGridItems);
+      
+      // Fallback in case some images take too long
+      setTimeout(animateGridItems, 1000);
+    });
+  </script>
+
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Lightbox functionality
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const galleryLinks = document.querySelectorAll('.grid-link');
+      
+      let currentImageIndex = 0;
+      const images = Array.from(galleryLinks).map(link => link.getAttribute('href'));
+      
+      // Open lightbox when image is clicked
+      galleryLinks.forEach((link, index) => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          currentImageIndex = index;
+          lightboxImage.src = this.getAttribute('href');
+          lightboxModal.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+        });
+      });
+      
+      // Close lightbox
+      closeBtn.addEventListener('click', function() {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+      
+      // Close when clicking outside image
+      lightboxModal.addEventListener('click', function(e) {
+        if (e.target === lightboxModal) {
+          lightboxModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+      
+      // Navigation between images
+      prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        lightboxImage.src = images[currentImageIndex];
+        lightboxImage.style.animation = 'none';
+        void lightboxImage.offsetWidth; // Trigger reflow
+        lightboxImage.style.animation = 'zoomIn 0.3s ease';
+      });
+      
+      nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        lightboxImage.src = images[currentImageIndex];
+        lightboxImage.style.animation = 'none';
+        void lightboxImage.offsetWidth; // Trigger reflow
+        lightboxImage.style.animation = 'zoomIn 0.3s ease';
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (lightboxModal.classList.contains('active')) {
+          if (e.key === 'Escape') {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          } else if (e.key === 'ArrowLeft') {
+            prevBtn.click();
+          } else if (e.key === 'ArrowRight') {
+            nextBtn.click();
+          }
+        }
+      });
+      
+      // Scroll to top button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      });
+      
+      scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Parallax effect for gallery items on scroll
+      const gridItems = document.querySelectorAll('.grid-item');
+      
+      function checkScroll() {
+        gridItems.forEach(item => {
+          const itemTop = item.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (itemTop < windowHeight - 100) {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }
+        });
+      }
+      
+      // Initialize items with slight delay for staggered effect
+      setTimeout(() => {
+        gridItems.forEach((item, index) => {
+          item.style.transition = `all 0.5s ease ${index * 0.1}s`;
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+        });
+        
+        checkScroll();
+      }, 100);
+      
+      window.addEventListener('scroll', checkScroll);
+    });
+  </script>
 
 <!-- jQuery (required by Bootstrap) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
