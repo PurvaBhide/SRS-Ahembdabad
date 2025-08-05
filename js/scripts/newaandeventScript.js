@@ -508,6 +508,9 @@ const newsLoadingStyles = `
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
  
 }
+  .read-more-btn:focus {
+  outline:none;  
+  }
 
 .spinner-border {
   color: var(--primary-color,rgb(70, 10, 10)) !important;
@@ -524,7 +527,7 @@ const newsLoadingStyles = `
 .read-more-btn {
   border: none;
   background: none;
-  color:  #0A1E46;
+  color: #0f54e9;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
@@ -535,13 +538,13 @@ const newsLoadingStyles = `
 }
 
 .read-more-btn:hover {
-  background-color:  #0A1E46;
+  background-color: #0f54e9;
   color: white;
   transform: translateY(-2px);
 }
 
 .page-link {
-  color: var(--primary-color, #0A1E46);
+  color: var(--primary-color,#0f54e9);
   transition: all 0.3s ease;
 }
 

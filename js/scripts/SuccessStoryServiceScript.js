@@ -35,7 +35,7 @@ function loadAllStories() {
                               <h5 class="card-title story-title">${story.successstoryTitle}</h5>
                               <p class="card-text story-excerpt">${shortenText(story.successstoryDescription, 120)}</p>
                               <a href="#" class="read-more-btn" data-bs-toggle="modal" data-bs-target="#storyModal${index}"
-                                style="background-color: #0A1E46; color: aliceblue; padding: 10px; border-radius: 5px;">
+                                style=" background: linear-gradient(to right, #165cda, #3B82F6); color: aliceblue; padding: 10px; border-radius: 5px;">
                                 Read Full Story <i class="fas fa-arrow-right ms-2"></i>
                               </a>
                             </div>
@@ -47,7 +47,7 @@ function loadAllStories() {
 <div class="modal fade" id="storyModal${index}" tabindex="-1" aria-labelledby="storyModalLabel${index}" aria-hidden="true">
   <div class="modal-dialog modal-lg custom-modal-desktop">
     <div class="modal-content">
-      <div class="modal-header" style="background-color: #0A1E46; color: white;">
+      <div class="modal-header" style=" background: linear-gradient(to right, #165cda, #3B82F6); color: white;">
         <h5 class="modal-title" id="storyModalLabel${index}">${story.successstoryTitle}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
       </div>
