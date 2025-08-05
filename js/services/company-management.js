@@ -30,38 +30,49 @@ function loadCategories() {
     });
 }
 
-// Render categories in sidebar
+// Icon mapping for each category
+const categoryIcons = {
+  "Health": "fas fa-heartbeat",
+  "Environment": "fas fa-leaf",
+  "Education": "fas fa-book",
+  "Infrastructure": "fas fa-building",
+  "Social": "fas fa-users"
+};
+
+// Render categories in sidebar with icons
 function renderCategories(categories) {
   const sidebarCategories = document.querySelector('.company-categories');
   sidebarCategories.innerHTML = '';
 
-  // Add "All Companies" option
+  // Add "All Agencies" option
   const allItem = document.createElement('div');
   allItem.className = 'company-category active';
-  allItem.textContent = 'All Companies';
+  allItem.innerHTML = `<i class="fas fa-globe me-2"></i> All Agencies`;
   allItem.addEventListener('click', () => {
     document.querySelectorAll('.company-category').forEach(c => c.classList.remove('active'));
     allItem.classList.add('active');
-    loadCompanies();
+     loadCompanies();
   });
   sidebarCategories.appendChild(allItem);
 
   // Add categories from API
   categories.forEach(category => {
+    const iconClass = categoryIcons[category.categoryName] || 'fas fa-tag';
     const categoryItem = document.createElement('div');
     categoryItem.className = 'company-category';
-    categoryItem.textContent = category.categoryName;
     categoryItem.dataset.id = category.id;
+    categoryItem.innerHTML = `<i class="${iconClass} me-2"></i> ${category.categoryName}`;
 
     categoryItem.addEventListener('click', () => {
       document.querySelectorAll('.company-category').forEach(c => c.classList.remove('active'));
       categoryItem.classList.add('active');
-      loadCompanies(category.id);
+       loadCompanies(category.id);
     });
 
     sidebarCategories.appendChild(categoryItem);
   });
 }
+
 
 // Load and render companies
 function loadCompanies(categoryId = null) {
@@ -307,13 +318,6 @@ function formatCurrency(amount) {
     maximumFractionDigits: 0
   }).format(numericValue);
 }
-
-// Update viewProjectDetails to use the full project data
-// function viewProjectDetails(projectId, projectData) {
-//   console.log('Viewing project:', projectId, projectData);
-//   // Implement your project details modal or view here
-//   // You have access to all project data through projectData parameter
-// }
 
 function viewProjectDetails(projectId, projectData) {
   // Redirect to donatenow.html with the project ID as a query parameter

@@ -1325,7 +1325,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
                     ` : ''}
-                    <a class="view-link" href="./donatenow.html?id=${projectId}">View Details</a>
+                    <a class="view-more-btn" href="./donatenow.html?id=${projectId}">View Details</a>
                 </div>
             </div>
         `;

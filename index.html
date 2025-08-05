@@ -39,7 +39,213 @@
 
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+<style>
+          /* General Gallery Section Styling */
+        .ftco-gallery {
+            padding: 2rem 0 5rem 0; /* Top, Right, Bottom, Left padding */
+            background-color: #f8f9fa; /* Light background for the section */
+            position: relative; /* For positioning the scroll-to-top button */
+        }
 
+        /* Image Grid Container */
+        .image-grid-container {
+            display: grid;
+            /* Responsive grid: 3 columns on large screens, adjusting down */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px; /* Space between grid items */
+            padding: 0 20px; /* Padding on sides to prevent sticking to edges */
+            max-width: 1200px; /* Max width for the grid */
+            margin: 0 auto; /* Center the grid container */
+        }
+
+        /* Individual Grid Item */
+        .grid-item {
+            background-color: #fff;
+            border-radius: 15px; /* Rounded corners */
+            overflow: hidden; /* Ensures image corners are rounded */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover */
+            position: relative; /* For positioning overlay */
+            cursor: pointer;
+            aspect-ratio: 1 / 0.5; /* Maintain square aspect ratio for uniform look */
+        }
+
+        /* Hover effect for all grid items */
+        .grid-item:hover {
+            transform: scale(1.05) translateY(-5px); /* Enlarge and lift effect on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced but subtle shadow on hover */
+        }
+
+        .grid-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none; /* Remove underline from link */
+            color: inherit;
+            position: relative; /* For positioning img and overlay */
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the container while maintaining aspect ratio */
+            display: block;
+            border-radius: 15px; /* Match parent's border-radius */
+        }
+
+        /* Gradient Overlay for All Images on Hover */
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1; /* Ensure overlay is above the image but below any content */
+        }
+
+        .grid-item:hover::before {
+            opacity: 1;
+        }
+
+        /* View More Button Styling (retained and adjusted to theme blue) */
+        .view-more-btn {
+            background: linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%); /* Initial gradient with theme blue */
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 40%;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(10, 30, 70, 0.3); /* Shadow color based on theme blue */
+            display: block;
+            margin: 20px auto;
+        }
+
+        .view-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(10, 30, 70, 0.5); /* Deeper shadow on hover with theme blue */
+            background: linear-gradient(135deg, #0e45b3 0%, #3b79f5 100%); /* Lighter gradient on hover (subtle variation) */
+        }
+
+        /* Scroll to Top Button */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #0A1E46; /* Theme dark blue */
+            color: white;
+            border: none;
+            border-radius: 50%; /* Circular button */
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0; /* Start hidden */
+            visibility: hidden; /* Hide from screen readers when not visible */
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        #scrollToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0); /* Slight animation when it appears */
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #0e45b3; /* Lighter blue on hover */
+            transform: translateY(-3px); /* Slight lift */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .image-grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .content-title {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 15px;
+            }
+         .grid-item {
+                border-radius: 10px;
+            }
+            .item-overlay h3 {
+                font-size: 1.3em;
+            }
+            .overlay-nav {
+                gap: 15px;
+            }
+            .arrow-icon {
+                font-size: 1.6em;
+                padding: 6px 10px;
+            }
+            .view-more-btn {
+                width: 60%;
+            }
+            #scrollToTopBtn {
+                width: 45px;
+                height: 45px;
+                font-size: 1em;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .image-grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+                padding: 0 10px;
+            }
+            .grid-item {
+                border-radius: 8px;
+            }
+            .view-more-btn {
+                width: 80%;
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+            #scrollToTopBtn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9em;
+            }
+        }
+        a[aria-expanded="true"] .fa-chevron-down {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+a[aria-expanded="false"] .fa-chevron-down {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+</style>
 
 </head>
 
@@ -328,68 +534,58 @@
 
 
 
-  <section class="ftco-gallery mt-2 pt-2">
-    <h2 class="content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">GALLERY</h2>
+   <section class="ftco-gallery mt-2 pt-2">
+        <h2 class="content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">GALLERY</h2>
 
-    <div class="d-md-flex">
-      <a href="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111"
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
+        <div class="image-grid-container">
+            <!-- Gallery Items -->
+            <div class="grid-item">
+                <a href="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" class="grid-link" target="_blank">
+                    <img src="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" alt="Gallery Image 1">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" class="grid-link" target="_blank">
+                    <img src="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" alt="Gallery Image 2">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" class="grid-link" target="_blank">
+                    <img src="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" alt="Gallery Image 3">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" class="grid-link" target="_blank">
+                    <img src="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" alt="Gallery Image 4">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" class="grid-link" target="_blank">
+                    <img src="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" alt="Gallery Image 5">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" class="grid-link" target="_blank">
+                    <img src="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" alt="Gallery Image 6">
+                </a>
+            </div>
         </div>
-      </a>
-      <a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003"
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112"
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255"
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112"
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-      <a href="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113"
-        class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-        style="background-image: url(https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113);">
-        <div class="icon d-flex justify-content-center align-items-center">
-          <span class="icon-search"></span>
-        </div>
-      </a>
-    </div>
 
-    <a href="gallery.html">
-      <div style="display: flex; justify-content: center; padding: 20px;">
+        <a href="gallery.html">
+            <div style="display: flex; justify-content: center; padding: 20px;">
+                <button class="view-more-btn">View More</button>
+            </div>
+            
+        </a>
 
-        <button class="view-more-btn" >View
-          More</button>
-
-
-      </div>
-    </a>
-
-  </section>
-
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn" class="scroll-to-top-btn">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
  <div class="gallery-container mt-5 pt-3 pb-5 mb-5">
-  <h2 class="content-title">Video Gallery</h2>
+   <h2 class="content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+Video Gallery</h2>
 
   <div class="video-gallery p-2" id="videoGallery">
     </div>
@@ -438,7 +634,7 @@
           <div class="card-header" role="tab" id="faqHeading1">
             <h5 class="mb-0">
               <a data-toggle="collapse" href="#faq1" aria-expanded="true" aria-controls="faq1">
-                What is the AMC CSR Portal?
+                What is the AMC CSR Portal? <i class="fas fa-chevron-down float-right"></i>
               </a>
             </h5>
           </div>
@@ -447,7 +643,7 @@
             <div class="card-body">
               The AMC CSR Portal is an initiative by the Ahmedabad Municipal Corporation to facilitate Corporate Social
               Responsibility (CSR) projects in partnership with businesses, NGOs, and individuals for the city's
-              development.
+              development. 
             </div>
           </div>
         </div>
@@ -457,7 +653,7 @@
           <div class="card-header" role="tab" id="faqHeading2">
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#faq2" aria-expanded="false" aria-controls="faq2">
-                Who can contribute through this portal?
+                Who can contribute through this portal? <i class="fas fa-chevron-down float-right"></i>
               </a>
             </h5>
           </div>
@@ -477,7 +673,7 @@
           <div class="card-header" role="tab" id="faqHeading3">
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#faq3" aria-expanded="false" aria-controls="faq3">
-                What kind of projects are covered under AMC's CSR?
+                What kind of projects are covered under AMC's CSR? <i class="fas fa-chevron-down float-right"></i>
               </a>
             </h5>
           </div>
@@ -499,7 +695,7 @@
           <div class="card-header" role="tab" id="faqHeading4">
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#faq4" aria-expanded="false" aria-controls="faq4">
-                How can a company/NGO partner with AMC for CSR?
+                How can a company/NGO partner with AMC for CSR? <i class="fas fa-chevron-down float-right"></i>
               </a>
             </h5>
           </div>
@@ -519,7 +715,7 @@
           <div class="card-header" role="tab" id="faqHeading5">
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#faq5" aria-expanded="false" aria-controls="faq5">
-                How does AMC ensure transparency in CSR fund usage?
+                How does AMC ensure transparency in CSR fund usage? <i class="fas fa-chevron-down float-right"></i>
               </a>
             </h5>
           </div>
@@ -539,7 +735,7 @@
           <div class="card-header" role="tab" id="faqHeading6">
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#faq6" aria-expanded="false" aria-controls="faq6">
-                Are CSR contributions tax-deductible?
+                Are CSR contributions tax-deductible? <i class="fas fa-chevron-down float-right"></i>
               </a>
             </h5>
           </div>
