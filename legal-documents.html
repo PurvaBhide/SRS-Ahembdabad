@@ -41,10 +41,11 @@
         .header h1 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #2c3e50;
+            color: #0f54e9;
             margin-bottom: 5px;
             text-align: center;
             padding-top: 20px;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         .header p {
@@ -101,14 +102,20 @@
             font-weight: 500;
             color: #2c3e50;
             margin-bottom: 8px;
+            height: 45px;
         }
 
-        .pdf-description {
-            font-size: 0.9rem;
-            color: #6c757d;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
+       .pdf-description {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
         .pdf-actions {
             display: flex;
@@ -121,6 +128,7 @@
             border-radius: 4px;
             background: white;
             color: #495057;
+            border-radius: 12px;
             text-decoration: none;
             font-size: 0.85rem;
             cursor: pointer;

@@ -1623,6 +1623,7 @@ style.textContent = `
         font-size: 14px;
         line-height: 1.5;
         margin-bottom: 15px;
+        height: 40px; /* Limit height for description */
     }
     
     @media (max-width: 768px) {
