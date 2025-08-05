@@ -1,106 +1,174 @@
 // DOM Elements
-const pdfGrid = document.querySelector('.pdf-grid');
+const pdfGridSelector = '.pdf-grid';
+const pdfGrid = document.querySelector(pdfGridSelector); // should be a container div
+const pdfSection = pdfGrid ? pdfGrid.parentElement : document.body;
 
-// Function to render PDF cards
+// Helper: create/remove error row outside .pdf-grid
+function showErrorRow(message, type = 'info') {
+  hidePdfGrid();
+
+  let existing = document.querySelector('.pdf-error-row');
+  if (existing) {
+    existing.innerHTML = getErrorColHtml(message, type);
+    return;
+  }
+
+  const row = document.createElement('div');
+  row.className = 'row pdf-error-row pb-4';
+  row.innerHTML = getErrorColHtml(message, type);
+
+  if (pdfGrid && pdfGrid.parentElement) {
+    pdfGrid.parentElement.insertBefore(row, pdfGrid);
+  } else {
+    pdfSection.appendChild(row);
+  }
+}
+
+function getErrorColHtml(message, type) {
+  const alertClass =
+    type === 'danger' ? 'alert-danger' :
+    type === 'warning' ? 'alert-warning' : 'alert-info';
+
+  return `
+    <div class="col-12">
+      <div class="alert ${alertClass} text-center m-0 py-P">
+        ${message}
+      </div>
+    </div>
+  `;
+}
+
+function removeErrorRow() {
+  const existing = document.querySelector('.pdf-error-row');
+  if (existing) existing.remove();
+}
+
+function hidePdfGrid() {
+  if (pdfGrid) pdfGrid.style.display = 'none';
+}
+
+function showPdfGrid() {
+  if (pdfGrid) pdfGrid.style.display = '';
+}
+
+// Render the PDF cards into the .pdf-grid (flex-based)
+function renderPDFGrid(documents) {
+  removeErrorRow();
+  showPdfGrid();
+
+  if (!pdfGrid) {
+    console.error('PDF grid element not found:', pdfGridSelector);
+    return;
+  }
+
+  pdfGrid.innerHTML = ''; // Clear existing
+
+  documents.forEach(doc => {
+    const title = doc.documenttitle || 'Untitled Document';
+    const type = doc.documentType || '';
+    const shortDesc = doc.documentshortdesc || '';
+    const rawUrl = doc.documenturl || '';
+    const safeUrlForOnclick = String(rawUrl).replace(/'/g, "\\'");
+
+    const col = document.createElement('div');
+    col.className = 'pdf-col';
+
+    col.innerHTML = `
+      <div class="pdf-card card h-100">
+        <div class="card-body d-flex flex-column">
+          <div class="pdf-preview mb-3" style="cursor:pointer;" onclick="openPDF('${safeUrlForOnclick}')">
+            <div class="pdf-icon" style="font-size:36px;">📄</div>
+          </div>
+          <div class="pdf-info mb-3">
+            <h6 class="card-title mb-1">${escapeHtml(title)}</h6>
+            <p class="small text-muted mb-1">${escapeHtml(type)}</p>
+            <p class="small text-muted mb-0">${escapeHtml(shortDesc)}</p>
+          </div>
+          <div class="mt-auto d-flex gap-2">
+            <button class="btn btn-sm btn-primary" onclick="openPDF('${safeUrlForOnclick}')">View</button>
+            <a href="${encodeURI(rawUrl)}" download="${sanitizeFilename(title)}.pdf" class="btn btn-sm btn-outline-secondary">Download</a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    pdfGrid.appendChild(col);
+  });
+}
+
+// Main rendering logic
 function renderPDFCards(apiResponse) {
-    // Clear existing content
-    pdfGrid.innerHTML = '';
-    console.log(apiResponse, "apiResponse");
+  if (!apiResponse) {
+    showErrorRow('Failed to load documents. Please try again later.', 'danger');
+    return;
+  }
 
-    // Check if response was successful
-    if (apiResponse.status !== 200) {
-        pdfGrid.innerHTML = `<p class="error">${apiResponse.message || 'Failed to load documents'}</p>`;
-        return;
-    }
+  if (apiResponse.status !== 200) {
+    showErrorRow(apiResponse.message || 'Failed to load documents', 'warning');
+    return;
+  }
 
-    // Get documents array
-    const documents = apiResponse.data?.content || [];
-    
-    // If no documents, show a message
-    if (documents.length === 0) {
-        pdfGrid.innerHTML = '<p class="no-documents">No documents available</p>';
-        return;
-    }
+  const documents = apiResponse.data?.content || [];
+  if (!documents.length) {
+    showErrorRow('The document has not been released yet. We appreciate your patience.', 'info');
+    return;
+  }
 
-    // Create cards for each document
-    documents.forEach(doc => {
-        const pdfCard = document.createElement('div');
-        pdfCard.className = 'pdf-card';
+  renderPDFGrid(documents);
+}
 
-        pdfCard.innerHTML = `
-            <div class="pdf-preview" onclick="openPDF('${doc.documenturl.replace(/'/g, "\\'")}')">
-                <div class="pdf-icon">📄</div>
-            </div>
-            <div class="pdf-info">
-                <h3>${doc.documenttitle}</h3>
-                <p class="pdf-type">${doc.documentType}</p>
-                <p class="pdf-description">${doc.documentshortdesc}</p>
-            </div>
-            <div class="pdf-actions">
-                <button class="btn btn-primary" onclick="openPDF('${doc.documenturl.replace(/'/g, "\\'")}')">
-                    View
-                </button>
-                <a href="${encodeURI(doc.documenturl)}" download="${doc.documenttitle.replace(/[^a-z0-9]/gi, '_')}.pdf" class="btn">
-                    Download
-                </a>
-            </div>
-        `;
+// PDF open with HEAD check and fallback
+function openPDF(url) {
+  if (!url) {
+    alert('Document URL missing.');
+    return;
+  }
 
-        pdfGrid.appendChild(pdfCard);
+  const encodedUrl = encodeURI(url.trim());
+  const newWindow = window.open('', '_blank');
+
+  fetch(encodedUrl, { method: 'HEAD' })
+    .then(res => {
+      if (res.ok) {
+        newWindow.location.href = encodedUrl;
+      } else {
+        newWindow.close();
+        alert('Failed to open PDF. Try downloading.');
+      }
+    })
+    .catch(() => {
+      newWindow.close();
+      alert('Error opening document.');
     });
 }
 
-// Function to open PDF in new tab with better error handling
-function openPDF(url) {
-    // Clean up the URL first
-    const cleanedUrl = url.trim();
-    console.log('Attempting to open:', cleanedUrl);
-    
-    try {
-        const encodedUrl = encodeURI(cleanedUrl);
-        const newWindow = window.open('', '_blank');
-        
-        // Test if the PDF is accessible
-        fetch(encodedUrl, { method: 'HEAD' })
-            .then(response => {
-                if (response.ok) {
-                    newWindow.location.href = encodedUrl;
-                } else {
-                    newWindow.close();
-                    throw new Error(`Server returned ${response.status}`);
-                }
-            })
-            .catch(error => {
-                console.error('PDF access error:', error);
-                alert('Failed to open PDF. Please try downloading instead.');
-            });
-    } catch (error) {
-        console.error('Error opening PDF:', error);
-        alert('Error opening document. The URL might be invalid.');
-    }
-}
-
-// Function to initialize the document library
+// Init library
 async function initDocumentLibrary() {
-    try {
-        // Show loading state
-        pdfGrid.innerHTML = '<div class="loading">Loading documents...</div>';
-        
-        // Fetch documents from API (gets full response)
-        const apiResponse = await Api.document.listFramework();
-        
-        // Render the documents
-        renderPDFCards(apiResponse);
-        console.log(apiResponse,"apiResponseapiResponseapiResponseapiResponseapiResponse");
-    } catch (error) {
-        console.error('Error initializing document library:', error.status);
-      
-        pdfGrid.innerHTML = `<p class="error">
-        <span style="color:#0b1e46;">The document has not been released yet. We appreciate your patience.<span> </p>`;
-    }
+  // Show a temporary loading row (outside .pdf-grid)
+  showErrorRow(`<div class="spinner-border text-primary" role="status"></div><div class="mt-2">Loading documents...</div>`, 'info');
+
+  try {
+    const apiResponse = await Api.document.listFramework();
+    renderPDFCards(apiResponse);
+  } catch (error) {
+    console.error('Error initializing document library:', error);
+    showErrorRow('The document has not been released yet. We appreciate your patience.', 'info');
+  }
 }
 
-// Initialize when DOM is loaded
+// Utilities
+function sanitizeFilename(name) {
+  return String(name || 'document').replace(/[^a-z0-9_\-\.]/gi, '_');
+}
+
+function escapeHtml(text) {
+  return String(text || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// Start on DOM load
 document.addEventListener('DOMContentLoaded', initDocumentLibrary);
-
-
