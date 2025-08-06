@@ -108,7 +108,11 @@ function loadAllStories() {
                 stories.forEach((story, index) => {
                     // Determine if we should show video or image
                     const mediaContent = story.successstoryVideo 
-                        ? `<iframe width="560" height="315" src="${story.successstoryVideo}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+                        ? `<div class="ratio ratio-16x9">
+                             <iframe src="${story.successstoryVideo}" title="YouTube video player" frameborder="0" 
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                           </div>`
                         : `<img src="${story.successstoryImage}" alt="Story Image" class="img-fluid rounded shadow-sm">`;
                     
                     const storyCard = `
@@ -159,6 +163,17 @@ function loadAllStories() {
                         </div>
                     `;
                     container.insertAdjacentHTML("beforeend", storyCard);
+                    
+                    // Add event listener to stop video when modal closes
+                    const modal = document.getElementById(`storyModal${index}`);
+                    modal.addEventListener('hidden.bs.modal', function () {
+                        const iframe = this.querySelector('iframe');
+                        if (iframe) {
+                            const iframeSrc = iframe.src;
+                            iframe.src = '';
+                            iframe.src = iframeSrc;
+                        }
+                    });
                 });
 
             } else {
