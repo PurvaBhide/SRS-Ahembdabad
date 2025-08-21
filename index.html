@@ -39,219 +39,423 @@
 
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-<style>
-          /* General Gallery Section Styling */
-        .ftco-gallery {
-            padding: 2rem 0 5rem 0; /* Top, Right, Bottom, Left padding */
-            background-color: #f8f9fa; /* Light background for the section */
-            position: relative; /* For positioning the scroll-to-top button */
-        }
+  <style>
+    /* General Gallery Section Styling */
+    .ftco-gallery {
+      padding: 2rem 0 5rem 0;
+      /* Top, Right, Bottom, Left padding */
+      background-color: #f8f9fa;
+      /* Light background for the section */
+      position: relative;
+      /* For positioning the scroll-to-top button */
+    }
 
-        /* Image Grid Container */
-        .image-grid-container {
-            display: grid;
-            /* Responsive grid: 3 columns on large screens, adjusting down */
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px; /* Space between grid items */
-            padding: 0 20px; /* Padding on sides to prevent sticking to edges */
-            max-width: 1200px; /* Max width for the grid */
-            margin: 0 auto; /* Center the grid container */
-        }
+    /* Image Grid Container */
+    .image-grid-container {
+      display: grid;
+      /* Responsive grid: 3 columns on large screens, adjusting down */
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+      /* Space between grid items */
+      padding: 0 20px;
+      /* Padding on sides to prevent sticking to edges */
+      max-width: 1200px;
+      /* Max width for the grid */
+      margin: 0 auto;
+      /* Center the grid container */
+    }
 
-        /* Individual Grid Item */
-        .grid-item {
-            background-color: #fff;
-            border-radius: 15px; /* Rounded corners */
-            overflow: hidden; /* Ensures image corners are rounded */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover */
-            position: relative; /* For positioning overlay */
-            cursor: pointer;
-            aspect-ratio: 1 / 0.5; /* Maintain square aspect ratio for uniform look */
-        }
+    /* Individual Grid Item */
+    .grid-item {
+      background-color: #fff;
+      border-radius: 15px;
+      /* Rounded corners */
+      overflow: hidden;
+      /* Ensures image corners are rounded */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      /* Subtle shadow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* Smooth transitions for hover */
+      position: relative;
+      /* For positioning overlay */
+      cursor: pointer;
+      aspect-ratio: 1 / 0.5;
+      /* Maintain square aspect ratio for uniform look */
+    }
 
-        /* Hover effect for all grid items */
-        .grid-item:hover {
-            transform: scale(1.05) translateY(-5px); /* Enlarge and lift effect on hover */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced but subtle shadow on hover */
-        }
+    /* Hover effect for all grid items */
+    .grid-item:hover {
+      transform: scale(1.05) translateY(-5px);
+      /* Enlarge and lift effect on hover */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      /* Enhanced but subtle shadow on hover */
+    }
 
-        .grid-link {
-            display: block;
-            width: 100%;
-            height: 100%;
-            text-decoration: none; /* Remove underline from link */
-            color: inherit;
-            position: relative; /* For positioning img and overlay */
-        }
+    .grid-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      /* Remove underline from link */
+      color: inherit;
+      position: relative;
+      /* For positioning img and overlay */
+    }
 
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cover the container while maintaining aspect ratio */
-            display: block;
-            border-radius: 15px; /* Match parent's border-radius */
-        }
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Cover the container while maintaining aspect ratio */
+      display: block;
+      border-radius: 15px;
+      /* Match parent's border-radius */
+    }
 
-        /* Gradient Overlay for All Images on Hover */
-        .grid-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-            border-radius: 15px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1; /* Ensure overlay is above the image but below any content */
-        }
+    /* Gradient Overlay for All Images on Hover */
+    .grid-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+      border-radius: 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+      /* Ensure overlay is above the image but below any content */
+    }
 
-        .grid-item:hover::before {
-            opacity: 1;
-        }
+    .grid-item:hover::before {
+      opacity: 1;
+    }
 
-        /* View More Button Styling (retained and adjusted to theme blue) */
-        .view-more-btn {
-            background: linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%); /* Initial gradient with theme blue */
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            width: 40%;
-            max-width: 300px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(10, 30, 70, 0.3); /* Shadow color based on theme blue */
-            display: block;
-            margin: 20px auto;
-        }
+    /* View More Button Styling (retained and adjusted to theme blue) */
+    .view-more-btn {
+      background: linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%);
+      /* Initial gradient with theme blue */
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      width: 40%;
+      max-width: 300px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(10, 30, 70, 0.3);
+      /* Shadow color based on theme blue */
+      display: block;
+      margin: 20px auto;
+    }
 
-        .view-more-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(10, 30, 70, 0.5); /* Deeper shadow on hover with theme blue */
-            background: linear-gradient(135deg, #0e45b3 0%, #3b79f5 100%); /* Lighter gradient on hover (subtle variation) */
-        }
+    .view-more-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(10, 30, 70, 0.5);
+      /* Deeper shadow on hover with theme blue */
+      background: linear-gradient(135deg, #0e45b3 0%, #3b79f5 100%);
+      /* Lighter gradient on hover (subtle variation) */
+    }
 
-        /* Scroll to Top Button */
-        #scrollToTopBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #0A1E46; /* Theme dark blue */
-            color: white;
-            border: none;
-            border-radius: 50%; /* Circular button */
-            width: 50px;
-            height: 50px;
-            font-size: 1.2em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            opacity: 0; /* Start hidden */
-            visibility: hidden; /* Hide from screen readers when not visible */
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-            z-index: 1000; /* Ensure it's above other content */
-        }
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #0A1E46;
+      /* Theme dark blue */
+      color: white;
+      border: none;
+      border-radius: 50%;
+      /* Circular button */
+      width: 50px;
+      height: 50px;
+      font-size: 1.2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      /* Start hidden */
+      visibility: hidden;
+      /* Hide from screen readers when not visible */
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      z-index: 1000;
+      /* Ensure it's above other content */
+    }
 
-        #scrollToTopBtn.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0); /* Slight animation when it appears */
-        }
+    #scrollToTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      /* Slight animation when it appears */
+    }
 
-        #scrollToTopBtn:hover {
-            background-color: #0e45b3; /* Lighter blue on hover */
-            transform: translateY(-3px); /* Slight lift */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
+    #scrollToTopBtn:hover {
+      background-color: #0e45b3;
+      /* Lighter blue on hover */
+      transform: translateY(-3px);
+      /* Slight lift */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
 
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .image-grid-container {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-            .content-title {
-                font-size: 45px;
-            }
-        }
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .image-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
 
-        @media (max-width: 768px) {
-            .image-grid-container {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                gap: 15px;
-            }
-         .grid-item {
-                border-radius: 10px;
-            }
-            .item-overlay h3 {
-                font-size: 1.3em;
-            }
-            .overlay-nav {
-                gap: 15px;
-            }
-            .arrow-icon {
-                font-size: 1.6em;
-                padding: 6px 10px;
-            }
-            .view-more-btn {
-                width: 60%;
-            }
-            #scrollToTopBtn {
-                width: 45px;
-                height: 45px;
-                font-size: 1em;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
+      .content-title {
+        font-size: 45px;
+      }
+    }
 
-        @media (max-width: 576px) {
-            .image-grid-container {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 10px;
-                padding: 0 10px;
-            }
-            .grid-item {
-                border-radius: 8px;
-            }
-            .view-more-btn {
-                width: 80%;
-                padding: 12px 20px;
-                font-size: 0.9em;
-            }
-            #scrollToTopBtn {
-                width: 40px;
-                height: 40px;
-                font-size: 0.9em;
-            }
-        }
-        a[aria-expanded="true"] .fa-chevron-down {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
-}
+    @media (max-width: 768px) {
+      .image-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+      }
 
-a[aria-expanded="false"] .fa-chevron-down {
-  transform: rotate(0deg);
-  transition: transform 0.3s ease;
-}
+      .grid-item {
+        border-radius: 10px;
+      }
 
-</style>
+      .item-overlay h3 {
+        font-size: 1.3em;
+      }
+
+      .overlay-nav {
+        gap: 15px;
+      }
+
+      .arrow-icon {
+        font-size: 1.6em;
+        padding: 6px 10px;
+      }
+
+      .view-more-btn {
+        width: 60%;
+      }
+
+      #scrollToTopBtn {
+        width: 45px;
+        height: 45px;
+        font-size: 1em;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .image-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 0 10px;
+      }
+
+      .grid-item {
+        border-radius: 8px;
+      }
+
+      .view-more-btn {
+        width: 80%;
+        padding: 12px 20px;
+        font-size: 0.9em;
+      }
+
+      #scrollToTopBtn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9em;
+      }
+    }
+
+    a[aria-expanded="true"] .fa-chevron-down {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+
+    a[aria-expanded="false"] .fa-chevron-down {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+    }
+  </style>
 
 </head>
 
 <body>
 
-<header><div class="top-container"><div class="topbar-left"> Amdavad Municipal Corporation CSR Portal </div><div class="topbar-right"><a href="https://lakhpatididi.in/AMC-CSR-Admin/html/login.html" target="_blank" class="login-tab">Login</a><div id="google_translate_element"></div><div class="header-social-icons" style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i class="icon-facebook"></i><i class="icon-twitter"></i><i class="icon-instagram"></i><i class="icon-youtube"></i></div></div></div></header><div class="container d-none d-lg-block"><a class="navbar-brand d-flex align-items-center" href="index.html"><img src="./images/amcLogo.png" class="amd-logo" alt="Logo" style="height:50px;"><img src="./images/amc logo.png" class="amd-name" alt="Logo" style="height:50px; margin-left:8px;"><img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo" style="height:50px; margin-left:8px;"></a></div><nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar d-none d-lg-block" style="border-radius: 0px !important;"><div class="container-fluid"><div class="collapse navbar-collapse show"><ul class="navbar-nav d-flex justify-content-around w-100 text-center"><li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdownHome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Home </a><ul class="dropdown-menu" aria-labelledby="navbarDropdownHome"><li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal Corporation CSR</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="overview.html">Overview</a></li><li><a class="dropdown-item" href="mission.html">Mission</a></li><li><a class="dropdown-item" href="objectives.html">Objectives</a></li><li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li><li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li></ul></li></ul></li><li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Projects </a><div class="dropdown-menu" aria-labelledby="corporateDropdown"><a class="dropdown-item" href="project.html">Projects Open For Collaboration</a><a class="dropdown-item" href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div></li><li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Important Links </a><ul class="dropdown-menu" aria-labelledby="navbarDropdown2"><li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li><li><a class="dropdown-item" href="framework.html">Frameworks</a></li></ul></li><li><a class="dropdown-item" href="reference.html">Reference</a></li></ul></li><li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing Agencies</a></li><li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Companies </a><ul class="dropdown-menu" aria-labelledby="companiesDropdown"><li><a class="dropdown-item" href="companies.html">Companies</a></li><li><a class="dropdown-item" href="company-register.html">Register Company / Organization</a></li></ul></li><li class="nav-item custom-tab"><a class="nav-link" href="sucess-stories.html">Success Stories</a></li><li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Media </a><div class="dropdown-menu" aria-labelledby="mediaDropdown"><a class="dropdown-item" href="./gallery.html">Image Gallery</a><a class="dropdown-item" href="videogallery.html">Video Gallery</a></div></li><li class="nav-item custom-tab"><a class="nav-link" href="news.html">News and Events</a></li><li class="nav-item custom-tab"><a class="nav-link" href="contact.html">Contact</a></li></ul></div></div></nav><nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar d-block d-lg-none" style="border-radius: 0px !important;"><div class="container-fluid d-flex justify-content-between align-items-center"><a class="navbar-brand d-flex align-items-center flex-shrink-0" href="index.html"><img src="./images/amcLogo.png" class="amd-logo" alt="Logo" style="height:35px; width:auto; max-width:50px;"><img src="./images/amc logo.png" class="amd-name" alt="Logo"><img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo" style="height:35px; width:auto; margin-left:6px; max-width:50px;"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav-mobile" aria-controls="ftco-nav-mobile" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="ftco-nav-mobile"><ul class="navbar-nav d-flex flex-column text-center w-100"><li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMobileHome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Home </a><ul class="dropdown-menu" aria-labelledby="navbarDropdownMobileHome"><li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal Corporation CSR</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="overview.html">Overview</a></li><li><a class="dropdown-item" href="mission.html">Mission</a></li><li><a class="dropdown-item" href="objectives.html">Objectives</a></li><li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li><li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li></ul></li></ul></li><li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="corporateDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Projects </a><div class="dropdown-menu" aria-labelledby="corporateDropdownMobile"><a class="dropdown-item" href="project.html">Projects Open For Collaboration</a><a class="dropdown-item" href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div></li><li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2Mobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Important Links </a><ul class="dropdown-menu" aria-labelledby="navbarDropdown2Mobile"><li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li><li><a class="dropdown-item" href="framework.html">Frameworks</a></li></ul></li><li><a class="dropdown-item" href="reference.html">Reference</a></li></ul></li><li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing Agencies</a></li><li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="companiesDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Companies </a><ul class="dropdown-menu" aria-labelledby="companiesDropdownMobile"><li><a class="dropdown-item" href="companies.html">Companies</a></li><li><a class="dropdown-item" href="company-register.html">Register Company / Organization</a></li></ul></li><li class="nav-item custom-tab"><a class="nav-link" href="sucess-stories.html">Success Stories</a></li><li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="mediaDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Media </a><div class="dropdown-menu" aria-labelledby="mediaDropdownMobile"><a class="dropdown-item" href="./gallery.html">Image Gallery</a><a class="dropdown-item" href="videogallery.html">Video Gallery</a></div></li><li class="nav-item custom-tab"><a class="nav-link" href="news.html">News and Events</a></li><li class="nav-item custom-tab"><a class="nav-link" href="contact.html">Contact</a></li></ul></div></div></nav>
+  <header>
+ <div class="top-container">
+  <div class="topbar-left">
+    Amdavad Municipal Corporation CSR Portal
+  </div>
+  <div class="topbar-right">
+    <a href="https://lakhpatididi.in/AMC-CSR-Admin/html/login.html" target="_blank" class="login-tab">Login</a>
+    <div id="google_translate_element"></div>
+    <!-- Social Icons -->
+    <div class="header-social-icons"
+      style="display: flex; align-items: center; gap: 10px; padding-left: 5px;">
+      <i class="icon-facebook"></i>
+      <i class="icon-twitter"></i>
+      <i class="icon-instagram"></i>
+      <i class="icon-youtube"></i>
+    </div>
+    <!-- Font Size Controls -->
+    <div class="font-controls" style="margin-left: 15px; display: flex; gap: 8px; align-items: center;">
+      <button onclick="changeFontSize('increase')" style="cursor:pointer; border:none; background:none; font-size:14px; color: #fff;">A+</button>
+      <button onclick="changeFontSize('decrease')" style="cursor:pointer; border:none; background:none; font-size:14px;color: #fff;">A-</button>
+    </div>
+  </div>
+</div>
+  </header>
+  <div class="container d-none d-lg-block"><a class="navbar-brand d-flex align-items-center" href="index.html"><img
+        src="./images/amcLogo.png" class="amd-logo" alt="Logo" style="height:50px;"><img src="./images/amc logo.png"
+        class="amd-name" alt="Logo" style="height:50px; margin-left:8px;"><img
+        src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo"
+        style="height:50px; margin-left:8px;"></a></div>
+  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar d-none d-lg-block"
+    style="border-radius: 0px !important;">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse show">
+        <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
+          <li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="./index.html"
+              id="navbarDropdownHome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Home </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownHome">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal
+                  Corporation CSR</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="overview.html">Overview</a></li>
+                  <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+                  <li><a class="dropdown-item" href="objectives.html">Objectives</a></li>
+                  <li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li>
+                  <li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="corporateDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Projects </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown"><a class="dropdown-item"
+                href="project.html">Projects Open For Collaboration</a><a class="dropdown-item"
+                href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed
+                Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div>
+          </li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Important Links </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="framework.html">Frameworks</a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="reference.html">Reference</a></li>
+            </ul>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
+              Agencies</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="companiesDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Companies </a>
+            <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+              <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+              <li><a class="dropdown-item" href="company-register.html">Register Company / Organization</a></li>
+            </ul>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="sucess-stories.html">Success Stories</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="mediaDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Media </a>
+            <div class="dropdown-menu" aria-labelledby="mediaDropdown"><a class="dropdown-item"
+                href="./gallery.html">Image Gallery</a><a class="dropdown-item" href="videogallery.html">Video
+                Gallery</a></div>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="news.html">News and Events</a></li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar d-block d-lg-none"
+    style="border-radius: 0px !important;">
+    <div class="container-fluid d-flex justify-content-between align-items-center"><a
+        class="navbar-brand d-flex align-items-center flex-shrink-0" href="index.html"><img src="./images/amcLogo.png"
+          class="amd-logo" alt="Logo" style="height:35px; width:auto; max-width:50px;"><img src="./images/amc logo.png"
+          class="amd-name" alt="Logo"><img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png"
+          class="GovLogo" alt="GovLogo" style="height:35px; width:auto; margin-left:6px; max-width:50px;"></a><button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav-mobile"
+        aria-controls="ftco-nav-mobile" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="ftco-nav-mobile">
+        <ul class="navbar-nav d-flex flex-column text-center w-100">
+          <li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="navbarDropdownMobileHome" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Home </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMobileHome">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal
+                  Corporation CSR</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="overview.html">Overview</a></li>
+                  <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+                  <li><a class="dropdown-item" href="objectives.html">Objectives</a></li>
+                  <li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li>
+                  <li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="corporateDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Projects </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdownMobile"><a class="dropdown-item"
+                href="project.html">Projects Open For Collaboration</a><a class="dropdown-item"
+                href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed
+                Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div>
+          </li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="navbarDropdown2Mobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Important Links </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2Mobile">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="framework.html">Frameworks</a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="reference.html">Reference</a></li>
+            </ul>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
+              Agencies</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="companiesDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Companies </a>
+            <ul class="dropdown-menu" aria-labelledby="companiesDropdownMobile">
+              <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+              <li><a class="dropdown-item" href="company-register.html">Register Company / Organization</a></li>
+            </ul>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="sucess-stories.html">Success Stories</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="mediaDropdownMobile"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Media </a>
+            <div class="dropdown-menu" aria-labelledby="mediaDropdownMobile"><a class="dropdown-item"
+                href="./gallery.html">Image Gallery</a><a class="dropdown-item" href="videogallery.html">Video
+                Gallery</a></div>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="news.html">News and Events</a></li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <!-- END nav -->
 
 
@@ -311,26 +515,29 @@ a[aria-expanded="false"] .fa-chevron-down {
   </section>
 
 
-<div class="map-background mt-lg-2 pt-lg-2" >
- <h2 class="content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">About Us</h2>
+  <div class="map-background mt-lg-2 pt-lg-2">
+    <h2 class="content-title"
+      style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+      About Us</h2>
     <div class="content-map-wrapper">
-    <div class="content-area">
-     
-      <p class="content-text"><strong style="font-weight: bold;">Welcome to Amdavad Municipal Corporation’s CSR Connect
-          Portal </strong>, a one-stop gateway where purpose-driven funding meets on-ground impact.
-        In today’s world, CSR isn’t just about ticking a compliance box it is about creating real, visible change. At
-        AMC, we believe that every rupee spent on Corporate Social Responsibility has the power to transform lives,
-        uplift communities, and build a city that thrives together.</p>
-      <p class="content-text"><strong style="font-weight: bold;">But how do we make that happen?</strong><br>
-        This platform is our answer.
-        A digital bridge built for corporates who want their CSR funds to matter, and government departments who know
-        where that support is needed most.
-        Through this portal, Amdavad Municipal Corporation brings together a curated ecosystem of ready-to-implement,
-        high-impact projects from across departments in areas like health, education, skill development, sanitation,
-        environment, heritage, and more. These are not abstract ideas; they are ground-level initiatives that need the
-        right partners to bring them to life.</p>
+      <div class="content-area">
 
-      <a href="about.html" target="_blank"> <button style="display: inline-block;
+        <p class="content-text"><strong style="font-weight: bold;">Welcome to Amdavad Municipal Corporation’s CSR
+            Connect
+            Portal </strong>, a one-stop gateway where purpose-driven funding meets on-ground impact.
+          In today’s world, CSR isn’t just about ticking a compliance box it is about creating real, visible change. At
+          AMC, we believe that every rupee spent on Corporate Social Responsibility has the power to transform lives,
+          uplift communities, and build a city that thrives together.</p>
+        <p class="content-text"><strong style="font-weight: bold;">But how do we make that happen?</strong><br>
+          This platform is our answer.
+          A digital bridge built for corporates who want their CSR funds to matter, and government departments who know
+          where that support is needed most.
+          Through this portal, Amdavad Municipal Corporation brings together a curated ecosystem of ready-to-implement,
+          high-impact projects from across departments in areas like health, education, skill development, sanitation,
+          environment, heritage, and more. These are not abstract ideas; they are ground-level initiatives that need the
+          right partners to bring them to life.</p>
+
+        <a href="about.html" target="_blank"> <button style="display: inline-block;
     background: rgb(10, 30, 70);
     color: white;
     padding: 10px 20px;
@@ -340,128 +547,136 @@ a[aria-expanded="false"] .fa-chevron-down {
     font-weight: 500;
     text-align: center;
     transition: 0.3s;">Read More</button></a>
-    </div>
-    <div class="map-display">
-      <!-- <img src="./images/ahmedabad-map-slide1.png" alt="Ahmedabad Map" class="map-image"> -->
-      <div class="map-interactive"></div>
-
-      <a href="project.html">
-        <div class="location-pin" style="top: 20%; left: 53%;">
-          <div class="pin-tooltip">Social</div>
-        </div>
-      </a>
-      <a href="project.html">
-        <div class="location-pin" style="top: 33%; left: 72%;">
-          <div class="pin-tooltip">Environment</div>
-        </div>
-      </a>
-      <a href="project.html">
-        <div class="location-pin" style="top: 40%; left: 55%;">
-          <div class="pin-tooltip">Education</div>
-        </div>
-      </a>
-      <a href="project.html">
-        <div class="location-pin" style="top: 50%; left: 69%;">
-          <div class="pin-tooltip">Infrastructure</div>
-        </div>
-      </a>
-      <a href="project.html">
-        <div class="location-pin" style="top: 76%; left: 58%;">
-          <div class="pin-tooltip">Health</div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-<section class="ftco-section " 
-  style="background:  linear-gradient(to top, rgba(255, 255, 255, 4), rgba(255, 255, 255, 0.1))"
-  >
-  <!-- <section class="ftco-section " 
-  style="background-color: #88aefa; border-top-left-radius: 400%; margin-top: 30px;"
-  > -->
-   <h2 class="mb-4 mt-lg-4 content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">Ongoing Projects </h2>
-    <div class="row justify-content-center mb-4">
-      <div class="col-md-5 heading-section ftco-animate text-center">
-       
       </div>
+      <div class="map-display">
+        <!-- <img src="./images/ahmedabad-map-slide1.png" alt="Ahmedabad Map" class="map-image"> -->
+        <div class="map-interactive"></div>
 
-      <div class="projects" id="projectList">
-      </div>
-    </div>
-  </section>
-
-</div>
-
-
-
-   <section class="ftco-gallery mt-2 pt-2">
-        <h2 class="content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">GALLERY</h2>
-
-        <div class="image-grid-container">
-            <!-- Gallery Items -->
-            <div class="grid-item">
-                <a href="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" class="grid-link" target="_blank">
-                    <img src="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" alt="Gallery Image 1">
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" class="grid-link" target="_blank">
-                    <img src="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" alt="Gallery Image 2">
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" class="grid-link" target="_blank">
-                    <img src="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" alt="Gallery Image 3">
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" class="grid-link" target="_blank">
-                    <img src="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" alt="Gallery Image 4">
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" class="grid-link" target="_blank">
-                    <img src="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" alt="Gallery Image 5">
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" class="grid-link" target="_blank">
-                    <img src="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" alt="Gallery Image 6">
-                </a>
-            </div>
-        </div>
-
-        <a href="gallery.html">
-            <div style="display: flex; justify-content: center; padding: 20px;">
-                <button class="view-more-btn">View More</button>
-            </div>
-            
+        <a href="project.html">
+          <div class="location-pin" style="top: 20%; left: 53%;">
+            <div class="pin-tooltip">Social</div>
+          </div>
+        </a>
+        <a href="project.html">
+          <div class="location-pin" style="top: 33%; left: 72%;">
+            <div class="pin-tooltip">Environment</div>
+          </div>
+        </a>
+        <a href="project.html">
+          <div class="location-pin" style="top: 40%; left: 55%;">
+            <div class="pin-tooltip">Education</div>
+          </div>
+        </a>
+        <a href="project.html">
+          <div class="location-pin" style="top: 50%; left: 69%;">
+            <div class="pin-tooltip">Infrastructure</div>
+          </div>
+        </a>
+        <a href="project.html">
+          <div class="location-pin" style="top: 76%; left: 58%;">
+            <div class="pin-tooltip">Health</div>
+          </div>
         </a>
 
-        <!-- Scroll to Top Button -->
-        <button id="scrollToTopBtn" class="scroll-to-top-btn">
-            <i class="fas fa-arrow-up"></i>
-        </button>
+      </div>
+    </div>
+    <section class="ftco-section "
+      style="background:  linear-gradient(to top, rgba(255, 255, 255, 4), rgba(255, 255, 255, 0.1))">
+      <!-- <section class="ftco-section " 
+  style="background-color: #88aefa; border-top-left-radius: 400%; margin-top: 30px;"
+  > -->
+      <h2 class="mb-4 mt-lg-4 content-title"
+        style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+        Ongoing Projects </h2>
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-5 heading-section ftco-animate text-center">
+
+        </div>
+
+        <div class="projects" id="projectList">
+        </div>
+      </div>
     </section>
- <div class="gallery-container mt-5 pt-3 pb-5 mb-5">
-   <h2 class="content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
-Video Gallery</h2>
 
-  <div class="video-gallery p-2" id="videoGallery">
+  </div>
+
+
+
+  <section class="ftco-gallery mt-2 pt-2">
+    <h2 class="content-title"
+      style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+      GALLERY</h2>
+
+    <div class="image-grid-container">
+      <!-- Gallery Items -->
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" class="grid-link" target="_blank">
+          <img src="https://lakhpatididi.in/SRS-documents/images/2.png_20250703052111" alt="Gallery Image 1">
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" class="grid-link" target="_blank">
+          <img src="https://lakhpatididi.in/SRS-documents/images/1.png_20250703052003" alt="Gallery Image 2">
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" class="grid-link" target="_blank">
+          <img src="https://lakhpatididi.in/SRS-documents/images/a2.jpg_20250703052112" alt="Gallery Image 3">
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255" class="grid-link"
+          target="_blank">
+          <img src="https://lakhpatididi.in/SRS-documents/images/amd-1-slider.jpeg_20250624055255"
+            alt="Gallery Image 4">
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" class="grid-link" target="_blank">
+          <img src="https://lakhpatididi.in/SRS-documents/images/a3.jpg_20250703052112" alt="Gallery Image 5">
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" class="grid-link" target="_blank">
+          <img src="https://lakhpatididi.in/SRS-documents/images/a4.jpg_20250703052113" alt="Gallery Image 6">
+        </a>
+      </div>
     </div>
 
-  <a href="videogallery.html" class="view-more-link">
-    <div class="d-flex justify-content-center p-4">
-      <button class="view-more-btn">View More</button>
+    <a href="gallery.html">
+      <div style="display: flex; justify-content: center; padding: 20px;">
+        <button class="view-more-btn">View More</button>
+      </div>
+
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </section>
+  <div class="gallery-container mt-5 pt-3 pb-5 mb-5">
+    <h2 class="content-title"
+      style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+      Video Gallery</h2>
+
+    <div class="video-gallery p-2" id="videoGallery">
     </div>
-  </a>
-</div>
+
+    <a href="videogallery.html" class="view-more-link">
+      <div class="d-flex justify-content-center p-4">
+        <button class="view-more-btn">View More</button>
+      </div>
+    </a>
+  </div>
   <!-- video gallery section end -->
   <section class="ftco-section bg-light" id="section-completedprojects">
     <div class="container-fluid">
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-9 heading-section ftco-animate text-center">
-<h2 class="content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">Our Completed Projects</h2>
+          <h2 class="content-title"
+            style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+            Our Completed Projects</h2>
 
         </div>
       </div>
@@ -471,7 +686,7 @@ Video Gallery</h2>
 
       </div>
       <a href="completed-project.html">
-        <button class="view-more-btn" >
+        <button class="view-more-btn">
           View More
         </button>
       </a>
@@ -483,7 +698,9 @@ Video Gallery</h2>
     <div class="container">
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-12 heading-section text-center ftco-animate">
-         <h2 class="content-title" style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">Frequently Asked Questions</h2>
+          <h2 class="content-title"
+            style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+            Frequently Asked Questions</h2>
         </div>
       </div>
 
@@ -503,7 +720,7 @@ Video Gallery</h2>
             <div class="card-body">
               The AMC CSR Portal is an initiative by the Ahmedabad Municipal Corporation to facilitate Corporate Social
               Responsibility (CSR) projects in partnership with businesses, NGOs, and individuals for the city's
-              development. 
+              development.
             </div>
           </div>
         </div>
@@ -783,7 +1000,7 @@ Video Gallery</h2>
 
           <div class="form-group col-12 text-center mt-4">
             <button type="submit" class="btn btn-primary">
-             Register Company
+              Register Company
             </button>
           </div>
 
@@ -801,7 +1018,9 @@ Video Gallery</h2>
       <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
         stroke="#F96D00" />
     </svg></div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const track = document.getElementById('customFooterSliderTrack');
@@ -883,6 +1102,26 @@ Video Gallery</h2>
       });
     });
   </script>
+<script>
+  function changeFontSize(action) {
+    let elements = document.querySelectorAll("*"); // Select all elements
+    elements.forEach(el => {
+      let style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+      let currentSize = parseFloat(style);
+
+      if (!el.dataset.originalSize) {
+        // Store original size for future scaling reference
+        el.dataset.originalSize = currentSize;
+      }
+
+      if (action === 'increase') {
+        el.style.fontSize = (currentSize + 1) + 'px';
+      } else if (action === 'decrease') {
+        el.style.fontSize = (currentSize - 1) + 'px';
+      }
+    });
+  }
+</script>
 
   <script>
     function openPopup() {
@@ -1033,7 +1272,7 @@ Video Gallery</h2>
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- video gallery script starts -->
+  <!-- video gallery script starts -->
   <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
       const videoGallery = document.getElementById('videoGallery');
@@ -1167,85 +1406,85 @@ Video Gallery</h2>
       fetchVideos();
     });
   </script> -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const videoGallery = document.getElementById('videoGallery');
-    let allVideos = [];
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const videoGallery = document.getElementById('videoGallery');
+      let allVideos = [];
 
-    // Fetches video data from the API.
-    async function fetchVideos() {
-      try {
-        const response = await fetch('https://mumbailocal.org:8087/listallgallery');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+      // Fetches video data from the API.
+      async function fetchVideos() {
+        try {
+          const response = await fetch('https://mumbailocal.org:8087/listallgallery');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          // Filters for video files, sorts them by orderId in descending order, and formats the date.
+          allVideos = data
+            .filter(item => item.fileType === 'video')
+            .sort((a, b) => b.orderId - a.orderId)
+            .map(video => ({
+              fileUrl: video.fileUrl,
+              createdAt: formatDate(video.createdAt),
+              orderId: video.orderId
+            }));
+
+          const topThree = allVideos.slice(0, 3);
+          displayVideos(topThree);
+
+        } catch (error) {
+          console.error('Error fetching videos:', error);
+          videoGallery.innerHTML = '<p style="text-align: center; color: #e74c3c;">Failed to load videos. Please try again later.</p>';
+        }
+      }
+
+      // Formats an ISO date string into a more readable format.
+      function formatDate(isoDate) {
+        const date = new Date(isoDate);
+        return date.toLocaleDateString('en-IN', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+
+      // Checks if a given URL is a YouTube URL.
+      function isYouTubeUrl(url) {
+        return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//.test(url);
+      }
+
+      // Extracts the YouTube embed URL from a standard YouTube video URL.
+      function getYouTubeEmbedUrl(url) {
+        const regex = /(?:youtube\.com\/.*v=|youtu\.be\/)([^&\n?#]+)/;
+        const match = url.match(regex);
+        // Corrected YouTube embed URL format to use standard embed
+        return match ? `https://www.youtube.com/embed/${match[1]}?controls=1&autoplay=0` : null;
+      }
+
+      // Displays the provided video array in the gallery.
+      function displayVideos(videos) {
+        videoGallery.innerHTML = '';
+
+        if (videos.length === 0) {
+          videoGallery.innerHTML = '<p style="text-align: center; color: #7f8c8d;">No videos found</p>';
+          return;
         }
 
-        const data = await response.json();
+        // Adds or removes the 'few-videos' class based on the number of videos.
+        videoGallery.classList.toggle('few-videos', videos.length < 3);
 
-        // Filters for video files, sorts them by orderId in descending order, and formats the date.
-        allVideos = data
-          .filter(item => item.fileType === 'video')
-          .sort((a, b) => b.orderId - a.orderId)
-          .map(video => ({
-            fileUrl: video.fileUrl,
-            createdAt: formatDate(video.createdAt),
-            orderId: video.orderId
-          }));
+        videos.forEach(video => {
+          const videoCard = document.createElement('div');
+          videoCard.className = 'video-card';
 
-        const topThree = allVideos.slice(0, 3);
-        displayVideos(topThree);
+          let videoContent = '';
 
-      } catch (error) {
-        console.error('Error fetching videos:', error);
-        videoGallery.innerHTML = '<p style="text-align: center; color: #e74c3c;">Failed to load videos. Please try again later.</p>';
-      }
-    }
-
-    // Formats an ISO date string into a more readable format.
-    function formatDate(isoDate) {
-      const date = new Date(isoDate);
-      return date.toLocaleDateString('en-IN', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-    }
-
-    // Checks if a given URL is a YouTube URL.
-    function isYouTubeUrl(url) {
-      return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//.test(url);
-    }
-
-    // Extracts the YouTube embed URL from a standard YouTube video URL.
-    function getYouTubeEmbedUrl(url) {
-      const regex = /(?:youtube\.com\/.*v=|youtu\.be\/)([^&\n?#]+)/;
-      const match = url.match(regex);
-      // Corrected YouTube embed URL format to use standard embed
-      return match ? `https://www.youtube.com/embed/${match[1]}?controls=1&autoplay=0` : null;
-    }
-
-    // Displays the provided video array in the gallery.
-    function displayVideos(videos) {
-      videoGallery.innerHTML = '';
-
-      if (videos.length === 0) {
-        videoGallery.innerHTML = '<p style="text-align: center; color: #7f8c8d;">No videos found</p>';
-        return;
-      }
-
-      // Adds or removes the 'few-videos' class based on the number of videos.
-      videoGallery.classList.toggle('few-videos', videos.length < 3);
-
-      videos.forEach(video => {
-        const videoCard = document.createElement('div');
-        videoCard.className = 'video-card';
-
-        let videoContent = '';
-
-        if (isYouTubeUrl(video.fileUrl)) {
-          const embedUrl = getYouTubeEmbedUrl(video.fileUrl);
-          if (embedUrl) {
-            videoContent = `
+          if (isYouTubeUrl(video.fileUrl)) {
+            const embedUrl = getYouTubeEmbedUrl(video.fileUrl);
+            if (embedUrl) {
+              videoContent = `
               <div class="video-container">
                 <iframe
                   src="${embedUrl}"
@@ -1258,9 +1497,9 @@ Video Gallery</h2>
                  <p class="video-date">${video.createdAt}</p>
               </div>
             `;
-          }
-        } else {
-          videoContent = `
+            }
+          } else {
+            videoContent = `
             <div class="video-container">
               <video controls>
                 <source src="${video.fileUrl}" type="video/mp4">
@@ -1271,46 +1510,46 @@ Video Gallery</h2>
                <p class="video-date">${video.createdAt}</p>
             </div>
           `;
-        }
+          }
 
-        videoCard.innerHTML = videoContent;
-        videoGallery.appendChild(videoCard);
-        animateCard(videoCard);
-      });
-    }
+          videoCard.innerHTML = videoContent;
+          videoGallery.appendChild(videoCard);
+          animateCard(videoCard);
+        });
+      }
 
-    // Observer for animating video cards when they enter the viewport.
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
-        }
+      // Observer for animating video cards when they enter the viewport.
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
       });
-    }, {
-      threshold: 0.1
+
+      // Applies initial styles for animation and observes the card.
+      function animateCard(card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out'; /* Slightly slower, smoother animation */
+        observer.observe(card);
+      }
+
+      // Initiates fetching and displaying videos when the script loads.
+      fetchVideos();
     });
-
-    // Applies initial styles for animation and observes the card.
-    function animateCard(card) {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out'; /* Slightly slower, smoother animation */
-      observer.observe(card);
-    }
-
-    // Initiates fetching and displaying videos when the script loads.
-    fetchVideos();
-  });
-</script>
-<!-- video gallery script ends -->
+  </script>
+  <!-- video gallery script ends -->
 
   <script src="js/services/newsandevent.js"></script>
   <script src="js/scripts/letestupdateSectionScript.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  
-<script> $(document).ready(function() { $('.dropdown-menu a.dropdown-toggle').on('click', function(e) { if (!$(this).next().hasClass('show')) { $(this).parents('.dropdown-menu').first().find('.show').removeClass('show'); } var $subMenu = $(this).next('.dropdown-menu'); $subMenu.toggleClass('show'); $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) { $('.dropdown-submenu .show').removeClass('show'); }); return false; }); }); </script>
+
+  <script> $(document).ready(function () { $('.dropdown-menu a.dropdown-toggle').on('click', function (e) { if (!$(this).next().hasClass('show')) { $(this).parents('.dropdown-menu').first().find('.show').removeClass('show'); } var $subMenu = $(this).next('.dropdown-menu'); $subMenu.toggleClass('show'); $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) { $('.dropdown-submenu .show').removeClass('show'); }); return false; }); }); </script>
 
 
 

@@ -3351,6 +3351,8 @@ input[type="button"].btn-block {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
+  height:44px;
+  width:44px;
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem; }
@@ -9244,7 +9246,7 @@ background-image: linear-gradient(to top,rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.79
       font-weight: 500;
       width: 60%; 
       /* margin-left: 120px; */
-    font-size: 12px;
+    font-size: 14px;
     }
 
     .topbar-flag {
@@ -9259,6 +9261,7 @@ background-image: linear-gradient(to top,rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.79
 
     .topbar-right {
       display: flex;
+      font-size: 14px;
 justify-content: inline-block;
       align-items: center;
       font-weight: 500;
@@ -9268,10 +9271,13 @@ justify-content: inline-block;
 
     .topbar-right a {
       color: white;
+      font-size: 14px;
       text-decoration: none;
       margin-left: 20px;
     }
-
+.goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+  font-size: 14px;
+}
     .topbar-right a:hover {
       text-decoration: underline;
    }
@@ -9438,7 +9444,8 @@ justify-content: inline-block;
 }
 .navbar-light .navbar-nav .nav-link {
     /* color: rgb(255 255 255 / 50%); */
-    color: #0a1e4673;
+    /* color: #0a1e4673; */
+    color: #154199B8;
 }
 .navbar-expand-lg{
   background-color: #ffffff;
@@ -9979,7 +9986,9 @@ background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1),rgba(255, 25
       color: #0056b3 !important;
     }
  /* Your custom CSS here */ /* This is for the desktop hover behavior */ @media (min-width: 992px) { .navbar .dropdown:hover > .dropdown-menu { display: block; margin-top: 0; } .navbar .dropdown-submenu:hover > .dropdown-menu { display: block; } .navbar .dropdown-submenu > .dropdown-menu { top: 0; left: 100%; margin-top: -6px; } } 
-
+.header-social-icons{
+  display:inline-flex;
+}
 
 
 
