@@ -120,3 +120,11 @@
 .owl-carousel .owl-item img {
   height: 250px;
 }
+@media only screen and (max-width: 468px) {
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+    position: relative;
+    left: 2px;
+    top: 3px;
+    background: none;
+} }
