@@ -180,52 +180,45 @@
   </head>
   <body>
   <header>
-    <div class="top-container">
-      <div class="topbar-left">
-        Amdavad Municipal Corporation CSR Portal
-      </div>
-      <div class="topbar-right">
-        <a href="https://lakhpatididi.in/AMC-CSR-Admin/html/login.html" target="_blank" class="login-tab"
-          >Login</a>
-        <div id="google_translate_element"></div>
-
-        <div class="header-social-icons"
-          style="display: flex; justify-content: inline-flex; gap: 10px; padding-left: 5px;"><i
-            class="icon-facebook"></i> <i class="icon-twitter"></i><i class="icon-instagram"></i> <i
-            class="icon-youtube"></i></a>
-        </div>
-      </div>
-
-  </header>
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="./images/amcLogo.png" class="amd-logo" alt="Logo">
-      <img src="./images/amc logo.png" class="amd-name" alt="Logo">
-      <img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo">
-    </a>
+ <div class="top-container">
+  <div class="topbar-left">
+    Amdavad Municipal Corporation CSR Portal
   </div>
-
-  <!-- nav start -->
-  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar"
+  <div class="topbar-right">
+    <a href="https://lakhpatididi.in/AMC-CSR-Admin/html/login.html" target="_blank" class="login-tab">Login</a>
+    <div id="google_translate_element"></div>
+    <!-- Social Icons -->
+    <div class="header-social-icons"
+      style="display: flex; align-items: center; gap: 10px; padding-left: 5px;">
+      <i class="icon-facebook"></i>
+      <i class="icon-twitter"></i>
+      <i class="icon-instagram"></i>
+      <i class="icon-youtube"></i>
+    </div>
+    <!-- Font Size Controls -->
+    <div class="font-controls" style="margin-left: 15px; display: flex; gap: 8px; align-items: center;">
+      <button onclick="changeFontSize('increase')" style="cursor:pointer; border:none; background:none; font-size:14px; color: #fff;">A+</button>
+      <button onclick="changeFontSize('decrease')" style="cursor:pointer; border:none; background:none; font-size:14px;color: #fff;">A-</button>
+    </div>
+  </div>
+</div>
+  </header>
+  <div class="container d-none d-lg-block"><a class="navbar-brand d-flex align-items-center" href="index.html"><img
+        src="./images/amcLogo.png" class="amd-logo" alt="Logo" style="height:50px;"><img src="./images/amc logo.png"
+        class="amd-name" alt="Logo" style="height:50px; margin-left:8px;"><img
+        src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo"
+        style="height:50px; margin-left:8px;"></a></div>
+  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar d-none d-lg-block"
     style="border-radius: 0px !important;">
     <div class="container-fluid">
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav"
-        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="ftco-nav">
+      <div class="collapse navbar-collapse show">
         <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              onclick="window.location.href='./index.html'; return false;">
-              Home
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal Corporation CSR</a>
+          <li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="./index.html"
+              id="navbarDropdownHome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Home </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownHome">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal
+                  Corporation CSR</a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="overview.html">Overview</a></li>
                   <li><a class="dropdown-item" href="mission.html">Mission</a></li>
@@ -236,84 +229,115 @@
               </li>
             </ul>
           </li>
-
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Projects
-            </a>
-            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
-              <a class="dropdown-item" href="project.html">Projects Open For Collaboration</a>
-              <a class="dropdown-item" href="fundanidea.html">Fund An Idea</a>
-              <a class="dropdown-item" href="completed-project.html">Completed Projects</a>
-              <a class="dropdown-item" href="trackApplication.html">Track Application</a>
-            </div>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="corporateDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Projects </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown"><a class="dropdown-item"
+                href="project.html">Projects Open For Collaboration</a><a class="dropdown-item"
+                href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed
+                Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div>
           </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Important Links
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <!-- download tab -->
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Download</a>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Important Links </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
                   <li><a class="dropdown-item" href="framework.html">Frameworks</a></li>
                 </ul>
               </li>
-              <!-- download tab end -->
-              <!-- Reference tab -->
-              <li>
-                <a class="dropdown-item " href="reference.html">Reference</a>
-              </li>
-              <!-- Reference tab end -->
+              <li><a class="dropdown-item" href="reference.html">Reference</a></li>
             </ul>
           </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link" href="implimenting-agencies.html">Implementing Agencies</a>
+          <li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
+              Agencies</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="companiesDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Companies </a>
+            <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+              <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+              <li><a class="dropdown-item" href="company-register.html">Register Company / Organization</a></li>
+            </ul>
           </li>
-
-                   <!-- Companies Dropdown Menu -->
-<li class="nav-item dropdown custom-tab">
-  <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false">
-    Companies
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
-    <li><a class="dropdown-item" href="companies.html">Companies</a></li>
-    <li><a class="dropdown-item" href="company-register.html">Register Company 
-/ Organization</a></li>
-  </ul>
-</li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link" href="sucess-stories.html">Success Stories</a>
+          <li class="nav-item custom-tab"><a class="nav-link" href="sucess-stories.html">Success Stories</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="mediaDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Media </a>
+            <div class="dropdown-menu" aria-labelledby="mediaDropdown"><a class="dropdown-item"
+                href="./gallery.html">Image Gallery</a><a class="dropdown-item" href="videogallery.html">Video
+                Gallery</a></div>
           </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link dropdown-toggle" href="#" id="corporateDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Media
-            </a>
-            <div class="dropdown-menu" aria-labelledby="corporateDropdown">
-              <a class="dropdown-item" href="./gallery.html">Image Gallery</a>
-              <a class="dropdown-item" href="videogallery.html">Video Gallery</a>
-            </div>
+          <li class="nav-item custom-tab"><a class="nav-link" href="news.html">News and Events</a></li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar d-block d-lg-none"
+    style="border-radius: 0px !important;">
+    <div class="container-fluid d-flex justify-content-between align-items-center"><a
+        class="navbar-brand d-flex align-items-center flex-shrink-0" href="index.html"><img src="./images/amcLogo.png"
+          class="amd-logo" alt="Logo" style="height:35px; width:auto; max-width:50px;"><img src="./images/amc logo.png"
+          class="amd-name" alt="Logo"><img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png"
+          class="GovLogo" alt="GovLogo" style="height:35px; width:auto; margin-left:6px; max-width:50px;"></a><button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav-mobile"
+        aria-controls="ftco-nav-mobile" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="ftco-nav-mobile">
+        <ul class="navbar-nav d-flex flex-column text-center w-100">
+          <li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="navbarDropdownMobileHome" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Home </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMobileHome">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal
+                  Corporation CSR</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="overview.html">Overview</a></li>
+                  <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+                  <li><a class="dropdown-item" href="objectives.html">Objectives</a></li>
+                  <li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li>
+                  <li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li>
+                </ul>
+              </li>
+            </ul>
           </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link active" href="news.html">News and Events</a>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="corporateDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Projects </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdownMobile"><a class="dropdown-item"
+                href="project.html">Projects Open For Collaboration</a><a class="dropdown-item"
+                href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed
+                Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div>
           </li>
-
-          <li class="nav-item dropdown custom-tab">
-            <a class="nav-link" href="contact.html">Contact</a>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="navbarDropdown2Mobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Important Links </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2Mobile">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="framework.html">Frameworks</a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="reference.html">Reference</a></li>
+            </ul>
           </li>
-
+          <li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
+              Agencies</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="companiesDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Companies </a>
+            <ul class="dropdown-menu" aria-labelledby="companiesDropdownMobile">
+              <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+              <li><a class="dropdown-item" href="company-register.html">Register Company / Organization</a></li>
+            </ul>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="sucess-stories.html">Success Stories</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="mediaDropdownMobile"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Media </a>
+            <div class="dropdown-menu" aria-labelledby="mediaDropdownMobile"><a class="dropdown-item"
+                href="./gallery.html">Image Gallery</a><a class="dropdown-item" href="videogallery.html">Video
+                Gallery</a></div>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="news.html">News and Events</a></li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -440,6 +464,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <script> $(document).ready(function () { $('.dropdown-menu a.dropdown-toggle').on('click', function (e) { if (!$(this).next().hasClass('show')) { $(this).parents('.dropdown-menu').first().find('.show').removeClass('show'); } var $subMenu = $(this).next('.dropdown-menu'); $subMenu.toggleClass('show'); $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) { $('.dropdown-submenu .show').removeClass('show'); }); return false; }); }); </script>
  <script>
     document.addEventListener('DOMContentLoaded', function () {
       var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
