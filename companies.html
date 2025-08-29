@@ -47,8 +47,7 @@
       }
       
       .company-sidebar {
-        background-color: #0f54e9;
-        color: white;
+background:linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%);        color: white;
         border-radius: 5px;
         height: 100%;
       }
@@ -135,13 +134,31 @@
       }
       
       .company-btn-outline {
-        border: 1px solid var(--accent-color);
-        color: var(--accent-color);
-        background-color: transparent;
+         display: inline-block;
+    background:linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(10, 30, 70, 0.3);
+    font-weight: 600 !important;
+    border: none;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.3s;
       }
       
       .company-btn-outline:hover {
-        background-color: #EFF6FF;
+        background: linear-gradient(135deg, #0E45B3 0%, #0000FF 100%);
+    box-shadow: 0 6px 20px rgba(10, 30, 70, 0.4);
+    transform: translateY(-2px);
+    color: white;
+
       }
       
       .company-btn-primary {
@@ -510,7 +527,7 @@
       <!-- Main Projects Content Column - now full width -->
       <div class="col-12">
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <button id="backToCompanies" class="btn btn-sm company-btn-outline me-3">
+          <button id="backToCompanies" class="btn btn-sm button-read-more company-btn-outline me-3">
             <i class="fas fa-arrow-left me-2"></i>Back to Companies
           </button>
           <h1 id="projectsCompanyName" class="h3 mb-0 flex-grow-1 text-truncate"></h1>
@@ -530,7 +547,6 @@
                     <th>Status</th>
                     <th>Location</th>
                     <th>Budget</th>
-                    <th>Impact People</th>
                     <th>Action</th>
                   </tr>
                 </thead>
