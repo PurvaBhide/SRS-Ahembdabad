@@ -529,7 +529,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           <div class="completeprojectcard-footer" >
             <a class="button-read-more" href="./donatenow.html?id=${projectId}">
-              <i class="fas fa-eye"></i> View Project
+               View Project
             </a>
            
           </div>

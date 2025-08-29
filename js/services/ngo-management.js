@@ -165,7 +165,7 @@ function renderNGOs(ngos) {
         </p>
         
         <div class="agency-actions d-flex justify-content-between">
-          <button class="btn btn-sm agency-btn-primary view-projects-btn" data-id="${ngo.id}">View Projects</button>
+          <button class="btn btn-sm agency-btn-primary button-read-more" data-id="${ngo.id}">View Projects</button>
         </div>
       </div>
     `;
@@ -334,29 +334,23 @@ function renderProjects(apiResponse, ngo) {
         </span>
       </td>
       <td>
-        <span class="badge ${getStatusBadgeClass(project.projectStatus)}">
-          <i class="fas ${getStatusIcon(project.projectStatus)} me-1"></i>
+        <span class="badge ${getStatusBadgeClass(project.projectStatus)}" style="color:#4b4a4a">
           ${project.projectStatus || 'Unknown'}
         </span>
       </td>
       <td>
         <div class="d-flex align-items-center">
-          <i class="fas fa-map-marker-alt text-muted me-2"></i>
-          <span>${project.projectLocation || 'N/A'}</span>
+          <i class="fas fa-map-marker-alt text-muted me-2"></i> &nbsp;
+          <span style="color:#4b4a4a">${project.projectLocation || 'N/A'}</span>
         </div>
       </td>
-      <td class="fw-semibold">
+      <td class="fw-semibold" style="color:#4b4a4a">
         ${formatCurrency(project.projectBudget)}
       </td>
-      <td>
-        <div class="d-flex align-items-center">
-          <i class="fas fa-users text-muted me-2"></i>
-          <span>${project.impactpeople || '0'}</span>
-        </div>
-      </td>
+      
        <td>
         <div class="d-flex gap-2">
-          <button class="btn btn-sm btn-outline-primary view-project-btn" 
+          <button class="btn btn-sm button-read-more view-project-btn" 
                   data-id="${project.projectId}"
                   data-project='${JSON.stringify(project)}'
                   data-ngo='${JSON.stringify(ngo)}'
