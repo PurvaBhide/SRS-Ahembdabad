@@ -126,8 +126,8 @@ function loadAllStories() {
                                     <p class="story-date mb-2"><i class="far fa-calendar-alt me-2"></i>${formatDate(story.successstoryDate)}</p>
                                     <h5 class="card-title story-title">${story.successstoryTitle}</h5>
                                     <p class="card-text story-excerpt">${shortenText(story.successstoryDescription, 120)}</p>
-                                    <a href="#" class="read-more-btn" data-bs-toggle="modal" data-bs-target="#storyModal${index}"
-                                        style=" background: linear-gradient(to right, #165cda, #3B82F6); color: aliceblue; padding: 10px; border-radius: 5px;">
+                                    <a href="#" class="button-read-more" data-bs-toggle="modal" data-bs-target="#storyModal${index}"
+                                       >
                                         Read Full Story <i class="fas fa-arrow-right ms-2"></i>
                                     </a>
                                 </div>
@@ -138,7 +138,7 @@ function loadAllStories() {
                         <div class="modal fade" id="storyModal${index}" tabindex="-1" aria-labelledby="storyModalLabel${index}" aria-hidden="true">
                             <div class="modal-dialog modal-lg custom-modal-desktop">
                                 <div class="modal-content">
-                                    <div class="modal-header" style=" background: linear-gradient(to right, #165cda, #3B82F6); color: white;">
+                                    <div class="modal-header" style="  background: linear-gradient(135deg, #0E45B3 0%, #0000FF 100%);    box-shadow: 0 6px 20px rgba(10, 30, 70, 0.4);    transform: translateY(-2px);    color: white;">
                                         <h5 class="modal-title" id="storyModalLabel${index}">${story.successstoryTitle}</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
                                     </div>
