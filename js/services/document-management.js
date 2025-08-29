@@ -28,9 +28,6 @@ function renderPDFCards(apiResponse) {
         pdfCard.className = 'pdf-card';
 
         pdfCard.innerHTML = `
-            <div class="pdf-preview" onclick="openPDF('${doc.documenturl.replace(/'/g, "\\'")}')">
-                <div class="pdf-icon">📄</div>
-            </div>
             <div class="pdf-info">
                 <h3>${doc.documenttitle}</h3>
                 <p class="pdf-type">${doc.documentType}</p>
