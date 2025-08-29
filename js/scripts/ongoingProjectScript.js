@@ -883,7 +883,7 @@ style.textContent = `
     }
     
     .filter-tag {
-        background: #0A1E46;
+       background:linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%);
         color: white;
         padding: 6px 12px;
         border-radius: 20px;

@@ -225,19 +225,25 @@
   <div class="container">
 
     <div style=" justify-self:center;margin: 10px;">
-      <h2>Corporates to raise their own request</h2>
-      <p>Submit your project proposal in just a few simple steps</p>
+      <!-- <h2>Corporates to raise their own request</h2>
+      <p>Submit your project proposal in just a few simple steps</p> -->
     </div>
 
     <div class="progress-container">
       <div class="progress-steps">
-        <div class="step active" id="step1">01</div>
+         <div class="step active" id="step1">
+                    <span class="step-number">1</span>
+                    <div class="step-label">Step</div>
+                </div>
         <div class="step-connector" id="connector1"></div>
-        <div class="step inactive" id="step2">02</div>
+         <div class="step inactive" id="step2">
+                    <span class="step-number">2</span>
+                    <div class="step-label">Step</div>
+                </div>
       </div>
     </div>
 
-    <div class="form-container" style="background-color: rgb(246, 248, 253); border-radius: 50px; margin-bottom: 5rem;">
+    <div class="form-container" style=" border-radius: 50px; margin-bottom: 5rem;">
       <!-- Step 1: Project Details -->
       <div class="form-step active" id="formStep1">
         <div class="form-row">
@@ -344,10 +350,10 @@
       </div>
 
       <div class="button-group">
-        <button type="button" class="btn btn-secondary" id="backBtn" onclick="previousStep()"
+        <button type="button" class="button-read-more" id="backBtn" onclick="previousStep()"
           style="display: none;">BACK</button>
-        <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">NEXT</button>
-        <button type="button" class="btn btn-success" id="submitBtn" onclick="submitForm()"
+        <button type="button" class="button-read-more" id="nextBtn" onclick="nextStep()">NEXT</button>
+        <button type="button" class="button-read-more" id="submitBtn" onclick="submitForm()"
           style="display: none;">SUBMIT</button>
       </div>
     </div>
