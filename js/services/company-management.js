@@ -132,7 +132,6 @@ function renderCompanies(companies) {
     card.className = 'col-xl-4 col-lg-6 col-md-6';
     card.innerHTML = `
       <div class="company-card">
-        <span class="company-type ${companyType}">${company.status || 'Private'}</span>
         <h3 class="company-name">${company.companyname}</h3>
         <p class="company-description" style="font-size:12px ;  width: 250px; white-space: nowrap; overflow: hidden;
   text-overflow: ellipsis;"><span style="font-weight:600;color:#0a1e46">Representative Name:</span> ${company.authcomprepresentativename }</p>
@@ -147,7 +146,7 @@ function renderCompanies(companies) {
         
       
         <div class="company-actions d-flex justify-content-between">
-          <button class="btn btn-sm company-btn-primary" data-id="${company.companieId}">View Projects</button>
+          <button class="btn btn-sm company-btn-primary button-read-more" data-id="${company.companieId}">View Projects</button>
         </div>
       </div>
     `;
@@ -257,9 +256,8 @@ function renderProjects(apiResponse, company) {
       </td>
       <td>${project.projectLocation || 'N/A'}</td>
       <td>${formatCurrency(project.projectBudget)}</td>
-      <td>${project.impactpeople ? `${project.impactpeople} people` : 'N/A'}</td>
       <td>
-        <button class="btn btn-sm company-btn-outline view-project-btn" 
+        <button class="btn btn-sm button-read-more view-project-btn" 
                 data-id="${project.projectId}"
                 data-project='${JSON.stringify(project)}'>
           View Details
