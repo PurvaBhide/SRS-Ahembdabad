@@ -36,7 +36,7 @@
                 <h5 class="card-title">${project.projectName}</h5>
                 <p class="card-text flex-grow-1">${project.projectShortDescription || 'No description available.'}</p>
                 <div class="mt-auto text-center">
-                  <a class="btn btn-primary px-4" href="./donatenow.html?id=${project.projectId || ''}">View Details</a>
+                  <a class="button-read-more" href="./donatenow.html?id=${project.projectId || ''}">View Details</a>
                 </div>
               </div>
             </div>

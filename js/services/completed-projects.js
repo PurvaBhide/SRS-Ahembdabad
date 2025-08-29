@@ -49,7 +49,7 @@
                     ${project.projectName || project.projectShortDescription || 'Untitled Project'}
                     </div>
 
-                    <a class="view-link" href="./donatenow.html?id=${project.projectId || ''}">View Details</a>
+                    <a class="button-read-more" href="./donatenow.html?id=${project.projectId || ''}">View Details</a>
                 </div>
                 </div>`;
         }      
