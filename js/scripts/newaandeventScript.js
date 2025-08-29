@@ -296,8 +296,8 @@ class NewsEventsManager {
               <p class="news-excerpt">${truncatedDesc}</p>
             </div>
             <div class="mt-auto">
-              <button class="read-more-btn" onclick="openNewsModal(${news.letestupdateid})">
-                Read More <i class="fas fa-arrow-right ms-2"></i>
+              <button class="button-read-more" onclick="openNewsModal(${news.letestupdateid})">
+                Read More 
               </button>
             </div>
           </div>
