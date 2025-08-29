@@ -987,7 +987,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     `
                         : ""
                     }
-                    <a class="view-link view-more-btn" href="./donatenow.html?id=${projectId}" style="display: inline-block;  background: linear-gradient(135deg, #3b82f6 0%, #1059b0 100%); border-radius: 8px; text-decoration: none; font-weight: 500; text-align: center; transition: all 0.3s ease;" ">View Details</a>
+                    <a class="button-read-more" href="./donatenow.html?id=${projectId}"  >View Details</a>
                 </div>
             </div>
         `;
