@@ -527,8 +527,8 @@ document.addEventListener("DOMContentLoaded", function () {
          
          
 
-          <div class="completeprojectcard-footer">
-            <a class="view-link" href="./donatenow.html?id=${projectId}">
+          <div class="completeprojectcard-footer" >
+            <a class="button-read-more" href="./donatenow.html?id=${projectId}">
               <i class="fas fa-eye"></i> View Project
             </a>
            
@@ -721,8 +721,7 @@ style.textContent = `
     margin-bottom: 30px;
   }
     .completeprojectcard-footer{
-        padding: 0.75rem 1.25rem;
-    
+    padding-top: 15px;
     border-top: 1px solid rgba(0, 0, 0, 0.125);}
 .status{
     position: absolute;
