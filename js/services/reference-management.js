@@ -79,9 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const desc = doc.documentshortdesc || "";
 
           pdfCard.innerHTML = `
-            <div class="pdf-preview" onclick="openPDF('${urlEscaped}')">
-              <div class="pdf-icon">📄</div>
-            </div>
+        
             <div class="pdf-info">
               <h3>${escapeHtml(title)}</h3>
               <p class="pdf-description">${escapeHtml(desc)}</p>

@@ -76,9 +76,7 @@ function renderPDFGrid(documents) {
     col.innerHTML = `
       <div class="pdf-card card h-100">
         <div class="card-body d-flex flex-column">
-          <div class="pdf-preview mb-3" style="cursor:pointer;" onclick="openPDF('${safeUrlForOnclick}')">
-            <div class="pdf-icon" style="font-size:36px;">📄</div>
-          </div>
+
           <div class="pdf-info mb-3">
             <h6 class="card-title mb-1">${escapeHtml(title)}</h6>
             <p class="small text-muted mb-1">${escapeHtml(type)}</p>
