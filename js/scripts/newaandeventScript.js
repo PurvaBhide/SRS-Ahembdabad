@@ -415,7 +415,7 @@ class NewsEventsManager {
             <h4 class="alert-heading">Error!</h4>
             <p>${message}</p>
             <hr>
-            <button class="btn btn-outline-danger" onclick="refreshNewsEvents()">
+            <button class="button-read-more" onclick="refreshNewsEvents()">
               <i class="fas fa-redo"></i> Try Again
             </button>
           </div>
@@ -525,22 +525,30 @@ const newsLoadingStyles = `
 }
 
 .read-more-btn {
-  border: none;
-  background: none;
-  color: #0f54e9;
-  font-weight: 500;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
- 
+  display: inline-block;
+    background:linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(10, 30, 70, 0.3);
+    font-weight: 600 !important;
+    border: none;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.3s;
 }
 
 .read-more-btn:hover {
-  background-color: #0f54e9;
-  color: white;
-  transform: translateY(-2px);
+   background: linear-gradient(135deg, #0E45B3 0%, #0000FF 100%);
+    box-shadow: 0 6px 20px rgba(10, 30, 70, 0.4);
+    transform: translateY(-2px);
+    color: white;
 }
 
 .page-link {
