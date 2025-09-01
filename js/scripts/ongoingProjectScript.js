@@ -966,7 +966,7 @@ style.textContent = `
     }
     
     .card .description {
-        color: #64748b;
+        color:#3e444e;
         font-size: 14px;
         line-height: 1.5;
         margin-bottom: 15px;
