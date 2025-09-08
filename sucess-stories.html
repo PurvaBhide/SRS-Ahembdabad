@@ -153,6 +153,44 @@
         --bs-aspect-ratio: 56.25%; /* 16:9 aspect ratio */
     }
 }
+.pagination {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination .page-item {
+  margin: 0 4px;
+}
+
+.pagination .page-link {
+  color: #0A1E46;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination .page-link:hover {
+  background-color: #0A1E46;
+  color: #fff;
+  border-color: #0A1E46;
+}
+
+.pagination .page-item.active .page-link {
+  background: linear-gradient(135deg, #0E45B3 0%, #3B82F6 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #aaa;
+  background-color: #f5f5f5;
+  border-color: #eee;
+}
+
 
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -343,28 +381,21 @@
   <!-- breadcrums section end -->
 
   <section class="ftco-section">
-    <div class="container">
-      <!-- Filter Buttons -->
-      <!-- <div class="row mb-5">
-          <div class="col-12 text-center">
-            <div class="btn-group flex-wrap justify-content-center">
-              <button type="button" class="btn filter-btn active">All Stories</button>
-              <button type="button" class="btn filter-btn">Education</button>
-              <button type="button" class="btn filter-btn">Health</button>
-              <button type="button" class="btn filter-btn">Environment</button>
-              <button type="button" class="btn filter-btn">Infrastructure</button>
-              <button type="button" class="btn filter-btn">Social Welfare</button>
-            </div>
-          </div>
-        </div> -->
+   <!-- Success Stories Grid -->
+<div class="row g-4" id="stories-container"></div>
 
-      <!-- Success Stories Grid -->
-      <div class="row g-4">
-      </div>
 
-    </div>
+
+
   </section>
-
+<!-- Pagination -->
+<div class="row" style="margin-top: 6rem;">
+  <div class="col-12 d-flex justify-content-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination" id="pagination"></ul>
+    </nav>
+  </div>
+</div>
   <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
     <div class="container">
