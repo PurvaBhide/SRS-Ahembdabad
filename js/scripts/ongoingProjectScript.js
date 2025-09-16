@@ -652,7 +652,7 @@ function loadProjectsBySearch(query) {
     
     // Create HTML for a single project card
     function createProjectCard(project) {
-        const budget = project.projectBudget ? '₹' + Number(project.projectBudget).toLocaleString('en-IN') : 'Budget not specified';
+        const budget = project.projectBudget ;
         const title = project.projectName || project.projectTitle || 'Untitled Project';
         const description = project.projectShortDescription || project.projectDescription || 'No description available';
         const category = getCategoryName(project.categoryId) || 'Uncategorized';

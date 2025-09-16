@@ -65,7 +65,7 @@ function updateProjectDetails(project) {
   // Update description
   const descriptionHTML = `
     <p><strong>Project Name:</strong> ${project.projectName || 'Not specified'}</p>
-    <p><strong>Estimated Cost:</strong> ${formatCurrency(parseInt(project.projectBudget || 0))}</p>
+    <p><strong>Estimated Cost:</strong> ${project.projectBudget }</p>
     <p><strong>Short Description:</strong> ${project.projectShortDescription || 'No description available'}</p>
     ${project.projectLongDescription ? `<p><strong>Detailed Description:</strong> ${project.projectLongDescription}</p>` : ''}
   `;
@@ -104,7 +104,7 @@ function updateProjectDetails(project) {
 
 
   // Update funding target
-  document.querySelector('.raised-amount').textContent = `${formatCurrency(parseInt(project.projectBudget || 0))}`;
+  document.querySelector('.raised-amount').textContent = `${project.projectBudget }`;
   document.querySelector('#customAmount').value = parseInt(project.projectBudget || 0);
 }
 
