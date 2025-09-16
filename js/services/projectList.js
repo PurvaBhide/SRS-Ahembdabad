@@ -219,7 +219,7 @@
             <span class="tag">${project.categoryName || ''}</span>
             <div class="cost">
               Funding Required:
-              <span class="cost-amount">${formatCurrency(parseInt(project.projectBudget || 0, 10))}</span>
+              <span class="cost-amount">${project.projectBudget}</span>
             </div>
             <div class="title">
               ${project.projectName || project.projectShortDescription || 'Untitled Project'}
