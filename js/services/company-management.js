@@ -133,10 +133,7 @@ function renderCompanies(companies) {
     card.innerHTML = `
       <div class="company-card">
         <h3 class="company-name">${company.companyname}</h3>
-        <p class="company-description" style="font-size:12px ;  width: 250px; white-space: nowrap; overflow: hidden;
-  text-overflow: ellipsis;"><span style="font-weight:600;color:#0a1e46">Representative Name:</span> ${company.authcomprepresentativename }</p>
-        <p class="company-description" style="font-size:12px ;  width: 250px; white-space: nowrap; overflow: hidden;
-  text-overflow: ellipsis;"><span style="font-weight:600 ;color:#0a1e46">Email:</span> ${company.authcomprepresentativeemail}</p>
+  
         <p class="company-info">
               <a href="${company.companyurl}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">
         <i class="fas fa-globe me-2"></i> ${company.companyurl}

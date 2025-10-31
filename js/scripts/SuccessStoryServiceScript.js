@@ -59,7 +59,7 @@ function renderStories(stories) {
                         <span class="story-category">${getCategoryName(story.categoryId)}</span>
                     </div>
                     <div class="card-body">
-                        <p class="story-date mb-2"><i class="far fa-calendar-alt me-2"></i>${formatDate(story.successstoryDate)}</p>
+                       
                         <h5 class="card-title story-title">${story.successstoryTitle}</h5>
                         <p class="card-text story-excerpt">${shortenText(story.successstoryDescription, 120)}</p>
                         <a href="#" class="button-read-more" data-bs-toggle="modal" data-bs-target="#storyModal${index}">
