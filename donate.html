@@ -27,6 +27,165 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css/category.css">
+    <link rel="stylesheet" href="css/css/slider.css">
+    <link rel="stylesheet" href="css/css/Homepage.css">
+    <link rel="stylesheet" href="css/css/page/overview.css">
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- Footer Visitor Counter Styles -->
+    <style>
+      /* Footer Visitor Counter Styles */
+      .footer-visitor-counter {
+        background: linear-gradient(135deg, rgba(10, 30, 70, 0.9) 0%, rgba(14, 69, 179, 0.9) 100%);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 20px rgba(10, 30, 70, 0.3);
+      }
+
+      .visitor-stats {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: white;
+        flex: 1;
+        min-width: 150px;
+        justify-content: center;
+      }
+
+      .stat-icon {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #fff;
+        animation: iconPulse 3s infinite ease-in-out;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .stat-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        opacity: 0.9;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .stat-number {
+        font-size: 20px;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        line-height: 1;
+      }
+
+      @keyframes iconPulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 4px 15px rgba(10, 30, 70, 0.4);
+        }
+      }
+
+      @keyframes numberGlow {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      .stat-number.updating {
+        animation: numberGlow 1s ease-in-out;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .visitor-stats {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .stat-item {
+          width: 100%;
+          justify-content: flex-start;
+          padding: 10px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item:last-child {
+          border-bottom: none;
+        }
+
+        .stat-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+
+        .stat-label {
+          font-size: 11px;
+        }
+
+        .stat-number {
+          font-size: 18px;
+        }
+
+        .footer-visitor-counter {
+          padding: 15px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .stat-icon {
+          width: 35px;
+          height: 35px;
+          font-size: 14px;
+        }
+
+        .stat-label {
+          font-size: 10px;
+        }
+
+        .stat-number {
+          font-size: 16px;
+        }
+
+        .footer-visitor-counter {
+          padding: 12px;
+          margin-bottom: 15px;
+        }
+      }
+    </style>
+
   </head>
   <body>
     
@@ -439,10 +598,26 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 text-center">
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          <div class="col-md-12">
+            <!-- Global Visitor Counter -->
+            <div class="footer-visitor-counter">
+              <div class="visitor-stats">
+                <div class="stat-item">
+                  <i class="fas fa-users stat-icon"></i>
+                  <div class="stat-content">
+                    <div class="stat-label">Total Visitors</div>
+                    <div class="stat-number" id="totalVisitors">Loading...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved .
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -571,6 +746,141 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+
+  <!-- Global Visitor Counter Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize global visitor counter
+      initGlobalVisitorCounter();
+    });
+
+    function initGlobalVisitorCounter() {
+      // Track page visit with your real API
+      trackPageVisit();
+
+      // Update visitor statistics with real data only
+      updateVisitorStats();
+    }
+
+    async function trackPageVisit() {
+      const url = window.location.href;
+      const title = document.title;
+      const referrer = document.referrer || 'direct';
+      const userAgent = navigator.userAgent;
+
+      // Use your actual Counter API with authentication
+      const trackingServices = [
+        // Primary: Your Counter API
+        {
+          name: 'AMC CSR Counter',
+          url: 'https://api.counterapi.dev/v2/gaurav-patils-team-1772/amccsr/up',
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ut_zR8mB7hBhSDPwU8y1FETmlNhtBCoPutb2bCjl2e6',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            page: url,
+            title: title,
+            referrer: referrer,
+            timestamp: new Date().toISOString(),
+            userAgent: userAgent.substring(0, 200)
+          })
+        }
+      ];
+
+      // Execute tracking requests
+      trackingServices.forEach(async (service) => {
+        try {
+          const response = await fetch(service.url, {
+            method: service.method,
+            headers: service.headers,
+            body: service.body
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            console.log(`✅ Visit tracked successfully! New count:`, data.count);
+          } else {
+            console.log(`❌ Tracking failed with status: ${response.status}`);
+          }
+        } catch (error) {
+          console.log(`❌ Failed to track with ${service.name}:`, error.message);
+        }
+      });
+    }
+
+    function updateVisitorStats() {
+      // Get only real visitor data from your API
+      getTotalVisitors().then(count => {
+        const totalElement = document.getElementById('totalVisitors');
+        const currentTotal = parseInt(totalElement.textContent.replace(/,/g, '')) || 0;
+        animateNumber(totalElement, currentTotal, count);
+      }).catch(error => {
+        console.log('❌ Error getting visitor count:', error.message);
+        const totalElement = document.getElementById('totalVisitors');
+        totalElement.textContent = '0';
+      });
+    }
+
+    async function getTotalVisitors() {
+      try {
+        // Get the current count from your Counter API
+        const response = await fetch('https://api.counterapi.dev/v2/gaurav-patils-team-1772/amccsr', {
+          method: 'GET',
+          headers: {
+            'Authorization': 'Bearer ut_zR8mB7hBhSDPwU8y1FETmlNhtBCoPutb2bCjl2e6'
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          return data.count || 0;
+        } else {
+          console.log(`❌ Failed to get visitor count: ${response.status}`);
+          return 0;
+        }
+      } catch (error) {
+        console.log('❌ Error fetching visitor count:', error.message);
+        return 0;
+      }
+    }
+
+    function animateNumber(element, start, end) {
+      if (!element) return;
+
+      element.classList.add('updating');
+      const duration = 1000; // 1 second
+      const startTime = performance.now();
+
+      function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentNumber = Math.floor(start + (end - start) * easeOutQuart);
+
+        element.textContent = formatNumber(currentNumber);
+
+        if (progress < 1) {
+          requestAnimationFrame(updateNumber);
+        } else {
+          element.textContent = formatNumber(end);
+          element.classList.remove('updating');
+        }
+      }
+
+      requestAnimationFrame(updateNumber);
+    }
+
+    function formatNumber(num) {
+      return num.toLocaleString();
+    }
+
+    // Function to manually refresh stats (exposed for testing)
+    window.refreshVisitorStats = updateVisitorStats;
+  </script>
+
   </body>
 </html>
