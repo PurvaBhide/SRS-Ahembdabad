@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Amdavad Municipal Corporation CSR Portal - Implementing Agencies</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="./images/amcLogo.png" />
 
-    <link
+<head>
+  <title>Amdavad Municipal Corporation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet"> -->
+  <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;800&display=swap"
     rel="stylesheet">
 
@@ -34,314 +36,164 @@
   <link rel="stylesheet" href="css/css/page/overview.css">
   <!-- Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    
-    <!-- Custom CSS for Implementing Agencies Page -->
     <style>
-      :root {
-        --primary-color: #0A1E46;
-        --secondary-color: #1E3A8A;
-        --accent-color: #3B82F6;
-        --light-color: #F8FAFC;
-        --text-color: #1E293B;
-        --text-light: #64748B;
-      }
-      .ftco-section {
-    position: relative;
-    padding: 2em 0px !important;
-}
-      .agency-sidebar {
-        background:linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%);
-        color: white;
-        border-radius: 5px;
-        height: 100%;
-      }
-      
-      .agency-sidebar-header {
-        padding: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      
-      .agency-category {
-        padding: 0.75rem 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        display: block;
-        color: white;
-        text-decoration: none;
-      }
-      
-      .agency-category:hover, .agency-category.active {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-left: 4px solid var(--accent-color);
-      }
-      
-      .agency-card {
-        background-color: white;
-        border-radius: 8px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 6px rgba(26, 26, 26, 0.4);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        /* height: 100%; */
-        margin-bottom: 20px;
-      }
-      
-      .agency-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-      }
-      
-      .agency-type {
-        display: inline-block;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-bottom: 0.75rem;
-      }
-      
-      .ngo {
-        background-color: #DBEAFE;
-        color: var(--secondary-color);
-      }
-      
-      .trust {
-        background-color: #D1FAE5;
-        color: #065F46;
-      }
-      
-      .agency-name {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin: 0.5rem 0;
-        color: var(--primary-color);
-      }
-      
-      .agency-info {
-        color: var(--text-light);
-        font-size: 0.9rem;
-        margin: 0.5rem 0;
-      }
-      
-      .agency-actions {
-        margin-top: 1.25rem;
-        padding-top: 1rem;
-        border-top: 1px solid #E2E8F0;
-      }
-      
-      .agency-btn-outline {
-        border: 1px solid var(--accent-color);
-        color: var(--accent-color);
-        background-color: transparent;
-      }
-      
-      .agency-btn-outline:hover {
-        background-color: #EFF6FF;
-      }
-      
-      .agency-btn-primary {
-        background-color: var(--accent-color);
-        color: white;
-        border: none;
-      }
-      
-      .agency-btn-primary:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .agency-logo {
-        width: 80px;
-        height: 80px;
-        object-fit: contain;
-        margin-right: 15px;
-        border-radius: 4px;
-        border: 1px solid #eee;
-      }
-      
-      .agency-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-      }
-      
-      .agency-details {
-        flex: 1;
-      }
-      
-      .project-count {
-        background-color: var(--primary-color);
-        color: white;
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: 500;
-      }
-       .company-btn-outline {
-        border: 1px solid var(--accent-color);
-        color: var(--accent-color);
-        background-color: transparent;
-      }
-      
-      .company-btn-outline:hover {
-        background-color: #EFF6FF;
-      }
-      
-      .company-btn-primary {
-        background-color: var(--accent-color);
-        color: white;
-        border: none;
-      }
-      
-      .company-btn-primary:hover {
-        background-color: var(--secondary-color);
-      }
-
-
-      @media (max-width: 767.98px) {
-        .agency-sidebar {
-          margin-bottom: 2rem;
+       
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #0f54e9;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 5px;
+            text-align: center;
+            padding-top: 20px;
         }
-        
-        .agency-content-header {
-          flex-direction: column;
-          align-items: flex-start;
+
+        .header p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            text-align: center;
+
         }
-        
-        .agency-search-bar {
-          width: 100%;
-          margin-top: 1rem;
+
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding-bottom: 40px;
         }
-        
-        .agency-header {
-          flex-direction: column;
-          text-align: center;
+
+        .pdf-card {
+            background: #f8f9ff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.2s ease;
         }
-        
-        .agency-logo {
-          margin-right: 0;
-          margin-bottom: 15px;
+
+        .pdf-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-      }
-     /* Projects View Styles */
-#projectsView .project-stat-card {
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
 
-#projectsView .project-stat-card .stat-value {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
-}
+        .pdf-preview {
+            width: 100%;
+            height: 120px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
 
-#projectsView .project-stat-card .stat-label {
-  color: #6c757d;
-  margin-bottom: 0;
-  font-size: 0.9rem;
-}
+        .pdf-preview:hover {
+            background: #e9ecef;
+        }
 
-#projectsView .table th {
-  border-top: none;
-  font-weight: 600;
-  color: #495057;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  vertical-align: middle;
-  letter-spacing: 0.5px;
-}
+        .pdf-icon {
+            color: #6c757d;
+            font-size: 2rem;
+        }
 
-#projectsView .table td {
-  vertical-align: middle;
-  padding: 1rem;
-}
+        .pdf-info h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
 
-#projectsView .badge {
-  padding: 0.35em 0.65em;
-  font-size: 0.75em;
-  font-weight: 600;
-  letter-spacing: 0.5px; 
-}
-      
-       .project-stat-card {
-    border-radius: 10px;
-    padding: 20px;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  .project-stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  }
-  
-  .total-projects {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  }
-  
-  .active-projects {
-    background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
-  }
-  
-  .completed-projects {
-    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-  }
-  
-  .stat-icon {
-    font-size: 2.5rem;
-    margin-right: 20px;
-    opacity: 0.2;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .stat-content {
-    z-index: 2;
-  }
-  
-  .stat-value {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: #fff;
-  }
-  
-  .stat-label {
-    font-size: 1rem;
-    opacity: 0.9;
-    margin-bottom: 0;
-  }
-  
-  .stat-wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,0.2)" d="M0,50 Q360,100 720,50 Q1080,0 1440,50 L1440,100 L0,100 Z"></path></svg>');
-    background-size: cover;
-  }  </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
-  <body>
+        .pdf-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            background: white;
+            color: #495057;
+            text-decoration: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 1200px) {
+            .pdf-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .pdf-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .pdf-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 15px;
+            }
+            
+            .pdf-actions {
+                flex-direction: column;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pdf-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
   <header>
  <div class="top-container">
   <div class="topbar-left">
     Amdavad Municipal Corporation CSR Portal
   </div>
   <div class="topbar-right">
-    <a href="https://amccsrportal.in/admin/html/login.html" target="_blank" class="login-tab">Login</a>
+    <a href="https://lakhpatididi.in/AMC-CSR-Admin/html/login.html" target="_blank" class="login-tab">Login</a>
     <div id="google_translate_element"></div>
     <!-- Social Icons -->
     <div class="header-social-icons"
@@ -399,19 +251,19 @@
                 href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed
                 Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div>
           </li>
-          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+          <li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Important Links </a>
             <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
               <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a> -->
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
-                  <li><a class="dropdown-item" href="sop.html">Standard Operating Procedure</a></li>
-                  <li><a class="dropdown-item" href="csr-guidelines.html">CSR Guidelines</a></li>
+                  <li><a class="dropdown-item" href="framework.html">Frameworks</a></li>
+                  <li><a class="dropdown-item" href="reference.html">Reference</a></li>
                 </ul>
               </li>
             <!-- </ul> -->
           </li>
-          <li class="nav-item active custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
+          <li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
               Agencies</a></li>
           <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="companiesDropdown"
               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Companies </a>
@@ -469,20 +321,20 @@
                 href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed
                 Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div>
           </li>
-          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+          <li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
               id="navbarDropdown2Mobile" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false"> Important Links </a>
             <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown2Mobile">
               <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a> -->
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
-                  <li><a class="dropdown-item" href="sop.html">Standard Operating Procedure</a></li>
-                  <li><a class="dropdown-item" href="csr-guidelines.html">CSR Guidelines</a></li>
+                  <li><a class="dropdown-item" href="framework.html">Frameworks</a></li>
+                  <li><a class="dropdown-item" href="reference.html">Reference</a></li>
                 </ul>
               </li>
             <!-- </ul> -->
           </li>
-          <li class="nav-item active custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
+          <li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
               Agencies</a></li>
           <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
               id="companiesDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -517,218 +369,90 @@
     </div>
   </div>
   <!-- breadcrums section end -->
-    <section class="ftco-section mt-2 mb-5">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- Sidebar Column -->
-          <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
-            <div class="agency-sidebar p-0">
-              <div class="agency-sidebar-header">
-                <h2 class="h5 mb-0 text-white">Categories</h2>
-              </div>
-              <div class="agency-categories">
-                </div>
-            </div>
-          </div>
-          
-          <!-- Main Content Column -->
-          <div class="col-lg-9 col-md-8">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
-              <!-- <h1 class="h3 mb-3 mb-md-0">Implementing Agencies</h1> -->
-              <div class="input-group agency-search-bar" style="max-width: 300px;">
-                <span class="input-group-text bg-white border-0"><i class="fas fa-search"></i></span>
-                <input type="text" class="form-control border-0 shadow-none" placeholder="Search agencies...">
-              </div>
-            </div>
-           
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Projects View Section (initially hidden) -->
-<section id="projectsView" class="ftco-section d-none mt-2 mb-2">
-  <div class="container-fluid">
-    <div class="row">
-    <div class="col-12">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <button id="backToCompanies" class="button-read-more">
-            <i class="fas fa-arrow-left me-2"></i> &nbsp;Back to Companies
-          </button>
-      <span class="d-none d-sm-inline">Back to Companies</span>
-      <span class="d-sm-none">Back</span>
-    </button>
-  </div>
-  
-  <!-- Company Name Column -->
-  <div class="col">
-    <h1 id="projectsCompanyName" class="h3 mb-0 text-truncate">Company Name</h1>
-  </div>
 
-        <!-- Projects Table -->
-        <div class="card shadow-sm mt-3 mb-3">
-          <div class="card-body p-0">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead class="table-light">
-                  <tr>
-                    <th>Project Name</th>
-                    <th>Category</th>
-                    <th>Status</th>
-                    <th>Location</th>
-                    <th>Budget</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody id="projectsTableBody">
-                  <!-- Projects will be loaded here -->
-                </tbody>
-              </table>
-            </div>
-          </div>
+    <div class="container">
+        <div class="header">
+            <h1></h1>
+     
         </div>
-        
-      </div>
+
+<div class="pdf-grid"></div>
     </div>
-  </div>
-</section>
+
     
-
-        
-<footer class="ftco-footer ftco-section img">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row mb-5">
-
-      <!-- About Us -->
-      <div class="col-md-5">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">About Us</h2>
-          <p>The Ahmedabad Municipal Corporation (AMC) is the governing civic body of Ahmedabad, Gujarat’s largest
-            city. Established in 1950 under the Bombay Provincial Corporation Act, AMC is responsible for the
-            administration and development of the city, ensuring essential services and infrastructure for over 8
-            million citizens.</p>
-
-          <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-          </ul>
+      <footer class="ftco-footer ftco-section img">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-5">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">About Us</h2>
+            <p>The Ahmedabad Municipal Corporation (AMC) is the governing civic body of Ahmedabad, Gujarat’s largest
+              city. Established in 1950 under the Bombay Provincial Corporation Act, AMC is responsible for the
+              administration and development of the city, ensuring essential services and infrastructure for over 8
+              million citizens.</p>
+            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-
-      <!-- Site Links -->
-      <div class="col-md-2">
-        <div class="ftco-footer-widget mb-4 ml-md-4">
-          <h2 class="ftco-heading-2">Site Links</h2>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="py-2 d-block">Home</a></li>
-            <li><a href="about.html" class="py-2 d-block">About Us</a></li>
-            <li><a href="project.html" class="py-2 d-block">Projects</a></li>
-            <li><a href="index.html#section-faqs" class="py-2 d-block">FAQ</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- AMC CSR Contact Details -->
-      <div class="col-md-5">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">AMC CSR Contact Details</h2>
-          <div class="block-23 mb-3">
-            <ul>
-
-              <!-- Mr. Manish Trivedi -->
-              <li>
-                <span class="icon icon-user"></span>
-                <span class="text"><strong>Mr. Manish Trivedi</strong>, Director at AMC MET and CSR Cell</span>
-              </li>
-              <li>
-                <span class="icon icon-map-marker"></span>
-                <span class="text">G.F, NHL Municipal Medical College, V. S. Hospital Campus, Ellisbridge, Ahmedabad-380006</span>
-              </li>
-              <li>
-                <a href="tel:9327038698"><span class="icon icon-phone"></span>
-                  <span class="text">9327038698</span></a>
-              </li>
-              <li>
-                <a href="mailto:dydiramcmet@gmail.com"><span class="icon icon-envelope"></span>
-                  <span class="text">dydiramcmet@gmail.com</span></a>
-              </li>
-
-              <br />
-
-              <!-- Mr. Aniruddh Vaghela -->
-              <li>
-                <span class="icon icon-user"></span>
-                <span class="text"><strong>Mr. Aniruddh Vaghela</strong></span>
-              </li>
-              <li>
-                <a href="tel:75678024979"><span class="icon icon-phone"></span>
-                  <span class="text">75678024979</span></a>
-              </li>
-              <li>
-                <a href="mailto:csramc25@gmail.com"><span class="icon icon-envelope"></span>
-                  <span class="text">csramc25@gmail.com</span></a>
-              </li>
+        <div class="col-md-3">
+          <div class="ftco-footer-widget mb-4 ml-md-4">
+            <h2 class="ftco-heading-2">Site Links</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-2 d-block">Home</a></li>
 
             </ul>
           </div>
         </div>
+        <div class="col-md-4">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Have a Questions?</h2>
+            <div class="block-23 mb-3">
+              <ul>
+                <li><span class="icon icon-map-marker"></span><span class="text">Sardar Patel Bhavan,
+                    Danapith, Ahmedabad – 380001,
+                    Gujarat, India</span></li>
+                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91-79-25391811</span></a></li>
+                <li><a href="#"><span class="icon icon-envelope"></span><span
+                      class="text">info@ahmedabadcity.gov.in</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-
-    </div>
-
-    <!-- Footer Bottom -->
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p>
-          Copyright © 
-          <script>document.write(new Date().getFullYear());</script> All rights reserved.
-        </p>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright © copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved .
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
       </div>
     </div>
-
-  </div>
-</footer>
-
+  </footer>
     
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  <script> $(document).ready(function () { $('.dropdown-menu a.dropdown-toggle').on('click', function (e) { if (!$(this).next().hasClass('show')) { $(this).parents('.dropdown-menu').first().find('.show').removeClass('show'); } var $subMenu = $(this).next('.dropdown-menu'); $subMenu.toggleClass('show'); $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) { $('.dropdown-submenu .show').removeClass('show'); }); return false; }); }); </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/jquery.timepicker.min.js"></script>
-    <script src="js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="js/google-map.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+        function openPDF(url) {
+            if (url && url !== '') {
+                window.open(url, '_blank');
+            }
+        }
+    </script>
 
-    <!-- Load core files first -->
-<script src="js/api/api.config.js"></script>
-<script src="js/api/api.core.js"></script>
 
-<!-- Then load service definitions -->
-<script src="js/services/ngo.js"></script>
-<script src="js/services/category.js"></script>
-<script src="js/services/project.js"></script>
-<!-- <script src="js/services/category-management.js"></script> If you have this -->
-
-<!-- Finally initialize the API -->
-<script src="js/api/api.init.js"></script>
 <!-- script for breadcrums -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -748,8 +472,8 @@
         'completed-project.html': { name: 'Completed Projects', parent: 'Projects' },
         'trackApplication.html': { name: 'Track Application', parent: 'Projects' },
         'legal-documents.html': { name: 'Legal Documents', parent: 'Download' },
-        'sop.html': { name: 'Standard Operating Procedure', parent: 'Download' },
-        'csr-guidelines.html': { name: 'CSR Guidelines', parent: null },
+        'framework.html': { name: 'Frameworks', parent: 'Download' },
+        'reference.html': { name: 'Reference', parent: null },
         'implimenting-agencies.html': { name: 'Implementing Agencies', parent: null },
         'companies.html': { name: 'Companies', parent: null },
         'company-register.html': { name: 'Register Company / Organization', parent: 'Companies' },
@@ -815,9 +539,62 @@
     });
   </script>
 <!-- script for breadcrums end -->
-<!-- Then your management scripts -->
-<script src="js/services/ngo-management.js"></script>
- <script type="text/javascript">
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+
+  dropdownSubmenus.forEach(function (submenuLink) {
+    submenuLink.addEventListener('click', function (e) {
+      // Only prevent default if it's a dropdown with a submenu
+      if (this.parentElement.classList.contains('dropdown-submenu')) {
+        e.preventDefault();
+        let nextDropdown = this.nextElementSibling;
+        if (nextDropdown.style.display === 'block') {
+          nextDropdown.style.display = 'none';
+        } else {
+          nextDropdown.style.display = 'block';
+        }
+      }
+    });
+  });
+});
+</script>
+
+<!-- jQuery (required by Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Popper.js (for Bootstrap tooltips/dropdowns) -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+    <script src="js/api/api.config.js"></script>
+  <script src="js/api/api.core.js"></script>
+  <script src="js/services/document.js"></script>
+  <script src="js/api/api.init.js"></script>
+  <script src="js/services/reference-management.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
         { pageLanguage: 'en', includedLanguages: 'en,gu,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
@@ -825,8 +602,13 @@
       );
     }
   </script>
-     <script type="text/javascript"
+
+
+
+  <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
   </body>
+</html>
+</body>
 </html>
