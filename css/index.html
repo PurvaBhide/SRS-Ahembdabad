@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Amdavad Municipal Corporation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" type="image/png" href="./images/amcLogo.png" />
+
+   <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/ionicons.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/css/category.css">
+  <link rel="stylesheet" href="css/css/slider.css">
+  <link rel="stylesheet" href="css/css/Homepage.css">
+  <link rel="stylesheet" href="css//css/page/floating-form.css">
+  <!-- <link rel="stylesheet" href="css/css/project.css"> -->
+
+  <!-- Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    /* General Gallery Section Styling */
+    .ftco-gallery {
+      padding: 2rem 0 5rem 0;
+      /* Top, Right, Bottom, Left padding */
+      background-color: #f8f9fa;
+      /* Light background for the section */
+      position: relative;
+      /* For positioning the scroll-to-top button */
+    }
+
+    /* Image Grid Container */
+    .image-grid-container {
+      display: grid;
+      /* Responsive grid: 3 columns on large screens, adjusting down */
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+      /* Space between grid items */
+      padding: 0 20px;
+      /* Padding on sides to prevent sticking to edges */
+      max-width: 1200px;
+      /* Max width for the grid */
+      margin: 0 auto;
+      /* Center the grid container */
+    }
+
+    /* Individual Grid Item */
+    .grid-item {
+      background-color: #fff;
+      border-radius: 15px;
+      /* Rounded corners */
+      overflow: hidden;
+      /* Ensures image corners are rounded */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      /* Subtle shadow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* Smooth transitions for hover */
+      position: relative;
+      /* For positioning overlay */
+      cursor: pointer;
+      aspect-ratio: 1 / 0.5;
+      /* Maintain square aspect ratio for uniform look */
+    }
+
+    /* Hover effect for all grid items */
+    .grid-item:hover {
+      transform: scale(1.05) translateY(-5px);
+      /* Enlarge and lift effect on hover */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      /* Enhanced but subtle shadow on hover */
+    }
+
+    .grid-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      /* Remove underline from link */
+      color: inherit;
+      position: relative;
+      /* For positioning img and overlay */
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Cover the container while maintaining aspect ratio */
+      display: block;
+      border-radius: 15px;
+      /* Match parent's border-radius */
+    }
+
+    /* Gradient Overlay for All Images on Hover */
+    .grid-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+      border-radius: 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+      /* Ensure overlay is above the image but below any content */
+    }
+
+    .grid-item:hover::before {
+      opacity: 1;
+    }
+
+    /* View More Button Styling (retained and adjusted to theme blue) */
+    .view-more-btn {
+      background: linear-gradient(135deg, #0A1E46 0%, #0E45B3 100%);
+      /* Initial gradient with theme blue */
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      width: 40%;
+      max-width: 300px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(10, 30, 70, 0.3);
+      /* Shadow color based on theme blue */
+      display: block;
+      margin: 20px auto;
+    }
+
+    .view-more-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(10, 30, 70, 0.5);
+      /* Deeper shadow on hover with theme blue */
+      background: linear-gradient(135deg, #0e45b3 0%, #3b79f5 100%);
+      /* Lighter gradient on hover (subtle variation) */
+    }
+
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #0A1E46;
+      /* Theme dark blue */
+      color: white;
+      border: none;
+      border-radius: 50%;
+      /* Circular button */
+      width: 50px;
+      height: 50px;
+      font-size: 1.2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      /* Start hidden */
+      visibility: hidden;
+      /* Hide from screen readers when not visible */
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      z-index: 1000;
+      /* Ensure it's above other content */
+    }
+
+    #scrollToTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      /* Slight animation when it appears */
+    }
+
+    #scrollToTopBtn:hover {
+      background-color: #0e45b3;
+      /* Lighter blue on hover */
+      transform: translateY(-3px);
+      /* Slight lift */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .image-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .content-title {
+        font-size: 45px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .image-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+      }
+
+      .grid-item {
+        border-radius: 10px;
+      }
+
+      .item-overlay h3 {
+        font-size: 1.3em;
+      }
+
+      .overlay-nav {
+        gap: 15px;
+      }
+
+      .arrow-icon {
+        font-size: 1.6em;
+        padding: 6px 10px;
+      }
+
+      .view-more-btn {
+        width: 60%;
+      }
+
+      #scrollToTopBtn {
+        width: 45px;
+        height: 45px;
+        font-size: 1em;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .image-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 0 10px;
+      }
+
+      .grid-item {
+        border-radius: 8px;
+      }
+
+      .view-more-btn {
+        width: 80%;
+        padding: 12px 20px;
+        font-size: 0.9em;
+      }
+
+      #scrollToTopBtn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9em;
+      }
+    }
+
+    a[aria-expanded="true"] .fa-chevron-down {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+
+    a[aria-expanded="false"] .fa-chevron-down {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+    }
+
+    /* Footer Visitor Counter Styles */
+    .footer-visitor-counter {
+      background: linear-gradient(135deg, rgba(10, 30, 70, 0.9) 0%, rgba(14, 69, 179, 0.9) 100%);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(10, 30, 70, 0.3);
+    }
+
+    .visitor-stats {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      flex: 1;
+      min-width: 150px;
+      justify-content: center;
+    }
+
+    .stat-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      animation: iconPulse 3s infinite ease-in-out;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .stat-number {
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      line-height: 1;
+    }
+
+    @keyframes iconPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(10, 30, 70, 0.4);
+      }
+    }
+
+    @keyframes numberGlow {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    .stat-number.updating {
+      animation: numberGlow 1s ease-in-out;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .visitor-stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .stat-item {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stat-item:last-child {
+        border-bottom: none;
+      }
+
+      .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .stat-label {
+        font-size: 11px;
+      }
+
+      .stat-number {
+        font-size: 18px;
+      }
+
+      .footer-visitor-counter {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .stat-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+      }
+
+      .stat-label {
+        font-size: 10px;
+      }
+
+      .stat-number {
+        font-size: 16px;
+      }
+
+      .footer-visitor-counter {
+        padding: 12px;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+ <div class="top-container">
+  <div class="topbar-left">
+    Amdavad Municipal Corporation CSR Portal
+  </div>
+  <div class="topbar-right">
+    <a href="https://amccsrportal.in/admin/html/login.html" target="_blank" class="login-tab">Login</a>
+    <div id="google_translate_element"></div>
+    <!-- Social Icons -->
+    <div class="header-social-icons"
+      style="display: flex; align-items: center; gap: 10px; padding-left: 5px;">
+      <i class="icon-facebook"></i>
+      <i class="icon-twitter"></i>
+      <i class="icon-instagram"></i>
+      <i class="icon-youtube"></i>
+    </div>
+    <!-- Font Size Controls -->
+    <div class="font-controls" style="margin-left: 15px; display: flex; align-items: center;">
+      <button onclick="changeFontSize('increase')" class="textfontClass" style="cursor:pointer; border:none; background:none; color: #fff;">A+</button>
+      <button onclick="changeFontSize('decrease')" class="textfontClass" style="cursor:pointer; border:none; background:none; color: #fff;">A-</button>
+    </div>
+  </div>
+</div>
+  </header>
+  <div class="container d-none d-lg-block"><a class="navbar-brand d-flex align-items-center" href="index.html"><img
+        src="./images/amcLogo.png" class="amd-logo" alt="Logo" style="height:50px;"><img src="./images/amc logo.png"
+        class="amd-name" alt="Logo" style="height:50px; margin-left:8px;"><img
+        src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png" class="GovLogo" alt="GovLogo"
+        style="height:50px; margin-left:8px;"></a></div>
+  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar d-none d-lg-block"
+    style="border-radius: 0px !important;">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse show">
+        <ul class="navbar-nav d-flex justify-content-around w-100 text-center">
+          <li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle"
+   href="./index.html"
+   id="navbarDropdownHome"
+   role="button"
+   data-toggle="dropdown"
+   aria-haspopup="true"
+   aria-expanded="false"
+   onclick="window.location.href='./index.html';">
+   Home
+</a>
+            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownHome">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal
+                  Corporation CSR</a> -->
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="overview.html">Overview</a></li>
+                  <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+                  <li><a class="dropdown-item" href="objectives.html">Objectives</a></li>
+                  <li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li>
+                  <li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li>
+                </ul>
+              </li>
+            <!-- </ul> -->
+          </li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="corporateDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Projects </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdown"><a class="dropdown-item"
+                href="project.html">Projects Open For Collaboration</a><a class="dropdown-item"
+                href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed
+                Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div>
+          </li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Important Links </a>
+            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a> -->
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="sop.html">Standard Operating Procedure</a></li>
+                  <li><a class="dropdown-item" href="csr-guidelines.html">CSR Guidelines</a></li>
+                </ul>
+              </li>
+            <!-- </ul> -->
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
+              Agencies</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="companiesDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Companies </a>
+            <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+              <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+              <li><a class="dropdown-item" href="company-register.html">Register Company / Organization</a></li>
+            </ul>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="sucess-stories.html">Success Stories</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="mediaDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Media </a>
+            <div class="dropdown-menu" aria-labelledby="mediaDropdown"><a class="dropdown-item"
+                href="./gallery.html">Image Gallery</a><a class="dropdown-item" href="videogallery.html">Video
+                Gallery</a></div>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="news.html">News and Events</a></li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light shadow rounded sticky-top custom-navbar d-block d-lg-none"
+    style="border-radius: 0px !important;">
+    <div class="container-fluid d-flex justify-content-between align-items-center"><a
+        class="navbar-brand d-flex align-items-center flex-shrink-0" href="index.html"><img src="./images/amcLogo.png"
+          class="amd-logo" alt="Logo" style="height:35px; width:auto; max-width:50px;"><img src="./images/amc logo.png"
+          class="amd-name" alt="Logo"><img src="https://gcsra.org/writereaddata/Images/gov-gujarat-logo.png"
+          class="GovLogo" alt="GovLogo" style="height:35px; width:auto; margin-left:6px; max-width:50px;"></a><button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav-mobile"
+        aria-controls="ftco-nav-mobile" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="ftco-nav-mobile">
+        <ul class="navbar-nav d-flex flex-column text-center w-100">
+          <li class="nav-item active dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="navbarDropdownMobileHome" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Home </a>
+            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMobileHome">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">About Amdavad Municipal
+                  Corporation CSR</a> -->
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="overview.html">Overview</a></li>
+                  <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+                  <li><a class="dropdown-item" href="objectives.html">Objectives</a></li>
+                  <li><a class="dropdown-item" href="governing-body.html">Governing Body</a></li>
+                  <li><a class="dropdown-item" href="advisory-body.html">Advisory Body</a></li>
+                </ul>
+              </li>
+            <!-- </ul> -->
+          </li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="corporateDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Projects </a>
+            <div class="dropdown-menu" aria-labelledby="corporateDropdownMobile"><a class="dropdown-item"
+                href="project.html">Projects Open For Collaboration</a><a class="dropdown-item"
+                href="fundanidea.html">Fund An Idea</a><a class="dropdown-item" href="completed-project.html">Completed
+                Projects</a><a class="dropdown-item" href="trackApplication.html">Track Application</a></div>
+          </li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="navbarDropdown2Mobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Important Links </a>
+            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown2Mobile">
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Download</a> -->
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="legal-documents.html">Legal documents</a></li>
+                  <li><a class="dropdown-item" href="sop.html">Standard Operating Procedure</a></li>
+                  <li><a class="dropdown-item" href="csr-guidelines.html">CSR Guidelines</a></li>
+                </ul>
+              </li>
+            <!-- </ul> -->
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="implimenting-agencies.html">Implementing
+              Agencies</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#"
+              id="companiesDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> Companies </a>
+            <ul class="dropdown-menu" aria-labelledby="companiesDropdownMobile">
+              <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+              <li><a class="dropdown-item" href="company-register.html">Register Company / Organization</a></li>
+            </ul>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="sucess-stories.html">Success Stories</a></li>
+          <li class="nav-item dropdown custom-tab"><a class="nav-link dropdown-toggle" href="#" id="mediaDropdownMobile"
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Media </a>
+            <div class="dropdown-menu" aria-labelledby="mediaDropdownMobile"><a class="dropdown-item"
+                href="./gallery.html">Image Gallery</a><a class="dropdown-item" href="videogallery.html">Video
+                Gallery</a></div>
+          </li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="news.html">News and Events</a></li>
+          <li class="nav-item custom-tab"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+
+ <div class="carousel-container" style="position: relative;">
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="./images/MC sir.jfif" alt="Slide 1" style="height: 100%; width: 100%;">
+      </div>
+      <div class="carousel-item">
+        <img src="./images/Cleft Care Opening 2.jfif" alt="Slide 2" style="height: 100%; width: 100%;">
+      </div>
+      <div class="carousel-item">
+        <img src="./images/Fetal Medicine Donation.jfif" alt="Slide 2" style="height: 100%; width: 100%;">
+      </div>
+      <div class="carousel-item">
+        <img src="./images/SCL1.jfif" alt="Slide 2" style="height: 100%; width: 100%;">
+      </div>
+    </div>
+
+    <div class="pagination">
+      <!-- Pagination dots will be added by JavaScript -->
+    </div>
+    <button class="carousel-button prev" aria-label="Previous slide">↑</button>
+    <button class="carousel-button next" aria-label="Next slide">↓</button>
+  </div>
+
+
+
+
+
+  <!-- <section class="ftco-counter ftco-intro" id="section-letestupdate">
+    <div class="container">
+      <div class="updates-container">
+        <div class="loading-container" id="updates-loading">
+          <div class="loading-spinner"></div>
+          <h4 style="color: #0A1E46; margin-bottom: 10px;">Loading Latest Updates</h4>
+          <p style="color: #666;">Fetching the most recent information...</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="ftco-counter ftco-intro" id="section-letestupdate">
+    <div class="container">
+      <div class="updates-container animated-updates">
+        <div class="loading-container" id="updates-loading">
+          <div class="loading-spinner"></div>
+          <h4 class="update-heading">Loading Latest Updates</h4>
+          <p class="update-subtext">Fetching the most recent information...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="map-background mt-lg-2 pt-lg-2">
+    <h2 class="content-title"
+      style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+      About Us</h2>
+    <div class="content-map-wrapper">
+      <div class="content-area">
+
+        <p class="content-text"><strong style="font-weight: bold;">Welcome to Amdavad Municipal Corporation’s CSR
+            Connect
+            Portal </strong>, a one-stop gateway where purpose-driven funding meets on-ground impact.
+          In today’s world, CSR isn’t just about ticking a compliance box it is about creating real, visible change. At
+          AMC, we believe that every rupee spent on Corporate Social Responsibility has the power to transform lives,
+          uplift communities, and build a city that thrives together.</p>
+        <p class="content-text"><strong style="font-weight: bold;">But how do we make that happen?</strong><br>
+          This platform is our answer.
+          A digital bridge built for corporates who want their CSR funds to matter, and government departments who know
+          where that support is needed most.
+          Through this portal, Amdavad Municipal Corporation brings together a curated ecosystem of ready-to-implement,
+          high-impact projects from across departments in areas like health, education, skill development, sanitation,
+          environment, heritage, and more. These are not abstract ideas; they are ground-level initiatives that need the
+          right partners to bring them to life.</p>
+
+        <a href="about.html" target="_blank"> <button class="button-read-more" >Read More</button></a>
+      </div>
+      <div class="map-display">
+        <!-- <img src="./images/ahmedabad-map-slide1.png" alt="Ahmedabad Map" class="map-image"> -->
+        <div class="map-interactive"></div>
+
+        <a href="project.html">
+          <div class="location-pin" style="top: 20%; left: 53%;">
+            <div class="pin-tooltip">Social</div>
+          </div>
+        </a>
+        <a href="project.html">
+          <div class="location-pin" style="top: 33%; left: 72%;">
+            <div class="pin-tooltip">Environment</div>
+          </div>
+        </a>
+        <a href="project.html">
+          <div class="location-pin" style="top: 40%; left: 55%;">
+            <div class="pin-tooltip">Education</div>
+          </div>
+        </a>
+        <a href="project.html">
+          <div class="location-pin" style="top: 50%; left: 69%;">
+            <div class="pin-tooltip">Infrastructure</div>
+          </div>
+        </a>
+        <a href="project.html">
+          <div class="location-pin" style="top: 76%; left: 58%;">
+            <div class="pin-tooltip">Health</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+    <section class="ftco-section "
+      style="background:  linear-gradient(to top, rgba(255, 255, 255, 4), rgba(255, 255, 255, 0.1))">
+      <!-- <section class="ftco-section " 
+  style="background-color: #88aefa; border-top-left-radius: 400%; margin-top: 30px;"
+  > -->
+      <h2 class="mb-4 mt-lg-4 content-title"
+        style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+        Ongoing Projects </h2>
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-5 heading-section ftco-animate text-center">
+
+        </div>
+
+        <div class="projects" id="projectList">
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+
+  <section class="ftco-gallery mt-2 pt-2">
+    <h2 class="content-title"
+      style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+      GALLERY</h2>
+
+    <div class="image-grid-container">
+      <!-- Gallery Items -->
+      
+        <a href="https://lakhpatididi.in/SRS-documents/images/Cleft%20Care%20Opening%202.jfif_20251124063835" class="grid-link" target="_blank">
+          <div class="grid-item">
+          <img src="https://lakhpatididi.in/SRS-documents/images/Cleft%20Care%20Opening%202.jfif_20251124063835" alt="Gallery Image 1">
+          </div>
+        </a>
+      
+      
+        <a href="https://lakhpatididi.in/SRS-documents/images/Cleft%20Care%20Opening.jfif_20251124064230" class="grid-link" target="_blank">
+          <div class="grid-item">
+          <img src="https://lakhpatididi.in/SRS-documents/images/Cleft%20Care%20Opening.jfif_20251124064230" alt="Gallery Image 2">
+          </div>
+        </a>
+      
+     
+        <a href="https://lakhpatididi.in/SRS-documents/images/Cleft%20Care%20Opening1.jfif_20251124064443" class="grid-link" target="_blank">
+           <div class="grid-item">
+          <img src="https://lakhpatididi.in/SRS-documents/images/Cleft%20Care%20Opening1.jfif_20251124064443" alt="Gallery Image 3">
+          </div>
+        </a>
+      
+      
+        <a href="https://lakhpatididi.in/SRS-documents/images/Fetal%20Medicine%20Donation.jfif_20251124064533" class="grid-link"
+          target="_blank">
+          <div class="grid-item">
+          <img src="https://lakhpatididi.in/SRS-documents/images/Fetal%20Medicine%20Donation.jfif_20251124064533"
+            alt="Gallery Image 4">
+            </div>
+        </a>
+      
+      
+        <a href="https://lakhpatididi.in/SRS-documents/images/IOC%20Authorities.jfif_20251124065134" class="grid-link" target="_blank">
+          <div class="grid-item">
+          <img src="https://lakhpatididi.in/SRS-documents/images/IOC%20Authorities.jfif_20251124065134" alt="Gallery Image 5">
+          </div>
+        </a>
+      
+      
+        <a href="https://lakhpatididi.in/SRS-documents/images/IOC%20Authorities%202.jfif_20251124064950" class="grid-link" target="_blank">
+          <div class="grid-item">
+          <img src="https://lakhpatididi.in/SRS-documents/images/IOC%20Authorities%202.jfif_20251124064950" alt="Gallery Image 6">
+          </div>
+        </a>
+      
+    </div>
+
+    <a href="gallery.html">
+      <div style="display: flex; justify-content: center; padding: 20px;">
+        <button class="view-more-btn">View More</button>
+      </div>
+
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </section>
+  <div class="gallery-container mt-5 pt-3 pb-5 mb-5">
+    <h2 class="content-title"
+      style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+      Video Gallery</h2>
+
+    <div class="video-gallery p-2" id="videoGallery">
+    </div>
+
+    <a href="videogallery.html" class="view-more-link">
+      <div class="d-flex justify-content-center p-4">
+        <button class="view-more-btn">View More</button>
+      </div>
+    </a>
+  </div>
+  <!-- video gallery section end -->
+  <section class="ftco-section bg-light" id="section-completedprojects">
+    <div class="container-fluid">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-9 heading-section ftco-animate text-center">
+          <h2 class="content-title"
+            style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+            Our Completed Projects</h2>
+
+        </div>
+      </div>
+
+
+      <div class="row" style="border-radius: 20px;" id="completeProjectsContainer">
+
+      </div>
+      <a href="completed-project.html">
+        <button class="view-more-btn">
+          View More
+        </button>
+      </a>
+
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section class="ftco-section bg-white" id="section-faqs">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-12 heading-section text-center ftco-animate">
+          <h2 class="content-title"
+            style="text-transform: uppercase; font-size: 55px; font-weight: 900; color: #0c265a; text-align: center; font-family: 'Times New Roman', Times, serif;">
+            Frequently Asked Questions</h2>
+        </div>
+      </div>
+
+      <div id="faqAccordion" role="tablist" aria-multiselectable="true">
+
+        <!-- FAQ 1 -->
+        <div class="card">
+          <div class="card-header" role="tab" id="faqHeading1">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#faq1" aria-expanded="true" aria-controls="faq1">
+                What is the AMC CSR Portal? <i class="fas fa-chevron-down float-right"></i>
+              </a>
+            </h5>
+          </div>
+          <div id="faq1" class="collapse show" role="tabpanel" aria-labelledby="faqHeading1"
+            data-parent="#faqAccordion">
+            <div class="card-body">
+              The AMC CSR Portal is an initiative by the Ahmedabad Municipal Corporation to facilitate Corporate Social
+              Responsibility (CSR) projects in partnership with businesses, NGOs, and individuals for the city's
+              development.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="card">
+          <div class="card-header" role="tab" id="faqHeading2">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#faq2" aria-expanded="false" aria-controls="faq2">
+                Who can contribute through this portal? <i class="fas fa-chevron-down float-right"></i>
+              </a>
+            </h5>
+          </div>
+          <div id="faq2" class="collapse" role="tabpanel" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+            <div class="card-body">
+              <ul>
+                <li><strong>Companies</strong> (fulfilling CSR obligations under the Companies Act, 2013)</li>
+                <li><strong>NGOs & Trusts</strong> (registered and compliant with CSR norms)</li>
+                <li><strong>Individuals & Philanthropists</strong> (willing to donate to civic projects)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="card">
+          <div class="card-header" role="tab" id="faqHeading3">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#faq3" aria-expanded="false" aria-controls="faq3">
+                What kind of projects are covered under AMC's CSR? <i class="fas fa-chevron-down float-right"></i>
+              </a>
+            </h5>
+          </div>
+          <div id="faq3" class="collapse" role="tabpanel" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+            <div class="card-body">
+              <ul>
+                <li><strong>Social Welfare</strong> (Women Empowerment, Child Welfare, Elderly Care)</li>
+                <li>Education & Skill Development</li>
+                <li>Healthcare & Sanitation</li>
+                <li>Urban Infrastructure (Parks, Roads, Water Supply)</li>
+                <li>Environment & Sustainability Projects</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="card">
+          <div class="card-header" role="tab" id="faqHeading4">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#faq4" aria-expanded="false" aria-controls="faq4">
+                How can a company/NGO partner with AMC for CSR? <i class="fas fa-chevron-down float-right"></i>
+              </a>
+            </h5>
+          </div>
+          <div id="faq4" class="collapse" role="tabpanel" aria-labelledby="faqHeading4" data-parent="#faqAccordion">
+            <div class="card-body">
+              <ol>
+                <li>Register on the <a href="https://lakhpatididi.in/SRS-Ahembdabad/index.html">AMC CSR Portal</a></li>
+                <li>Submit a proposal for a project</li>
+                <li>Get approval from AMC and implement the project</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="card">
+          <div class="card-header" role="tab" id="faqHeading5">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#faq5" aria-expanded="false" aria-controls="faq5">
+                How does AMC ensure transparency in CSR fund usage? <i class="fas fa-chevron-down float-right"></i>
+              </a>
+            </h5>
+          </div>
+          <div id="faq5" class="collapse" role="tabpanel" aria-labelledby="faqHeading5" data-parent="#faqAccordion">
+            <div class="card-body">
+              <ul>
+                <li>All projects are <strong>monitored by AMC officials</strong></li>
+                <li>Regular <strong>progress reports & audits</strong> are published</li>
+                <li>Donors receive <strong>tax exemptions (80G/CSR compliance certificates)</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="card">
+          <div class="card-header" role="tab" id="faqHeading6">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#faq6" aria-expanded="false" aria-controls="faq6">
+                Are CSR contributions tax-deductible? <i class="fas fa-chevron-down float-right"></i>
+              </a>
+            </h5>
+          </div>
+          <div id="faq6" class="collapse" role="tabpanel" aria-labelledby="faqHeading6" data-parent="#faqAccordion">
+            <div class="card-body">
+              <ul>
+                <li><strong>For Companies:</strong> Eligible under <strong>Section 135 of Companies Act</strong></li>
+                <li><strong>For Individuals/NGOs:</strong> Tax benefits under <strong>Section 80G of IT Act</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <div class="custom-footer-slider" id="customFooterSlider">
+    <div class="custom-footer-slider-track" id="customFooterSliderTrack">
+      <div class="custom-footer-slider-item">
+        <a href="https://www.mygov.in/" target="_blank" title="My Government">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017053017.png" alt="mygov">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://www.pmnrf.gov.in/" target="_blank" title="Prime Minister’s National Relief Fund">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017053039.png" alt="PMNRF">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="http://www.pmindia.gov.in/en/" target="_blank" title="Prime Minister of India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017110781.png" alt="pmindia">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://www.india.gov.in/" target="_blank" title="The National Portal of India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2019052293.png" alt="india.gov.in">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="http://www.digitalindia.gov.in/" target="_blank" title="Digital India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017072418.png" alt="digital-india">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://data.gov.in/" target="_blank" title="Open Government Data (OGD) Platform India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017053014.png" alt="data.gov.in">
+        </a>
+      </div>
+      <div class="custom-footer-slider-item">
+        <a href="https://www.incredibleindia.org/" target="_blank" title="Incredible India">
+          <img src="https://ahmedabadcity.gov.in/IMAGES/2017053094.png" alt="Incredible India Site">
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="ftco-footer ftco-section img">
+    <div class="overlay"></div>
+    <div class="container">
+     <div class="row mb-5">
+
+      <!-- About Us -->
+      <div class="col-md-5">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">About Us</h2>
+          <p>The Ahmedabad Municipal Corporation (AMC) is the governing civic body of Ahmedabad, Gujarat’s largest
+            city. Established in 1950 under the Bombay Provincial Corporation Act, AMC is responsible for the
+            administration and development of the city, ensuring essential services and infrastructure for over 8
+            million citizens.</p>
+
+          <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Site Links -->
+      <div class="col-md-2">
+        <div class="ftco-footer-widget mb-4 ml-md-4">
+          <h2 class="ftco-heading-2">Site Links</h2>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="py-2 d-block">Home</a></li>
+            <li><a href="about.html" class="py-2 d-block">About Us</a></li>
+            <li><a href="project.html" class="py-2 d-block">Projects</a></li>
+            <li><a href="index.html#section-faqs" class="py-2 d-block">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AMC CSR Contact Details -->
+      <div class="col-md-5">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">AMC CSR Contact Details</h2>
+          <div class="block-23 mb-3">
+            <ul>
+
+              <!-- Mr. Manish Trivedi -->
+              <li>
+                <span class="icon icon-user"></span>
+                <span class="text"><strong>Mr. Manish Trivedi</strong>, Director at AMC MET and CSR Cell</span>
+              </li>
+              <li>
+                <span class="icon icon-map-marker"></span>
+                <span class="text">G.F, NHL Municipal Medical College, V. S. Hospital Campus, Ellisbridge, Ahmedabad-380006</span>
+              </li>
+              <li>
+                <a href="tel:9327038698"><span class="icon icon-phone"></span>
+                  <span class="text">9327038698</span></a>
+              </li>
+              <li>
+                <a href="mailto:dydiramcmet@gmail.com"><span class="icon icon-envelope"></span>
+                  <span class="text">dydiramcmet@gmail.com</span></a>
+              </li>
+
+              <br />
+
+              <!-- Mr. Aniruddh Vaghela -->
+              <li>
+                <span class="icon icon-user"></span>
+                <span class="text"><strong>Mr. Aniruddh Vaghela</strong></span>
+              </li>
+              <li>
+                <a href="tel:7567024979"><span class="icon icon-phone"></span>
+                  <span class="text">7567024979</span></a>
+              </li>
+              <li>
+                <a href="mailto:csramc25@gmail.com"><span class="icon icon-envelope"></span>
+                  <span class="text">csramc25@gmail.com</span></a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Global Visitor Counter -->
+          <div class="footer-visitor-counter">
+            <div class="visitor-stats">
+              <div class="stat-item">
+                <i class="fas fa-users stat-icon"></i>
+                <div class="stat-content">
+                  <div class="stat-label">Total Visitors</div>
+                  <div class="stat-number" id="totalVisitors">Loading...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-3">
+            <p>
+              Copyright &copy;
+              <script>document.write(new Date().getFullYear());</script> All rights reserved .
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+  <!-- Floating Button -->
+  <button id="floatingBtn" class="floating-button" onclick="openPopup()" title="Register Your Company">
+    <!-- <i class="fas fa-building mr-2"></i> Are You a Corporate? <br> Register Here -->
+    <img src="./images/AMC CSR register Button.png" height="100px" alt="">
+  </button>
+
+
+  <!-- Company Registration Modal -->
+  <div id="companyPopup" class="modal-overlay pt-5 " style="display: none; padding-top: 25px;">
+    <div class="modal-content" style="display: flex; flex-direction: row;">
+      <!-- Left side - Image -->
+      <div class="image-container"
+        style="padding: 20px; display: flex; align-items: center; justify-content: center; width: 40%;">
+        <img src="./images/CSR Application Lifecycle.png" alt="Company Registration" class="img-fluid"
+          style="max-height: 100%; max-width: 100%;">
+      </div>
+
+      <!-- Right side - Form -->
+      <div class="form-container" style=" padding: 20px; width: 60%;">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2 class="modal-title pl-2 pb-2 pt-2">
+          <i class="fas fa-building mr-2"></i> Company Registration
+        </h2>
+
+        <form id="companyForm" class="form-row">
+          <div class="form-group col-md-6">
+            <label for="authcomprepresentativename">Company Representative Name</label>
+            <input type="text" class="form-control" id="authcomprepresentativename" name="authcomprepresentativename"
+              required placeholder="Enter Representative Name">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="authcomprepresentativeemail">Representative Email</label>
+            <input type="email" class="form-control" id="authcomprepresentativeemail" name="authcomprepresentativeemail"
+              required placeholder="abc@gmail.com">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="companyname">Company Name</label>
+            <input type="text" class="form-control" id="companyname" name="companyname" required
+              placeholder="company name">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="companyurl">Company URL</label>
+            <input type="url" class="form-control" id="companyurl" name="companyurl" required
+              placeholder="www.companyname.com">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="categoryId">Category</label>
+            <select class="form-control" id="categoryId" name="categoryId" required>
+              <option value="">Select a Category</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="password" name="password" placeholder="**********"
+                required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-12 text-center mt-4">
+            <button type="submit" class="btn btn-primary">
+              Register Company
+            </button>
+          </div>
+
+          <div class="form-group col-12 text-center">
+            <div id="responseMessage" class="font-weight-medium mt-3"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+    </svg></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const track = document.getElementById('customFooterSliderTrack');
+      const items = document.querySelectorAll('.custom-footer-slider-item');
+      const itemWidth = items[0].offsetWidth;
+      let currentPosition = 0;
+
+      function slide() {
+        currentPosition -= itemWidth;
+        track.style.transform = `translateX(${currentPosition}px)`;
+
+        // When we reach the end, reset to first item
+        if (currentPosition <= -itemWidth * (items.length - 3)) {
+          setTimeout(() => {
+            currentPosition = 0;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(${currentPosition}px)`;
+            setTimeout(() => {
+              track.style.transition = 'transform 0.5s ease';
+            }, 50);
+          }, 500);
+        }
+      }
+
+      // Slide every 3 seconds
+      setInterval(slide, 3000);
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+
+      dropdownSubmenus.forEach(function (submenuLink) {
+        submenuLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          let nextDropdown = this.nextElementSibling;
+          if (nextDropdown.style.display === 'block') {
+            nextDropdown.style.display = 'none';
+          } else {
+            nextDropdown.style.display = 'block';
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const contentArea = document.querySelector('.content-area');
+      const mapVisual = document.querySelector('.map-visual');
+
+      // Add hover effect to content area
+      contentArea.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-3px)';
+        this.style.transition = 'transform 0.2s ease';
+      });
+
+      contentArea.addEventListener('mouseleave', function () {
+        this.style.transform = 'translateY(0)';
+      });
+
+      // Add click effect to map
+      mapVisual.addEventListener('click', function () {
+        this.style.backgroundColor = '#e2e8f0';
+        setTimeout(() => {
+          this.style.backgroundColor = '#edf2f7';
+        }, 200);
+
+        // Here you would typically initialize your map
+        console.log('Map interaction - would load real map here');
+      });
+
+      // Simple scroll effect
+      window.addEventListener('scroll', function () {
+        const scrollY = window.scrollY;
+        const mapDisplay = document.querySelector('.map-display');
+        mapDisplay.style.transform = `translateY(${scrollY * 0.05}px)`;
+      });
+    });
+  </script>
+<script>
+  function changeFontSize(action) {
+    let elements = document.querySelectorAll("*"); // Select all elements
+    elements.forEach(el => {
+      let style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+      let currentSize = parseFloat(style);
+
+      if (!el.dataset.originalSize) {
+        // Store original size for future scaling CSR Guidelines
+        el.dataset.originalSize = currentSize;
+      }
+
+      if (action === 'increase') {
+        el.style.fontSize = (currentSize + 1) + 'px';
+      } else if (action === 'decrease') {
+        el.style.fontSize = (currentSize - 1) + 'px';
+      }
+    });
+  }
+</script>
+
+  <script>
+    function openPopup() {
+      document.getElementById('companyPopup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('companyPopup').style.display = 'none';
+    }
+
+    async function loadCategories() {
+      try {
+        const res = await Api.category.listAll();
+        const categories = res.data;
+        const dropdown = document.getElementById('categoryId');
+        dropdown.innerHTML = '<option value="">Select a Category</option>';
+
+        categories.forEach(category => {
+          const option = document.createElement('option');
+          option.value = category.id;
+          option.textContent = category.categoryName;
+          dropdown.appendChild(option);
+        });
+      } catch (error) {
+        console.error('Failed to load categories:', error);
+      }
+    }
+
+    const form = document.getElementById('companyForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    // Toggle password visibility
+    document.getElementById('togglePassword').addEventListener('click', function () {
+      const passwordInput = document.getElementById('password');
+      const icon = this.querySelector('i');
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    });
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const payload = {
+        companyname: document.getElementById('companyname').value,
+        companyurl: document.getElementById('companyurl').value,
+        categoryId: parseInt(document.getElementById('categoryId').value),
+        authcomprepresentativename: document.getElementById('authcomprepresentativename').value,
+        authcomprepresentativeemail: document.getElementById('authcomprepresentativeemail').value,
+        role: "CORPORATION",
+        password: document.getElementById('password').value,
+        status: "Pending"
+      };
+
+      try {
+        await Api.company.add(payload);
+        responseMessage.textContent = "✅ Company registered successfully!";
+        responseMessage.className = "text-success";
+        alert("Company registered successfully!");
+        closePopup(); // optionally close modal
+      } catch (error) {
+        responseMessage.textContent = "❌ Failed to register company.";
+        responseMessage.className = "text-danger";
+        console.error(error);
+      }
+    });
+
+    window.onload = loadCategories;
+  </script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/api/api.config.js"></script>
+  <script src="js/api/api.core.js"></script>
+  <script src="js/services/category.js"></script>
+  <script src="js/services/company.js"></script>
+  <script src="js/api/api.init.js"></script>
+  <script src="js/services/category-management.js"></script>
+  <script src="js/services/project.js"></script>
+  <script src="js/services/ongoing-project.js"></script>
+  <script src="js/services/homepage-completed-project.js"></script>
+  <script src="js/services/project-detail.js"></script>
+  <script src="js/scripts/ongoingProjectSectionScript.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', includedLanguages: 'en,gu,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+        'google_translate_element'
+      );
+    }
+  </script>
+
+
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  async function loadVisitorCount() {
+    try {
+      const response = await fetch("https://api.counterapi.dev/v2/gaurav-patils-team-1772/amccsr");
+      const data = await response.json();
+
+      // Get the visitor count (up_count)
+      const visitorCount = data?.data?.up_count ?? 0;
+
+      // Update HTML
+      document.getElementById("totalVisitors").textContent = visitorCount;
+    } catch (error) {
+      console.error("Error fetching visitor count:", error);
+      document.getElementById("totalVisitors").textContent = "N/A";
+    }
+  }
+
+  // Call function when page loads
+  loadVisitorCount();
+</script>
+
+  <!-- video gallery script ends -->
+
+  <script src="js/services/newsandevent.js"></script>
+  <script src="js/scripts/letestupdateSectionScript.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script> $(document).ready(function () { $('.dropdown-menu a.dropdown-toggle').on('click', function (e) { if (!$(this).next().hasClass('show')) { $(this).parents('.dropdown-menu').first().find('.show').removeClass('show'); } var $subMenu = $(this).next('.dropdown-menu'); $subMenu.toggleClass('show'); $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) { $('.dropdown-submenu .show').removeClass('show'); }); return false; }); }); </script>
+
+</body>
+
+</html>
